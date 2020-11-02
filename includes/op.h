@@ -25,8 +25,8 @@
 # define DIR_CODE				2
 # define IND_CODE				3
 
-# define MAX_ARGS_NUMBER			4
-# define MAX_PLAYERS				4
+# define MAX_ARGS_NUMBER		4
+# define MAX_PLAYERS			4
 # define MEM_SIZE				(4*1024)
 # define IDX_MOD				(MEM_SIZE / 8)
 # define CHAMP_MAX_SIZE			(MEM_SIZE / 6)
@@ -61,10 +61,10 @@ typedef char	t_arg_type;
 
 typedef struct					s_header
 {
-	unsigned int		magic;
-	char				prog_name[PROG_NAME_LENGTH + 1];
-	unsigned int		prog_size;
-	char				comment[COMMENT_LENGTH + 1];
+	unsigned int				magic;
+	char						prog_name[PROG_NAME_LENGTH + 1];
+	unsigned int				prog_size;
+	char						comment[COMMENT_LENGTH + 1];
 }								t_header;
 
 #endif
