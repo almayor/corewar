@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zaz <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:33:27 by zaz               #+#    #+#             */
-/*   Updated: 2013/11/06 14:21:46 by zaz              ###   ########.fr       */
+/*   Updated: 2020/11/02 20:42:22 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,3 +74,18 @@ typedef struct		header_s
   unsigned int		prog_size;
   char				comment[COMMENT_LENGTH + 1];
 }					header_t;
+
+typedef struct		s_op
+{
+	const char		*name;				// operation name
+	const uint8_t	args[3];			// types of allowed arguments (a bit-mask)
+	uint8_t			opcode;				// the op-code
+	uint8_t			duration;			// operation duration
+	const char		*doc;				// doc string
+	uint8_t			modify_carry;		// whether operation modifies carry (a boolean)
+	uint8_t			dir_size;			// number of bytes in a T_DIR argument
+}					t_op;
+
+# define NUM_INSTRUCT	16
+
+extern t_op			g_op_specif[NUM_INSTRUCT + 1];
