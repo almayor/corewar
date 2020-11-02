@@ -1,6 +1,6 @@
 #include "vm.h"
 
-static const instruct dispatcher[NUM_INSTRUCT + 1] = { 
+static const t_instruct dispatcher[NUM_INSTRUCT + 1] = { 
 	NULL,
 	&live_instruct,
 	&ld_instruct,
@@ -33,10 +33,12 @@ void	cycle(void)
 			proc->cycles_busy--;
 		else
 		{
-			opcode = g_vm->mem[(proc->pc++) % MEM_SIZE];
+			opcode = g_vm->mem[proc->pc++ % MEM_SIZE];
 			if (opcode > 0 && opcode <= NUM_INSTRUCT)
+			{
 				dispatcher[opcode](proc);
-			proc->cycles_busy = g_op_specif[opcode]->duration;
+				proc->cycles_busy = g_op_specif[opcode]->duration;
+			}
 		}
 		proc = proc->next;
 	}

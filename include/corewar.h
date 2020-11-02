@@ -6,6 +6,12 @@
 # include "utils.h"
 # include <limits.h>
 
+typedef struct	s_arg
+{
+	t_arg_type	type;
+	int32_t		val;
+}				t_arg;
+
 typedef struct	s_proc
 {
 	int32_t			reg[REG_NUMBER];
@@ -51,6 +57,6 @@ extern	t_vm	g_vm;
 # define	CHAMP_TOO_LARGE	"champion %hhu (%s) exceeds maximum size"
 # define	INVALID_MACRO	"macro %s values other than %i are not supported"
 
-typedef void (*instruct)(t_proc *proc);
+typedef void (*t_instruct)(t_proc *proc);
 
 # endif
