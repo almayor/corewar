@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:33:27 by zaz               #+#    #+#             */
-/*   Updated: 2020/11/02 21:45:46 by user             ###   ########.fr       */
+/*   Updated: 2020/11/03 01:53:54 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,12 @@ typedef struct		s_op
 {
 	const char			*name;				// operation name
 	uint8_t				nargs;
-	const t_arg_type	arg_types[3];			// types of allowed arguments (a bit-mask)
+	const uint8_t		type_mask[3];		// types of allowed arguments (a bit-mask)
 	uint8_t				opcode;				// the op-code
 	uint8_t				duration;			// operation duration
 	const char			*doc;				// doc string
 	uint8_t				modify_carry;		// whether operation modifies carry (a boolean)
-	uint8_t				dir_size;			// size of a T_DIR argument (2 bytes if 1, 1 byte if 0)
+	uint8_t				direct_size;		// size of a T_DIR argument (2 bytes if 1, 4 bytes if 0)
 }					t_op;
 
 # define NUM_INSTRUCT	16

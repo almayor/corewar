@@ -8,8 +8,8 @@
 
 typedef struct	s_arg
 {
-	t_arg_type	type;
-	int32_t		val;
+	t_arg_type		type;
+	int32_t			val;
 }				t_arg;
 
 typedef struct	s_proc
@@ -18,8 +18,9 @@ typedef struct	s_proc
 	int32_t			pc;
 	uint8_t			carry;
 	uint8_t			ichamp;
-	uint16_t		cycles_busy;
-	uint32_t		cycles_since_live;
+	uint8_t			opcode;
+	uint8_t			cycles_busy;
+	int32_t			cycles_since_live;
 	struct s_proc	*next;
 }				t_proc;
 
@@ -40,9 +41,10 @@ typedef struct	s_vm
 	size_t			nprocs;
 	t_proc			*procs;
 	uint64_t		curr_nlive;
-	uint64_t		cycles_to_die;
-	uint64_t 		cycles_since_change;
-	uint64_t		cycles_since_die;
+	uint32_t		last_live_champ;
+	int64_t			cycles_to_die;
+	int64_t 		cycles_since_change;
+	int64_t			cycles_since_die;
 }				t_vm;
 
 extern	t_vm	g_vm;
