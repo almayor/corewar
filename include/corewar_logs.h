@@ -4,6 +4,7 @@
 
 # define	PLAYER_ALIVE	"a process shows that player %u (%s) is alive\n"
 # define	PLAYER_WON		"player %u (%s) won\n"
+# define	NO_LIVE			"no live has been executed during the game"
 
 # define	FILE_NOT_EXE	"%s is not a corewar executable\n"
 # define	PROG_NUM_USED	"player number %u already in use\n"
