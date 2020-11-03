@@ -37,7 +37,7 @@ typedef struct	s_champ
 typedef struct	s_vm
 {
 	uint8_t			mem[MEM_SIZE];
-	t_champ			champs[MAX_PLAYERS];
+	t_champ			champs[MAX_PLAYERS + 1];
 	size_t			nprocs;
 	t_proc			*procs;
 	uint64_t		curr_nlive;
@@ -49,15 +49,15 @@ typedef struct	s_vm
 
 extern	t_vm	g_vm;
 
-# define	PLAYER_ALIVE	"a process shows that player %hhu (%s) is alive"
-# define	PLAYER_WON		"player %hhu (%s) won"
+# define	PLAYER_ALIVE	"a process shows that player %u (%s) is alive\n"
+# define	PLAYER_WON		"player %u (%s) won\n"
 
-# define	FILE_NOT_EXE	"%s is not a corewar executable"
-# define	PROG_NUM_USED	"player number %hhu already in use"
-# define	FILE_NOT_ACCESS	"file %s not accessible"
-# define	MALLOC_ERROR	"malloc error"
-# define	CHAMP_TOO_LARGE	"champion %hhu (%s) exceeds maximum size"
-# define	INVALID_MACRO	"macro %s values other than %i are not supported"
+# define	FILE_NOT_EXE	"%s is not a corewar executable\n"
+# define	PROG_NUM_USED	"player number %u already in use\n"
+# define	FILE_NOT_ACCESS	"file %s not accessible\n"
+# define	MALLOC_ERROR	"malloc error\n"
+# define	CHAMP_TOO_LARGE	"champion %u (%s) exceeds maximum size\n"
+# define	INVALID_MACRO	"macro %s values other than %i are not supported\n"
 
 typedef void (*t_instruct)(t_proc *proc);
 

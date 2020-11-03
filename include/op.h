@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:33:27 by zaz               #+#    #+#             */
-/*   Updated: 2020/11/03 01:53:54 by user             ###   ########.fr       */
+/*   Updated: 2020/11/03 03:33:54 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,9 @@ typedef struct		s_op
 	const char			*doc;				// doc string
 	uint8_t				modify_carry;		// whether operation modifies carry (a boolean)
 	uint8_t				direct_size;		// size of a T_DIR argument (2 bytes if 1, 4 bytes if 0)
+	uint8_t				addr_restrict;		// whether IND arguments are restrained by %IDX_MOD
 }					t_op;
 
 # define NUM_INSTRUCT	16
 
-extern t_op			g_op_tab[NUM_INSTRUCT + 1];
+extern const t_op		const	g_op_tab[NUM_INSTRUCT + 1];
