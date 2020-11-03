@@ -10,6 +10,6 @@ void	xor_instruct(t_proc *proc)
 		get_argument(proc, 1, &in2))
 		return ;
 	out = in1 ^ in2;
-	proc->carry = out != 0;
+	proc->carry = out == 0;
 	put_argument(proc, 2, out);
 }

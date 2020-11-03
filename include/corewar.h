@@ -4,13 +4,7 @@
 
 # include "stdint.h"
 # include "utils.h"
-# include <limits.h>
-
-typedef struct	s_arg
-{
-	t_arg_type		type;
-	int32_t			val;
-}				t_arg;
+# include "corewar_logs.h"
 
 typedef struct	s_proc
 {
@@ -48,16 +42,6 @@ typedef struct	s_vm
 }				t_vm;
 
 extern	t_vm	g_vm;
-
-# define	PLAYER_ALIVE	"a process shows that player %u (%s) is alive\n"
-# define	PLAYER_WON		"player %u (%s) won\n"
-
-# define	FILE_NOT_EXE	"%s is not a corewar executable\n"
-# define	PROG_NUM_USED	"player number %u already in use\n"
-# define	FILE_NOT_ACCESS	"file %s not accessible\n"
-# define	MALLOC_ERROR	"malloc error\n"
-# define	CHAMP_TOO_LARGE	"champion %u (%s) exceeds maximum size\n"
-# define	INVALID_MACRO	"macro %s values other than %i are not supported\n"
 
 typedef void (*t_instruct)(t_proc *proc);
 
