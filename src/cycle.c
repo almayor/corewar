@@ -41,12 +41,34 @@ static int			check_instruction(t_proc *proc)
 	return (1);
 }
 
+static uint32_t		get_instruction_length(t_proc *proc)
+{
+	uint32_t	length;
+	int			i;
+
+	if (proc->opcode == 0 && proc->opcode > NUM_INSTRUCT)
+		return (1);
+	length = 1;
+	if (proc->opcode != 1 && proc->opcode != 9 &&
+		proc->opcode != 12 && proc->opcode != 15)
+		length++;
+	i = 0;
+	while (i < g_op_tab[proc->opcode].nargs)
+	{
+		length += get_arg_length(proc, i);
+		i++;
+	}
+	return (length);
+}
+
 static void 		advance(t_proc *proc)
 {
 	proc->pc = (proc->pc + get_instruction_length(proc)) % MEM_SIZE;
 	proc->opcode = g_vm.mem[proc->pc];
-	if (proc->opcode > 0 && proc->opcode <= NUM)
+	if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
 		proc->cycles_busy = g_op_tab[proc->opcode].duration;
+	else
+		proc->opcode = 0;
 }
 
 void				cycle(void)

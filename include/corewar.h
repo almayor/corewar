@@ -2,9 +2,12 @@
 
 # define COREWAR_H
 
-# include "stdint.h"
+# include <stdint.h>
+# include <stdlib.h>
 # include "utils.h"
 # include "corewar_logs.h"
+# include "libft.h"
+# include "ft_printf.h"
 
 typedef struct	s_proc
 {
@@ -39,6 +42,7 @@ typedef struct	s_vm
 	int64_t			cycles_to_die;
 	int64_t 		cycles_since_change;
 	int64_t			cycles_since_die;
+	uint64_t		dump_ncycles;	
 }				t_vm;
 
 extern	t_vm	g_vm;

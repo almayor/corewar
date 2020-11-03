@@ -26,26 +26,6 @@ uint32_t	get_arg_length(t_proc *proc, int n)
 		return (IND_SIZE);
 }
 
-uint32_t	get_instruction_length(t_proc *proc)
-{
-	uint32_t	length;
-	int			i;
-
-	if (proc->opcode == 0 && proc->opcode > NUM_INSTRUCT)
-		return (1);
-	length = 1;
-	if (proc->opcode != 1 && proc->opcode != 9 &&
-		proc->opcode != 12 && proc->opcode != 15)
-		length++;
-	i = 0;
-	while (i < g_op_tab[proc->opcode].nargs)
-	{
-		length += get_arg_length(proc, i);
-		i++;
-	}
-	return (length);
-}
-
 uint32_t	get_argument_literal(t_proc *proc, int n, t_arg_type type)
 {
 	int			type_octet;
@@ -56,13 +36,13 @@ uint32_t	get_argument_literal(t_proc *proc, int n, t_arg_type type)
 	else
 		type_octet = 0;
 	if (type == REG_CODE)
-		return (read_8bit(proc->pc + 1 + type_octet + n));
+		return (mem_read_8bit(proc->pc + 1 + type_octet + n));
 	if (type == DIR_CODE && g_opt_tab[proc->opcode].direct_size)
-		return (read_16bit(proc->pc + 1 + type_octet + n));
+		return (mem_read_16bit(proc->pc + 1 + type_octet + n));
 	if (type == DIR_CODE)
-		return (read_32bit(proc->pc + 1 + type_octet + n));
+		return (mem_read_32bit(proc->pc + 1 + type_octet + n));
 	if (type == IND_CODE)
-		return (read_16bit(proc->pc + 1 + type_octet + n));
+		return (mem_read_16bit(proc->pc + 1 + type_octet + n));
 }
 
 int			get_argument(t_proc *proc, int n, uint32_t *arg)
@@ -77,9 +57,9 @@ int			get_argument(t_proc *proc, int n, uint32_t *arg)
 	else if (type = REG_CODE)
 		*arg = proc->reg[lit];
 	else if (type == IND_CODE && g_op_tab[proc->opcode].addr_restrict)
-		*arg = read_32bit(proc->pc + (lit % IDX_MOD));
+		*arg = mem_read_32bit(proc->pc + (lit % IDX_MOD));
 	else if (type == IND_CODE)
-		*arg = read_32bit(proc->pc + lit);
+		*arg = mem_read_32bit(proc->pc + lit);
 	else
 		*arg = lit;
 	return (0);
@@ -97,8 +77,8 @@ int			put_argument(t_proc *proc, int n, uint32_t val)
 	else if (type == REG_CODE)
 		proc->reg[lit] = val;
 	else if (type == IND_CODE && g_op_tab[proc->opcode].addr_restrict)
-		write_32bit(proc->pc + (lit % IDX_MOD));
+		mem_write_32bit(proc->pc + (lit % IDX_MOD));
 	else
-		write_32bit(proc->pc + lit);
+		mem_write_32bit(proc->pc + lit);
 	return (0);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memory.c                                           :+:      :+:    :+:   */
+/*   memory_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 02:18:21 by user              #+#    #+#             */
-/*   Updated: 2020/11/03 04:20:25 by user             ###   ########.fr       */
+/*   Updated: 2020/11/03 13:24:36 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int16_t	read_16bit(uint32_t pos)
+int16_t	mem_read_16bit(uint32_t pos)
 {
 	int16_t	val;
 
@@ -22,7 +22,7 @@ int16_t	read_16bit(uint32_t pos)
 	return (val); 
 }
 
-int32_t	read_32bit(uint32_t pos)
+int32_t	mem_read_32bit(uint32_t pos)
 {
 	int32_t	val;
 
@@ -34,21 +34,26 @@ int32_t	read_32bit(uint32_t pos)
 	return (val); 
 }
 
-int8_t	read_8bit(uint32_t pos)
+int8_t	mem_read_8bit(uint32_t pos)
 {
 	return (g_vm[pos % MEM_SIZE]); 
 }
 
-void	write_16bit(uint32_t pos, int16_t val)
+void	mem_write_16bit(uint32_t pos, int16_t val)
 {
 	g_vm[pos++ % MEM_SIZE] = val >> 8;
 	g_vm[pos++ % MEM_SIZE] = val;
 }
 
-void	write_32bit(uint32_t pos, int32_t val)
+void	mem_write_32bit(uint32_t pos, int32_t val)
 {
 	g_vm[pos++ % MEM_SIZE] = val >> 24;
 	g_vm[pos++ % MEM_SIZE] = val >> 16;
 	g_vm[pos++ % MEM_SIZE] = val >> 8;
 	g_vm[pos++ % MEM_SIZE] = val;
+}
+
+void	mem_write_8bit(uint32_t pos, int8_t val)
+{
+	g_vm[pos % MEM_SIZE] = val;
 }

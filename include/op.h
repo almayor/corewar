@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:33:27 by zaz               #+#    #+#             */
-/*   Updated: 2020/11/03 03:33:54 by user             ###   ########.fr       */
+/*   Updated: 2020/11/03 12:39:09 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ typedef struct		header_s
 typedef struct		s_op
 {
 	const char			*name;				// operation name
-	uint8_t				nargs;
+	uint8_t				nargs;				// number of arguments that an instruction takes
 	const uint8_t		type_mask[3];		// types of allowed arguments (a bit-mask)
 	uint8_t				opcode;				// the op-code
 	uint8_t				duration;			// operation duration
