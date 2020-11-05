@@ -1,6 +1,6 @@
 #include "corewar.h"
 
-t_vm	g_vm = {0, {0}, 0, 0, 0, 0, CYCLE_TO_DIE, 0, 0, 0};
+t_vm	g_vm = {0, 0, {0}, 0, 0, 0, 0, CYCLE_TO_DIE, 0, 0, 0};
 
 static void	init_procs(void)
 {
@@ -36,8 +36,9 @@ int			main(int argc, char **argv)
 	if (g_vm.last_live_champ)
 		ft_printf(
 				PLAYER_WON, g_vm.last_live_champ,
-				g_vm.champs[g_vm.last_live_champ].name);
+				g_vm.champs[g_vm.last_live_champ - 1].name);
 	else
 		ft_printf(NO_LIVE);
-	terminate(0);
+	cleanup();
+	return (0);
 }

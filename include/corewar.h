@@ -25,7 +25,7 @@ typedef struct	s_champ
 {
 	char			name[PROG_NAME_LENGTH + 1];
 	uint32_t		ichamp;
-	char			comment[COMMENT_LENGTH];
+	char			comment[COMMENT_LENGTH + 1];
 	size_t			size;
 	uint64_t		curr_nlive;
 	uint64_t		prev_nlive;
@@ -34,7 +34,8 @@ typedef struct	s_champ
 typedef struct	s_vm
 {
 	uint8_t			mem[MEM_SIZE];
-	t_champ			champs[MAX_PLAYERS + 1];
+	size_t			nchamps;
+	t_champ			champs[MAX_PLAYERS];
 	size_t			nprocs;
 	t_proc			*procs;
 	uint64_t		curr_nlive;
@@ -42,7 +43,9 @@ typedef struct	s_vm
 	int64_t			cycles_to_die;
 	int64_t 		cycles_since_change;
 	int64_t			cycles_since_die;
-	uint64_t		dump_ncycles;	
+	uint64_t		dump_ncycles;
+	uint8_t			key_dump;
+	uint8_t			key_log;
 }				t_vm;
 
 extern	t_vm	g_vm;

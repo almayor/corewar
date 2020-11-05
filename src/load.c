@@ -33,9 +33,16 @@ static int	load_bytecode(int fd, uint32_t pos)
 
 static int	check_champ_size(int fd)
 {
-	static char	test[1];
+	static char	size_arr[4];
+	uint32_t	size_val;
 
-	return (read(fd, test, 1) != 0);
+	if (read(fd, magic, 4) != 4)
+		return (1);
+	size_val = size_arr[0] << 24
+				| size_arr[1] << 16
+				| size_arr[2] << 8
+				| size_arr[3];
+	return (size_val <= CHAMP_MAX_SIZE);
 }
 
 void 		load(const char *file, int ichamp, uint32_t	pos)
@@ -43,19 +50,17 @@ void 		load(const char *file, int ichamp, uint32_t	pos)
 	int fd;
 
 	if ((fd = open(file, O_RDONLY)) < 0)
-		ft_dprintf(2, FILE_NOT_ACCESS, file);
+		terminate(FILE_NOT_ACCESS, file);
 	else if (check_magic(fd))
-		ft_dprintf(2, FILE_NOT_EXE, file);
+		terminate(FILE_NOT_EXE, file);
 	else if (read(fd, g_vm.champs[ichamp].name, PROG_NAME_LENGTH)
-			!= PROG_NAME_LENGTH ||
-			read(fd, g_vm.champs[ichamp].comment, COMMENT_LENGTH)
-			!= COMMENT_LENGTH)
-		ft_dprintf(2, FILE_MANGLED, file);
-	else if (load_bytecode(fd, pos))
-		ft_dprintf(2, FILE_MANGLED, file);
+			!= PROG_NAME_LENGTH)
+		terminate(FILE_MANGLED, file);
 	else if (check_champ_size(fd))
-		ft_dprintf(2, CHAMP_TOO_LARGE, ichamp, g_vm.champs[ichamp].name);
-	else
-		return ;
-	terminate(1);
+		terminate(CHAMP_TOO_LARGE, ichamp, g_vm.champs[ichamp].name);
+	else if (read(fd, g_vm.champs[ichamp].comment, COMMENT_LENGTH)
+			!= COMMENT_LENGTH)
+		terminate(FILE_MANGLED, file);
+	else if (load_bytecode(fd, pos))
+		terminate(FILE_MANGLED, file);
 }

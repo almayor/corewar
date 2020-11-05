@@ -48,6 +48,8 @@ int 		run(void)
 {
 	while (g_vm.nprocs)
 	{
+		if (g_vm.key_dump && g_vm.dump_ncycles-- > 0)
+			dump();
 		cycle();
 		g_vm.cycles_since_die++;
 		g_vm.cycles_since_change++;
