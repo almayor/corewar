@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instruct_utils.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/06 14:37:36 by user              #+#    #+#             */
+/*   Updated: 2020/11/06 15:14:21 by user             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "corewar.h"
 
 t_arg_type	get_arg_type(t_proc *proc, int n)
@@ -24,6 +36,26 @@ uint32_t	get_arg_length(t_proc *proc, int n)
 		return (DIR_SIZE);
 	if (type == IND_CODE)
 		return (IND_SIZE);
+}
+
+uint32_t	get_instruction_length(t_proc *proc)
+{
+	uint32_t	length;
+	int			i;
+
+	if (proc->opcode == 0 && proc->opcode > NUM_INSTRUCT)
+		return (1);
+	length = 1;
+	if (proc->opcode != 1 && proc->opcode != 9 &&
+		proc->opcode != 12 && proc->opcode != 15)
+		length++;
+	i = 0;
+	while (i < g_op_tab[proc->opcode].nargs)
+	{
+		length += get_arg_length(proc, i);
+		i++;
+	}
+	return (length);
 }
 
 uint32_t	get_argument_literal(t_proc *proc, int n, t_arg_type type)

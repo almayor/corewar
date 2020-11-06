@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cycle.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/06 14:37:30 by user              #+#    #+#             */
+/*   Updated: 2020/11/06 15:14:27 by user             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "corewar.h"
 
 static g_instruct	dispatcher[NUM_INSTRUCT + 1] = {
@@ -39,26 +51,6 @@ static int			check_instruction(t_proc *proc)
 		i++;
 	}
 	return (1);
-}
-
-static uint32_t		get_instruction_length(t_proc *proc)
-{
-	uint32_t	length;
-	int			i;
-
-	if (proc->opcode == 0 && proc->opcode > NUM_INSTRUCT)
-		return (1);
-	length = 1;
-	if (proc->opcode != 1 && proc->opcode != 9 &&
-		proc->opcode != 12 && proc->opcode != 15)
-		length++;
-	i = 0;
-	while (i < g_op_tab[proc->opcode].nargs)
-	{
-		length += get_arg_length(proc, i);
-		i++;
-	}
-	return (length);
 }
 
 static void 		advance(t_proc *proc)
