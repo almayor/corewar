@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
+NAME = corewar
 
-HEAD_NAME = corewar.h
+HEAD_NAME = corewar.h corewar_logs.h op.h utils.h
 LIB_NAME = libft.a
 
 CC = gcc -g
@@ -44,7 +44,7 @@ INCLUDES = -I $(INC_DIR) -I $(LIB_DIR)$(INC_DIR)
 
 all: $(NAME) 
 
-$(NAME): $(TMP)
+$(NAME): $(LIBFT) $(TMP)
 	@$(CC) -o $(NAME) $(TMP) $(INCLUDES) -L $(LIB_DIR) -lft
 	@printf "$(GR)>> Program $(NAME) created <<\n$(EOC)"
 
