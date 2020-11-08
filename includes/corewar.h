@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/08 11:17:13 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/08 12:07:03 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@
 # include "op.h"
 # include "corewar_logs.h"
 
-typedef struct s_args t_args;
-typedef struct s_proc t_proc;
-typedef struct s_champ t_champ;
-typedef struct s_vm t_vm;
+typedef struct s_args	t_args;
+typedef struct s_proc	t_proc;
+typedef struct s_champ	t_champ;
+typedef struct s_vm		t_vm;
 
 /*
-**	Структура t_args используется в процессе парсинга и валидации, куда 
-**	записываются по очереди аргументы командной строки (по назначению - 
+**	Структура t_args используется в процессе парсинга и валидации, куда
+**	записываются по очереди аргументы командной строки (по назначению -
 **	игроки).
-**	Структура хранит, соответственно, имя игрока, номер игрока и дескриптор 
+**	Структура хранит, соответственно, имя игрока, номер игрока и дескриптор
 **	файла. Как только все игроки пройдут проверку, они будут перенесены в
 **	g_vm.champs, каждый на свой индекс.
 **	Пример: Игрок с номером 3, пойдет на индекс 2.
@@ -38,7 +38,7 @@ typedef struct s_vm t_vm;
 **	Данная структура была добавлена в g_vm.
 */
 
-struct	s_args
+struct			s_args
 {
 	char		*fname;
 	int			num;
@@ -64,7 +64,7 @@ struct	s_args
 ** All processes are stored in a singly linked list
 */
 
-struct	s_proc
+struct			s_proc
 {
 	int32_t		reg[REG_NUMBER];
 	int32_t		pc;
@@ -89,13 +89,13 @@ struct	s_proc
 ** The champion's size (in bytes)
 ** @var s_champ::curr_nlive
 ** Number of times that the champion has executed a `live` during the
-** current `CYCLE_TO_DIE` epoch 
+** current `CYCLE_TO_DIE` epoch
 ** @var s_champ::prev_nlive
 ** Number of times that the champion has executed a `live` during the
-** previus `CYCLE_TO_DIE` epoch 
+** previus `CYCLE_TO_DIE` epoch
 */
 
-struct	s_champ
+struct			s_champ
 {
 	char		name[PROG_NAME_LENGTH + 1];
 	uint32_t	ichamp;
@@ -156,7 +156,7 @@ typedef enum	e_log
 ** How much logging to perform
 */
 
-struct	s_vm
+struct			s_vm
 {
 	uint8_t		mem[MEM_SIZE];
 	int			nchamps;
@@ -166,11 +166,11 @@ struct	s_vm
 	uint64_t	curr_nlive;
 	uint32_t	last_live_champ;
 	int64_t		cycles_to_die;
-	int64_t 	cycles_since_change;
+	int64_t		cycles_since_change;
 	int64_t		cycles_since_die;
 	uint64_t	dump_ncycles;
 	int			dump_flag;
-	int			log_flag; // ???
+	t_log		log_flag; // ???
 	t_args		args[4];
 };
 
@@ -185,30 +185,21 @@ extern	t_vm	g_vm;
 ** given the process
 */
 
-typedef void (*t_instruct)(t_proc *proc);
+typedef void	(*t_instruct)(t_proc *proc);
 
 /*
 ** >----------------< Parsing arguments >----------------<
 */
+void			put_error(char *format, char *file, char *error);
+int				close_all_fd();
 
-void	put_error(char *format, char *file, char *error);
-int		close_all_fd();
+void			read_args(int argc, char **argv);
+void			validate_dump(int argc, char **argv, int *i);
+void			init_numbers();
 
-void	read_args(int argc, char **argv);
-void	validate_dump(int argc, char **argv, int *i);
-void	init_numbers();
+void			load_all_champions();
+int				get_nbr_champions();
 
-void	load_all_champions();
-int		get_nbr_champions();
+void			print_dump();
 
-//void	validate_n(int argc, char **argv, int *i);
-//void	load_champion(int *fd, char *file, int n, uint32_t pos);
-//void	save_player(int num, char *argv, char *snum);
-
-void	print_dump();
-
-
-
-
-
-# endif
+#endif

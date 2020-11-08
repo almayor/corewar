@@ -1,5 +1,4 @@
 #ifndef COREWAR_LOGS_H
-
 # define COREWAR_LOGS_H
 
 # define	PLAYER_ALIVE	"a process shows that player %u (%s) is alive\n"

@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:26:26 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/08 11:45:05 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/08 12:11:38 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ static void	read_name_and_comment(char *file, int n, int fd)
 	uint8_t buf[COMMENT_LENGTH + 1];
 
 	ft_memset(&buf, 0, COMMENT_LENGTH + 1);
-	read(fd, g_vm.champs[n].name, PROG_NAME_LENGTH); // PROTECT
-	read(fd, buf, COMMENT_LENGTH); // PROTECT
+	if (read(fd, g_vm.champs[n].name, PROG_NAME_LENGTH) != PROG_NAME_LENGTH)
+		put_error(READ_ERROR, file, "Unknown error");
+	if (read(fd, buf, COMMENT_LENGTH) != COMMENT_LENGTH)
+		put_error(READ_ERROR, file, "Unknown error");
 	g_vm.champs[n].size = buf[6] << 8 | buf[7];
 		//ft_printf("Size: {3}%4u{0}, player: {2}%s{0}\n", g_vm.champs[n].size, file);
 	if (g_vm.champs[n].size > CHAMP_MAX_SIZE)
