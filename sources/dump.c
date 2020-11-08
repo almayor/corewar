@@ -6,18 +6,18 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:35:24 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/08 09:54:51 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/08 11:47:00 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int is_number(const char *string)
+static int	is_number(const char *string)
 {
 	int i;
 
 	i = 0;
-	while(string[i])
+	while (string[i])
 	{
 		if (!ft_isdigit(string[i]))
 			return (1);
@@ -26,7 +26,7 @@ int is_number(const char *string)
 	return (0);
 }
 
-void	validate_dump(int argc, char **argv, int *i)
+void		validate_dump(int argc, char **argv, int *i)
 {
 	int j;
 	int digit;
@@ -50,7 +50,7 @@ void	validate_dump(int argc, char **argv, int *i)
 	g_vm.dump_flag = 1;
 }
 
-void	print_dump()
+void		print_dump(void)
 {
 	int i;
 	int j;

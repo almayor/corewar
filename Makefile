@@ -6,7 +6,7 @@
 #    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/06 04:55:07 by fallard          ###   ########.fr        #
+#    Updated: 2020/11/08 11:19:57 by fallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,9 @@ EOC = \033[0m
 
 SRC = main.c \
 arguments_parser.c \
+utils.c \
 load_champion.c \
-dump.c
+dump.c 
 
 TMP = $(addprefix $(SRC_DIR), $(SRC:.c=.o))
 HEADER = $(addprefix $(INC_DIR), $(HEAD_NAME))

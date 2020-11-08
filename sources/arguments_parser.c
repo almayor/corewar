@@ -6,56 +6,16 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/08 07:18:07 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/08 11:45:32 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-/*
-./corewar one two -n 1 three four
-*/
-
-void	put_error(char *format, char *file, char *error)
+static void	save_player(int num, char *name, char *snum)
 {
-	close_all_fd();
-	if (file)
-		ft_printf(format, file, error);
-	else
-		ft_printf(format, error);
-	exit (EXIT_FAILURE);
-}
-
-void	validate_n(int argc, char **argv, int *i)
-{
-	int num;
-
-	if (*i + 2 > argc - 1)
-		put_error("%s\n", NULL, NOT_ENOUGH_N);
-	(*i)++;
-	if (ft_strlen(argv[*i]) > 1 || !ft_isdigit(argv[*i][0]))
-		put_error(BAD_N_FORMAT, NULL, argv[*i]);
-	num = ft_atoi(argv[*i]);
-	if (num > 4 || num < 1)
-		put_error("%s\n", NULL, OUT_OF_RANGE);
-	save_player(num, argv[(*i) + 1], argv[*i]);
-	(*i)++;
-}
-
-void	read_keys(int argc, char **argv, int *i)
-{
-	if (!ft_strcmp("-n", argv[*i]))
-		validate_n(argc, argv, i);
-	else if (!ft_strcmp(argv[*i], "-dump"))
-		validate_dump(argc, argv, i);
-	else
-		put_error("Invalid key: %s\n", NULL, argv[*i]);
-}
-
-void	save_player(int num, char *name, char *snum)
-{
-	static int i = 0;
-	int j;
+	static int	i = 0;
+	int			j;
 
 	j = 0;
 	if (i > 3)
@@ -74,9 +34,36 @@ void	save_player(int num, char *name, char *snum)
 	}
 }
 
-void	read_args(int argc, char **argv)
+static void	validate_n(int argc, char **argv, int *i)
 {
-	int		i;
+	int num;
+
+	if (*i + 2 > argc - 1)
+		put_error("%s\n", NULL, NOT_ENOUGH_N);
+	(*i)++;
+	if (ft_strlen(argv[*i]) > 1 || !ft_isdigit(argv[*i][0]))
+		put_error(BAD_N_FORMAT, NULL, argv[*i]);
+	num = ft_atoi(argv[*i]);
+	if (num > 4 || num < 1)
+		put_error("%s\n", NULL, OUT_OF_RANGE);
+	save_player(num, argv[(*i) + 1], argv[*i]);
+	(*i)++;
+}
+
+static void	read_keys(int argc, char **argv, int *i)
+{
+	if (!ft_strcmp("-n", argv[*i]))
+		validate_n(argc, argv, i);
+	else if (!ft_strcmp(argv[*i], "-dump"))
+		validate_dump(argc, argv, i);
+	else
+		put_error("Invalid key: %s\n", NULL, argv[*i]);
+}
+
+void		read_args(int argc, char **argv)
+{
+	int i;
+
 	i = 1;
 	while (i < argc)
 	{
