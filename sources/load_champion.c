@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:26:26 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/08 12:11:38 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/08 12:35:37 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,11 @@ void		load_all_champions(void)
 	int step;
 	int pos;
 
-	i = 0;
-	step = MEM_SIZE / get_nbr_champions();
+	if (!(g_vm.nchamps = get_nbr_champions()))
+		put_error("%s\n", NULL, NO_PLAYERS);
+	step = MEM_SIZE / g_vm.nchamps;
 	pos = 0;
+	i = 0;
 	while (i < 4)
 	{
 		if (g_vm.args[i].num > 0)

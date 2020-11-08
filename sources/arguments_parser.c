@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/08 11:45:32 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/08 12:36:27 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	save_player(int num, char *name, char *snum)
 
 	j = 0;
 	if (i > 3)
-		put_error("%s\n", NULL, A_LOT_OF_PLAYER);
+		put_error("%s\n", NULL, MANY_PLAYERS);
 	else
 	{
 		while (j < 4)

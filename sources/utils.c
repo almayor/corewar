@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 11:07:35 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/08 11:46:44 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/08 12:35:02 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ int			get_nbr_champions(void)
 			count++;
 		i++;
 	}
-	if (!count)
-		put_error("%s\n", NULL, NO_PLAYERS);
 	return (count);
 }
 
