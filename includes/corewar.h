@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/08 12:07:03 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/08 12:22:06 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,15 +191,15 @@ typedef void	(*t_instruct)(t_proc *proc);
 ** >----------------< Parsing arguments >----------------<
 */
 void			put_error(char *format, char *file, char *error);
-int				close_all_fd();
+int				close_all_fd(void);
 
 void			read_args(int argc, char **argv);
 void			validate_dump(int argc, char **argv, int *i);
-void			init_numbers();
+void			init_numbers(void);
 
-void			load_all_champions();
-int				get_nbr_champions();
+void			load_all_champions(void);
+int				get_nbr_champions(void);
 
-void			print_dump();
+void			print_dump(void);
 
 #endif
