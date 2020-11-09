@@ -93,5 +93,4 @@ void				ft_print_bits(unsigned char octet);
 char				*ft_strndup(const char *s1, size_t n);
 int					get_next_line(const int fd, char **line);
 int					ft_words(char *s, char c);
-
 #endif

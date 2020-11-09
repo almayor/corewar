@@ -27,7 +27,7 @@ SRC = ft_words.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
             		 ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstdelone.c \
             		 ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_strrev.c \
             		 ft_sort_array.c ft_swap_bits.c ft_reverse_bits.c ft_print_bits.c \
-            		 ft_strndup.c get_next_line.c
+            		 ft_strndup.c get_next_line.c 
 
 PRINTF = ft_printf/
 
