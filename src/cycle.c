@@ -6,13 +6,13 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:30 by user              #+#    #+#             */
-/*   Updated: 2020/11/06 15:14:27 by user             ###   ########.fr       */
+/*   Updated: 2020/11/09 21:55:05 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-static g_instruct	dispatcher[NUM_INSTRUCT + 1] = {
+static t_instruct	dispatcher[NUM_INSTRUCT + 1] = {
 	NULL,
 	live_instruct,
 	ld_instruct,

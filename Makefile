@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/09 21:37:51 by user             ###   ########.fr        #
+#    Updated: 2020/11/09 21:53:53 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,11 @@ HEAD_NAME = corewar.h corewar_logs.h op.h utils.h libft.h ft_printf.h
 LIB_NAME = libftprintf.a
 
 CC = gcc -g
-CFLAGS = #-Wall -Wextra -Werror
+CFLAGS = #-Wall -Wextra -Werror 
+CFLAGS += -I includes -I libft/includes -I ft_printf
 
 SRC_DIR = src/
-INC_DIR = includes/ libft/includes/ ft_printf/
+# INC_DIR = includes/ libft/includes/ ft_printf/
 LIB_DIR = libft/
 PRINTF_DIR = ft_printf/
 
@@ -53,33 +54,31 @@ instruct/zjump_instruct.c \
 load.c \
 main.c \
 op.c \
-parser.c \
+parse.c \
 run.c \
 utils/flow_utils.c \
 utils/ft_xcalloc.c \
 utils/ft_xmalloc.c \
 utils/instruct_utils.c \
 utils/memory_utils.c \
-utils/parser_utils.c \
+utils/parse_utils.c \
 utils/proc_utils.c \
 
 TMP = $(addprefix $(SRC_DIR), $(SRC:.c=.o))
 HEADER = $(addprefix $(INC_DIR), $(HEAD_NAME))
 LIBFTPRINTF = $(LIB_NAME)
 
-INCLUDES = $(addprefix "-I", $(INC_DIR))
-
 all: $(NAME) 
 
 $(NAME): $(LIBFTPRINTF) $(TMP)
-	@$(CC) -o $(NAME) $(TMP) $(INCLUDES) -L $(LIB_DIR) -lft
+	@$(CC) $(CFLAGS) -o $(NAME) $(TMP) $(INCLUDES) -L $(LIB_DIR) -lft
 	@printf "$(GR)>> Program $(NAME) created <<\n$(EOC)"
 
 $(LIBFTPRINTF):
 	@make -C $(PRINTF_DIR)
 
 %.o:%.c $(HEADER)
-	@$(CC) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	@rm -f $(TMP)

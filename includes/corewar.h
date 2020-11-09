@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/09 21:30:29 by user             ###   ########.fr       */
+/*   Updated: 2020/11/09 21:55:09 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ struct			s_vm
 	int64_t		cycles_since_die;
 	uint64_t	dump_ncycles;
 	int			dump_flag;
-	t_log		log_flag; // ???
+	uint8_t		log_flag;
 };
 
 /*

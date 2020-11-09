@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 12:37:35 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/09 20:57:24 by user             ###   ########.fr       */
+/*   Updated: 2020/11/09 21:51:31 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,5 @@
 # define N_OUT_OF_RANGE		"Error! Champion number must be between 1 and 4\n"
 # define DUMP_INVALID		"Error! -dump %s is invalid\n"
 # define NOT_ENOUGH_DUMP	"Error! Not enough arguments to use key -dump\n"
-
-
-
 
 #endif
