@@ -3,57 +3,78 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kysgramo <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/06/29 13:04:05 by kysgramo          #+#    #+#              #
-#    Updated: 2020/06/29 13:04:08 by kysgramo         ###   ########.fr        #
+#    Created: 2020/08/25 11:33:25 by user              #+#    #+#              #
+#    Updated: 2020/11/10 00:32:37 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# ----- Name -----
+NAME 		= asm
+HEADER_NAME	= lem_in.h struct.h
+LIBFT_NAME	= libft.a
 
-NAME			=	asm
-INC_NAME		=	op.h asm.h
+# ----- Dir -----
+LIBFT_DIR	= ./libft/
+LIBFT_INC	= ./libft/includes
+SRC_DIR 	= ./sources/
+OBJ_DIR		= ./obj/
+INC_DIR 	= ./includes/
 
-LIB_PATH		=	libft/
-LIB_INC_PATH	=	libft/
-LIB_NAME		=	libft.a
+# ----- Lists -----
+FUNCS		= 	
 
-SRC_PATH		=	sources/asm/
-INC_PATH		=	includes/
-OBJ_PATH		=	sources/obj/
 
-SRC_NAME		=	asm_main.c asm.c init_structs.c parsing.c
+# ----- Auto -----
+HEADER		= $(addprefix $(INC_DIR), $(HEADER_NAME))
+LIBFT		= $(addprefix $(LIBFT_DIR), $(LIBFT_NAME))
+SRC			= $(addprefix $(SRC_DIR), $(FUNCS))
+OBJ			= $(addprefix $(OBJ_DIR), $(FUNCS:.c=.o))
 
-SRC				=	$(addprefix $(SRC_PATH), $(SRC_NAME))
-INC				=	$(addprefix $(INC_PATH), $(INC_NAME))
-OBJ				=	$(addprefix $(OBJ_PATH), $(SRC_NAME:.c=.o))
+# -------------
+INCLUDES	= -I $(INC_DIR) -I $(LIBFT_INC) 
 
-CC				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror -O2 -march=native
-IFLAGS			=	-I $(INC_PATH). -I $(LIB_PATH).
-LFLAGS			=	-L $(LIB_PATH) -lft
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
+LFT			= -L $(LIBFT_DIR) -lft
 
-LIB				=	make -C $(LIB_PATH)
+# --- Colors ---
+RED				= "\033[0;31m"
+GREEN			= "\033[0;32m"
+CYAN			= "\033[0;36m"
+YELLOW			= "\033[0;33m"
+EOC				= "\033[0m"
+# =================
 
-.PHONY:	all clean fclean re lib
+all: $(NAME)
 
-$(OBJ_PATH)%.o:		$(SRC_PATH)%.c $(INC)
-					@mkdir -p $(OBJ_PATH)
-					$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
+$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ) $(HEADER)
+	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LFT) -o $(NAME)
+	@echo $(GREEN) "Program $(NAME) created" $(EOC)
 
-all:				$(NAME)
+$(OBJ_DIR):
+	@mkdir -p ./obj/
 
-$(NAME):			$(OBJ)
+FORCE:		;
 
-					$(LIB)
-					$(CC) $(CFLAGS) $(IFLAGS) -o $@ $^ $(LFLAGS)
+$(LIBFT): FORCE
+	@make -C $(LIBFT_DIR)
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HEADER)
+	@$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
+	@echo $(CYAN) "Compiling $< into $@"$(EOC)
 
 clean:
-					make clean -C $(LIB_PATH)
-					rm -rf $(OBJ_PATH)
+	@/bin/rm -rf $(OBJ_DIR)
+	@echo $(YELLOW)"$(NAME):"$(EOC) $(RED)"Object files deleted."$(EOC)
+	@make clean -C $(LIBFT_DIR)
 
-fclean:				clean
-					make fclean -C $(LIB_PATH)
-					rm -f $(NAME)
+fclean: clean
+	@/bin/rm -rf $(NAME)
+	@echo $(YELLOW)"$(NAME):"$(EOC) $(RED)"Executable file deleted."$(EOC)
+	@make fclean -C $(LIBFT_DIR)
 
-re:					fclean all
+re: fclean all
+
+.PHONY: all clean fclean re

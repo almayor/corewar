@@ -1,2 +1,7 @@
-vm_champs
-vm-champ-linux
+.vscode/
+*.out
+*.o
+*.a
+*.so
+*.log
+*.idea
