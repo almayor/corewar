@@ -5,52 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/06 14:37:41 by user              #+#    #+#             */
-/*   Updated: 2020/11/06 14:37:42 by user             ###   ########.fr       */
+/*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
+/*   Updated: 2020/11/09 21:16:32 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-t_vm	g_vm = {0, 0, {0}, 0, 0, 0, 0, CYCLE_TO_DIE, 0, 0, 0};
+t_vm	g_vm;
 
-static void	init_procs(void)
+static void	print_usage(void)
 {
-	t_proc	*proc;
+	ft_printf("usage:\n");
+	ft_printf("\t./corewar [-n N <file.cor> | -dump N | -log] <file.cor> <...>\n");
+	ft_printf("\t%-20s Set every player his number (N)\n", "-n N <file.cor>");
+	ft_printf("\t%-20s Output memory field after N cycles\n", "-dump N");
+	ft_printf("\t%-20s Output player actions every cycle\n", "-log"); // ???
+}
 
-	proc = g_vm.procs;
-	while (proc)
+static void	greet(void)
+{
+	int i;
+
+	i = 0;
+	while (i < 4)
 	{
-		proc->opcode = g_vm.mem[proc->pc];
-		if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
-			proc->cycles_busy = g_op_tab[proc->opcode].duration;
-		else
-			proc->opcode = 0;
-		proc = proc->next;
+		if (g_vm.champs[i].ichamp > 0)
+		{
+			ft_printf("* Player %d, weight %u bytes, \"%s\" (\"%s\") !\n",
+			g_vm.champs[i].ichamp, g_vm.champs[i].size, g_vm.champs[i].name,
+			g_vm.champs[i].comment);
+		}
+		i++;
 	}
 }
 
-static void	create_proc(uint32_t ichamp, uint32_t pos)
+int		main(int argc, char **argv)
 {
-	t_proc	*proc;
-
-	proc = ft_xcalloc(sizeof(t_proc), 1);
-	proc->pc = pos;
-	proc->reg[0] = ichamp;
-	proc->next = g_vm.procs;
-	g_vm.procs = proc;
-}
-
-int			main(int argc, char **argv)
-{
-	process_args(argc, argv);
+	if (argс == 1)
+	{
+		print_usage();
+		exit(EXIT_FAILURE);
+	}
+	g_vm.cycles_to_die = CYCLE_TO_DIE;
+	load(argc, argv);
+	greet();
 	run();
-	if (g_vm.last_live_champ)
-		ft_printf(
-				PLAYER_WON, g_vm.last_live_champ,
-				g_vm.champs[g_vm.last_live_champ - 1].name);
-	else
-		ft_printf(NO_LIVE);
 	cleanup();
 	return (0);
 }
