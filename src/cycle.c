@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:30 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 00:42:57 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 00:57:43 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static void 	advance(t_proc *proc)
 {
 	if (proc->opcode != 9 || proc->carry == 0)
 	{
-		if ((g_vm.log >> 4) & 1)
+		if (((g_vm.log >> 4) & 1) &&
+			proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
 			advance_log(proc);
 		proc->pc = (proc->pc + get_instruction_length(proc)) % MEM_SIZE;
 	}
