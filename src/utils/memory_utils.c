@@ -6,54 +6,45 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:43 by user              #+#    #+#             */
-/*   Updated: 2020/11/06 15:17:00 by user             ###   ########.fr       */
+/*   Updated: 2020/11/10 20:32:02 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int16_t	mem_read_16bit(uint32_t pos)
+int32_t	mem_read(int32_t pos, int nbytes)
 {
-	int16_t	val;
+	uint32_t	val;
 
+	pos = pos < 0 ? (pos % MEM_SIZE) + MEM_SIZE : pos % MEM_SIZE;
 	val = 0;
-	val |= g_vm[pos++ % MEM_SIZE] << 8;
-	val |= g_vm[pos++ % MEM_SIZE];
-	return (val); 
+	if (nbytes >= 4)
+	{
+		val |= g_vm.mem[pos++ % MEM_SIZE] << 24;
+		val |= g_vm.mem[pos++ % MEM_SIZE] << 16;
+	}
+	if (nbytes >= 2)
+		val |= g_vm.mem[pos++ % MEM_SIZE] << 8;
+	if (nbytes >= 1)
+		val |= g_vm.mem[pos++ % MEM_SIZE];
+	if (nbytes == 4)
+		return (*(int32_t *)&val);
+	if (nbytes == 2)
+		return (*(int16_t *)&val);
+	else
+		return (*(int8_t *)&val);
 }
 
-int32_t	mem_read_32bit(uint32_t pos)
+void	mem_write(int32_t pos, int32_t val, int nbytes)
 {
-	int32_t	val;
-
-	val = 0;
-	val |= g_vm[pos++ % MEM_SIZE] << 24;
-	val |= g_vm[pos++ % MEM_SIZE] << 16;
-	val |= g_vm[pos++ % MEM_SIZE] << 8;
-	val |= g_vm[pos++ % MEM_SIZE];
-	return (val); 
-}
-
-int8_t	mem_read_8bit(uint32_t pos)
-{
-	return (g_vm[pos % MEM_SIZE]); 
-}
-
-void	mem_write_16bit(uint32_t pos, int16_t val)
-{
-	g_vm[pos++ % MEM_SIZE] = val >> 8;
-	g_vm[pos++ % MEM_SIZE] = val;
-}
-
-void	mem_write_32bit(uint32_t pos, int32_t val)
-{
-	g_vm[pos++ % MEM_SIZE] = val >> 24;
-	g_vm[pos++ % MEM_SIZE] = val >> 16;
-	g_vm[pos++ % MEM_SIZE] = val >> 8;
-	g_vm[pos++ % MEM_SIZE] = val;
-}
-
-void	mem_write_8bit(uint32_t pos, int8_t val)
-{
-	g_vm[pos % MEM_SIZE] = val;
+	pos = pos < 0 ? (pos % MEM_SIZE) + MEM_SIZE : pos % MEM_SIZE;
+	if (nbytes >= 4)
+	{
+		g_vm.mem[pos++ % MEM_SIZE] = val >> 24;
+		g_vm.mem[pos++ % MEM_SIZE] = val >> 16;
+	}
+	if (nbytes >= 2)
+		g_vm.mem[pos++ % MEM_SIZE] = val >> 8;
+	if (nbytes >= 1)
+		g_vm.mem[pos++ % MEM_SIZE] = val;
 }

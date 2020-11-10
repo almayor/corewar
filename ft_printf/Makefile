@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/26 02:09:26 by unite             #+#    #+#              #
-#    Updated: 2020/11/09 21:57:18 by user             ###   ########.fr        #
+#    Updated: 2020/11/10 14:29:59 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,16 @@ validate_specifier/validate_specifier.c \
 
 ################################################################################
 
+RD = \033[031m
+GR = \033[032m
+YW = \033[033m
+BL = \033[034m
+PK = \033[035m
+CN = \033[036m
+EOC = \033[0m
+
+################################################################################
+
 PATHI = src
 PATHS = src
 PATHO = obj
@@ -105,33 +115,39 @@ SRC = $(patsubst %.c, $(PATHS)/%.c, $(SRC_NAME))
 OBJ = $(patsubst %.c, $(PATHO)/%.o, $(SRC_NAME))
 
 
-$(NAME) : $(OBJ) $(PATHFT)/libft.a
-	cp $(PATHFTA) $(NAME)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+$(NAME) : $(PATHFT)/libft.a $(OBJ)
+	@cp $(PATHFTA) $(NAME)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@printf "\n$(GR)>> libftprintf.a created! <<$(EOC)\n"
 
 $(PATHO)/%.o : $(PATHS)/%.c
-	mkdir -p $(@D)
-	$(COMPILE) $(CFLAGS) $(CFLAGS_DEPEND) $(CFLAGS_OPTIMISE) $< -o $@
+	@mkdir -p $(@D)
+	@$(COMPILE) $(CFLAGS) $(CFLAGS_DEPEND) $(CFLAGS_OPTIMISE) $< -o $@
+	@printf "$(CN).$(EOC)"
 
 ################################################################################
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re libft
 
-all : $(NAME)
+all : libft $(NAME)
 
 fclean : clean
-	rm -f $(NAME)
-	$(MAKE) -C $(PATHFT) fclean
+	@-rm $(NAME) 2>/dev/null && \
+		printf "$(YW)ft_printf: $(RD)libftprintf.a deleted$(EOC)\n" || true
+	@$(MAKE) -C $(PATHFT) fclean
 
 clean :
-	rm -rf $(PATHO)
-	$(MAKE) -C $(PATHFT) clean
+	@-rm -r $(PATHO) 2>/dev/null && \
+		printf "$(YW)ft_printf: $(RD)object files deleted$(EOC)\n" || true
+	@$(MAKE) -C $(PATHFT) clean
 
 re : fclean all
 
-$(PATHFT)/libft.a :
-	$(MAKE) -C $(PATHFT)
+$(PATHFT)/libft.a : libft
+
+libft :
+	@-$(MAKE) -C $(PATHFT)
 
 ################################################################################
 

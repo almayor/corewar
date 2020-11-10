@@ -6,13 +6,13 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/09 21:16:32 by user             ###   ########.fr       */
+/*   Updated: 2020/11/10 23:18:47 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-t_vm	g_vm;
+t_vm	g_vm = { .cycles_to_die = CYCLE_TO_DIE, .log = 31 };
 
 static void	print_usage(void)
 {
@@ -27,12 +27,13 @@ static void	greet(void)
 {
 	int i;
 
+	ft_printf("Introducing contestants...\n");
 	i = 0;
 	while (i < 4)
 	{
 		if (g_vm.champs[i].ichamp > 0)
 		{
-			ft_printf("* Player %d, weight %u bytes, \"%s\" (\"%s\") !\n",
+			ft_printf("* Player %d, weighing %u bytes, \"%s\" (\"%s\") !\n",
 			g_vm.champs[i].ichamp, g_vm.champs[i].size, g_vm.champs[i].name,
 			g_vm.champs[i].comment);
 		}
@@ -40,17 +41,17 @@ static void	greet(void)
 	}
 }
 
-int		main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
-	if (argс == 1)
+	if (argc == 1)
 	{
 		print_usage();
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
-	g_vm.cycles_to_die = CYCLE_TO_DIE;
+	parse_args(argc, argv);
 	load(argc, argv);
 	greet();
 	run();
 	cleanup();
-	return (0);
+	return (EXIT_SUCCESS);
 }

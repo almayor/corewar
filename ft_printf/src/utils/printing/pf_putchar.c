@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pf_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 19:02:14 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 10:51:04 by unite            ###   ########.fr       */
+/*   Updated: 2020/11/09 22:58:17 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		set_output(t_mode mode, t_dest dest, t_opt max_size)
 	g_output = (t_output){mode, dest, max_size};
 }
 
-void		cleanup(void)
+void		pf_cleanup(void)
 {
 	g_inbuffer = 0;
 	g_nprinted = 0;

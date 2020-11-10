@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 08:17:40 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 01:54:00 by unite            ###   ########.fr       */
+/*   Updated: 2020/11/09 22:58:29 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,11 @@ int			ft_vprintf(const char *format, va_list ap)
 			simple_print(&format);
 		else if (dispatch_table[(unsigned char)*format](&format, ap))
 		{
-			cleanup();
+			pf_cleanup();
 			return (-1);
 		}
 	}
 	nprinted = flush_buffer();
-	cleanup();
+	pf_cleanup();
 	return (nprinted);
 }

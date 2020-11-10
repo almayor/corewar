@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/09 21:55:09 by user             ###   ########.fr       */
+/*   Updated: 2020/11/10 21:01:18 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,7 @@ typedef struct s_vm		t_vm;
 ** given the process
 */
 
-typedef void	(*t_instruct)(t_proc *proc);
-
-/*
-**	Структура t_args используется в процессе парсинга и валидации, куда
-**	записываются по очереди аргументы командной строки (по назначению -
-**	игроки).
-**	Структура хранит, соответственно, имя игрока, номер игрока и дескриптор
-**	файла. Как только все игроки пройдут проверку, они будут перенесены в
-**	g_vm.champs, каждый на свой индекс.
-**	Пример: Игрок с номером 3, пойдет на индекс 2.
-**
-**	Данная структура была добавлена в g_vm.
-*/
-
-struct			s_args
-{
-	const char	*fname;
-	int			num;
-};
+typedef int		(*t_instruct)(t_proc *proc);
 
 /*
 ** @struct s_proc
@@ -77,8 +59,10 @@ struct			s_proc
 	uint8_t		carry;
 	uint8_t		ichamp;
 	uint8_t		opcode;
-	uint8_t		cycles_busy;
+	uint32_t	cycles_busy;
 	int32_t		cycles_since_live;
+	uint64_t	iproc;
+	int32_t		args[3];
 	t_proc		*next;
 };
 
@@ -106,10 +90,29 @@ struct			s_champ
 	char		name[PROG_NAME_LENGTH + 1];
 	uint32_t	ichamp;
 	char		comment[COMMENT_LENGTH];
-	size_t		size;
+	uint64_t	size;
 	uint64_t	curr_nlive;
 	uint64_t	prev_nlive;
 };
+
+/*
+**	Структура t_args используется в процессе парсинга и валидации, куда
+**	записываются по очереди аргументы командной строки (по назначению -
+**	игроки).
+**	Структура хранит, соответственно, имя игрока, номер игрока и дескриптор
+**	файла. Как только все игроки пройдут проверку, они будут перенесены в
+**	g_vm.champs, каждый на свой индекс.
+**	Пример: Игрок с номером 3, пойдет на индекс 2.
+**
+**	Данная структура была добавлена в g_vm.
+*/
+
+struct			s_args
+{
+	const char	*fname;
+	int			num;
+};
+
 
 /*
 ** @struct s_vm
@@ -132,11 +135,11 @@ struct			s_champ
 ** The number of the last champion who last executed a `live` command
 ** @var s_gm::cycles_to_die
 ** Current number of cycles to die (cycles before passive processes are killed)
-** @var s_gm::cycles since_change
-** Number of cycles since the variable s_gm::cycles_to_die
-** has been modified
 ** @var s_gm::cycles_since_die
 ** Number of cycles passed since passive processes were killed
+ * ** @var s_gm::checks_since_change
+** Number of checks since the variable s_gm::cycles_to_die
+** has been modified
 ** @var s_gm::dump_ncycles
 ** Number of cycles remaining before the memory will be dumped to the
 ** standard output and the program will exit
@@ -155,12 +158,14 @@ struct			s_vm
 	t_proc		*procs;
 	uint64_t	curr_nlive;
 	uint32_t	last_live_champ;
+	uint64_t	icycle;
 	int64_t		cycles_to_die;
-	int64_t		cycles_since_change;
 	int64_t		cycles_since_die;
+	int64_t		checks_since_change;
 	uint64_t	dump_ncycles;
 	int			dump_flag;
-	uint8_t		log_flag;
+	uint8_t		log;
+	t_args		args[MAX_PLAYERS];
 };
 
 /*
@@ -173,58 +178,58 @@ extern	t_vm	g_vm;
 ** Instructions
 */
 
-void	add_instruct(t_proc *proc);
-void	aff_instruct(t_proc *proc);
-void	and_instruct(t_proc *proc);
-void	fork_instruct(t_proc *proc);
-void	ld_instruct(t_proc *proc);
-void	ldi_instruct(t_proc *proc);
-void	lfork_instruct(t_proc *proc);
-void	live_instruct(t_proc *proc);
-void	lld_instruct(t_proc *proc);
-void	lldi_instruct(t_proc *proc);
-void	or_instruct(t_proc *proc);
-void	st_instruct(t_proc *proc);
-void	sti_instruct(t_proc *proc);
-void	sub_instruct(t_proc *proc);
-void	xor_instruct(t_proc *proc);
-void	zjump_instruct(t_proc *proc);
+int			add_instruct(t_proc *proc);
+int			aff_instruct(t_proc *proc);
+int			and_instruct(t_proc *proc);
+int			fork_instruct(t_proc *proc);
+int			ld_instruct(t_proc *proc);
+int			ldi_instruct(t_proc *proc);
+int			lfork_instruct(t_proc *proc);
+int			live_instruct(t_proc *proc);
+int			lld_instruct(t_proc *proc);
+int			lldi_instruct(t_proc *proc);
+int			or_instruct(t_proc *proc);
+int			st_instruct(t_proc *proc);
+int			sti_instruct(t_proc *proc);
+int			sub_instruct(t_proc *proc);
+int			xor_instruct(t_proc *proc);
+int			zjmp_instruct(t_proc *proc);
 
-uint32_t	get_arg_length(t_proc *proc, int n);
-t_arg_type	get_arg_type(t_proc *proc, int n);
-int			get_argument(t_proc *proc, int n, uint32_t *arg);
-int			put_argument(t_proc *proc, int n, uint32_t val);
-uint32_t	get_argument_literal(t_proc *proc, int n, t_arg_type type);
-uint32_t	get_instruction_length(t_proc *proc);
+void	*ft_xcalloc(size_t count, size_t size);
+void	*ft_xmalloc(size_t size);
 
-int16_t		mem_read_16bit(uint32_t pos);
-int32_t		mem_read_32bit(uint32_t pos);
-int8_t		mem_read_8bit(uint32_t pos);
-void		mem_write_16bit(uint32_t pos, int16_t val);
-void		mem_write_32bit(uint32_t pos, int32_t val);
-void		mem_write_8bit(uint32_t pos, int8_t val);
+int			check_instruction(const t_proc *proc);
+uint32_t	get_instruction_length(const t_proc *proc);
 
-void		create_proc(uint32_t ichamp, uint32_t pos);
+int			get_arg_length(const t_proc *proc, int n);
+t_arg_type	get_arg_type(const t_proc *proc, int n);
+int			put_argument(t_proc *proc, int n, int32_t val);
+int			load_argument(const t_proc *proc, int n, int32_t *val);
 
-void	cycle(void);
-int		run(void);
-void	dump(void);
+void	create_proc(uint32_t ichamp, int32_t pos);
+void	fork_proc(int32_t pos, const t_proc *parent);
+void	kill_proc(t_proc *proc);
+void	print_proc(const t_proc *proc);
+
+int32_t	mem_read(int32_t pos, int nbytes);
+void	mem_write(int32_t pos, int32_t val, int nbytes);
 
 void	cleanup(void);
 void	terminate(const char *format, ...);
 
-void	*ft_xcalloc(size_t count, size_t size);
-void	*ft_xmalloc(size_t size);
+
+void		dispatch(t_proc *proc);
+void		cycle(void);
+void		run(void);
+void		dump(void);
+void		load(int argc, char **argv);
 
 /*
 ** >----------------< Parsing arguments >----------------<
 */
 
-void			read_args(int argc, char **argv, t_args *args);
+void			parse_args(int argc, char **argv);
 void			validate_dump(int argc, char **argv, int *i);
 void			init_numbers(void);
-
-void			load_all_champions(int argc, char **argv);
-int				get_nbr_champions(void);
 
 #endif

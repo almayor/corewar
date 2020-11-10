@@ -6,18 +6,20 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:38:07 by user              #+#    #+#             */
-/*   Updated: 2020/11/06 14:38:24 by user             ###   ########.fr       */
+/*   Updated: 2020/11/10 20:10:55 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void	ld_instruct(t_proc *proc)
+int		ld_instruct(t_proc *proc)
 {
-	uint32_t	in;
+	int32_t	in;
 
-	if (get_argument(proc, 0, &in))
-		return ;
-	proc->carry = in == 0;
-	put_argument(proc, 1, in);
+	if (load_argument(proc, 0, &in))
+		return (1);
+	proc->carry = (in == 0);
+	if ((g_vm.log >> 2) & 1)
+		ft_printf(INSTRUCT_PREFIX "(carry = %i)\n", proc->carry);
+	return (put_argument(proc, 1, in));
 }

@@ -6,68 +6,49 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:30 by user              #+#    #+#             */
-/*   Updated: 2020/11/09 21:55:05 by user             ###   ########.fr       */
+/*   Updated: 2020/11/10 20:56:23 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-static t_instruct	dispatcher[NUM_INSTRUCT + 1] = {
-	NULL,
-	live_instruct,
-	ld_instruct,
-	st_instruct,
-	add_instruct,
-	sub_instruct,
-	and_instruct,
-	or_instruct,
-	xor_instruct,
-	zjmp_instruct,
-	ldi_instruct,
-	sti_instruct,
-	fork_instruct,
-	lld_instruct,
-	lldi_instruct,
-	lfork_instruct,
-	aff_instruct,
-}
-
-static int			check_instruction(t_proc *proc)
+static void		advance_log(const t_proc *proc)
 {
-	t_arg_type	arg_type;
-	int			i;
+	uint32_t	len;
+	uint32_t	i;
 
-	if (proc->opcode == 0 || proc->opcode > NUM_INSTRUCT)
-		return (0);
-	if (proc->opcode == 1 || proc->opcode == 9 ||
-		proc->opcode == 12 || proc->opcode == 15)
-		return (1);
+	len = get_instruction_length(proc);
+	ft_printf("P%04lu | ADV %u (0x%.4x -> 0x%.4x)\n" INSTRUCT_PREFIX,
+		proc->iproc, len, proc->pc, (proc->pc + len) % MEM_SIZE);
 	i = 0;
-	while (i < g_op_tab[proc->opcode].nargs)
+	while (i < len)
 	{
-		arg_type = get_arg_type(proc, i);
-		if (1 << arg_type & g_op_tab[proc->opcode].type_mask[i] == 0)
-			return (0);
+		ft_printf("%.2x%c", g_vm.mem[(proc->pc + i) % MEM_SIZE],
+			i == len - 1 ? '\n' : ' ');
 		i++;
 	}
-	return (1);
 }
 
-static void 		advance(t_proc *proc)
+static void 	advance(t_proc *proc)
 {
-	proc->pc = (proc->pc + get_instruction_length(proc)) % MEM_SIZE;
+	if (proc->opcode != 9 || proc->carry == 0)
+	{
+		if ((g_vm.log >> 4) & 1)
+			advance_log(proc);
+		proc->pc = (proc->pc + get_instruction_length(proc)) % MEM_SIZE;
+	}
 	proc->opcode = g_vm.mem[proc->pc];
 	if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
-		proc->cycles_busy = g_op_tab[proc->opcode].duration;
+		proc->cycles_busy = g_op_tab[proc->opcode].duration - 1;
 	else
 		proc->opcode = 0;
 }
 
-void				cycle(void)
+void			cycle(void)
 {
 	t_proc	*proc;
 
-	proc = g_vm->procs;
+	proc = g_vm.procs;
 	while (proc)
 	{
 		proc->cycles_since_live++;
@@ -76,7 +57,7 @@ void				cycle(void)
 		else
 		{
 			if (check_instruction(proc) == 0)
-				dispatcher[proc->opcode](proc);
+				dispatch(proc);
 			advance(proc);
 		}
 		proc = proc->next;

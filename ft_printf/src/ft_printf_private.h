@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_private.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 11:31:07 by unite             #+#    #+#             */
-/*   Updated: 2020/07/01 23:42:11 by unite            ###   ########.fr       */
+/*   Updated: 2020/11/09 22:58:38 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ int				pf_putfloat(long double num, const char *radix,
 							size_t precision, int print_dot);
 
 void			set_output(t_mode mode, t_dest dest, t_opt max_size);
-void			cleanup(void);
+void			pf_cleanup(void);
 ssize_t			flush_buffer(void);
 
 /*

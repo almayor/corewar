@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arguments_parser.c                                 :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/09 20:55:31 by user             ###   ########.fr       */
+/*   Updated: 2020/11/10 00:56:38 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-static void	save_player(int num, const char *name, char *snum, t_args *args)
+static void	save_player(int num, const char *name, char *snum)
 {
 	static int	i = 0;
 	int			j;
 
 	j = 0;
-	if (i > 3)
+	if (i > MAX_PLAYERS - 1)
 		terminate(MANY_PLAYERS);
 	else
 	{
-		while (j < 4)
+		while (j < MAX_PLAYERS)
 		{
 			if (g_vm.args[j].num > 0 && g_vm.args[j].num == num)
 				terminate(PROG_NUM_USED, NULL, snum);
@@ -30,11 +30,12 @@ static void	save_player(int num, const char *name, char *snum, t_args *args)
 		}
 		g_vm.args[i].num = num;
 		g_vm.args[i].fname = name;
+		g_vm.nchamps++;
 		i++;
 	}
 }
 
-static void	validate_n(int argc, char **argv, int *i, t_args *args)
+static void	validate_n(int argc, char **argv, int *i)
 {
 	int num;
 
@@ -44,23 +45,23 @@ static void	validate_n(int argc, char **argv, int *i, t_args *args)
 	if (ft_strlen(argv[*i]) > 1 || !ft_isdigit(argv[*i][0]))
 		terminate(BAD_N_FORMAT, argv[*i]);
 	num = ft_atoi(argv[*i]);
-	if (num > 4 || num < 1)
+	if (num > MAX_PLAYERS || num < 1)
 		terminate(N_OUT_OF_RANGE);
-	save_player(num, argv[(*i) + 1], argv[*i], args);
+	save_player(num, argv[(*i) + 1], argv[*i]);
 	(*i)++;
 }
 
-static void	read_keys(int argc, char **argv, int *i, t_args *args)
+static void	read_keys(int argc, char **argv, int *i)
 {
 	if (!ft_strcmp("-n", argv[*i]))
-		validate_n(argc, argv, i, args);
+		validate_n(argc, argv, i);
 	else if (!ft_strcmp(argv[*i], "-dump"))
 		validate_dump(argc, argv, i);
 	else
 		terminate(INVALID_KEY, argv[*i]);
 }
 
-void		read_args(int argc, char **argv, t_args *args)
+void		parse_args(int argc, char **argv)
 {
 	int i;
 
@@ -68,9 +69,9 @@ void		read_args(int argc, char **argv, t_args *args)
 	while (i < argc)
 	{
 		if (argv[i][0] == '-')
-			read_keys(argc, argv, &i, args);
+			read_keys(argc, argv, &i);
 		else
-			save_player(-1, argv[i], NULL, args);
+			save_player(-1, argv[i], NULL);
 		i++;
 	}
 	init_numbers();

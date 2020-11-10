@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:33:27 by zaz               #+#    #+#             */
-/*   Updated: 2020/11/09 21:53:50 by user             ###   ########.fr       */
+/*   Updated: 2020/11/10 16:12:49 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,58 +14,50 @@
 
 # define OP_H
 
-/*
-** Toutes les tailles sont en octets.
-** On part du principe qu'un int fait 32 bits. Est-ce vrai chez vous ?
-*/
+# include <stdint.h>
+# include <stddef.h>
 
-#define IND_SIZE				2
-#define REG_SIZE				4
-#define DIR_SIZE				REG_SIZE
-
+# define IND_SIZE				2
+# define REG_SIZE				4
+# define DIR_SIZE				REG_SIZE
 
 # define REG_CODE				1
 # define DIR_CODE				2
 # define IND_CODE				3
 
-
-#define MAX_ARGS_NUMBER			4
-#define MAX_PLAYERS				4
-#define MEM_SIZE				(4*1024)
-#define IDX_MOD					(MEM_SIZE / 8)
-#define CHAMP_MAX_SIZE			(MEM_SIZE / 6)
-
-#define COMMENT_CHAR			'#'
-#define LABEL_CHAR				':'
-#define DIRECT_CHAR				'%'
-#define SEPARATOR_CHAR			','
-
-#define LABEL_CHARS				"abcdefghijklmnopqrstuvwxyz_0123456789"
-
-#define NAME_CMD_STRING			".name"
-#define COMMENT_CMD_STRING		".comment"
-
-#define REG_NUMBER				16
-
-#define CYCLE_TO_DIE			1536
-#define CYCLE_DELTA				50
-#define NBR_LIVE				21
-#define MAX_CHECKS				10
-
 /*
-**
+** A `char` specifying the type of an instruction
 */
 
 typedef char	t_arg_type;
 
-#define T_REG					1
-#define T_DIR					2
-#define T_IND					4
-#define T_LAB					8
+# define MAX_ARGS_NUMBER		4
+# define MAX_PLAYERS			4
+# define MEM_SIZE				(4*1024)
+# define IDX_MOD				(MEM_SIZE / 8)
+# define CHAMP_MAX_SIZE			(MEM_SIZE / 6)
 
-/*
-**
-*/
+# define COMMENT_CHAR			'#'
+# define LABEL_CHAR				':'
+# define DIRECT_CHAR			'%'
+# define SEPARATOR_CHAR			','
+
+# define LABEL_CHARS			"abcdefghijklmnopqrstuvwxyz_0123456789"
+
+# define NAME_CMD_STRING		".name"
+# define COMMENT_CMD_STRING		".comment"
+
+# define REG_NUMBER				16
+
+# define CYCLE_TO_DIE			1536
+# define CYCLE_DELTA			50
+# define NBR_LIVE				21
+# define MAX_CHECKS				10
+
+# define T_REG					1
+# define T_DIR					2
+# define T_IND					4
+# define T_LAB					8
 
 # define PROG_NAME_LENGTH		(128)
 # define COMMENT_LENGTH			(2048)
@@ -79,19 +71,51 @@ typedef struct		header_s
   char				comment[COMMENT_LENGTH + 1];
 }					header_t;
 
+/*
+** @struct s_op
+** A structure specifying how a valid instruction will be given
+** @var s_op::name
+** The operation's name
+** @var s_op::nargs
+** Number of arguments that an instruction takes
+** @var s_op::type_mask
+** Types of allowed arguments (an array of 3 bit masks)
+** @var s_op::opcode
+** The instruction's opcode
+** @var s_op::duration
+** The number of cycles it takes to execute an instruction
+** @var s_op::doc
+** An instruction's doc-string
+** @var s_op::modify_carry
+** Whether an instruction can modify the `carry` register
+** @var s_op::direct_size
+** Size of a `direct` argument (2 bytes if `direct_size` is `1`, 4 bytes if 0)
+** @var s_op::addr_restrict
+** Whether `indirect` arguments are restricted by `% IDX_MOD`
+** @var s_op::type_octet
+** Whether the opcode is followed by a type octet
+*/
+
 typedef struct		s_op
 {
-	const char			*name;				// operation name
-	uint8_t				nargs;				// number of arguments that an instruction takes
-	const uint8_t		type_mask[3];		// types of allowed arguments (a bit-mask)
-	uint8_t				opcode;				// the op-code
-	uint8_t				duration;			// operation duration
-	const char			*doc;				// doc string
-	uint8_t				modify_carry;		// whether operation modifies carry (a boolean)
-	uint8_t				direct_size;		// size of a T_DIR argument (2 bytes if 1, 4 bytes if 0)
-	uint8_t				addr_restrict;		// whether IND arguments are restrained by %IDX_MOD
+	const char			*name;
+	uint8_t				nargs;
+	const uint8_t		type_mask[3];
+	uint8_t				opcode;
+	uint32_t			duration;
+	const char			*doc;
+	uint8_t				modify_carry;
+	uint8_t				direct_size;
+	uint8_t				addr_restrict;
+	uint8_t				type_octet;
 }					t_op;
 
 # define NUM_INSTRUCT	16
+
+/*
+** An array specifying how each instruction will be given
+*/
+
+extern const t_op		g_op_tab[NUM_INSTRUCT + 1];
 
 #endif
