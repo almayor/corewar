@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 12:37:35 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/10 18:45:45 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 00:42:35 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@
 # define NOT_ENOUGH_DUMP	"Error! Not enough arguments to use key -dump\n"
 
 # define INSTRUCT_PREFIX	"      | "
+# define ADVANCE_PREFIX		"      > "
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instruct_utils.c                                   :+:      :+:    :+:   */
+/*   instruction_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:36 by user              #+#    #+#             */
-/*   Updated: 2020/11/10 18:22:12 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 00:53:07 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ uint32_t	get_instruction_length(const t_proc *proc)
 	uint32_t	length;
 	int			i;
 
-	if (proc->opcode == 0 && proc->opcode > NUM_INSTRUCT)
+	if (proc->opcode == 0 || proc->opcode > NUM_INSTRUCT)
 		return (1);
 	length = 1;
 	if (proc->opcode != 1 && proc->opcode != 9 &&

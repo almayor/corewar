@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:30 by user              #+#    #+#             */
-/*   Updated: 2020/11/10 20:56:23 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 00:42:57 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void		advance_log(const t_proc *proc)
 	uint32_t	i;
 
 	len = get_instruction_length(proc);
-	ft_printf("P%04lu | ADV %u (0x%.4x -> 0x%.4x)\n" INSTRUCT_PREFIX,
+	ft_printf("P%04lu > ADV %u (0x%.4x -> 0x%.4x)\n" ADVANCE_PREFIX,
 		proc->iproc, len, proc->pc, (proc->pc + len) % MEM_SIZE);
 	i = 0;
 	while (i < len)
