@@ -24,6 +24,7 @@ int		zjmp_instruct(t_proc *proc)
 				proc->pc, in, IDX_MOD, (proc->pc + (in % IDX_MOD)) % MEM_SIZE);
 		proc->pc = proc->pc + (in % IDX_MOD);
 		proc->pc %= MEM_SIZE;
+		proc->pc = proc->pc < 0 ? proc->pc + MEM_SIZE : proc->pc;
 		return (0);
 	}
 	else if ((g_vm.log >> 2) & 1)
