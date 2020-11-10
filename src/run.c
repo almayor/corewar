@@ -76,11 +76,12 @@ void 		run(void)
 		g_vm.cycles_since_die++;
 		if (g_vm.cycles_since_die == g_vm.cycles_to_die)
 		{
-			g_vm.checks_since_change++;
 			decimate();
-			g_vm.curr_nlive = 0;
 			update_champs();
 			update_ctd();
+			g_vm.cycles_since_die = 0;
+			g_vm.checks_since_change++;
+			g_vm.curr_nlive = 0;
 		}
 		g_vm.icycle++;
 		if (g_vm.log >> 1 & 1)
