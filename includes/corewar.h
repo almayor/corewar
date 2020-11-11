@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/11 17:00:38 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 18:04:05 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,8 +199,9 @@ int			zjmp_instruct(t_proc *proc);
 void	*ft_xcalloc(size_t count, size_t size);
 void	*ft_xmalloc(size_t size);
 
-int			check_instruction(const t_proc *proc);
 uint32_t	get_instruction_length(const t_proc *proc);
+int			check_instruction(const t_proc *proc);
+void		read_instruction(t_proc *proc);
 
 int			get_arg_length(const t_proc *proc, int n);
 t_arg_type	get_arg_type(const t_proc *proc, int n);
@@ -211,7 +212,6 @@ void	create_proc(uint32_t ichamp, int32_t pos);
 void	fork_proc(int32_t pos, const t_proc *parent);
 void	kill_proc(t_proc *proc);
 void	print_proc(const t_proc *proc);
-void	ready_proc(t_proc *proc);
 
 int32_t	mem_read(int32_t pos, int nbytes);
 void	mem_write(int32_t pos, int32_t val, int nbytes);

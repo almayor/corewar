@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:30 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 17:00:53 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 18:04:57 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void			cycle(void)
 			proc->cycles_busy--;
 		else
 		{
-			ready_proc(proc);
+			read_instruction(proc);
 			if (check_instruction(proc) == 0)
 				dispatch(proc);
 			advance(proc);
