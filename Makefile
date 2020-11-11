@@ -6,13 +6,13 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/25 11:33:25 by user              #+#    #+#              #
-#    Updated: 2020/11/10 00:32:37 by user             ###   ########.fr        #
+#    Updated: 2020/11/12 02:24:37 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ----- Name -----
 NAME 		= asm
-HEADER_NAME	= lem_in.h struct.h
+HEADER_NAME	= asm_struct.h translation.h op.h
 LIBFT_NAME	= libft.a
 
 # ----- Dir -----
@@ -23,7 +23,8 @@ OBJ_DIR		= ./obj/
 INC_DIR 	= ./includes/
 
 # ----- Lists -----
-FUNCS		= 	
+FUNCS		= 	main.c \
+				translation.c uni_utils.c writing_modules.c
 
 
 # ----- Auto -----
@@ -36,7 +37,7 @@ OBJ			= $(addprefix $(OBJ_DIR), $(FUNCS:.c=.o))
 INCLUDES	= -I $(INC_DIR) -I $(LIBFT_INC) 
 
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra #-Werror
 LFT			= -L $(LIBFT_DIR) -lft
 
 # --- Colors ---

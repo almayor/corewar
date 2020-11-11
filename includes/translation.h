@@ -6,13 +6,14 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:46 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 23:02:25 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 02:43:19 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _TRANSLATION_H_
 # define _TRANSLATION_H_
 
+# include <stdio.h>
 
 # include <stdlib.h>
 # include <fcntl.h>
@@ -26,6 +27,15 @@
 */
 
 void		translation(t_parser *stor);
+void		translate_common(t_parser *stor);
+
+void		write_name_or_comment(t_parser *stor, int len, int kind);
+void		translate_exec_code(t_parser *stor);
+
+int			get_code_size(t_token *token);
+
+void		string_writer(int fd, char *data, int len);
+void		int_writer(t_parser *stor, unsigned int data);
 
 
 /*
@@ -34,5 +44,7 @@ void		translation(t_parser *stor);
 
 void		core_error(t_parser *stor, char *message);
 void		core_free(t_parser *stor);
+void		free_parser_strings(t_parser *stor);
+void		free_tokens(t_parser *stor);
 
 #endif
