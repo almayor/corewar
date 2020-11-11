@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/11 18:19:15 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 18:35:35 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,17 @@ static void	greet(void)
 
 static void	print_usage(void)
 {
-	ft_printf("usage:\n");
-	ft_printf("\t./corewar [-n N <file.cor> | -dump N | -log] <file.cor> <...>\n");
-	ft_printf("\t%-20s Set every player his number (N)\n", "-n N <file.cor>");
-	ft_printf("\t%-20s Output memory field after N cycles\n", "-dump N");
-	ft_printf("\t%-20s Output player actions every cycle\n", "-log"); // ???
+	ft_printf("Usage:\n");
+	ft_printf("\tcorewar [-n N <file.cor> | -dump N | -log N] <file.cor> <...>\n");
+	ft_printf("\t%-20s : Set player number (N)\n", "-n N <file.cor>");
+	ft_printf("\t%-20s : Dumps memory after N cycles, then exits\n", "-dump N");
+	ft_printf("\t%-20s : Verbosity levels, can be added together to enable several\n", "-log N");
+	ft_printf("\t\t- %-2i : %s\n", 0, "only essentials");
+	ft_printf("\t\t- %-2i : %s\n", 1, "lives");
+	ft_printf("\t\t- %-2i : %s\n", 2, "cycles");
+	ft_printf("\t\t- %-2i : %s\n", 4, "operations (incl. parameters)");
+	ft_printf("\t\t- %-2i : %s\n", 8, "creation and removal of processes");
+	ft_printf("\t\t- %-2i : %s\n", 16, "PC movements (except for jumps)");
 }
 
 int			main(int argc, char **argv)
