@@ -6,28 +6,28 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:34:55 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 22:18:19 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 23:02:30 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/asm_struct_new.h"
+#include "../includes/asm_struct.h"
 #include "../includes/translation.h"
 
-void		calculate_code_size(t_frame *stor)
+void		calculate_code_size(t_parser *stor)
 {
 	t_token *head;
 
-	head = stor->token;
-	while (stor->token)
+	head = stor->tokens;
+	while (stor->tokens)
 	{
-		if (stor->token->type != NEW_LINE_TYPE)
-			get_code_size(stor->token);
-		stor->token = stor->token->next;
+		if (stor->tokens->type != NEW_LINE_TYPE)
+			get_code_size(stor->tokens);
+		stor->tokens = stor->tokens->next;
 	}
-	stor->token = head;
+	stor->tokens = head;
 }
 
-void		translate_common(t_frame *stor)
+void		translate_common(t_parser *stor)
 {
 	write_magic(stor, COREWAR_EXEC_MAGIC);
 	write_name(stor, PROG_NAME_LENGTH);
@@ -35,7 +35,7 @@ void		translate_common(t_frame *stor)
 }
 
 
-void		translation(t_frame *stor)
+void		translation(t_parser *stor)
 {
 	if ((stor->fd_cor = open(stor->file_name, O_RDWR | O_CREAT | O_TRUNC, 0777)) == -1)
 		core_error(stor, OPEN_COR_ERR);
@@ -46,5 +46,3 @@ void		translation(t_frame *stor)
 	ft_putendl_fd(stor->file_name, 1);
 	close(stor->fd_cor);
 }
-
-

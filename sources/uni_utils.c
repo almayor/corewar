@@ -6,15 +6,15 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:20 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 22:12:35 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 23:02:35 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/asm_struct_new.h"
+#include "../includes/asm_struct.h"
 #include "../includes/translation.h"
 
 
-void		core_error(t_frame *stor, char *message)
+void		core_error(t_parser *stor, char *message)
 {
 	if (stor)
 		core_free(stor);
@@ -22,9 +22,11 @@ void		core_error(t_frame *stor, char *message)
 	exit(EXIT_FAILURE);
 }
 
-void		core_free(t_frame *stor)
+void		core_free(t_parser *stor)
 {
 	if (!stor)
 		return ;
+	if (stor->tokens)
+		free_tokens(stor);
 	// function to clean all data stored in frame
 }

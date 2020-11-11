@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asm_struct_new.h                                   :+:      :+:    :+:   */
+/*   asm_struct.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 22:31:21 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 23:02:21 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _ASM_STRUCT_NEW_H_
-# define _ASM_STRUCT_NEW_H_
+#ifndef _ASM_STRUCT_H_
+# define _ASM_STRUCT_H_
 
 # define OPEN_COR_ERR	"Error: can't open file .cor"
 
@@ -65,22 +65,22 @@ typedef struct		s_token
 	t_point			point;
 	int				size;
 	unsigned char	op_code;
+	int				is_arg_code;
 	unsigned char	arg_code;
 	int				dir_size;
 	struct s_token	*next;
 }					t_token;
 
 
-typedef struct		s_frame
+typedef struct		s_parser
 {
-	char			*line;
 	t_point			point;
-	t_token			*token;
+	t_token			*tokens;
 	int				fd_cor;
-	int				ft_s;
+	int				fd_s;
 	char			*file_name;
 	char			*name;
 	char			*comment;
-}					t_frame;
+}					t_parser;
 
 #endif
