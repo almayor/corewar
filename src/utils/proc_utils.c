@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 21:16:11 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 17:00:21 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 17:32:19 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	fork_proc(int32_t pos, const t_proc *parent)
 	*proc = *parent;
 	proc->iproc = iproc++;
 	proc->pc = pos;
-	proc->cycles_since_live = 0;
+	// proc->cycles_since_live = 0;
 	proc->next = g_vm.procs;
 	proc->opcode = g_vm.mem[proc->pc];
 	if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
