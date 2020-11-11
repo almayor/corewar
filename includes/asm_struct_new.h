@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 22:12:13 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 22:31:21 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ typedef struct		s_frame
 	int				fd_cor;
 	int				ft_s;
 	char			*file_name;
-	int				name;
-	int				comment;
+	char			*name;
+	char			*comment;
 }					t_frame;
 
 #endif
