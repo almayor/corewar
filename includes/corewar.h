@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/11 18:04:05 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 19:35:16 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 # include "ft_printf.h"
 # include "op.h"
 # include "corewar_logs.h"
+
+# ifndef uint8_t
+typedef unsigned char	uint8_t;
+# endif
 
 typedef struct s_args	t_args;
 typedef struct s_proc	t_proc;
@@ -113,7 +117,6 @@ struct			s_args
 	const char	*fname;
 	int			num;
 };
-
 
 /*
 ** @struct s_vm
