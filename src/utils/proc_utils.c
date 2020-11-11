@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 21:16:11 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 01:18:33 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 16:01:34 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,7 @@ void	create_proc(uint32_t ichamp, int32_t pos)
 
 	proc = ft_xcalloc(sizeof(t_proc), 1);
 	proc->pc = pos;
-	proc->reg[0] = ichamp;
-	// proc->reg[0] = 0xffffffff; // test
+	proc->reg[0] = -ichamp; // ?????
 	proc->next = g_vm.procs;
 	proc->ichamp = ichamp;
 	proc->iproc = iproc++;
