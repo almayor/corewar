@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 18:12:17 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 17:00:19 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 20:15:48 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void				dispatch(t_proc *proc)
 		print_proc(proc);
 	ret = dispatcher[proc->opcode](proc);
 	if ((g_vm.log >> 2) & 1)
-		ft_printf(INSTRUCT_PREFIX "%s\n", ret ? "FAIL" : "OK");
+		ft_printf(LOG_OPER_PREFIX "%s\n", ret ? "FAIL" : "OK");
 }

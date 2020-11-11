@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:38:07 by user              #+#    #+#             */
-/*   Updated: 2020/11/10 20:10:13 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 20:16:07 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		sub_instruct(t_proc *proc)
 	out = in1 - in2;
 	proc->carry = (out == 0);
 	if ((g_vm.log >> 2) & 1)
-		ft_printf(INSTRUCT_PREFIX "%i - %i = %i (carry = %i)\n",
+		ft_printf(LOG_OPER_PREFIX "%i - %i = %i (carry = %i)\n",
 			in1, in2, out, proc->carry);
 	return (put_argument(proc, 2, out));
 }

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 12:37:35 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/11 16:36:23 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 20:15:26 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@
 # define DUMP_INVALID		"Error! -dump %s is invalid\n"
 # define NOT_ENOUGH_DUMP	"Error! Not enough arguments to use key -dump\n"
 
-# define INSTRUCT_PREFIX	"      | "
-# define ADVANCE_PREFIX		"      > "
+# define LOG_OPER_PREFIX_P	"P%05lu | "
+# define LOG_OPER_PREFIX	"       | "
+# define LOG_ADV_PREFIX_P	"P%05lu > "
+# define LOG_ADV_PREFIX		"       > "
 
 #endif
