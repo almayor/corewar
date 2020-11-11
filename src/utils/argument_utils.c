@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 18:20:55 by user              #+#    #+#             */
-/*   Updated: 2020/11/10 23:26:57 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 16:53:54 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 t_arg_type	get_arg_type(const t_proc *proc, int n)
 {
-	uint8_t	octet;
-
 	if (g_op_tab[proc->opcode].type_octet == 0)
 		return (DIR_CODE);
-	octet = g_vm.mem[(proc->pc + 1) % MEM_SIZE];
-	return ((octet >> (2 * (3 - n))) & 0x3);
+	return ((proc->type_octet >> (2 * (3 - n))) & 0x3);
 }
 
 int			get_arg_length(const t_proc *proc, int n)
@@ -33,8 +30,9 @@ int			get_arg_length(const t_proc *proc, int n)
 		return (DIR_SIZE / 2);
 	if (type == DIR_CODE)
 		return (DIR_SIZE);
-	else
+	if (type == IND_CODE)
 		return (IND_SIZE);
+	return (0);
 }
 
 int			load_argument(const t_proc *proc, int n, int32_t *val)

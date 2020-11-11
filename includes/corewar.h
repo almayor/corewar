@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/10 21:01:18 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 17:00:38 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ struct			s_proc
 	uint8_t		carry;
 	uint8_t		ichamp;
 	uint8_t		opcode;
+	uint8_t		type_octet;
 	uint32_t	cycles_busy;
 	int32_t		cycles_since_live;
 	uint64_t	iproc;
@@ -210,6 +211,7 @@ void	create_proc(uint32_t ichamp, int32_t pos);
 void	fork_proc(int32_t pos, const t_proc *parent);
 void	kill_proc(t_proc *proc);
 void	print_proc(const t_proc *proc);
+void	ready_proc(t_proc *proc);
 
 int32_t	mem_read(int32_t pos, int nbytes);
 void	mem_write(int32_t pos, int32_t val, int nbytes);

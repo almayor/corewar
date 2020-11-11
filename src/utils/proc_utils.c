@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 21:16:11 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 16:01:34 by user             ###   ########.fr       */
+/*   Updated: 2020/11/11 17:00:21 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,28 @@ void	kill_proc(t_proc *proc)
 			proc->iproc, proc->cycles_since_live, g_vm.cycles_to_die);
 	free(proc);
 	g_vm.nprocs--;
+}
+
+void	ready_proc(t_proc *proc)
+{
+	int			len;
+	int32_t		pc;
+	int			i;
+
+	pc = proc->pc + 1;
+	if (g_op_tab[proc->opcode].type_octet)
+		proc->type_octet = mem_read(pc++, 1);
+	else
+		proc->type_octet = 0;
+	ft_memset(proc->args, 0, sizeof(int32_t) * 3);
+	i = 0;
+	while (i < g_op_tab[proc->opcode].nargs)
+	{
+		len = get_arg_length(proc, i);
+		proc->args[i] = mem_read(pc, len);
+		pc = (pc + len) % MEM_SIZE;
+		i++;
+	}
 }
 
 void	fork_proc(int32_t pos, const t_proc *parent)
