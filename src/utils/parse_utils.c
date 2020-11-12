@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 11:07:35 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 21:19:36 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/12 21:24:36 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,18 @@ void		init_numbers(void)
 		}
 		i++;
 	}
+}
+
+int	is_number(const char *string)
+{
+	int i;
+
+	i = 0;
+	while (string[i])
+	{
+		if (!ft_isdigit(string[i]))
+			return (1);
+		i++;
+	}
+	return (0);
 }

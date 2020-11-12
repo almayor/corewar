@@ -6,25 +6,11 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:35:24 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 18:14:17 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/12 21:24:41 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-
-int	is_number(const char *string)
-{
-	int i;
-
-	i = 0;
-	while (string[i])
-	{
-		if (!ft_isdigit(string[i]))
-			return (1);
-		i++;
-	}
-	return (0);
-}
 
 void		validate_dump(int argc, char **argv, int *i)
 {
