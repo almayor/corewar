@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   corewar_logs.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 12:37:35 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 20:57:33 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/12 21:53:14 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 # define CHAMP_ALIVE		"Player %u (%s) is said to be alive\n"
 # define CHAMP_WON			"Player %u (%s) has won!\n"
-# define NO_LIVE			"No `live` has been executed during the game!"
+# define NO_LIVE			"No `live` has been executed during the game!\n"
 
 # define MALLOC_ERROR		"Malloc error\n"
 
