@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 21:16:11 by user              #+#    #+#             */
-/*   Updated: 2020/11/12 19:34:47 by user             ###   ########.fr       */
+/*   Updated: 2020/11/13 00:26:50 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	kill_proc(t_proc *proc)
 			LOG_OPER_PREFIX "process hasn't lived for %u cycles (CTD %ld)\n",
 			proc->iproc, proc->cycles_since_live, g_vm.cycles_to_die);
 	free(proc);
-	g_vm.nprocs--;
+	--g_vm.nprocs;
 }
 
 void	fork_proc(int32_t pos, const t_proc *parent)
@@ -64,7 +64,7 @@ void	fork_proc(int32_t pos, const t_proc *parent)
 	else
 		proc->opcode = 0;
 	g_vm.procs = proc;
-	g_vm.nprocs++;
+	++g_vm.nprocs;
 	if ((g_vm.log >> 3) & 1)
 		ft_printf(LOG_OPER_PREFIX_P "NEW\n"
 			LOG_OPER_PREFIX "PC = %i\n",
@@ -87,5 +87,5 @@ void	create_proc(uint32_t ichamp, int32_t pos)
 	else
 		proc->opcode = 0;
 	g_vm.procs = proc;
-	g_vm.nprocs++;
+	++g_vm.nprocs;
 }
