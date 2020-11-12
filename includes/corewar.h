@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 21:05:40 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/12 21:17:25 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 typedef unsigned char	uint8_t;
 # endif
 
-typedef struct s_args	t_args;
+typedef struct s_parse	t_parse;
 typedef struct s_proc	t_proc;
 typedef struct s_champ	t_champ;
 typedef struct s_vm		t_vm;
@@ -127,7 +127,7 @@ struct			s_champ
 **	Данная структура была добавлена в g_vm.
 */
 
-struct			s_args
+struct			s_parse
 {
 	const char	*fname;
 	int			num;
@@ -184,7 +184,7 @@ struct			s_vm
 	uint64_t	dump_ncycles;
 	int			dump_flag;
 	uint8_t		log;
-	t_args		args[MAX_PLAYERS];
+	t_parse		temp[MAX_PLAYERS];
 };
 
 /*

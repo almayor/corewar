@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 11:07:35 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/10 00:31:44 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 21:19:36 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	is_contain(int n)
 	i = 0;
 	while (i < 4)
 	{
-		if (g_vm.args[i].num == n)
+		if (g_vm.temp[i].num == n)
 			return (1);
 		i++;
 	}
@@ -35,7 +35,7 @@ void		init_numbers(void)
 	while (i < 4)
 	{
 		j = 0;
-		if (g_vm.args[i].num < 0)
+		if (g_vm.temp[i].num < 0)
 		{
 			while (j < 4)
 			{
@@ -43,7 +43,7 @@ void		init_numbers(void)
 					break ;
 				j++;
 			}
-			g_vm.args[i].num = j + 1;
+			g_vm.temp[i].num = j + 1;
 		}
 		i++;
 	}

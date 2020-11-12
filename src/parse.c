@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 18:17:37 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/12 21:17:59 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ static void	save_player(int num, const char *name, char *snum)
 	{
 		while (j < MAX_PLAYERS)
 		{
-			if (g_vm.args[j].num > 0 && g_vm.args[j].num == num)
+			if (g_vm.temp[j].num > 0 && g_vm.temp[j].num == num)
 				terminate(PROG_NUM_USED, NULL, snum);
 			j++;
 		}
-		g_vm.args[i].num = num;
-		g_vm.args[i].fname = name;
+		g_vm.temp[i].num = num;
+		g_vm.temp[i].fname = name;
 		g_vm.nchamps++;
 		i++;
 	}

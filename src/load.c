@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:26:26 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 16:22:56 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 21:18:37 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,10 @@ void		load(void)
 	i = 0;
 	while (i < 4)
 	{
-		if (g_vm.args[i].num > 0)
+		if (g_vm.temp[i].num > 0)
 		{
-			load_champion(g_vm.args[i].fname, g_vm.args[i].num - 1, pos);
-			create_proc(g_vm.args[i].num, pos);
+			load_champion(g_vm.temp[i].fname, g_vm.temp[i].num - 1, pos);
+			create_proc(g_vm.temp[i].num, pos);
 			pos += step;
 		}
 		i++;
