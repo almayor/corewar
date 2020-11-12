@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 18:09:51 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/12 21:05:40 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,8 +237,6 @@ void	mem_write(int32_t pos, int32_t val, int nbytes);
 void	cleanup(void);
 void	terminate(const char *format, ...);
 
-
-void		dispatch(t_proc *proc);
 void		cycle(void);
 void		run(void);
 void		dump(void);

@@ -3,21 +3,22 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
+#    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/07 15:43:25 by fallard           #+#    #+#              #
-#    Updated: 2020/11/12 16:34:00 by user             ###   ########.fr        #
+#    Updated: 2020/11/12 20:56:43 by fallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-HLIB_NAME = libft.h
+HLIB_NAME = libft.h ft_printf.h
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 LIB_DIR = srcs/lib/
+PF_DIR = srcs/ft_printf/
 INC_DIR = includes/
 
 SRC_LIB = ft_atoi.c \
@@ -87,11 +88,72 @@ get_next_line.c \
 ft_splitdel.c \
 ft_quick_sort.c
 
-HEAD_LIB = $(addprefix $(INC_DIR), $(HLIB_NAME))
+SRC_PF = complete_specifier/complete_specifier.c \
+complete_specifier/functions/complete_specifier_b.c \
+complete_specifier/functions/complete_specifier_c.c \
+complete_specifier/functions/complete_specifier_f.c \
+complete_specifier/functions/complete_specifier_i.c \
+complete_specifier/functions/complete_specifier_o.c \
+complete_specifier/functions/complete_specifier_p.c \
+complete_specifier/functions/complete_specifier_s.c \
+complete_specifier/functions/complete_specifier_u.c \
+complete_specifier/functions/complete_specifier_x.c \
+data_specifier/data_specifier.c \
+data_specifier/functions/data_specifier_c.c \
+data_specifier/functions/data_specifier_f.c \
+data_specifier/functions/data_specifier_i.c \
+data_specifier/functions/data_specifier_p.c \
+data_specifier/functions/data_specifier_pc.c \
+data_specifier/functions/data_specifier_s.c \
+data_specifier/functions/data_specifier_u.c \
+ft_asprintf.c \
+ft_dprintf.c \
+ft_printf.c \
+ft_snprintf.c \
+ft_sprintf.c \
+ft_vasprintf.c \
+ft_vdprintf.c \
+ft_vprintf.c \
+ft_vsnprintf.c \
+ft_vsprintf.c \
+parse_specifier/parse_specifier.c \
+print_specifier/functions/print_specifier_b.c \
+print_specifier/functions/print_specifier_c.c \
+print_specifier/functions/print_specifier_f.c \
+print_specifier/functions/print_specifier_i.c \
+print_specifier/functions/print_specifier_o.c \
+print_specifier/functions/print_specifier_p.c \
+print_specifier/functions/print_specifier_s.c \
+print_specifier/functions/print_specifier_u.c \
+print_specifier/functions/print_specifier_x.c \
+print_specifier/functions/print_specifier_xx.c \
+print_specifier/print_specifier.c \
+utils/get_ndigits_int.c \
+utils/get_ndigits_uint.c \
+utils/min.c \
+utils/printing/pf_putchar.c \
+utils/printing/pf_putfloat.c \
+utils/printing/pf_putint.c \
+utils/printing/pf_putnchar.c \
+utils/printing/pf_puts.c \
+utils/printing/pf_putuint.c \
+validate_specifier/functions/validate_specifier_b.c \
+validate_specifier/functions/validate_specifier_c.c \
+validate_specifier/functions/validate_specifier_f.c \
+validate_specifier/functions/validate_specifier_i.c \
+validate_specifier/functions/validate_specifier_p.c \
+validate_specifier/functions/validate_specifier_s.c \
+validate_specifier/functions/validate_specifier_u.c \
+validate_specifier/functions/validate_specifier_x.c \
+validate_specifier/validate_specifier.c 
+
+HEADER = $(addprefix $(INC_DIR), $(HLIB_NAME))
+PRIVATE = $(PF_DIR)/ft_printf_private.h
 
 TMP_LIB = $(addprefix $(LIB_DIR), $(SRC_LIB:.c=.o))
+TMP_PF = $(addprefix $(PF_DIR), $(SRC_PF:.c=.o))
 
-INCLUDES = -I $(INC_DIR)
+INCLUDES = -I $(INC_DIR) -I $(PF_DIR)
 
 RD = \033[031m
 GR = \033[032m
@@ -103,17 +165,18 @@ EOC = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(TMP_LIB)
-	@ar rc $(NAME) $(TMP_LIB)
+$(NAME): $(TMP_LIB) $(TMP_PF) $(HEADER) $(PRIVATE)
+	@ar rc $(NAME) $(TMP_LIB) $(TMP_PF)
 	@printf "\n$(GR)>> $(NAME) created! <<$(EOC)\n"
 	
-%.o:%.c $(HEAD_LIB)
+%.o:%.c $(HEADER) $(PRIVATE)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	@printf "$(CN).$(EOC)"
 
 clean:
-	@-rm $(TMP_LIB) 2>/dev/null && \
+	@-rm $(TMP_LIB) $(TMP_PF) 2>/dev/null && \
 		printf "$(YW)libft: $(RD)object files deleted$(EOC)\n" || true
+	
 
 fclean: clean
 	@-rm $(NAME) 2>/dev/null && \

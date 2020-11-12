@@ -6,11 +6,31 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:30 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 20:15:08 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 18:37:12 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+
+static t_instruct	dispatcher[NUM_INSTRUCT + 1] = {
+	NULL,
+	live_instruct,
+	ld_instruct,
+	st_instruct,
+	add_instruct,
+	sub_instruct,
+	and_instruct,
+	or_instruct,
+	xor_instruct,
+	zjmp_instruct,
+	ldi_instruct,
+	sti_instruct,
+	fork_instruct,
+	lld_instruct,
+	lldi_instruct,
+	lfork_instruct,
+	aff_instruct,
+};
 
 static void		advance_log(const t_proc *proc)
 {
@@ -38,11 +58,17 @@ static void 	advance(t_proc *proc)
 			advance_log(proc);
 		proc->pc = (proc->pc + get_instruction_length(proc)) % MEM_SIZE;
 	}
-	proc->opcode = g_vm.mem[proc->pc];
-	if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
-		proc->cycles_busy = g_op_tab[proc->opcode].duration - 1;
-	else
-		proc->opcode = 0;
+}
+
+static void		dispatch(t_proc *proc)
+{
+	int	ret;
+
+	if ((g_vm.log >> 2) & 1)
+		print_proc(proc);
+	ret = dispatcher[proc->opcode](proc);
+	if ((g_vm.log >> 2) & 1)
+		ft_printf(LOG_OPER_PREFIX "%s\n", ret ? "FAIL" : "OK");
 }
 
 void			cycle(void)
@@ -53,9 +79,7 @@ void			cycle(void)
 	while (proc)
 	{
 		proc->cycles_since_live++;
-		if (proc->cycles_busy)
-			proc->cycles_busy--;
-		else
+		if (proc->cycles_busy == 0)
 		{
 			read_instruction(proc);
 			if (check_instruction(proc) == 0)

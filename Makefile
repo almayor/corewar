@@ -3,20 +3,37 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
+#    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/09/05 18:17:42 by unite             #+#    #+#              #
-#    Updated: 2020/11/12 16:34:07 by user             ###   ########.fr        #
+#    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
+#    Updated: 2020/11/12 21:05:10 by fallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = corewar
 
-SRC_NAME = \
+HEAD_NAME = corewar.h corewar_logs.h op.h
+LIB_NAME = libft.a
+
+CC = gcc -g
+CFLAGS = -Wno-pointer-sign -Wall #-Wextra -Werror
+
+SRC_DIR = src/
+INC_DIR = includes/
+LIB_DIR = libft/
+
+RD = \033[031m
+GR = \033[032m
+YW = \033[033m
+BL = \033[034m
+PK = \033[035m
+CN = \033[036m
+EOC = \033[0m
+
+SRC = \
 cycle.c \
 dump.c \
 load.c \
-dispatch.c \
 main.c \
 op.c \
 parse.c \
@@ -45,89 +62,34 @@ utils/memory_utils.c \
 utils/parse_utils.c \
 utils/proc_utils.c \
 
-################################################################################
+TMP = $(addprefix $(SRC_DIR), $(SRC:.c=.o))
+HEADER = $(addprefix $(INC_DIR), $(HEAD_NAME))
+LIBFT = $(addprefix $(LIB_DIR), $(LIB_NAME))
 
-RD = \033[031m
-GR = \033[032m
-YW = \033[033m
-BL = \033[034m
-PK = \033[035m
-CN = \033[036m
-WT = \033[037m
-EOC = \033[0m
+INCLUDES = -I $(INC_DIR) -I $(LIB_DIR)$(INC_DIR)
 
-################################################################################
+all: $(NAME) 
 
-PATHS = src
-PATHO = obj
-PATHI = includes libft/includes ft_printf
-PATHPRINTF = ft_printf
+$(NAME): $(LIBFT) $(TMP)
+	@$(CC) $(CFLAGS) -o $(NAME) $(TMP) $(INCLUDES) -L $(LIB_DIR) -lft
+	@printf "$(GR)>> Program $(NAME) created <<\n$(EOC)"
 
-################################################################################
+FORCE:		;
 
-CC = gcc
-RM = rm
-MKDIR = /bin/mkdir
+$(LIBFT): FORCE
+	@make -C $(LIB_DIR)
 
-################################################################################
+%.o:%.c $(HEADER)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-COMPILE = $(CC) -c
-CFLAGS += -Werror -Wall -Wextra
-CFLAGS += -O3 -std=gnu11 -ffast-math -march=native
-CFLAGS += -MMD
-CFLAGS += $(foreach path, $(PATHI), -I$(path))
+clean:
+	@rm -f $(TMP)
+	@make clean -C $(LIB_DIR)
+	@printf "$(YW)$(NAME): $(RD)Object files deleted.\n$(EOC)"
 
-LINK = $(CC)
-LFLAGS += -lftprintf -L .
+fclean: clean
+	@rm -f $(NAME)
+	@make fclean -C $(LIB_DIR)
+	@printf "$(YW)$(NAME): $(RD)Program $(NAME) deleted.\n$(EOC)"
 
-################################################################################
-
-ifeq ($(DEBUG), 1) 
-	COMPILE += -g
-endif
-
-################################################################################
-
-SRC = $(patsubst %.c, $(PATHS)/%.c, $(SRC_NAME))
-OBJ = $(patsubst %.c, $(PATHO)/%.o, $(SRC_NAME))
-
-$(NAME) : $(OBJ)
-	@$(LINK) $^ -o $@ $(LFLAGS)
-	@printf "\n$(GR)>> Program $(NAME) created! <<\n$(EOC)"
-
-$(PATHO)/%.o : $(PATHS)/%.c
-	@$(MKDIR) -p $(@D)
-	@$(COMPILE) $(CFLAGS) $< -o $@
-	@printf "$(CN).$(EOC)"
-
-################################################################################
-
-DEP += $(patsubst %.c, $(PATHO)/%.d, $(SRC_NAME))
-
--include $(DEP)
-
-################################################################################
-
-.DEFAULT_GOAL = all
-
-.PHONY : all clean fclean re libftprintf
-
-all : libftprintf $(NAME)
-
-fclean : clean
-	@-$(RM) $(NAME) 2>/dev/null && \
-		printf "$(YW)$(NAME): $(RD)program deleted\n$(EOC)" || true
-	@$(MAKE) -C $(PATHPRINTF) fclean
-
-clean :
-	@-$(RM) -r $(PATHO) 2>/dev/null && \
-		printf "$(YW)$(NAME): $(RD)object files deleted\n$(EOC)" || true
-	@$(MAKE) -C $(PATHPRINTF) clean
-
-re : fclean all
-
-libftprintf :
-	@$(MAKE) -C $(PATHPRINTF)
-
-################################################################################
-
+re: fclean all

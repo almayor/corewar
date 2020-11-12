@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   complete_specifier_c.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/19 17:24:28 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 21:05:56 by fallard          ###   ########.fr       */
+/*   Created: 2020/02/18 21:17:51 by unite             #+#    #+#             */
+/*   Updated: 2020/06/30 19:22:19 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf_private.h"
 
-int			ft_abs(int nb)
+int	complete_specifier_c(t_specifier *specif, void *data)
 {
-	if (nb < 0)
-		return (-nb);
+	(void)data;
+	if (specif->width.isgiven)
+		specif->npad_width = specif->width.val - min(specif->width.val, 1);
 	else
-		return (nb);
-}
-
-long		ft_labs(long nb)
-{
-	if (nb < 0)
-		return (-nb);
-	else
-		return (nb);
-}
-
-long long	ft_llabs(long long nb)
-{
-	if (nb < 0)
-		return (-nb);
-	else
-		return (nb);
+		specif->npad_width = 0;
+	return (0);
 }
