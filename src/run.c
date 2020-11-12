@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/12 15:55:15 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 18:11:32 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ void 		run(void)
 {
 	while (g_vm.nprocs)
 	{
+		cycle();
 		if (g_vm.dump_flag && g_vm.dump_ncycles == g_vm.icycle)
 			dump();
-		cycle();
-		g_vm.icycle++;
+		++g_vm.icycle;
 		if (g_vm.log >> 1 & 1)
 			ft_printf("It is now cycle %lu\n", g_vm.icycle);
 		++g_vm.cycles_since_die;
