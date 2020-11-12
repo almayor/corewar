@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 21:16:11 by user              #+#    #+#             */
-/*   Updated: 2020/11/13 00:26:50 by user             ###   ########.fr       */
+/*   Updated: 2020/11/13 01:19:34 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,7 @@ void	fork_proc(int32_t pos, const t_proc *parent)
 	proc->pc = pos;
 	// proc->cycles_since_live = 0;
 	proc->next = g_vm.procs;
-	proc->opcode = g_vm.mem[proc->pc];
-	if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
-		proc->cycles_busy = g_op_tab[proc->opcode].duration;
-	else
-		proc->opcode = 0;
+	proc->opcode = 0;
 	g_vm.procs = proc;
 	++g_vm.nprocs;
 	if ((g_vm.log >> 3) & 1)
@@ -81,11 +77,7 @@ void	create_proc(uint32_t ichamp, int32_t pos)
 	proc->next = g_vm.procs;
 	proc->ichamp = ichamp;
 	proc->iproc = iproc++;
-	proc->opcode = g_vm.mem[proc->pc];
-	if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
-		proc->cycles_busy = g_op_tab[proc->opcode].duration - 1;
-	else
-		proc->opcode = 0;
+	proc->opcode = 0;
 	g_vm.procs = proc;
 	++g_vm.nprocs;
 }
