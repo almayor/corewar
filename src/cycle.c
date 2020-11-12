@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:30 by user              #+#    #+#             */
-/*   Updated: 2020/11/12 18:37:12 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 20:54:59 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ static void		advance_log(const t_proc *proc)
 	uint32_t	len;
 	uint32_t	i;
 
+	if (proc->opcode == 9 && proc->carry == 1)
+		return ;
 	len = get_instruction_length(proc);
-	ft_printf(LOG_ADV_PREFIX_P "ADV %u (0x%.4x -> 0x%.4x)\n" LOG_OPER_PREFIX,
+	ft_printf(LOG_ADV_PREFIX_P "ADV %u (0x%.4x -> 0x%.4x)\n" LOG_ADV_PREFIX,
 		proc->iproc, len, proc->pc, (proc->pc + len) % MEM_SIZE);
 	i = 0;
 	while (i < len)
@@ -52,15 +54,10 @@ static void		advance_log(const t_proc *proc)
 static void 	advance(t_proc *proc)
 {
 	if (proc->opcode != 9 || proc->carry == 0)
-	{
-		if (((g_vm.log >> 4) & 1) &&
-			proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
-			advance_log(proc);
 		proc->pc = (proc->pc + get_instruction_length(proc)) % MEM_SIZE;
-	}
 }
 
-static void		dispatch(t_proc *proc)
+static int		dispatch(t_proc *proc)
 {
 	int	ret;
 
@@ -69,6 +66,7 @@ static void		dispatch(t_proc *proc)
 	ret = dispatcher[proc->opcode](proc);
 	if ((g_vm.log >> 2) & 1)
 		ft_printf(LOG_OPER_PREFIX "%s\n", ret ? "FAIL" : "OK");
+	return (ret);
 }
 
 void			cycle(void)
@@ -83,7 +81,11 @@ void			cycle(void)
 		{
 			read_instruction(proc);
 			if (check_instruction(proc) == 0)
+			{
 				dispatch(proc);
+				if (((g_vm.log >> 4) & 1))
+					advance_log(proc);
+			}
 			advance(proc);
 		}
 		proc = proc->next;

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/12 19:20:27 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 19:52:51 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void 		run(void)
 			ft_printf("It is now cycle %lu\n", g_vm.icycle);
 		cycle();
 		update_opcodes();
-		if (g_vm.dump_flag && g_vm.dump_ncycles == g_vm.icycle)
+		if (g_vm.dump_flag && g_vm.dump_ncycles <= g_vm.icycle)
 			dump();
 		++g_vm.cycles_since_die;
 		if (g_vm.cycles_to_die <= 0 ||

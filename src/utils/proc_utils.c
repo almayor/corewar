@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 21:16:11 by user              #+#    #+#             */
-/*   Updated: 2020/11/12 18:43:49 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 19:34:47 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	create_proc(uint32_t ichamp, int32_t pos)
 	proc->iproc = iproc++;
 	proc->opcode = g_vm.mem[proc->pc];
 	if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
-		proc->cycles_busy = g_op_tab[proc->opcode].duration;
+		proc->cycles_busy = g_op_tab[proc->opcode].duration - 1;
 	else
 		proc->opcode = 0;
 	g_vm.procs = proc;

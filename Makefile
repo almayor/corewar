@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
+#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/12 21:43:05 by fallard          ###   ########.fr        #
+#    Updated: 2020/11/12 21:48:03 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ HEAD_NAME = corewar.h corewar_logs.h op.h
 LIB_NAME = libft.a
 
 CC = gcc -g
-CFLAGS = -Wno-pointer-sign -Wall #-Wextra -Werror
+# CFLAGS = -Wno-pointer-sign -Wall #-Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 SRC_DIR = src/
 INC_DIR = includes/

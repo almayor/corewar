@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:33 by user              #+#    #+#             */
-/*   Updated: 2020/11/09 22:42:16 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 21:52:11 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 static void	free_procs(void)
 {
 	t_proc	*proc;
+	t_proc	*tmp;
 
 	proc = g_vm.procs;
 	while (proc)
 	{
+		tmp = proc->next;
 		free(proc);
-		proc = proc->next;
+		proc = tmp;
 	}
 }
 
