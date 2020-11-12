@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dump.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:35:24 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 21:24:41 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/13 01:17:08 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void		dump(void)
 	{
 		ft_printf("0x%04x :", shift);
 		j = 0;
-		while (j++ < 64)
+		while (j++ < 32)
 			ft_printf(" %02x", g_vm.mem[i++]);
 		ft_printf("\n");
-		shift = shift + 64;
+		shift = shift + 32;
 	}
 	cleanup();
 	exit(EXIT_SUCCESS);
