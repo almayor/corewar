@@ -6,7 +6,7 @@
 #    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/12 21:12:19 by fallard          ###   ########.fr        #
+#    Updated: 2020/11/12 21:43:05 by fallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,7 @@ $(LIBFT): FORCE
 
 %.o:%.c $(HEADER)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	@printf "$(CN)* Compile $< to $@$(EOC)\n"
+	@printf "$(CN)* Compile $(YW)$< $(CN)to $(YW)$@$(EOC)\n"
 
 clean:
 	@rm -f $(TMP)
