@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 18:19:13 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 15:55:15 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ static void	update_champs(void)
 	int		ichamp;
 	t_champ	champ;
 
-	ichamp = 1;
-	while (ichamp <= MAX_PLAYERS)
+	ichamp = 0;
+	while (ichamp < MAX_PLAYERS)
 	{
 		champ = g_vm.champs[ichamp];
 		if (champ.ichamp > 0)

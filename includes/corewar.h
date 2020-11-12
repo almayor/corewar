@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/11 19:35:16 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 16:21:54 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_args	t_args;
 typedef struct s_proc	t_proc;
 typedef struct s_champ	t_champ;
 typedef struct s_vm		t_vm;
+typedef union u_int		t_int;
 
 /*
 ** A pointer to the function that would execute an instruction
@@ -36,6 +37,20 @@ typedef struct s_vm		t_vm;
 */
 
 typedef int		(*t_instruct)(t_proc *proc);
+
+/*
+** A union used for type punning
+*/
+
+union					u_int
+{
+	int8_t		int8;
+	int16_t		int16;
+	int32_t		int32;
+	uint8_t		uint8;
+	uint16_t	uint16;
+	uint32_t	uint32;
+};
 
 /*
 ** @struct s_proc
@@ -227,7 +242,7 @@ void		dispatch(t_proc *proc);
 void		cycle(void);
 void		run(void);
 void		dump(void);
-void		load(int argc, char **argv);
+void		load(void);
 
 /*
 ** >----------------< Parsing arguments >----------------<

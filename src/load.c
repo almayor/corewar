@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:26:26 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/10 22:24:49 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 16:22:56 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ static void	read_bytecode(const char *file, int n, int fd, uint32_t pos)
 	ft_memset(buf, 0, CHAMP_MAX_SIZE);
 	if (lseek(fd, 4, SEEK_CUR) < 0) // ???
 		terminate(READ_ERROR, file, strerror(errno));
-	if ((bytes = read(fd, buf, g_vm.champs[n].size)) != g_vm.champs[n].size)
+	bytes = read(fd, buf, g_vm.champs[n].size);
+	if (bytes < 0 || (size_t)bytes != g_vm.champs[n].size)
 		terminate(CHAMP_WRONG_SIZE, n, g_vm.champs[n].name);
 	i = 0;
 	while (i < bytes)
@@ -77,7 +78,7 @@ static void	load_champion(const char *file, int n, uint32_t pos)
 	close(fd);
 }
 
-void		load(int argc, char **argv)
+void		load(void)
 {
 	int 	i;
 	int 	step;
