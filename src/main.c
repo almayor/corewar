@@ -6,13 +6,13 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 16:22:01 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 18:32:17 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-t_vm	g_vm = { .cycles_to_die = CYCLE_TO_DIE, .log = 0 };
+t_vm	g_vm = { .cycles_to_die = CYCLE_TO_DIE, .log = 31 };
 
 static void	conclude(void)
 {

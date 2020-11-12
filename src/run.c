@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/12 18:11:32 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 18:58:10 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,27 @@ static void decimate(void)
 		}
 		else
 			proc_curr = proc_next;
+	}
+}
+
+static void update_opcodes(void)
+{
+	t_proc	*proc;
+
+	proc = g_vm.procs;
+	while (proc)
+	{
+		if (proc->cycles_busy)
+			proc->cycles_busy--;
+		else
+		{
+			proc->opcode = g_vm.mem[proc->pc];
+			if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
+				proc->cycles_busy = g_op_tab[proc->opcode].duration - 1;
+			else
+				proc->opcode = 0;
+		}
+		proc = proc->next;
 	}
 }
 
@@ -71,11 +92,9 @@ void 		run(void)
 	while (g_vm.nprocs)
 	{
 		cycle();
+		update_opcodes();
 		if (g_vm.dump_flag && g_vm.dump_ncycles == g_vm.icycle)
 			dump();
-		++g_vm.icycle;
-		if (g_vm.log >> 1 & 1)
-			ft_printf("It is now cycle %lu\n", g_vm.icycle);
 		++g_vm.cycles_since_die;
 		if (g_vm.cycles_to_die <= 0 ||
 			g_vm.cycles_since_die == g_vm.cycles_to_die)
@@ -87,5 +106,8 @@ void 		run(void)
 			g_vm.checks_since_change++;
 			g_vm.curr_nlive = 0;
 		}
+		++g_vm.icycle;
+		if (g_vm.log >> 1 & 1)
+			ft_printf("It is now cycle %lu\n", g_vm.icycle);
 	}	
 }
