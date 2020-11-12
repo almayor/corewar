@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/10 00:56:38 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 18:17:37 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,32 @@ static void	save_player(int num, const char *name, char *snum)
 	}
 }
 
+static void	validate_log(int argc, char **argv, int *i)
+{
+	int num;
+	int len;
+
+	if (*i + 1 > argc - 1)
+		terminate(NOT_ENOUGH, "-log");
+	(*i)++;
+	if (is_number(argv[*i]))
+		terminate(BAD_LOG_FORMAT, argv[*i]);
+	len = ft_strlen(argv[*i]);
+	if (len > 2 || len < 1)
+		terminate(BAD_LOG_FORMAT, argv[*i]);
+	num = ft_atoi(argv[*i]);
+	if (num > 31)
+		terminate(OUT_OF_RANGE_LOG);
+	g_vm.log = num;
+}
+
+
 static void	validate_n(int argc, char **argv, int *i)
 {
 	int num;
 
 	if (*i + 2 > argc - 1)
-		terminate(NOT_ENOUGH_N);
+		terminate(NOT_ENOUGH, "-n");
 	(*i)++;
 	if (ft_strlen(argv[*i]) > 1 || !ft_isdigit(argv[*i][0]))
 		terminate(BAD_N_FORMAT, argv[*i]);
@@ -57,6 +77,8 @@ static void	read_keys(int argc, char **argv, int *i)
 		validate_n(argc, argv, i);
 	else if (!ft_strcmp(argv[*i], "-dump"))
 		validate_dump(argc, argv, i);
+	else if (!ft_strcmp(argv[*i], "-log"))
+		validate_log(argc, argv, i);
 	else
 		terminate(INVALID_KEY, argv[*i]);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   dump.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:35:24 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 14:26:09 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 18:14:17 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-static int	is_number(const char *string)
+int	is_number(const char *string)
 {
 	int i;
 
@@ -31,14 +31,12 @@ void		validate_dump(int argc, char **argv, int *i)
 	int j;
 	int digit;
 
-	j = 0;
 	if (*i + 1 > argc - 1)
-		terminate(NOT_ENOUGH_DUMP);
+		terminate(NOT_ENOUGH, "-dump");
 	(*i)++;
-	while (argv[*i][j] == ' ')
-		j++;
-	if (is_number(argv[*i]) + j)
+	if (is_number(argv[*i]))
 		terminate(DUMP_INVALID, argv[*i]);
+	j = 0;
 	while (ft_isdigit(argv[*i][j]))
 	{
 		digit = argv[*i][j] - '0';

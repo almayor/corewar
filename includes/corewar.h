@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   corewar.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 16:21:54 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 18:09:51 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,5 +251,6 @@ void		load(void);
 void			parse_args(int argc, char **argv);
 void			validate_dump(int argc, char **argv, int *i);
 void			init_numbers(void);
+int				is_number(const char *string);
 
 #endif
