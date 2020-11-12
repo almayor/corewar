@@ -1,8 +1,8 @@
 vm_champs
 vm-champ-liniux
-libft.a
 *.o
 a.out
 corewar
 *.cor
 .vscode
+*.a
