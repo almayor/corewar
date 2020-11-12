@@ -1,8 +1,11 @@
 vm_champs
-vm-champ-liniux
+vm-champ-linux
+*.a
 *.o
 a.out
 corewar
 *.cor
 .vscode
-*.a
+resources
+obj
+project_utils
