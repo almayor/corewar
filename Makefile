@@ -6,7 +6,7 @@
 #    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/12 21:05:10 by fallard          ###   ########.fr        #
+#    Updated: 2020/11/12 21:12:19 by fallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,8 @@ $(LIBFT): FORCE
 	@make -C $(LIB_DIR)
 
 %.o:%.c $(HEADER)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@printf "$(CN)* Compile $< to $@$(EOC)\n"
 
 clean:
 	@rm -f $(TMP)
