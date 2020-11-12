@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:35:24 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/10 00:40:58 by user             ###   ########.fr       */
+/*   Updated: 2020/11/12 14:26:09 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void		dump(void)
 	shift = 0;
 	while (i < MEM_SIZE)
 	{
-		ft_printf("%#06x :", shift);
+		ft_printf("0x%04x :", shift);
 		j = 0;
 		while (j++ < 64)
 			ft_printf(" %02x", g_vm.mem[i++]);
