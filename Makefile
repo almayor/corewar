@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/13 16:13:31 by user             ###   ########.fr        #
+#    Updated: 2020/11/13 21:28:51 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,9 @@ CFLAGS += -O3 -std=gnu11 -ffast-math -march=native
 CFLAGS += -MMD
 
 ifeq ($(DEBUG), 1) 
-	COMPILE += -g
+	CFLAGS += -g
 else
-	COMPILE += -DNDEBUG
+	CFLAGS += -DNDEBUG
 endif
 
 SRC_DIR = src/
@@ -105,14 +105,14 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 clean:
 	@make clean -C $(LIB_DIR)
 	@-rm -r $(OBJ_DIR) 2>/dev/null && \
-	printf "$(YW)$(NAME): $(RD)Object files deleted\n$(EOC)" || \
-	true
+		printf "$(YW)$(NAME): $(RD)Object files deleted\n$(EOC)" || \
+		true
 
 fclean: clean
 	@make fclean -C $(LIB_DIR)
 	@-rm $(NAME) 2>/dev/null && \
-	printf "$(YW)$(NAME): $(RD)Program $(NAME) deleted\n$(EOC)" || \
-	true
+		printf "$(YW)$(NAME): $(RD)Program $(NAME) deleted\n$(EOC)" || \
+		true
 
 re: fclean all
 
