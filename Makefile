@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/12 21:48:03 by user             ###   ########.fr        #
+#    Updated: 2020/11/13 11:23:23 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,19 @@ NAME = corewar
 HEAD_NAME = corewar.h corewar_logs.h op.h
 LIB_NAME = libft.a
 
-CC = gcc -g
-# CFLAGS = -Wno-pointer-sign -Wall #-Wextra -Werror
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+CFLAGS += -O3 -std=gnu11 -ffast-math -march=native
+CFLAGS += -MMD
+
+ifeq ($(DEBUG), 1) 
+	COMPILE += -g
+else
+	COMPILE += -DNDEBUG
+endif
 
 SRC_DIR = src/
+OBJ_DIR = obj/
 INC_DIR = includes/
 LIB_DIR = libft/
 
@@ -63,35 +71,45 @@ utils/memory_utils.c \
 utils/parse_utils.c \
 utils/proc_utils.c \
 
-TMP = $(addprefix $(SRC_DIR), $(SRC:.c=.o))
+OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
+DEP = $(addprefix $(OBJ_DIR), $(SRC:.c=.d))
 HEADER = $(addprefix $(INC_DIR), $(HEAD_NAME))
 LIBFT = $(addprefix $(LIB_DIR), $(LIB_NAME))
 
 INCLUDES = -I $(INC_DIR) -I $(LIB_DIR)$(INC_DIR)
 
+-include $(DEP)
+
+################################################################################
+
+.DEFAULT_GOAL = all
+
+.PHONY : all clean fclean re libft
+
 all: $(NAME) 
 
-$(NAME): $(LIBFT) $(TMP)
-	@$(CC) $(CFLAGS) -o $(NAME) $(TMP) $(INCLUDES) -L $(LIB_DIR) -lft
+$(NAME): libft $(OBJ)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(INCLUDES) -L $(LIB_DIR) -lft
 	@printf "$(GR)>> Program $(NAME) created <<\n$(EOC)"
 
-FORCE:		;
-
-$(LIBFT): FORCE
+libft:
 	@make -C $(LIB_DIR)
 
-%.o:%.c $(HEADER)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	@printf "$(CN)* Compile $(YW)$< $(CN)to $(YW)$@$(EOC)\n"
 
 clean:
-	@rm -f $(TMP)
 	@make clean -C $(LIB_DIR)
-	@printf "$(YW)$(NAME): $(RD)Object files deleted.\n$(EOC)"
+	@-rm -r $(OBJ_DIR) 2>/dev/null && \
+	printf "$(YW)$(NAME): $(RD)Object files deleted\n$(EOC)" || \
+	true
 
 fclean: clean
-	@rm -f $(NAME)
 	@make fclean -C $(LIB_DIR)
-	@printf "$(YW)$(NAME): $(RD)Program $(NAME) deleted.\n$(EOC)"
+	@-rm $(NAME) 2>/dev/null && \
+	printf "$(YW)$(NAME): $(RD)Program $(NAME) deleted\n$(EOC)" || \
+	true
 
 re: fclean all
