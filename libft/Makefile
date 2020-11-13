@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
+#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/07 15:43:25 by fallard           #+#    #+#              #
-#    Updated: 2020/11/12 20:56:43 by fallard          ###   ########.fr        #
+#    Updated: 2020/11/13 11:03:03 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -175,7 +175,7 @@ $(NAME): $(TMP_LIB) $(TMP_PF) $(HEADER) $(PRIVATE)
 
 clean:
 	@-rm $(TMP_LIB) $(TMP_PF) 2>/dev/null && \
-		printf "$(YW)libft: $(RD)object files deleted$(EOC)\n" || true
+		printf "$(YW)libft: $(RD)Object files deleted$(EOC)\n" || true
 	
 
 fclean: clean
