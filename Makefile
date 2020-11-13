@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/13 11:27:41 by user             ###   ########.fr        #
+#    Updated: 2020/11/13 16:13:31 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,15 +84,17 @@ INCLUDES = -I $(INC_DIR) -I $(LIB_DIR)$(INC_DIR)
 
 .DEFAULT_GOAL = all
 
-.PHONY : all clean fclean re libft
+.PHONY : all clean fclean re
 
 all: $(NAME) 
 
-$(NAME): libft $(OBJ)
+$(NAME): $(LIBFT) $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(INCLUDES) -L $(LIB_DIR) -lft
 	@printf "$(GR)>> Program $(NAME) created <<\n$(EOC)"
 
-libft:
+FORCE:		;
+
+$(LIBFT): FORCE
 	@make -C $(LIB_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
