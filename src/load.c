@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:26:26 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 21:18:37 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/13 20:18:18 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,20 @@ static void	read_magic(const char *file, int fd)
 
 static void	read_header(const char *file, int n, int fd)
 {
-	uint8_t		buf[8];
+	uint8_t		buf[4];
 
-	ft_memset(buf, 0, 8);
+	ft_memset(buf, 0, 4);
 	if (read(fd, g_vm.champs[n].name, PROG_NAME_LENGTH) != PROG_NAME_LENGTH)
 		terminate(READ_ERROR, file, "couldn't read champion's name");
-	if (read(fd, buf, 8) != 8)
+	if (lseek(fd, 4, SEEK_CUR) < 0)
+		terminate(READ_ERROR, file, strerror(errno));
+	if (read(fd, buf, 4) != 4)
 		terminate(READ_ERROR, file, "couldn't read champion's size");
 	if (read(fd, g_vm.champs[n].comment, COMMENT_LENGTH) != COMMENT_LENGTH)
 		terminate(READ_ERROR, file, "couldn't read champion's comment");
+	if (lseek(fd, 4, SEEK_CUR) < 0)
+		terminate(READ_ERROR, file, strerror(errno));
 	g_vm.champs[n].size = buf[0] << 24 | buf[1] << 16 | buf[2] << 8 | buf[3];
-	g_vm.champs[n].size <<= 32;
-	g_vm.champs[n].size = buf[4] << 24 | buf[5] << 16 | buf[6] << 8 | buf[7];
 	if (g_vm.champs[n].size > CHAMP_MAX_SIZE)
 		terminate(CHAMP_TOO_LARGE,
 			g_vm.champs[n].ichamp, g_vm.champs[n].name, g_vm.champs[n].size);
@@ -50,9 +52,8 @@ static void	read_bytecode(const char *file, int n, int fd, uint32_t pos)
 	ssize_t		bytes;
 	int			i;
 
+	(void)file;
 	ft_memset(buf, 0, CHAMP_MAX_SIZE);
-	if (lseek(fd, 4, SEEK_CUR) < 0) // ???
-		terminate(READ_ERROR, file, strerror(errno));
 	bytes = read(fd, buf, g_vm.champs[n].size);
 	if (bytes < 0 || (size_t)bytes != g_vm.champs[n].size)
 		terminate(CHAMP_WRONG_SIZE, n, g_vm.champs[n].name);
