@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/07 15:43:25 by fallard           #+#    #+#              #
-#    Updated: 2020/11/13 11:03:03 by user             ###   ########.fr        #
+#    Updated: 2020/11/13 21:30:20 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,12 @@ HLIB_NAME = libft.h ft_printf.h
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+
+ifeq ($(DEBUG), 1) 
+	CFLAGS += -g
+else
+	CFLAGS += -DNDEBUG
+endif
 
 LIB_DIR = srcs/lib/
 PF_DIR = srcs/ft_printf/
