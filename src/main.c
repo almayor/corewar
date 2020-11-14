@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 21:25:04 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/15 00:01:27 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static void	conclude(void)
 {
 	t_champ	champ;
 
-	if (g_vm.last_live_champ == 0)
-		ft_printf(NO_LIVE);
-	else
-	{
+	// if (g_vm.last_live_champ == 0)
+	// 	ft_printf(NO_LIVE);
+	// else
+	// {
 		champ = g_vm.champs[g_vm.last_live_champ - 1];
 		ft_printf(CHAMP_WON, champ.ichamp, champ.name);
-	}
+	// }
 }
 
 static void	greet(void)
