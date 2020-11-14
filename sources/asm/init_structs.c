@@ -42,6 +42,16 @@ t_mention	*init_mention(t_parser *parser, t_token *token, size_t size)
 	return (mention);
 }
 */
+t_point		*init_point(void)
+{
+    t_point	*point;
+
+	if (!(point = (t_point *)malloc(sizeof(t_point))))
+		terminate(ERR_POINT_INIT);
+	point->x = 0;
+	point->y = 0;
+    return (point);
+}
 
 t_token		*init_token(t_parser *parser, t_type type)
 {
@@ -49,13 +59,16 @@ t_token		*init_token(t_parser *parser, t_type type)
 
 	if (!(token = (t_token *)malloc(sizeof(t_token))))
 		terminate(ERR_TOKEN_INIT);
-	token->content = NULL;
 	token->type = type;
-	token->x = parser->x_read;
-	if (type == SEPARATOR || type == NEW_LINE)
-		token->y = parser->y_read - 1;
-	else
-		token->y = parser->y_read;
+	token->content = NULL;
+	token->point = init_point();
+	token->point->x = parser->point->x;
+	token->point->y = parser->point->y;
+	token->size = 0;
+	token->op_code = NULL;
+	token->is_arg_code = 0;
+	token->arg_code = NULL;
+	token->dir_size = 0;
 	token->next = NULL;
 	return (token);
 }
@@ -66,15 +79,14 @@ t_parser	*init_asm_parser(void)
 
 	if (!(parser = (t_parser *)malloc(sizeof(t_parser))))
 		terminate(ERR_PARSER_INIT);
-	parser->x_read = 0;
-	parser->y_read = 0;
-	parser->x_write = 0;
-	parser->y_write = 0;
-	parser->name = NULL;
-	parser->comment = NULL;
-	parser->code = NULL;
-	parser->code_size = 0;
-	parser->labels = NULL;
+	parser->point = init_point();
 	parser->tokens = NULL;
+	parser->fd_cor = 0;
+	parser->fd_s = 0;
+	parser->code_total_size = 0;
+	parser->name = NULL;
+	parser->file_name = NULL;
+	parser->comment = NULL;
     return (parser);
 }
+

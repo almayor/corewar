@@ -29,13 +29,13 @@ int			read_x(int fd, char **row)
 
 void	trim_from_comments_spaces(t_parser *parser, char *row)
 {
-	while (row[parser->y_read] == ' ' || row[parser->y_read] == '\t' ||
-	row[parser->y_read] == '\n')
-		parser->y_read++;
-	if (row[parser->y_read] == COMMENT_CHAR ||
-	row[parser->y_read] == ALT_COMMENT_CHAR)
-		while (row[parser->y_read] && row[parser->y_read] != '\n')
-			parser->y_read++;
+	while (row[parser->point->y] == ' ' || row[parser->point->y] == '\t' ||
+	row[parser->point->y] == '\n')
+		parser->point->y++;
+	if (row[parser->point->y] == COMMENT_CHAR ||
+	row[parser->point->y] == ALT_COMMENT_CHAR)
+		while (row[parser->point->y] && row[parser->point->y] != '\n')
+			parser->point->y++;
 }
 
 void		add_token(t_token **tokens, t_token *token)
@@ -47,14 +47,14 @@ void		add_token(t_token **tokens, t_token *token)
 		curr = *tokens;
 		while (curr->next)
 			curr = curr->next;
-		if (curr->type == NEW_LINE && token->type == NEW_LINE)
+		if (curr->type == NEW_LINE_TYPE && token->type == NEW_LINE_TYPE)
 			ft_memdel((void **)token);
 		else
 			curr->next = token;
 	}
 	else
 	{
-		if (token->type == NEW_LINE)
+		if (token->type == NEW_LINE_TYPE)
 			ft_memdel((void **)token);
 		else
 			*tokens = token;
@@ -63,12 +63,12 @@ void		add_token(t_token **tokens, t_token *token)
 
 void		parse_token(t_parser *parser, char **row)
 {
-	if (*row[parser->y_read] == SEPARATOR_CHAR && ++parser->y_read)
+	if (*row[parser->point->y] == SEPARATOR_CHAR && ++parser->point->y)
 		add_token(&parser->tokens, init_token(parser, SEPARATOR_CHAR));
-	else if (*row[parser->y_read] == '\n' && ++parser->y_read)
-		add_token(&parser->tokens, init_token(parser, NEW_LINE));
-	else if (row[parser->y_read] == '.' && ++parser->y_read)
-		parse_symbols(parser, *row, parser->y_read++,
+	else if (*row[parser->point->y] == '\n' && ++parser->point->y)
+		add_token(&parser->tokens, init_token(parser, NEW_LINE_TYPE));
+	else if (*row[parser->point->y] == '.' && ++parser->point->y)
+		parse_symbols(parser, *row, parser->point->y++,
 		init_token(parser, COMMAND));
 	/*else if (row[parser->y_read] == DIRECT_CHAR && ++parser->y_read)
 		//add_token(&parser->tokens, init_token(parser, NEW_LINE));
@@ -80,17 +80,17 @@ void		parse_token(t_parser *parser, char **row)
 		//add_token(&parser->tokens, init_token(parser, INDIRECT_LABEL));*/
 }
 
-void		parsing(t_parser *parser, int fd)
+void		parsing(t_parser *parser)
 {
 	char	*row;
 
-	while (++parser->y_read && !(parser->y_read == 0) &&
-	read_x(fd, &row) > 0)
+	while (++parser->point->x && !(parser->point->y == 0) &&
+	read_x(parser->fd_s, &row) > 0)
 	{
-		while (row[parser->x_read])
+		while (row[parser->point->x])
 		{
 			trim_from_comments_spaces(parser, row);
-			if (row[parser->x_read])
+			if (row[parser->point->x])
 				parse_token(parser, &row);
 		}
 		ft_strdel(&row);

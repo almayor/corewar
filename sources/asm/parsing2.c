@@ -15,8 +15,13 @@
 void    parse_symbols(t_parser *parser, char *row, unsigned y_start,
 t_token *token)
 {
-	token->y = y_start;
-	if (row[parser->y_read] == '-')
-		parser->y_read++;
+	token->point->y = y_start;
+	if (row[parser->point->y] == '-')
+		parser->point->y++;
 	
 }
+
+// move by one symbol until LABEK_CHAR
+// check that all symbols are from LABEL_CHARS
+// detect token type - direct or indirect
+// write in token?

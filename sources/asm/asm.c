@@ -14,11 +14,10 @@
 
 void	assembler(char *filename)
 {
-	int			fd;
 	t_parser	*parser;
 
-	if ((fd = open(filename, O_RDONLY)) == -1)
-		terminate(ERR_OPEN_FILE);
 	parser = init_asm_parser();
-	parsing(parser, fd);
+	if ((parser->fd_s = open(filename, O_RDONLY)) == -1)
+		terminate(ERR_OPEN_FILE);
+	parsing(parser);
 }

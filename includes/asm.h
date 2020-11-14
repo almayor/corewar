@@ -34,29 +34,39 @@
 
 typedef enum
 {
+	NEW_LINE_TYPE,
 	COMMAND,
-	STRING,
-	LABEL,
-	OPERATOR,
-	REGISTER,
-	DIRECT,
-	DIRECT_LABEL,
-	INDIRECT,
-	INDIRECT_LABEL,
-	SEPARATOR,
-	NEW_LINE,
-	END
-}	t_type;
+	LABEL_TYPE,
+	DELIM_TYPE,
+	OP_TYPE,
+	REG_ARG_TYPE,
+	DIR_ARG_TYPE,
+	DIR_LABL_ARG_TYPE,
+	IND_ARG_TYPE,
+	IND_LABL_ARG_TYPE,
+	END_FILE,
+}					t_type;
 
-typedef struct			s_token
+
+typedef struct		s_point
 {
-	char				*content;
-	t_type				type;
-	unsigned			x;
-	unsigned			y;
-	struct s_token		*next;
-}						t_token;
+	int				x;
+	int				y;
+}					t_point;
 
+typedef struct		s_token
+{
+	int				type;
+	char			*content;
+	t_point			*point;
+	int				size;
+	unsigned char	*op_code;
+	int				is_arg_code;
+	unsigned char	*arg_code;
+	int				dir_size;
+	struct s_token	*next;
+}					t_token;
+/*
 typedef struct			s_mention
 {
 	unsigned			x_read;
@@ -74,26 +84,27 @@ typedef struct			s_label
 	t_mention			*mentions;
 	struct s_label		*next;
 }						t_label;
+*/
 
-typedef struct			s_parser
+typedef struct		s_parser
 {
-	unsigned			x_read;
-	unsigned			y_read;
-	t_token				*tokens;
-	int32_t				x_write;
-	int32_t				y_write;
-	char				*name;
-	char				*comment;
-	char				*code;
-	int32_t				code_size;
-	t_label				*labels;
-}						t_parser;
+	t_point			*point;
+	t_token			*tokens;
+	int				fd_cor;
+	int				fd_s;
+	int				code_total_size;
+	char			*file_name;
+	char			*name;
+	char			*comment;
+}					t_parser;
 
 void			terminate(char *s);
 void			assembler(char *filename);
 t_parser		*init_asm_parser(void);
-void			parsing(t_parser *parser, int fd);
+void			parsing(t_parser *parser);
 t_token			*init_token(t_parser *parser, t_type type);
+void			parse_symbols(t_parser *parser, char *row, unsigned y_start,
+t_token *token);
 
 # define ERR_OPEN_FILE		"Error: can not open file"
 # define ERR_PARSER_INIT	"Error: can not initiate parsing of this file"
@@ -101,5 +112,6 @@ t_token			*init_token(t_parser *parser, t_type type);
 # define ERR_STR_INIT		"Error: can not initiate name of label"
 # define ERR_READING		"Error: read the lines of .s file"
 # define ERR_TOKEN_INIT		"Error: can not initiate a token"
+# define ERR_POINT_INIT		"Error: can not initiate point structure"
 
 #endif

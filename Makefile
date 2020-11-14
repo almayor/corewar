@@ -22,14 +22,14 @@ SRC_PATH		=	sources/asm/
 INC_PATH		=	includes/
 OBJ_PATH		=	sources/obj/
 
-SRC_NAME		=	asm_main.c asm.c init_structs.c parsing.c
+SRC_NAME		=	asm_main.c asm.c init_structs.c parsing.c parsing2.c
 
 SRC				=	$(addprefix $(SRC_PATH), $(SRC_NAME))
 INC				=	$(addprefix $(INC_PATH), $(INC_NAME))
 OBJ				=	$(addprefix $(OBJ_PATH), $(SRC_NAME:.c=.o))
 
 CC				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror -O2 -march=native
+CFLAGS			=	-Wall -Wextra -Werror 
 IFLAGS			=	-I $(INC_PATH). -I $(LIB_PATH).
 LFLAGS			=	-L $(LIB_PATH) -lft
 
