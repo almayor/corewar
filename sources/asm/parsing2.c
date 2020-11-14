@@ -12,14 +12,13 @@
 
 #include "asm.h"
 
-void    parse_symbols(t_parser *parser, char *row, unsigned y_start,
+void    parse_alpha(t_parser *parser, char *row, unsigned y_start,
 t_token *token)
 {
 	token->point->y = y_start;
 	if (row[parser->point->y] == '-')
 		parser->point->y++;
-	
-}
+	}
 
 // move by one symbol until LABEK_CHAR
 // check that all symbols are from LABEL_CHARS

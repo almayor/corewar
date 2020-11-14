@@ -66,25 +66,6 @@ typedef struct		s_token
 	int				dir_size;
 	struct s_token	*next;
 }					t_token;
-/*
-typedef struct			s_mention
-{
-	unsigned			x_read;
-	unsigned			y_read;
-	int32_t				x_write;
-	int32_t				y_write;
-	size_t				size;
-	struct s_mention	*next;
-}						t_mention;
-
-typedef struct			s_label
-{
-	char				*name;
-	int32_t				op_pos;
-	t_mention			*mentions;
-	struct s_label		*next;
-}						t_label;
-*/
 
 typedef struct		s_parser
 {
@@ -103,7 +84,7 @@ void			assembler(char *filename);
 t_parser		*init_asm_parser(void);
 void			parsing(t_parser *parser);
 t_token			*init_token(t_parser *parser, t_type type);
-void			parse_symbols(t_parser *parser, char *row, unsigned y_start,
+void			parse_alpha(t_parser *parser, char *row, unsigned y_start,
 t_token *token);
 
 # define ERR_OPEN_FILE		"Error: can not open file"

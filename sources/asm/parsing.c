@@ -68,7 +68,7 @@ void		parse_token(t_parser *parser, char **row)
 	else if (*row[parser->point->y] == '\n' && ++parser->point->y)
 		add_token(&parser->tokens, init_token(parser, NEW_LINE_TYPE));
 	else if (*row[parser->point->y] == '.' && ++parser->point->y)
-		parse_symbols(parser, *row, parser->point->y++,
+		parse_alpha(parser, *row, parser->point->y++,
 		init_token(parser, COMMAND));
 	/*else if (row[parser->y_read] == DIRECT_CHAR && ++parser->y_read)
 		//add_token(&parser->tokens, init_token(parser, NEW_LINE));
@@ -97,3 +97,9 @@ void		parsing(t_parser *parser)
 
 	}
 }
+
+/* 
+** ++parser->point->x - read by symbol
+** && !(parser->point->y == 0) - ignore empty rows
+** && read_x(parser->fd_s, &row) - row is not NULL
+*/
