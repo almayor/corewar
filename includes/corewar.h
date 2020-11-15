@@ -13,6 +13,7 @@
 #ifndef COREWAR_H
 # define COREWAR_H
 
+# include <assert.h>
 # include <fcntl.h>
 # include <errno.h>
 # include <stdio.h>
