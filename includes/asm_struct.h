@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/12 02:27:55 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 00:54:04 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,16 @@ typedef union		u_two
 
 typedef struct		s_point
 {
-	int				x;
-	int				y;
+	int				token;
+	int				row;
 }					t_point;
+
+typedef struct		s_label
+{
+	char			*content;
+	t_point			*point;
+	struct s_token	*next;
+}					t_label;
 
 typedef struct		s_token
 {
@@ -74,11 +81,12 @@ typedef struct		s_token
 	struct s_token	*next;
 }					t_token;
 
-
 typedef struct		s_parser
 {
-	t_point			point;
+	t_point			*point;
 	t_token			*tokens;
+	t_label			*labels;
+	int				x_read;
 	int				fd_cor;
 	int				fd_s;
 	int				code_total_size;
