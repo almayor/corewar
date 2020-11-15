@@ -35,7 +35,6 @@
 typedef enum
 {
 	NEW_LINE_TYPE,
-	COMMAND,
 	LABEL_TYPE,
 	DELIM_TYPE,
 	OP_TYPE,
@@ -50,13 +49,16 @@ typedef enum
 
 typedef struct		s_point
 {
-	int				x;
-	int				y;
+	int				token;
+	int				row;
 }					t_point;
 
-/*
-** token == raw
-*/
+typedef struct		s_label
+{
+	char			*content;
+	t_point			*point;
+	struct s_token	*next;
+}					t_label;
 
 typedef struct		s_token
 {
@@ -75,6 +77,8 @@ typedef struct		s_parser
 {
 	t_point			*point;
 	t_token			*tokens;
+	t_label			*labels;
+	int				x_read;
 	int				fd_cor;
 	int				fd_s;
 	int				code_total_size;
@@ -88,8 +92,9 @@ void			assembler(char *filename);
 t_parser		*init_asm_parser(void);
 void			parsing(t_parser *parser);
 t_token			*init_token(t_parser *parser, t_type type);
-void			parse_alpha(t_parser *parser, char *row, unsigned y_start,
+void			parse_alpha(t_parser *parser, char *row, int y_start,
 t_token *token);
+void	parse_command(t_parser *parser, char *row, int start);
 
 # define ERR_OPEN_FILE		"Error: can not open file"
 # define ERR_PARSER_INIT	"Error: can not initiate parsing of this file"
@@ -98,5 +103,7 @@ t_token *token);
 # define ERR_READING		"Error: read the lines of .s file"
 # define ERR_TOKEN_INIT		"Error: can not initiate a token"
 # define ERR_POINT_INIT		"Error: can not initiate point structure"
+# define ERR_COMMAND		"Error: non-existing command"
+
 
 #endif

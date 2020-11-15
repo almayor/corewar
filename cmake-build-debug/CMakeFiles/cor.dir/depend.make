@@ -286,3 +286,9 @@ CMakeFiles/cor.dir/sources/asm/parsing.c.o: ../libft/ft_printf/inc/ft_printf.h
 CMakeFiles/cor.dir/sources/asm/parsing.c.o: ../libft/libft.h
 CMakeFiles/cor.dir/sources/asm/parsing.c.o: ../sources/asm/parsing.c
 
+CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../includes/asm.h
+CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../includes/op.h
+CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../libft/ft_printf/inc/ft_printf.h
+CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../libft/libft.h
+CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../sources/asm/parsing2.c
+

@@ -99,4 +99,5 @@ add_executable(cor
         sources/asm/asm.c
         sources/asm/asm_main.c
         sources/asm/init_structs.c
-        sources/asm/parsing.c)
+        sources/asm/parsing.c
+        sources/asm/parsing2.c)

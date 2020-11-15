@@ -92,6 +92,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/kysgramo/cor/sources/asm/asm_main.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/sources/asm/asm_main.c.o"
   "/Users/kysgramo/cor/sources/asm/init_structs.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/sources/asm/init_structs.c.o"
   "/Users/kysgramo/cor/sources/asm/parsing.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/sources/asm/parsing.c.o"
+  "/Users/kysgramo/cor/sources/asm/parsing2.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/sources/asm/parsing2.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

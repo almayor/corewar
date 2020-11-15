@@ -87,6 +87,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/cor.dir/sources/asm/asm_main.c.o"
   "CMakeFiles/cor.dir/sources/asm/init_structs.c.o"
   "CMakeFiles/cor.dir/sources/asm/parsing.c.o"
+  "CMakeFiles/cor.dir/sources/asm/parsing2.c.o"
   "cor"
   "cor.pdb"
 )

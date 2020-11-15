@@ -12,44 +12,27 @@
 
 #include "asm.h"
 
-/*
-t_label		*init_label(char *name, int op_pos)
+t_label		*init_label(char *content, int smth)
 {
 	t_label	*label;
 
 	if (!(label = (t_label *)malloc(sizeof(t_label))))
 		terminate(ERR_LABEL_INIT);
-	if (!(label->name = ft_strdup(name)))
+	if (!(label->content = ft_strdup(content)))
 		terminate(ERR_STR_INIT);
-	label->op_pos = op_pos;
-	label->mentions = NULL;
 	label->next = NULL;
+	label->point->token = smth;  // dodumaj
 	return (label);
 } 
 
-t_mention	*init_mention(t_parser *parser, t_token *token, size_t size)
-{
-	t_mention	*mention;
-
-	if (!(mention = (t_mention *)malloc(sizeof(t_mention))))
-		terminate(ERR_MENTION_INIT);
-	mention->row = token->row;
-	mention->column = token->column;
-	mention->pos = parser->pos;
-	mention->op_pos = parser->op_pos;
-	mention->size = size;
-	mention->next = NULL;
-	return (mention);
-}
-*/
 t_point		*init_point(void)
 {
     t_point	*point;
 
 	if (!(point = (t_point *)malloc(sizeof(t_point))))
 		terminate(ERR_POINT_INIT);
-	point->x = 0;
-	point->y = 0;
+	point->row = 0;
+	point->token = 0;
     return (point);
 }
 
@@ -62,8 +45,7 @@ t_token		*init_token(t_parser *parser, t_type type)
 	token->type = type;
 	token->content = NULL;
 	token->point = init_point();
-	token->point->x = parser->point->x;
-	token->point->y = parser->point->y;
+	token->point->row = parser->point->row;
 	token->size = 0;
 	token->op_code = NULL;
 	token->is_arg_code = 0;
@@ -81,6 +63,8 @@ t_parser	*init_asm_parser(void)
 		terminate(ERR_PARSER_INIT);
 	parser->point = init_point();
 	parser->tokens = NULL;
+	parser->labels = NULL;
+	parser->x_read = 0;
 	parser->fd_cor = 0;
 	parser->fd_s = 0;
 	parser->code_total_size = 0;

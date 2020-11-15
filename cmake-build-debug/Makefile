@@ -2519,6 +2519,33 @@ sources/asm/parsing.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/parsing.c.s
 .PHONY : sources/asm/parsing.c.s
 
+sources/asm/parsing2.o: sources/asm/parsing2.c.o
+
+.PHONY : sources/asm/parsing2.o
+
+# target to build an object file
+sources/asm/parsing2.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/parsing2.c.o
+.PHONY : sources/asm/parsing2.c.o
+
+sources/asm/parsing2.i: sources/asm/parsing2.c.i
+
+.PHONY : sources/asm/parsing2.i
+
+# target to preprocess a source file
+sources/asm/parsing2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/parsing2.c.i
+.PHONY : sources/asm/parsing2.c.i
+
+sources/asm/parsing2.s: sources/asm/parsing2.c.s
+
+.PHONY : sources/asm/parsing2.s
+
+# target to generate assembly for a file
+sources/asm/parsing2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/parsing2.c.s
+.PHONY : sources/asm/parsing2.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -2792,6 +2819,9 @@ help:
 	@echo "... sources/asm/parsing.o"
 	@echo "... sources/asm/parsing.i"
 	@echo "... sources/asm/parsing.s"
+	@echo "... sources/asm/parsing2.o"
+	@echo "... sources/asm/parsing2.i"
+	@echo "... sources/asm/parsing2.s"
 .PHONY : help
 
 
