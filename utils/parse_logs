@@ -1,0 +1,100 @@
+#!/usr/bin/env python
+
+import os
+import re
+import sys
+
+
+class Parser:
+
+	cycle_re = re.compile(r'^It is now cycle ([0-9]+)$')
+	instruct_re = re.compile(r'^P[0\s]*([0-9]+)\s\|\s(.*)$')
+	body_re = re.compile(r'^\s+\|')
+	advance_re = re.compile(r'^(ADV|P[0 ]*[0-9]+\s>)')
+	new_re = re.compile(r'^P[0\s]*([0-9]+)\s\|\sNEW')
+	alive_re = re.compile(r'.*said to be alive.*')
+	skip_keywords = ["*", "Introducing", "Contestant", "Player"]
+
+	def __init__(self, iproc, file):
+		self.iproc = iproc
+		self.icycle = 0
+		self.file = file
+		self.first_line = True
+
+	def parse(self):
+
+		while line := self.readline():
+			if self.parse_cycle(line):
+				continue
+			elif self.parse_new(line):
+				print (f"{self.log_cycle()}\n{line}")
+			elif self.parse_instruct(line):
+				print (f"{self.log_cycle()}\n{line}")
+
+				while line := self.readline():
+
+					if (self.parse_cycle(line) or
+						self.parse_instruct(line)):
+						break
+					if (self.parse_body(line) or
+						self.parse_advance(line) or
+						self.parse_alive(line)):
+						print (line)
+						continue
+					if (self.parse_skip(line) or
+						self.parse_new(line)):
+						continue
+
+					break
+
+	def parse_cycle(self, line):
+		if match := self.cycle_re.match(line):
+			self.icycle = int(match.group(1))
+		return bool(match)
+
+	def parse_instruct(self, line):
+		if match := self.instruct_re.match(line):
+			iproc = int(match.group(1))
+			return iproc == self.iproc
+		return bool(match)
+
+	def parse_new(self, line):
+		if match := self.new_re.match(line):
+			iproc = int(match.group(1))
+			return iproc == self.iproc
+		return bool(match)
+
+	def parse_body(self, line):
+		return bool(self.body_re.match(line))
+
+	def parse_advance(self, line):
+		return bool(self.advance_re.match(line))
+
+	def parse_alive(self, line):
+		return bool(self.alive_re.match(line))
+
+	def parse_skip(self, line):
+		return any(line.startswith(word) for word in self.skip_keywords)
+
+	def readline(self):
+		return self.file.readline().rstrip()
+
+	def log_cycle(self):
+		log_line = f"It is now cycle {self.icycle}"
+		if not self.first_line:
+			log_line = "\n" + log_line
+		self.first_line = False
+		return log_line
+
+
+if __name__ == "__main__":
+
+	if sys.version_info[0] < 3:
+		raise Exception("Your Python interpreter must be 3.8 or greater")
+	if len(sys.argv) not in [2, 3]:
+		sys.exit(f"Usage: {__file__} process-number [ log-file ]")
+
+	with open(sys.argv[2], 'r') if len(sys.argv) == 3 else sys.stdin as f:
+		iproc = int(sys.argv[1])
+		parser = Parser(iproc, f)
+		parser.parse()
