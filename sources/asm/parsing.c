@@ -71,12 +71,12 @@ void		add_token(t_token **tokens, t_token *token)
 void		parse_token(t_parser *parser, char **row)
 {
 	if (*row[parser->x_read] == SEPARATOR_CHAR && ++parser->x_read)
-		add_token(&parser->tokens, init_token(parser, SEPARATOR_CHAR));
+		add_token(&parser->tokens, init_token(parser, DELIM_TYPE));
 	else if (*row[parser->x_read] == '\n' && ++parser->x_read)
 		add_token(&parser->tokens, init_token(parser, NEW_LINE_TYPE));
 	else if (*row[parser->x_read] == '.' && ++parser->x_read)
 		parse_command(parser, *row, parser->x_read);
-	/*else if (row[parser->y_read] == DIRECT_CHAR && ++parser->y_read)
+	/*else if (row[parser->x_read] == DIRECT_CHAR && ++parser->x_read)
 		//add_token(&parser->tokens, init_token(parser, NEW_LINE));
 	else if (row[parser->y_read] == '\"' && ++parser->y_read)
 		//add_token(&parser->tokens, init_token(parser, STRING));
@@ -90,11 +90,11 @@ void		parsing(t_parser *parser)
 {
 	char	*row;
 
-	while (++parser->point->row && !(parser->point->row == 0) &&
-	read_row(parser->fd_s, &row) > 0)
+	while (++parser->point->row && read_row(parser->fd_s, &row) > 0)
 	{
+		parser->x_read = 0;
 		ft_printf("%s\n", row);
-		while (row[parser->x_read] != '\0')
+		while (row[parser->x_read])
 		{
 			trim_from_comments_spaces(parser, row);
 			if (row[parser->x_read])
