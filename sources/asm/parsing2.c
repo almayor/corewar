@@ -16,7 +16,7 @@ void    parse_alpha(t_parser *parser, char *row, unsigned y_start,
 t_token *token)
 {
 	token->point->y = y_start;
-	if (row[parser->point->y] == '-')
+	if (row[parser->point->y] == '-') /// why???
 		parser->point->y++;
 	}
 

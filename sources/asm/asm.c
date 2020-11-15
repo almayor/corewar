@@ -23,5 +23,5 @@ void	assembler(char *filename)
 	
 	parser->file_name = ft_strjoin(ft_strsub(filename, 0, 
 	ft_strlen(filename) -2), ".cor");
-	ft_putendl(parser->file_name);
+	//ft_putendl(parser->file_name);
 }

@@ -54,6 +54,10 @@ typedef struct		s_point
 	int				y;
 }					t_point;
 
+/*
+** token == raw
+*/
+
 typedef struct		s_token
 {
 	int				type;
