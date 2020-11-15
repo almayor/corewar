@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/15 00:01:27 by user             ###   ########.fr       */
+/*   Updated: 2020/11/15 01:47:06 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ static void	print_usage(void)
 	ft_printf("\t%-20s : Set player number (N)\n", "-n N <file.cor>");
 	ft_printf("\t%-20s : Dumps memory after N cycles, then exits\n", "-dump N");
 	ft_printf("\t%-20s : Verbosity levels, can be added together to enable several\n", "-log N");
-	ft_printf("\t\t- %-2i : %s\n", 0, "only essentials");
-	ft_printf("\t\t- %-2i : %s\n", 1, "lives");
-	ft_printf("\t\t- %-2i : %s\n", 2, "cycles");
-	ft_printf("\t\t- %-2i : %s\n", 4, "operations (incl. parameters)");
-	ft_printf("\t\t- %-2i : %s\n", 8, "creation and removal of processes");
-	ft_printf("\t\t- %-2i : %s\n", 16, "PC movements (except for jumps)");
+	ft_printf("\t\t\t\t- %-2i : %s\n", 0, "only essentials");
+	ft_printf("\t\t\t\t- %-2i : %s\n", 1, "lives");
+	ft_printf("\t\t\t\t- %-2i : %s\n", 2, "cycles");
+	ft_printf("\t\t\t\t- %-2i : %s\n", 4, "operations (incl. parameters)");
+	ft_printf("\t\t\t\t- %-2i : %s\n", 8, "creation and removal of processes");
+	ft_printf("\t\t\t\t- %-2i : %s\n", 16, "PC movements (except for jumps)");
 }
 
 int			main(int argc, char **argv)
