@@ -6,13 +6,13 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/25 11:33:25 by user              #+#    #+#              #
-#    Updated: 2020/11/12 02:24:37 by user             ###   ########.fr        #
+#    Updated: 2020/11/16 00:45:49 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ----- Name -----
 NAME 		= asm
-HEADER_NAME	= asm_struct.h translation.h op.h
+HEADER_NAME	= asm_struct.h translation.h op.h operations.h
 LIBFT_NAME	= libft.a
 
 # ----- Dir -----

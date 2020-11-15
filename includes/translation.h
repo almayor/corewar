@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:46 by user              #+#    #+#             */
-/*   Updated: 2020/11/12 02:43:19 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 00:28:29 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@
 # include "libft.h"
 # include "asm_struct.h"
 # include "op.h"
+# include "operations.h"
 
 /*
 **	Translation to byte code
 */
 
 void		translation(t_parser *stor);
-void		translate_common(t_parser *stor);
+void		translate_commons(t_parser *stor);
 
 void		write_name_or_comment(t_parser *stor, int len, int kind);
 void		translate_exec_code(t_parser *stor);
