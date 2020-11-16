@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 03:49:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 05:19:21 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 05:22:53 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,13 @@ void	create_line(t_token *token, int y, char *label, char *cmd, char *arg1, char
 		token->next = ft_calloc(1, sizeof(t_token));
 		token = token->next;
 	}
-	token->point.row = y;
-	token->point.token = x == 0 ? x : x++;
-	token->content = ft_strdup(cmd);
-	token->type = OP_TYPE;
-
+	if (cmd)
+	{
+		token->point.row = y;
+		token->point.token = x++;
+		token->content = ft_strdup(cmd);
+		token->type = OP_TYPE;
+	}
 	if (arg1)
 	{
 		token->next = ft_calloc(1, sizeof(t_token));
@@ -111,7 +113,7 @@ void	mock_read(t_parser *stor)
 	create_line(stor->tokens, 0, "loop", "sti", "r1", "%:live", "%1");
 	create_line(stor->tokens, 1, "live", "live", "%0", NULL, NULL);
 	create_line(stor->tokens, 2, NULL, "ld", "%0", "r2", NULL);
-	create_line(stor->tokens, 2, NULL, "zjmp", "%:loop", NULL, NULL);
+	create_line(stor->tokens, 3, NULL, "zjmp", "%:loop", NULL, NULL);
 }
 
 void	print_tokens_by_line(t_token **token)
