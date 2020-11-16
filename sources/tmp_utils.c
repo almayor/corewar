@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 03:49:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 05:28:10 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 05:31:12 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	get_arg(t_token *token, char *arg, int y, int x)
 	}
 	else if (ft_isdigit(arg[i]) || arg[i] == ':')
 	{
-		// token->content = ft_strdup(arg);
 		if (ft_isdigit(arg[i]))
 		{
 			token->content = ft_strdup(arg);
