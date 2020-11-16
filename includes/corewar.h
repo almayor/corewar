@@ -232,8 +232,8 @@ void	fork_proc(int32_t pos, const t_proc *parent);
 void	kill_proc(t_proc *proc);
 void	print_proc(const t_proc *proc);
 
-int32_t	mem_read(int32_t pos, int nbytes);
-void	mem_write(int32_t pos, int32_t val, int nbytes);
+int32_t	mem_read(int64_t pos, int nbytes);
+void	mem_write(int64_t pos, int32_t val, int nbytes);
 
 void	cleanup(void);
 void	terminate(const char *format, ...);
