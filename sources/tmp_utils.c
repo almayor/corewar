@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 03:49:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 13:20:47 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 15:12:58 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void	mock_read(t_parser *stor)
 	stor->file_name = ft_strdup("test_translation.cor");
 	stor->name = ft_strdup("Batman");
 	stor->comment = ft_strdup("This city needs me");
-	stor->code_total_size = 10;
+	// stor->code_total_size = 10;
 
 	stor->tokens = ft_calloc(1, sizeof(t_token));
 	stor->tokens->content = ft_strdup("INIT TIKENS");
@@ -180,7 +180,7 @@ void	print_labels(t_parser *stor)
 	printf("\n------------- PRINT LABELS -------------\n\n");
 	while (label)
 	{
-		printf("*** LABEL %d ***\n", i++);
+		printf("\n*** LABEL %d ***\n", i++);
 		printf("content = %s\n", label->content);
 		printf("coords: row = %d  token = %d\n", label->point.row, label->point.token);
 		label = label->next;

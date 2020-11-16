@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 13:12:34 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 15:19:46 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # define NAME_FLAG 1
 # define COMMENT_FLAG 0
+
+# define EXEC_CODE_MOCK 39321
 
 # define OPEN_COR_ERR	"Error: can't open file .cor"
 
@@ -30,6 +32,7 @@ typedef enum
 	IND_ARG_TYPE,
 	IND_LABL_ARG_TYPE,
 	END_FILE,
+	UNKNOWN,
 }					t_type;
 
 typedef union		u_four
