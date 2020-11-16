@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 20:37:21 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 15:09:23 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 15:28:10 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ static t_ops	op_tmpl[16] = {
 		.dir_size = 4,
 	},
 	{
+		.name = "lldi",
 		.op_code = 0x0e,
 		.args_num = 3,
 		.is_arg_code = 1,
@@ -159,6 +160,7 @@ static t_ops	op_tmpl[16] = {
 		.dir_size = 2,
 	},
 	{
+		.name = "lfork",
 		.op_code = 0x0f,
 		.args_num = 1,
 		.is_arg_code = 0,
@@ -166,6 +168,7 @@ static t_ops	op_tmpl[16] = {
 		.dir_size = 2,
 	},
 	{
+		.name = "aff",
 		.op_code = 0x10,
 		.args_num = 1,
 		.is_arg_code = 1,
