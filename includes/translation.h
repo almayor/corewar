@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:46 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 13:13:55 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 13:26:01 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void		core_error(t_parser *stor, char *message);
 void		core_free(t_parser *stor);
 void		free_parser(t_parser *stor);
 void		free_tokens(t_parser *stor);
+void		free_labels(t_parser *stor);
 
 
 
