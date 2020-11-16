@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 00:54:04 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 13:12:34 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ typedef struct		s_point
 typedef struct		s_label
 {
 	char			*content;
-	t_point			*point;
-	struct s_token	*next;
+	t_point			point;
+	struct s_label	*next;
 }					t_label;
 
 typedef struct		s_token

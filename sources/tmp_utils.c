@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 03:49:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 05:31:12 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 13:20:47 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	get_arg(t_token *token, char *arg, int y, int x)
 			token->type = DIR_LABL_ARG_TYPE;
 		}
 	}
-	else if (ft_isdigit(arg[i]) || arg[i] == ':')
+	else if (ft_isdigit(arg[i]) || arg[i] == '-' || arg[i] == ':')
 	{
-		if (ft_isdigit(arg[i]))
+		if (ft_isdigit(arg[i]) || arg[i] == '-')
 		{
 			token->content = ft_strdup(arg);
 			token->type = IND_ARG_TYPE;
@@ -56,7 +56,32 @@ void	get_arg(t_token *token, char *arg, int y, int x)
 	}
 }
 
-void	create_line(t_token *token, int y, char *label, char *cmd, char *arg1, char *arg2, char *arg3)
+void	add_label(t_parser *stor, char *label, int y, int x)
+{
+	t_label *elem;
+
+	if (!stor->labels)
+	{
+		stor->labels = ft_calloc(1, sizeof(t_label));
+		stor->labels->content = ft_strdup(label);
+		stor->labels->point.row = y;
+		stor->labels->point.token = x;
+	}
+	else
+	{
+		elem = stor->labels;
+		while (elem->next)
+			elem = elem->next;
+		elem->next = ft_calloc(1, sizeof(t_label));
+		elem = elem->next;
+		elem->content = ft_strdup(label);
+		elem->point.row = y;
+		elem->point.token = x;
+	}
+	
+}
+
+void	create_line(t_parser *stor, t_token *token, int y, char *label, char *cmd, char *arg1, char *arg2, char *arg3)
 {
 	int x = 0;
 
@@ -73,6 +98,7 @@ void	create_line(t_token *token, int y, char *label, char *cmd, char *arg1, char
 		token->point.token = x++;
 		token->content = ft_strdup(label);
 		token->type = LABEL_TYPE;
+		add_label(stor, label, y, x);
 		token->next = ft_calloc(1, sizeof(t_token));
 		token = token->next;
 	}
@@ -115,10 +141,10 @@ void	mock_read(t_parser *stor)
 	stor->tokens = ft_calloc(1, sizeof(t_token));
 	stor->tokens->content = ft_strdup("INIT TIKENS");
 	
-	create_line(stor->tokens, 0, "loop", "sti", "r1", "%:live", "%1");
-	create_line(stor->tokens, 1, "live", "live", "%0", NULL, NULL);
-	create_line(stor->tokens, 2, NULL, "ld", "%0", "r2", NULL);
-	create_line(stor->tokens, 3, NULL, "zjmp", "%:loop", NULL, NULL);
+	create_line(stor, stor->tokens, 0, "loop", "sti", "r1", "%:live", "%1");
+	create_line(stor, stor->tokens, 1, "live", "live", "%0", NULL, NULL);
+	create_line(stor, stor->tokens, 2, NULL, "ld", "%0", "r2", NULL);
+	create_line(stor, stor->tokens, 3, NULL, "zjmp", "%:loop", NULL, NULL);
 }
 
 void	print_tokens_by_line(t_token **token)
@@ -143,5 +169,20 @@ void	print_tokens(t_parser *stor)
 	{
 		printf("\n************* TOKENS ROW %d *************\n\n", token->point.row);
 		print_tokens_by_line(&token);
+	}
+}
+
+void	print_labels(t_parser *stor)
+{
+	t_label	*label = stor->labels;
+	int i = 0;
+
+	printf("\n------------- PRINT LABELS -------------\n\n");
+	while (label)
+	{
+		printf("*** LABEL %d ***\n", i++);
+		printf("content = %s\n", label->content);
+		printf("coords: row = %d  token = %d\n", label->point.row, label->point.token);
+		label = label->next;
 	}
 }

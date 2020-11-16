@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:46 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 04:53:51 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 13:13:55 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void		free_tokens(t_parser *stor);
 
 void	mock_read(t_parser *stor);
 void	print_tokens(t_parser *stor);
+void	print_labels(t_parser *stor);
 
 
 #endif

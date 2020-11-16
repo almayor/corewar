@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 02:14:21 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 04:00:35 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 13:20:08 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int		main()
 
 	stor = ft_calloc(1, sizeof(t_parser));
 	mock_read(stor);	
+
 	print_tokens(stor);
+	print_labels(stor);
 
 	// t_ops		op = op_tmpl[LLD];
 	// printf("op_code = %d  args_num = %d  is_arg_code = %d  dir_size = %d\n", op.op_code, op.args_num, op.is_arg_code, op.dir_size);
