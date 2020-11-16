@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 03:49:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 05:22:53 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 05:28:10 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,19 @@ void	get_arg(t_token *token, char *arg, int y, int x)
 			token->type = DIR_LABL_ARG_TYPE;
 		}
 	}
-	else if (ft_isdigit(arg[i]) || ft_isalpha(arg[i]))
+	else if (ft_isdigit(arg[i]) || arg[i] == ':')
 	{
-		token->content = ft_strdup(arg);
+		// token->content = ft_strdup(arg);
 		if (ft_isdigit(arg[i]))
+		{
+			token->content = ft_strdup(arg);
 			token->type = IND_ARG_TYPE;
-		else if (ft_isalpha(arg[i]))
+		}
+		else
+		{
+			token->content = ft_strdup(arg + 1);
 			token->type = IND_LABL_ARG_TYPE;
+		}
 	}
 }
 
