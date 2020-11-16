@@ -10,7 +10,7 @@ class Parser:
 	cycle_re = re.compile(r'^It is now cycle ([0-9]+)$')
 	instruct_re = re.compile(r'^P[0\s]*([0-9]+)\s\|\s(.*)$')
 	body_re = re.compile(r'^\s+[\|>]')
-	advance_re = re.compile(r'^(ADV|P[0 ]*[0-9]+\s>)')
+	advance_re = re.compile(r'^P[0 ]*[0-9]+\s>')
 	new_re = re.compile(r'^P[0\s]*([0-9]+)\s\|\sNEW')
 	alive_re = re.compile(r'.*said to be alive.*')
 	skip_keywords = ["*", "Introducing", "Contestant", "Player"]
@@ -35,6 +35,9 @@ class Parser:
 
 					if (self.parse_cycle(line) or
 						self.parse_instruct(line)):
+						break
+					if (line.startswith("ADV")):
+						print (line)
 						break
 					if (self.parse_body(line) or
 						self.parse_advance(line) or
