@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 03:49:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 04:50:31 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 05:19:21 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	create_line(t_token *token, int y, char *label, char *cmd, char *arg1, char
 		token = token->next;
 	}
 	token->point.row = y;
-	token->point.token = x++;
+	token->point.token = x == 0 ? x : x++;
 	token->content = ft_strdup(cmd);
 	token->type = OP_TYPE;
 
@@ -136,6 +136,5 @@ void	print_tokens(t_parser *stor)
 	{
 		printf("\n************* TOKENS ROW %d *************\n\n", token->point.row);
 		print_tokens_by_line(&token);
-		token = token ? token->next : NULL;
 	}
 }
