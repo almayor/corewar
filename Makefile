@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/13 21:28:51 by user             ###   ########.fr        #
+#    Updated: 2020/11/16 17:20:16 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,13 @@ LIB_NAME = libft.a
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-CFLAGS += -O3 -std=gnu11 -ffast-math -march=native
 CFLAGS += -MMD
 
 ifeq ($(DEBUG), 1) 
 	CFLAGS += -g
 else
 	CFLAGS += -DNDEBUG
+	CFLAGS += -O3 -std=gnu11 -ffast-math -march=native
 endif
 
 SRC_DIR = src/
