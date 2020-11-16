@@ -7,4 +7,5 @@
 *.idea
 *.cor
 *.s
+!test_translation.s
 asm

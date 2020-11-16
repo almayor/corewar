@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/25 11:33:25 by user              #+#    #+#              #
-#    Updated: 2020/11/16 00:45:49 by user             ###   ########.fr        #
+#    Updated: 2020/11/16 03:50:18 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJ_DIR		= ./obj/
 INC_DIR 	= ./includes/
 
 # ----- Lists -----
-FUNCS		= 	main.c \
+FUNCS		= 	main.c tmp_utils.c \
 				translation.c uni_utils.c writing_modules.c
 
 

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:46 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 00:28:29 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 04:53:51 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,16 @@ void		int_writer(t_parser *stor, unsigned int data);
 
 void		core_error(t_parser *stor, char *message);
 void		core_free(t_parser *stor);
-void		free_parser_strings(t_parser *stor);
+void		free_parser(t_parser *stor);
 void		free_tokens(t_parser *stor);
+
+
+
+
+// TMP UTILS - DELETE
+
+void	mock_read(t_parser *stor);
+void	print_tokens(t_parser *stor);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:20 by user              #+#    #+#             */
-/*   Updated: 2020/11/12 02:42:44 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 04:54:33 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		free_tokens(t_parser *stor)
 	}
 }
 
-void		free_parser_strings(t_parser *stor)
+void		free_parser(t_parser *stor)
 {
 	if (stor->name)
 		free(stor->name);
@@ -52,7 +52,9 @@ void		free_parser_strings(t_parser *stor)
 		free(stor->comment);
 	if (stor->file_name)
 		free(stor->file_name);
+	free(stor);
 }
+
 
 void		core_free(t_parser *stor)
 {
@@ -60,6 +62,9 @@ void		core_free(t_parser *stor)
 		return ;
 	if (stor->tokens)
 		free_tokens(stor);
-	free_parser_strings(stor);
 	// function to clean all data stored in frame
+	
+	// free_labels()
+
+	free_parser(stor);
 }
