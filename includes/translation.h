@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:46 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 13:26:01 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 22:44:26 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,31 @@ void		string_writer(int fd, char *data, int len);
 void		int_writer(t_parser *stor, unsigned int data);
 
 
+void		enrich_data(t_parser *stor);
+t_token		*get_token(t_token *token, int len);
+int			prepare_arg(t_parser *stor, t_token *dst, int name, int shift);
+
+
+//			short version
+int			enrich_line(t_parser *stor, t_token *token);
+int			op_two_args(t_parser *stor, t_token *token, int name);
+int			op_three_args(t_parser *stor, t_token *token, int name);
+int			op_reg_reg_reg(t_parser *stor, t_token *token, int name);
+int			op_dir(t_parser *stor, t_token *token, int name);
+int			op_reg(t_parser *stor, t_token *token, int name);
+
+// //			wide version
+// int			enrich_line_wide(t_parser *stor, t_token *token);
+// int			op_dir(t_parser *stor, t_token *token, int name);
+// int			op_dirind_reg(t_parser *stor, t_token *token, int name);
+// int			op_reg_regind(t_parser *stor, t_token *token, int name);
+// int			op_reg_reg_reg(t_parser *stor, t_token *token, int name);
+// int			op_regdirind_regdirind_reg(t_parser *stor, t_token *token, int name);
+// int			op_regdirind_regdir_reg(t_parser *stor, t_token *token, int name);
+// int			op_reg_regdirint_regdir(t_parser *stor, t_token *token, int name);
+// int			op_reg(t_parser *stor, t_token *token, int name);
+
+
 /*
 **	Utils to handle error cases and memory management
 */
@@ -57,6 +82,8 @@ void		free_labels(t_parser *stor);
 void	mock_read(t_parser *stor);
 void	print_tokens(t_parser *stor);
 void	print_labels(t_parser *stor);
+void	simple_token_print(t_parser *stor);
+void	simple_parser_print(t_parser *stor);
 
 
 #endif

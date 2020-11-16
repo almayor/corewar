@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 15:19:46 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 22:38:11 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 # define NAME_FLAG 1
 # define COMMENT_FLAG 0
-
-# define EXEC_CODE_MOCK 39321
+# define OP_SIZE_BYTE 1
 
 # define OPEN_COR_ERR	"Error: can't open file .cor"
 
@@ -77,9 +76,9 @@ typedef struct		s_token
 	char			*content;
 	t_point			point;
 	int				size;
-	unsigned char	*op_code;
+	unsigned char	op_code;
 	int				is_arg_code;
-	unsigned char	*arg_code;
+	unsigned char	arg_code;
 	int				dir_size;
 	struct s_token	*next;
 }					t_token;
@@ -88,6 +87,7 @@ typedef struct		s_parser
 {
 	t_point			*point;
 	t_token			*tokens;
+	t_token			*tokens_head;
 	t_label			*labels;
 	int				x_read;
 	int				fd_cor;

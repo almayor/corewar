@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:20 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 13:26:30 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 22:45:54 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,6 @@ void		free_tokens(t_parser *stor)
 		tmp = token;
 		if (token->content)
 			free(token->content);
-		if (token->op_code)
-			free(token->op_code);
-		if (token->arg_code)
-			free(token->arg_code);
 		token = token->next;
 		free(tmp);
 	}
@@ -80,7 +76,7 @@ void		core_free(t_parser *stor)
 	if (stor->labels)
 		free_labels(stor);
 	
-	// function to clean all data stored in frame
+	// functions to clean all data stored in frame
 	
 	
 

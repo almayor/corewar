@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 03:49:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 15:12:58 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 22:44:04 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,11 @@ void	create_line(t_parser *stor, t_token *token, int y, char *label, char *cmd, 
 		token->next = ft_calloc(1, sizeof(t_token));
 		token = token->next;
 	}
+	else
+	{
+		token = ft_calloc(1, sizeof(t_token));
+		stor->tokens = token;
+	}
 	if (label)
 	{
 		token->point.row = y;
@@ -138,13 +143,16 @@ void	mock_read(t_parser *stor)
 	stor->comment = ft_strdup("This city needs me");
 	// stor->code_total_size = 10;
 
-	stor->tokens = ft_calloc(1, sizeof(t_token));
-	stor->tokens->content = ft_strdup("INIT TIKENS");
+	// stor->tokens = ft_calloc(1, sizeof(t_token));
+	// stor->tokens->content = ft_strdup("INIT TOKENS");
+	// stor->tokens->type == UNKNOWN;
 	
 	create_line(stor, stor->tokens, 0, "loop", "sti", "r1", "%:live", "%1");
 	create_line(stor, stor->tokens, 1, "live", "live", "%0", NULL, NULL);
 	create_line(stor, stor->tokens, 2, NULL, "ld", "%0", "r2", NULL);
 	create_line(stor, stor->tokens, 3, NULL, "zjmp", "%:loop", NULL, NULL);
+	
+	stor->tokens_head = stor->tokens;
 }
 
 void	print_tokens_by_line(t_token **token)
@@ -155,15 +163,20 @@ void	print_tokens_by_line(t_token **token)
 	{
 		printf("*** TOKEN %d ***\n", (*token)->point.token);
 		printf("type = %s\n", types[(*token)->type]);
+		printf("coords: row = %d token = %d\n", (*token)->point.row, (*token)->point.token);
 		printf("content = %s\n", (*token)->content);
-		printf("coords: row = %d token = %d\n\n", (*token)->point.row, (*token)->point.token);
+		printf("op_code = %#x\n", (*token)->op_code);
+		printf("size = %d\n", (*token)->size);
+		printf("dir_size = %d\n", (*token)->dir_size);
+		printf("is arg_code = %s\n", (*token)->is_arg_code ? "YES" : "NO");
+		printf("arg_code = %#x\n\n", (*token)->arg_code);
 		(*token) = (*token)->next;
 	}
 }
 
 void	print_tokens(t_parser *stor)
 {
-	t_token *token = stor->tokens->next;
+	t_token *token = stor->tokens;
 
 	while (token)
 	{
@@ -185,4 +198,26 @@ void	print_labels(t_parser *stor)
 		printf("coords: row = %d  token = %d\n", label->point.row, label->point.token);
 		label = label->next;
 	}
+}
+
+
+void	simple_token_print(t_parser *stor)
+{
+	t_token *t = stor->tokens;
+	while (t)
+	{
+		printf("content = %s, y = %d x = %d\n", t->content, t->point.row, t->point.token);
+		t = t->next;
+	}
+}
+
+void	simple_parser_print(t_parser *stor)
+{
+	if (!stor)
+		return ;
+	printf("total_size = %d  %#x\n", stor->code_total_size, stor->code_total_size);
+	printf("champ name = %s\n", stor->name);
+	printf("champ comment = %s\n", stor->comment);
+	printf("filename = %s\n", stor->file_name);
+	printf("fd_cor = %d  fd_s = %d\n", stor->fd_cor, stor->fd_s);
 }

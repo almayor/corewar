@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 20:37:21 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 15:28:10 by user             ###   ########.fr       */
+/*   Updated: 2020/11/16 19:47:20 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,7 +164,7 @@ static t_ops	op_tmpl[16] = {
 		.op_code = 0x0f,
 		.args_num = 1,
 		.is_arg_code = 0,
-		.args_types = {T_REG, 0, 0},
+		.args_types = {T_DIR, 0, 0},
 		.dir_size = 2,
 	},
 	{
