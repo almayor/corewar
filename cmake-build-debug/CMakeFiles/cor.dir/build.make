@@ -1208,9 +1208,22 @@ CMakeFiles/cor.dir/sources/asm/init_structs.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cor.dir/sources/asm/init_structs.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kysgramo/cor/sources/asm/init_structs.c -o CMakeFiles/cor.dir/sources/asm/init_structs.c.s
 
+CMakeFiles/cor.dir/sources/asm/parse_command.c.o: CMakeFiles/cor.dir/flags.make
+CMakeFiles/cor.dir/sources/asm/parse_command.c.o: ../sources/asm/parse_command.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/cor.dir/sources/asm/parse_command.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor.dir/sources/asm/parse_command.c.o   -c /Users/kysgramo/cor/sources/asm/parse_command.c
+
+CMakeFiles/cor.dir/sources/asm/parse_command.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cor.dir/sources/asm/parse_command.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/kysgramo/cor/sources/asm/parse_command.c > CMakeFiles/cor.dir/sources/asm/parse_command.c.i
+
+CMakeFiles/cor.dir/sources/asm/parse_command.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cor.dir/sources/asm/parse_command.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kysgramo/cor/sources/asm/parse_command.c -o CMakeFiles/cor.dir/sources/asm/parse_command.c.s
+
 CMakeFiles/cor.dir/sources/asm/parsing.c.o: CMakeFiles/cor.dir/flags.make
 CMakeFiles/cor.dir/sources/asm/parsing.c.o: ../sources/asm/parsing.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/cor.dir/sources/asm/parsing.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/cor.dir/sources/asm/parsing.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor.dir/sources/asm/parsing.c.o   -c /Users/kysgramo/cor/sources/asm/parsing.c
 
 CMakeFiles/cor.dir/sources/asm/parsing.c.i: cmake_force
@@ -1223,7 +1236,7 @@ CMakeFiles/cor.dir/sources/asm/parsing.c.s: cmake_force
 
 CMakeFiles/cor.dir/sources/asm/parsing2.c.o: CMakeFiles/cor.dir/flags.make
 CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../sources/asm/parsing2.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/cor.dir/sources/asm/parsing2.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/cor.dir/sources/asm/parsing2.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor.dir/sources/asm/parsing2.c.o   -c /Users/kysgramo/cor/sources/asm/parsing2.c
 
 CMakeFiles/cor.dir/sources/asm/parsing2.c.i: cmake_force
@@ -1323,6 +1336,7 @@ cor_OBJECTS = \
 "CMakeFiles/cor.dir/sources/asm/asm.c.o" \
 "CMakeFiles/cor.dir/sources/asm/asm_main.c.o" \
 "CMakeFiles/cor.dir/sources/asm/init_structs.c.o" \
+"CMakeFiles/cor.dir/sources/asm/parse_command.c.o" \
 "CMakeFiles/cor.dir/sources/asm/parsing.c.o" \
 "CMakeFiles/cor.dir/sources/asm/parsing2.c.o"
 
@@ -1416,11 +1430,12 @@ cor: CMakeFiles/cor.dir/libft/get_next_line.c.o
 cor: CMakeFiles/cor.dir/sources/asm/asm.c.o
 cor: CMakeFiles/cor.dir/sources/asm/asm_main.c.o
 cor: CMakeFiles/cor.dir/sources/asm/init_structs.c.o
+cor: CMakeFiles/cor.dir/sources/asm/parse_command.c.o
 cor: CMakeFiles/cor.dir/sources/asm/parsing.c.o
 cor: CMakeFiles/cor.dir/sources/asm/parsing2.c.o
 cor: CMakeFiles/cor.dir/build.make
 cor: CMakeFiles/cor.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kysgramo/cor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Linking C executable cor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kysgramo/cor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Linking C executable cor"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cor.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

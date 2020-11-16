@@ -264,30 +264,42 @@ CMakeFiles/cor.dir/libft/get_next_line.c.o: ../libft/libft.h
 
 CMakeFiles/cor.dir/sources/asm/asm.c.o: ../includes/asm.h
 CMakeFiles/cor.dir/sources/asm/asm.c.o: ../includes/op.h
+CMakeFiles/cor.dir/sources/asm/asm.c.o: ../includes/operations.h
 CMakeFiles/cor.dir/sources/asm/asm.c.o: ../libft/ft_printf/inc/ft_printf.h
 CMakeFiles/cor.dir/sources/asm/asm.c.o: ../libft/libft.h
 CMakeFiles/cor.dir/sources/asm/asm.c.o: ../sources/asm/asm.c
 
 CMakeFiles/cor.dir/sources/asm/asm_main.c.o: ../includes/asm.h
 CMakeFiles/cor.dir/sources/asm/asm_main.c.o: ../includes/op.h
+CMakeFiles/cor.dir/sources/asm/asm_main.c.o: ../includes/operations.h
 CMakeFiles/cor.dir/sources/asm/asm_main.c.o: ../libft/ft_printf/inc/ft_printf.h
 CMakeFiles/cor.dir/sources/asm/asm_main.c.o: ../libft/libft.h
 CMakeFiles/cor.dir/sources/asm/asm_main.c.o: ../sources/asm/asm_main.c
 
 CMakeFiles/cor.dir/sources/asm/init_structs.c.o: ../includes/asm.h
 CMakeFiles/cor.dir/sources/asm/init_structs.c.o: ../includes/op.h
+CMakeFiles/cor.dir/sources/asm/init_structs.c.o: ../includes/operations.h
 CMakeFiles/cor.dir/sources/asm/init_structs.c.o: ../libft/ft_printf/inc/ft_printf.h
 CMakeFiles/cor.dir/sources/asm/init_structs.c.o: ../libft/libft.h
 CMakeFiles/cor.dir/sources/asm/init_structs.c.o: ../sources/asm/init_structs.c
 
+CMakeFiles/cor.dir/sources/asm/parse_command.c.o: ../includes/asm.h
+CMakeFiles/cor.dir/sources/asm/parse_command.c.o: ../includes/op.h
+CMakeFiles/cor.dir/sources/asm/parse_command.c.o: ../includes/operations.h
+CMakeFiles/cor.dir/sources/asm/parse_command.c.o: ../libft/ft_printf/inc/ft_printf.h
+CMakeFiles/cor.dir/sources/asm/parse_command.c.o: ../libft/libft.h
+CMakeFiles/cor.dir/sources/asm/parse_command.c.o: ../sources/asm/parse_command.c
+
 CMakeFiles/cor.dir/sources/asm/parsing.c.o: ../includes/asm.h
 CMakeFiles/cor.dir/sources/asm/parsing.c.o: ../includes/op.h
+CMakeFiles/cor.dir/sources/asm/parsing.c.o: ../includes/operations.h
 CMakeFiles/cor.dir/sources/asm/parsing.c.o: ../libft/ft_printf/inc/ft_printf.h
 CMakeFiles/cor.dir/sources/asm/parsing.c.o: ../libft/libft.h
 CMakeFiles/cor.dir/sources/asm/parsing.c.o: ../sources/asm/parsing.c
 
 CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../includes/asm.h
 CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../includes/op.h
+CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../includes/operations.h
 CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../libft/ft_printf/inc/ft_printf.h
 CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../libft/libft.h
 CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../sources/asm/parsing2.c

@@ -2492,6 +2492,33 @@ sources/asm/init_structs.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/init_structs.c.s
 .PHONY : sources/asm/init_structs.c.s
 
+sources/asm/parse_command.o: sources/asm/parse_command.c.o
+
+.PHONY : sources/asm/parse_command.o
+
+# target to build an object file
+sources/asm/parse_command.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/parse_command.c.o
+.PHONY : sources/asm/parse_command.c.o
+
+sources/asm/parse_command.i: sources/asm/parse_command.c.i
+
+.PHONY : sources/asm/parse_command.i
+
+# target to preprocess a source file
+sources/asm/parse_command.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/parse_command.c.i
+.PHONY : sources/asm/parse_command.c.i
+
+sources/asm/parse_command.s: sources/asm/parse_command.c.s
+
+.PHONY : sources/asm/parse_command.s
+
+# target to generate assembly for a file
+sources/asm/parse_command.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/parse_command.c.s
+.PHONY : sources/asm/parse_command.c.s
+
 sources/asm/parsing.o: sources/asm/parsing.c.o
 
 .PHONY : sources/asm/parsing.o
@@ -2816,6 +2843,9 @@ help:
 	@echo "... sources/asm/init_structs.o"
 	@echo "... sources/asm/init_structs.i"
 	@echo "... sources/asm/init_structs.s"
+	@echo "... sources/asm/parse_command.o"
+	@echo "... sources/asm/parse_command.i"
+	@echo "... sources/asm/parse_command.s"
 	@echo "... sources/asm/parsing.o"
 	@echo "... sources/asm/parsing.i"
 	@echo "... sources/asm/parsing.s"

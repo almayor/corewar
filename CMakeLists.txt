@@ -10,6 +10,7 @@ include_directories(libft/ft_printf/inc)
 add_executable(cor
         includes/asm.h
         includes/op.h
+        includes/operations.h
         libft/ft_printf/inc/ft_printf.h
         libft/ft_printf/src/color.c
         libft/ft_printf/src/conversion.c
@@ -99,5 +100,6 @@ add_executable(cor
         sources/asm/asm.c
         sources/asm/asm_main.c
         sources/asm/init_structs.c
+        sources/asm/parse_command.c
         sources/asm/parsing.c
         sources/asm/parsing2.c)

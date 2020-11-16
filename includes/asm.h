@@ -17,6 +17,7 @@
 
 # define ASM_H
 # include "op.h"
+# include "operations.h"
 # include "../libft/ft_printf/inc/ft_printf.h"
 # include "../libft/libft.h"
 # include <stdlib.h>
@@ -44,7 +45,11 @@ typedef enum
 	IND_ARG_TYPE,
 	IND_LABL_ARG_TYPE,
 	END_FILE,
-}					t_type;
+	UNKNOWN,
+}						t_type;
+
+// when we dont know type yet, let's use as default  
+// OP_TYPE as the most frequent type for string starting with LABEL_CHARS
 
 
 typedef struct		s_point
@@ -56,15 +61,15 @@ typedef struct		s_point
 typedef struct		s_label
 {
 	char			*content;
-	t_point			*point;
-	struct s_token	*next;
+	t_point			point;
+	struct s_label	*next;
 }					t_label;
 
 typedef struct		s_token
 {
 	int				type;
 	char			*content;
-	t_point			*point;
+	t_point			point;
 	int				size;
 	unsigned char	*op_code;
 	int				is_arg_code;
@@ -75,7 +80,7 @@ typedef struct		s_token
 
 typedef struct		s_parser
 {
-	t_point			*point;
+	t_point			point;
 	t_token			*tokens;
 	t_label			*labels;
 	int				x_read;
@@ -94,7 +99,12 @@ void			parsing(t_parser *parser);
 t_token			*init_token(t_parser *parser, t_type type);
 void			parse_alpha(t_parser *parser, char *row, int y_start,
 t_token *token);
-void	parse_command(t_parser *parser, char *row, int start);
+void			parse_command(t_parser *parser, char **row, int start);
+void			add_token(t_token **tokens, t_token *token);
+void			trim_from_comments_spaces(t_parser *parser, char *row);
+int				read_row(int fd, char **row);
+char			*get_token_content(t_parser *parser, char *row, int start);
+t_label			*init_label(char *content, int row_num);
 
 # define ERR_OPEN_FILE		"Error: can not open file"
 # define ERR_PARSER_INIT	"Error: can not initiate parsing of this file"
@@ -104,6 +114,9 @@ void	parse_command(t_parser *parser, char *row, int start);
 # define ERR_TOKEN_INIT		"Error: can not initiate a token"
 # define ERR_POINT_INIT		"Error: can not initiate point structure"
 # define ERR_COMMAND		"Error: non-existing command"
-
+# define ERR_NO_NAME		"Error: no champion name"
+# define ERR_NO_COMMENT		"Error: no champion comment"
+# define ERR_TOO_LONG_NAME		"Error: too long name"
+# define ERR_TOO_LONG_COMMENT	"Error: too long comment"
 
 #endif

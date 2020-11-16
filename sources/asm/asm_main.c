@@ -6,7 +6,7 @@
 /*   By: kysgramo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 19:22:05 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/08 19:22:08 by kysgramo         ###   ########.fr       */
+/*   Updated: 2020/11/16 22:15:13 by kysgramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,19 @@ int		ft_strstr_n(const char *haystack, const char *needle)
 int		is_filename(char *filename, char *ext)
 {
 	if (filename && ext && ft_strlen(filename) >= ft_strlen(ext)
-	&& ft_strstr(filename, ext) && ft_strstr_n(filename, ext) == 1
-	&& !ft_strcmp(ft_strchr(filename, '\0') - ft_strlen(ext), ext))
+			&& ft_strstr(filename, ext) && ft_strstr_n(filename, ext) == 1
+			&& !ft_strcmp(ft_strchr(filename, '\0') - ft_strlen(ext), ext))
 		return (TRUE);
 	return (FALSE);
 }
 
 int		main(int ac, char **av)
 {
-    if (ac == 2 && is_filename(av[1], ".s"))
-    {
-    	assembler(av[1]);
-    }
+	if (ac == 2 && is_filename(av[1], ".s"))
+	{
+		assembler(av[1]);
+	}
 	else
 		ft_printf("Usage: ./asm <champion>.s\n");
-    return (0);
+	return (0);
 }

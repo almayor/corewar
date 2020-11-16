@@ -6,13 +6,13 @@
 /*   By: kysgramo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:40:47 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/09 13:40:50 by kysgramo         ###   ########.fr       */
+/*   Updated: 2020/11/16 22:15:30 by kysgramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-t_label		*init_label(char *content, int smth)
+t_label		*init_label(char *content, int row_num)
 {
 	t_label	*label;
 
@@ -21,19 +21,17 @@ t_label		*init_label(char *content, int smth)
 	if (!(label->content = ft_strdup(content)))
 		terminate(ERR_STR_INIT);
 	label->next = NULL;
-	label->point->token = smth;  // dodumaj
+	label->point.token = row_num;
 	return (label);
 } 
 
-t_point		*init_point(void)
+t_point		init_point(void)
 {
-    t_point	*point;
+	t_point	point;
 
-	if (!(point = (t_point *)malloc(sizeof(t_point))))
-		terminate(ERR_POINT_INIT);
-	point->row = 0;
-	point->token = 0;
-    return (point);
+	point.row = 0;
+	point.token = 0;
+	return (point);
 }
 
 t_token		*init_token(t_parser *parser, t_type type)
@@ -45,7 +43,7 @@ t_token		*init_token(t_parser *parser, t_type type)
 	token->type = type;
 	token->content = NULL;
 	token->point = init_point();
-	token->point->row = parser->point->row;
+	token->point.row = parser->point.row;
 	token->size = 0;
 	token->op_code = NULL;
 	token->is_arg_code = 0;
@@ -57,7 +55,7 @@ t_token		*init_token(t_parser *parser, t_type type)
 
 t_parser	*init_asm_parser(void)
 {
-    t_parser	*parser;
+	t_parser	*parser;
 
 	if (!(parser = (t_parser *)malloc(sizeof(t_parser))))
 		terminate(ERR_PARSER_INIT);
@@ -71,6 +69,6 @@ t_parser	*init_asm_parser(void)
 	parser->name = NULL;
 	parser->file_name = NULL;
 	parser->comment = NULL;
-    return (parser);
+	return (parser);
 }
 

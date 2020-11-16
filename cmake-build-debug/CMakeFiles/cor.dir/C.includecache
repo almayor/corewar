@@ -9,6 +9,8 @@
 ../includes/asm.h
 op.h
 ../includes/op.h
+operations.h
+../includes/operations.h
 ../libft/ft_printf/inc/ft_printf.h
 ../libft/ft_printf/inc/ft_printf.h
 ../libft/libft.h
@@ -32,6 +34,12 @@ errno.h
 
 ../includes/op.h
 
+../includes/operations.h
+op.h
+../includes/op.h
+stdint.h
+-
+
 ../libft/ft_printf/inc/ft_printf.h
 stdarg.h
 -
@@ -50,7 +58,7 @@ unistd.h
 limits.h
 -
 
-/Users/kysgramo/cor/sources/asm/parsing.c
+/Users/kysgramo/cor/sources/asm/parsing2.c
 asm.h
 /Users/kysgramo/cor/sources/asm/asm.h
 

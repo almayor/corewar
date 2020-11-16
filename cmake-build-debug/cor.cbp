@@ -90,6 +90,9 @@
 		<Unit filename="/Users/kysgramo/cor/includes/op.h">
 			<Option target="cor"/>
 		</Unit>
+		<Unit filename="/Users/kysgramo/cor/includes/operations.h">
+			<Option target="cor"/>
+		</Unit>
 		<Unit filename="/Users/kysgramo/cor/libft/ft_atoi.c">
 			<Option target="cor"/>
 		</Unit>
@@ -355,6 +358,9 @@
 			<Option target="cor"/>
 		</Unit>
 		<Unit filename="/Users/kysgramo/cor/sources/asm/init_structs.c">
+			<Option target="cor"/>
+		</Unit>
+		<Unit filename="/Users/kysgramo/cor/sources/asm/parse_command.c">
 			<Option target="cor"/>
 		</Unit>
 		<Unit filename="/Users/kysgramo/cor/sources/asm/parsing.c">
