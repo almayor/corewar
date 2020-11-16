@@ -6,12 +6,13 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:47:58 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 22:48:39 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 02:13:12 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm_struct.h"
 #include "translation.h"
+#include "operations.h"
 
 t_token		*get_token(t_token *token, int len)
 {

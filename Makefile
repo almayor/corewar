@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/25 11:33:25 by user              #+#    #+#              #
-#    Updated: 2020/11/16 22:48:04 by user             ###   ########.fr        #
+#    Updated: 2020/11/17 02:03:40 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,11 @@ OBJ_DIR		= ./obj/
 INC_DIR 	= ./includes/
 
 # ----- Lists -----
-FUNCS		= 	main.c tmp_utils.c enrich_wide.c \
+FUNCS		= 	main.c tmp_utils.c \
 				\
-				translation.c uni_utils.c writing_modules.c \
-				enrich_data.c enrich_tools.c
-
+				translation.c free_utils.c writing_modules.c \
+				enrich_data.c enrich_tools.c label_value.c \
+				translate_exec.c
 
 # ----- Auto -----
 HEADER		= $(addprefix $(INC_DIR), $(HEADER_NAME))
@@ -39,7 +39,7 @@ OBJ			= $(addprefix $(OBJ_DIR), $(FUNCS:.c=.o))
 INCLUDES	= -I $(INC_DIR) -I $(LIBFT_INC) 
 
 CC			= gcc
-CFLAGS		= -Wall -Wextra #-Werror
+CFLAGS		= -Wall -Wextra -Werror
 LFT			= -L $(LIBFT_DIR) -lft
 
 # --- Colors ---

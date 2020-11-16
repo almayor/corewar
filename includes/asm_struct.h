@@ -6,18 +6,20 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 22:38:11 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 02:00:32 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _ASM_STRUCT_H_
 # define _ASM_STRUCT_H_
 
-# define NAME_FLAG 1
-# define COMMENT_FLAG 0
-# define OP_SIZE_BYTE 1
+# define NAME_FLAG		1
+# define COMMENT_FLAG 	0
+# define OP_SIZE_BYTE 	1
 
-# define OPEN_COR_ERR	"Error: can't open file .cor"
+# define OPEN_COR_ERR	"Error: failed to open file .cor"
+# define WRITE_ERR		"Error: failed to write to file .cor"
+# define LABEL_ERR		"Error: failed to find label"
 
 typedef enum
 {
@@ -77,6 +79,7 @@ typedef struct		s_token
 	t_point			point;
 	int				size;
 	unsigned char	op_code;
+	int				num_args;
 	int				is_arg_code;
 	unsigned char	arg_code;
 	int				dir_size;

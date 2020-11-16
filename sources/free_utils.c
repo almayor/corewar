@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   uni_utils.c                                        :+:      :+:    :+:   */
+/*   free_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/11 21:51:20 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 22:45:54 by user             ###   ########.fr       */
+/*   Created: 2020/11/17 01:59:40 by user              #+#    #+#             */
+/*   Updated: 2020/11/17 01:59:54 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void		core_error(t_parser *stor, char *message)
 {
 	if (stor)
 		core_free(stor);
-	ft_putendl_fd(message, 2);
+	if (message)
+		ft_putendl_fd(message, 2);
 	exit(EXIT_FAILURE);
 }
 
@@ -82,3 +83,4 @@ void		core_free(t_parser *stor)
 
 	free_parser(stor);
 }
+

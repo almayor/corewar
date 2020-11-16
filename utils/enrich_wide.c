@@ -6,14 +6,15 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 21:26:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 22:41:26 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 02:10:19 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm_struct.h"
-#include "translation.h"
+// #include "asm_struct.h"
+// #include "translation.h"
 
 /* OLD VERSION of fill exec_code_size
+
 
 # define EXEC_CODE_SIZE_MOCK 39321
 
@@ -21,6 +22,70 @@
 	lseek(stor->fd_cor, 4 + PROG_NAME_LENGTH + 4, SEEK_SET);
 */
 
+
+/* OLD STRING WRITER
+
+
+void		string_writer(int fd, char *data, int len)
+{
+	unsigned char	c;
+	int				i;
+
+	i = 0;
+	while (data[i])
+	{
+		c = data[i];
+		write(fd, &c, 1);
+		i++;
+	}
+	c = 0;
+	while (i < len)
+	{
+		write(fd, &c, 1);
+		i++;
+	}
+}
+
+void		write_name_or_comment(t_parser *stor, int len, int kind)
+{
+	char *data;
+
+	data = kind == NAME_FLAG ? stor->name : stor->comment;
+	string_writer(stor->fd_cor, data, len);
+	int_writer(stor, 0);
+}
+
+*/
+
+
+
+///////////////////////// ENRICH OLD //////////////////////////////////////
+
+
+// //			wide version DECLARE
+
+// int			enrich_line_wide(t_parser *stor, t_token *token);
+// int			op_dir(t_parser *stor, t_token *token, int name);
+// int			op_dirind_reg(t_parser *stor, t_token *token, int name);
+// int			op_reg_regind(t_parser *stor, t_token *token, int name);
+// int			op_reg_reg_reg(t_parser *stor, t_token *token, int name);
+// int			op_regdirind_regdirind_reg(t_parser *stor, t_token *token, int name);
+// int			op_regdirind_regdir_reg(t_parser *stor, t_token *token, int name);
+// int			op_reg_regdirint_regdir(t_parser *stor, t_token *token, int name);
+// int			op_reg(t_parser *stor, t_token *token, int name);
+
+
+// int			op_reg_reg_reg(t_parser *stor, t_token *token, int name)
+// {
+// 	token->op_code = op_tmpl[name].op_code;
+// 	token->num_args = op_tmpl[name].args_num;
+// 	token->dir_size = op_tmpl[name].dir_size;
+// 	token->is_arg_code = op_tmpl[name].is_arg_code;
+// 	token->arg_code = (1 << 6) || (1 << 4) || (1 << 2);
+// 	token->size += (OP_SIZE_BYTE + 3 + token->is_arg_code);
+// 	stor->code_total_size += token->size;
+// 	return (4);
+// }
 
 // int			op_dirind_reg(t_parser *stor, t_token *token, int name)
 // {

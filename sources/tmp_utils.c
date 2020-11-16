@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 03:49:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/16 22:44:04 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 02:14:31 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,36 @@
 
 static char types[10][20] = {"NEW_LINE_TYPE", "LABEL_TYPE", "DELIM_TYPE", "OP_TYPE", "REG_ARG_TYPE", "DIR_ARG_TYPE",
 	"DIR_LABL_ARG_TYPE", "IND_ARG_TYPE", "IND_LABL_ARG_TYPE", "END_FILE"};
+
+// y=3 x=1 - loop arg
+// y=0 x=3 - live arg
+
+void		test_label_value(t_parser *stor)
+{
+	t_token *dst;
+	int		val;
+	int		size;
+	int		y = 3;
+	int		x = 1;
+
+	val = 0;
+	size = 0;
+	dst = stor->tokens_head;
+	while (dst)
+	{
+		if (dst->point.row == y)
+		{
+			if (dst->type == OP_TYPE)
+				size = dst->size;
+			if (dst->point.token == x)
+				break ;
+		}
+		dst = dst->next;
+	}
+	// printf("content = %s, y = %d x = %d\n", dst->content, dst->point.row, dst->point.token);
+	val = find_label_value(stor, dst, size);
+	printf("*******val = %d\n", val);
+}
 
 void	get_arg(t_token *token, char *arg, int y, int x)
 {
@@ -167,6 +197,7 @@ void	print_tokens_by_line(t_token **token)
 		printf("content = %s\n", (*token)->content);
 		printf("op_code = %#x\n", (*token)->op_code);
 		printf("size = %d\n", (*token)->size);
+		printf("num_args = %d\n", (*token)->num_args);
 		printf("dir_size = %d\n", (*token)->dir_size);
 		printf("is arg_code = %s\n", (*token)->is_arg_code ? "YES" : "NO");
 		printf("arg_code = %#x\n\n", (*token)->arg_code);
@@ -201,7 +232,7 @@ void	print_labels(t_parser *stor)
 }
 
 
-void	simple_token_print(t_parser *stor)
+void	simple_tokens_print(t_parser *stor)
 {
 	t_token *t = stor->tokens;
 	while (t)
