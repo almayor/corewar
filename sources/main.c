@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 02:14:21 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 15:49:23 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 15:58:14 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		main()
 
 	translation(stor);
 
-	// print_tokens(stor);						// PRINTING - DELETE
+	print_tokens(stor);						// PRINTING - DELETE
 	// print_labels(stor);						// PRINTING - DELETE
 	// simple_parser_print(stor);				// PRINTING - DELETE
 

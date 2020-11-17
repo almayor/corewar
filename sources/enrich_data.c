@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:46:36 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 15:20:08 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 16:13:25 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,17 @@ int			enrich_row(t_parser *stor, t_token *token)
 		if (!ft_strcmp(token->content, op_tmpl[ind].name))
 			break;
 	return (op_args(stor, token, ind));
+}
+
+void		enrich_data(t_parser *stor)
+{
+	int		len;
+
+	len = 0;
+	while (stor->tokens)
+	{
+		len = enrich_row(stor, stor->tokens);
+		stor->tokens = get_token(stor->tokens, len);
+	}
+	stor->tokens = stor->tokens_head;
 }
