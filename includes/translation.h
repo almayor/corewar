@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:46 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 21:22:26 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 22:35:25 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void		free_labels(t_parser *stor);
 
 
 
-
 // TMP UTILS - DELETE
 
 void	mock_read_(t_parser *stor);
@@ -69,6 +68,5 @@ void	print_labels_(t_parser *stor);
 void	simple_tokens_print_(t_parser *stor);
 void	simple_parser_print_(t_parser *stor);
 void	test_label_value_(t_parser *stor);
-
 
 #endif
