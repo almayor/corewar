@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 03:49:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 02:14:31 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 15:49:10 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void		test_label_value(t_parser *stor)
 	printf("*******val = %d\n", val);
 }
 
-void	get_arg(t_token *token, char *arg, int y, int x)
+void	parse_arg(t_token *token, char *arg, int y, int x)
 {
 	int i = 0;
 
@@ -148,20 +148,20 @@ void	create_line(t_parser *stor, t_token *token, int y, char *label, char *cmd, 
 	{
 		token->next = ft_calloc(1, sizeof(t_token));
 		token = token->next;
-		get_arg(token, arg1, y, x++);
+		parse_arg(token, arg1, y, x++);
 	}
 
 	if (arg2)
 	{
 		token->next = ft_calloc(1, sizeof(t_token));
 		token = token->next;
-		get_arg(token, arg2, y, x++);
+		parse_arg(token, arg2, y, x++);
 	}
 	if (arg3)
 	{
 		token->next = ft_calloc(1, sizeof(t_token));
 		token = token->next;
-		get_arg(token, arg3, y, x++);
+		parse_arg(token, arg3, y, x++);
 	}
 
 }
@@ -179,9 +179,17 @@ void	mock_read(t_parser *stor)
 	
 	create_line(stor, stor->tokens, 0, "loop", "sti", "r1", "%:live", "%1");
 	create_line(stor, stor->tokens, 1, "live", "live", "%0", NULL, NULL);
-	create_line(stor, stor->tokens, 2, NULL, "ld", "%0", "r2", NULL);
-	create_line(stor, stor->tokens, 3, NULL, "zjmp", "%:loop", NULL, NULL);
-	
+	create_line(stor, stor->tokens, 2, NULL, "zjmp", "%:typing", NULL, NULL);
+	create_line(stor, stor->tokens, 3, NULL, "sti", "r1", "%:copie", "%2");
+	create_line(stor, stor->tokens, 4, NULL, "ld", "%0", "r2", NULL);
+	create_line(stor, stor->tokens, 5, NULL, "sub", "r2", "r4", "r2");
+	create_line(stor, stor->tokens, 6, NULL, "zjmp", "%:loop", NULL, NULL);
+	create_line(stor, stor->tokens, 7, NULL, "st", "r3", "r5", NULL);
+	create_line(stor, stor->tokens, 8, "typing", "aff", "r2", NULL, NULL);
+	create_line(stor, stor->tokens, 9, "copie", "ld", "%1", "r1", NULL);
+	create_line(stor, stor->tokens, 10, NULL, "xor", "r10", "r10", "r10");
+
+
 	stor->tokens_head = stor->tokens;
 }
 

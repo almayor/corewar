@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:46:36 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 02:28:08 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 15:20:08 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,90 +14,74 @@
 #include "translation.h"
 #include "operations.h"
 
-int			op_reg(t_parser *stor, t_token *token, int name)
+t_token		*get_token(t_token *token, int len)
 {
-	token->op_code = op_tmpl[name].op_code;
-	token->num_args = op_tmpl[name].args_num;
-	token->dir_size = op_tmpl[name].dir_size;
-	token->is_arg_code = op_tmpl[name].is_arg_code;
-	token->arg_code = 1 << 6;
-	token->size = (OP_SIZE_BYTE + 1 + token->is_arg_code);
-	stor->code_total_size += token->size;
-	return (2);
+	while (len)
+	{
+		token = token->next;
+		len--;
+	}
+	return (token);
 }
 
-int			op_dir(t_parser *stor, t_token *token, int name)
+int			get_arg(t_parser *stor, t_token *arg, int name, int shift)
 {
-	token->op_code = op_tmpl[name].op_code;
-	token->num_args = op_tmpl[name].args_num;
-	token->is_arg_code = op_tmpl[name].is_arg_code;
-	token->dir_size = op_tmpl[name].dir_size;
-	token->next->dir_size = token->dir_size;
-	token->size = OP_SIZE_BYTE + op_tmpl[name].dir_size;
-	stor->code_total_size += token->size;
-	return (2);
+	int 	dir_size;
+	int 	arg_code;
+
+	arg_code = 0;
+	dir_size = op_tmpl[name].dir_size;
+	if (arg->type == REG_ARG_TYPE)
+	{
+		arg_code = REG_CODE;
+		stor->tokens->size += 1;
+	}
+	else if (arg->type == DIR_ARG_TYPE || arg->type == DIR_LABL_ARG_TYPE)
+	{
+		arg_code = DIR_CODE;
+		arg->dir_size = dir_size;
+		stor->tokens->size += dir_size;
+	}
+	else
+	{
+		arg_code = IND_CODE;
+		stor->tokens->size += 2;
+	}
+	return (arg_code << shift);
 }
 
-int			op_three_args(t_parser *stor, t_token *token, int name)
+int			op_args(t_parser *stor, t_token *token, int name)
 {
-	unsigned char arg1;
-	unsigned char arg2;
-	unsigned char arg3;
+
+	unsigned char	args[3];
+	int 			ct;
 
 	token->op_code = op_tmpl[name].op_code;
+	token->is_arg_code = op_tmpl[name].is_arg_code;
 	token->num_args = op_tmpl[name].args_num;
 	token->dir_size = op_tmpl[name].dir_size;
-	arg1 = prepare_arg(stor, get_token(token, 1), name, 6);
-	arg2 = prepare_arg(stor, get_token(token, 2), name, 4);
-	arg3 = prepare_arg(stor, get_token(token, 3), name, 2);
-	token->is_arg_code = op_tmpl[name].is_arg_code;
-	token->arg_code = arg1 | arg2 | arg3;
+	ct = -1;
+	while (++ct < token->num_args)
+		args[ct] = get_arg(stor, get_token(token, ct + 1), name, (3 - ct) * 2);
+	ct = 0;
+	token->arg_code = args[0];
+	while (++ct < token->num_args)
+		token->arg_code |= args[ct];
 	token->size += (OP_SIZE_BYTE + token->is_arg_code);
 	stor->code_total_size += token->size;
-	return (4);
+	return (token->num_args + 1);
 }
 
-int			op_two_args(t_parser *stor, t_token *token, int name)
+int			enrich_row(t_parser *stor, t_token *token)
 {
-	unsigned char arg1;
-	unsigned char arg2;
+	int		ind;
 
-	token->op_code = op_tmpl[name].op_code;
-	token->num_args = op_tmpl[name].args_num;
-	token->dir_size = op_tmpl[name].dir_size;
-	arg1 = prepare_arg(stor, get_token(token, 1), name, 6);
-	arg2 = prepare_arg(stor, get_token(token, 2), name, 4);
-	token->is_arg_code = op_tmpl[name].is_arg_code;
-	token->arg_code = arg1 | arg2;
-	token->size += (OP_SIZE_BYTE + token->is_arg_code);
-	stor->code_total_size += token->size;
-	return (3);
-}
-
-int			enrich_row(t_parser *stor, t_token *tk)
-{
-	int		len;
-
-	len = 0;
-	while (tk->type != OP_TYPE)
-		tk = tk->next;
-	stor->tokens = tk;
-
-	!ft_strcmp(tk->content, op_tmpl[LIVE].name) ? (len = op_dir(stor, tk, LIVE)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[LD].name) ? (len = op_two_args(stor, tk, LD)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[ST].name) ? (len = op_two_args(stor, tk, ST)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[ADD].name) ? (len = op_three_args(stor, tk, ADD)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[SUB].name) ? (len = op_three_args(stor, tk, SUB)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[AND].name) ? (len = op_three_args(stor, tk, AND)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[OR].name) ? (len = op_three_args(stor, tk, OR)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[XOR].name) ? (len = op_three_args(stor, tk, XOR)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[ZJMP].name) ? (len = op_dir(stor, tk, ZJMP)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[LDI].name) ? (len = op_three_args(stor, tk, LDI)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[STI].name) ? (len = op_three_args(stor, tk, STI)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[FORK].name) ? (len = op_dir(stor, tk, FORK)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[LLD].name) ? (len = op_two_args(stor, tk, LLD)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[LLDI].name) ? (len = op_two_args(stor, tk, LLDI)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[LFORK].name) ? (len = op_dir(stor, tk, LFORK)) : 0;
-	!ft_strcmp(tk->content, op_tmpl[AFF].name) ? (len = op_reg(stor, tk, AFF)) : 0;
-	return (len);
+	ind = -1;
+	while (token->type != OP_TYPE)
+		token = token->next;
+	stor->tokens = token;
+	while (++ind <= 15)
+		if (!ft_strcmp(token->content, op_tmpl[ind].name))
+			break;
+	return (op_args(stor, token, ind));
 }

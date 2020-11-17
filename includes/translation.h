@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:46 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 02:21:13 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 15:26:04 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,9 @@ int			byte_writer(t_parser *stor, unsigned char c);
 void		short_writer(t_parser *stor, short data);
 
 void		enrich_data(t_parser *stor);
-int			enrich_row(t_parser *stor, t_token *tk);
-int			prepare_arg(t_parser *stor, t_token *dst, int name, int shift);
-int			op_two_args(t_parser *stor, t_token *token, int name);
-int			op_three_args(t_parser *stor, t_token *token, int name);
-int			op_dir(t_parser *stor, t_token *token, int name);
-int			op_reg(t_parser *stor, t_token *token, int name);
+int			enrich_row(t_parser *stor, t_token *token);
+int			op_args(t_parser *stor, t_token *token, int name);
+int			get_arg(t_parser *stor, t_token *arg, int name, int shift);
 t_token		*get_token(t_token *token, int len);
 
 int			find_label_value(t_parser *stor, t_token *dst, int dst_size);
