@@ -138,46 +138,47 @@ void		print_tokens(t_token *tokens)
 	}
 }
 
+int			hard_coord(t_parser *parser, t_token *token, int tok_num)
+{
+	t_token *check;
+	int		c;
+
+	check = token;
+	while (check->type == 1)
+	{
+		check = check->next;
+		c++;
+	}
+	while (1)
+	{
+		tok_num++;
+		token->point.token = tok_num;
+		token->point.row = check->next->point.row;
+		add_label(&parser->labels,
+		init_label(token->content, token->point.row, c));
+		if (token->next->type == 1)
+			token = token->next;
+		else
+			break ;
+	}
+	return (tok_num);
+}
+
 void		coords_and_labels(t_parser *parser, t_token *tokens)
 {
 	int y;
 	int tok_num;
 	t_token *token;
-	t_token *check;
-	int		c;
 
 	token = tokens;
-	check = NULL;
 	y = token->point.row;
 	tok_num = -1;
-	c = 0;
 	while (token)
 	{
 		if (y != token->point.row)
 		{
-			tok_num = 0;
 			if (token->type == 1 && token->next->point.row != y)
-			{
-				check = token;
-				while (check->type == 1)
-				{
-					check = check->next;
-					c++;
-				}
-				while (1)
-				{
-					tok_num++;
-					token->point.token = tok_num;
-					token->point.row = check->next->point.row;
-					add_label(&parser->labels,
-					init_label(token->content, token->point.row, c));
-					if (token->next->type == 1)
-						token = token->next;
-					else
-						break ;
-				}
-				c = 0;
-			}
+				tok_num = hard_coord(parser, tokens, tok_num);
 		}
 		else
 		{
