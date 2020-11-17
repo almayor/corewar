@@ -240,5 +240,4 @@ tird:	live	%42
 	zjmp	%:tird
 	zjmp	%:p1
 
-fin: second:
-	live	%633
+fin: second: live	%633

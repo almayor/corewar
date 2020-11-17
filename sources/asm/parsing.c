@@ -123,7 +123,6 @@ void		print_tokens(t_token *tokens)
 
 	token = tokens;
 	y = token->point.row;
-
 	while (token)
 	{
 		if (y != token->point.row)
@@ -138,12 +137,30 @@ void		print_tokens(t_token *tokens)
 	}
 }
 
-int			hard_coord(t_parser *parser, t_token *token, int tok_num)
+void		improve_coords(t_token *tokens)
+{
+	int y;
+	t_token *token;
+
+	token = tokens;
+	y = token->point.row;
+	while (token)
+	{
+		if (token->point.token == 0)
+			y++;
+		if (token->point.row != y)
+			token->point.row = y;
+		token = token->next;
+	}
+}
+
+int			hard_coord(t_parser *parser, t_token **token, int tok_num)
 {
 	t_token *check;
 	int		c;
 
-	check = token;
+	c = 0;
+	check = *token;
 	while (check->type == 1)
 	{
 		check = check->next;
@@ -152,33 +169,37 @@ int			hard_coord(t_parser *parser, t_token *token, int tok_num)
 	while (1)
 	{
 		tok_num++;
-		token->point.token = tok_num;
-		token->point.row = check->next->point.row;
+		(*token)->point.token = tok_num;
+		(*token)->point.row = check->next->point.row;
 		add_label(&parser->labels,
-		init_label(token->content, token->point.row, c));
-		if (token->next->type == 1)
-			token = token->next;
+		init_label((*token)->content, (*token)->point.row, c));
+		if ((*token)->next->type == 1)
+			(*token) = (*token)->next;
 		else
 			break ;
 	}
 	return (tok_num);
 }
 
-void		coords_and_labels(t_parser *parser, t_token *tokens)
+void		coords_and_labels(t_parser *parser, t_token *tokens, int tok_num)
 {
 	int y;
-	int tok_num;
 	t_token *token;
 
 	token = tokens;
 	y = token->point.row;
-	tok_num = -1;
 	while (token)
 	{
 		if (y != token->point.row)
 		{
+			tok_num = -1;
 			if (token->type == 1 && token->next->point.row != y)
-				tok_num = hard_coord(parser, tokens, tok_num);
+				tok_num = hard_coord(parser, &token, tok_num);
+			else
+			{
+				tok_num++;
+				token->point.token = tok_num;
+			}	
 		}
 		else
 		{
@@ -190,7 +211,6 @@ void		coords_and_labels(t_parser *parser, t_token *tokens)
 		}
 		y = token->point.row;
 		token = token->next;
-
 	}
 }
 
@@ -214,7 +234,8 @@ void		parsing(t_parser *parser)
 	}
 	add_token(&parser->tokens, init_token(parser, END_FILE));
 	validate_commands(parser);
-	coords_and_labels(parser, parser->tokens);
+	coords_and_labels(parser, parser->tokens, -1);
+	//improve_coords(parser->tokens);
 	print_tokens(parser->tokens);
 	print_labels(parser->labels);
 	ft_printf("%s\n", parser->name);
