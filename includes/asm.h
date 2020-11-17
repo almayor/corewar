@@ -105,7 +105,9 @@ void			trim_from_comments_spaces(t_parser *parser, char *row);
 int				read_row(int fd, char **row);
 char			*get_token_content(t_parser *parser, char *row, int start);
 t_label			*init_label(char *content, int row_num);
-
+void			parse_digit(t_parser *parser, char *row, int start,
+t_token *token);
+void			add_label(t_label **labels, t_label *label);
 # define ERR_OPEN_FILE		"Error: can not open file"
 # define ERR_PARSER_INIT	"Error: can not initiate parsing of this file"
 # define ERR_LABEL_INIT		"Error: can not initiate a label"

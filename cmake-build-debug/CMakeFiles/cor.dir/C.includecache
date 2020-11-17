@@ -58,7 +58,7 @@ unistd.h
 limits.h
 -
 
-/Users/kysgramo/cor/sources/asm/parsing2.c
+/Users/kysgramo/cor/sources/asm/parsing.c
 asm.h
 /Users/kysgramo/cor/sources/asm/asm.h
 

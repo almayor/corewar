@@ -12,6 +12,13 @@
 
 #include "asm.h"
 
+void		lexical_error(t_parser *parser)
+{
+	ft_printf("Lexical error at row %d, symbol %d\n",
+	parser->point.row, parser->x_read);
+	exit(1);
+}
+
 void		add_label(t_label **labels, t_label *label)
 {
 	t_label *curr;
@@ -58,11 +65,12 @@ int		is_operation(t_token *token)
 	i = 0;
 	while (i <= AFF)
 	{
-		if (!ft_strcmp(op_tmpl->name, token->content))
+		if (!ft_strcmp(op_tmpl[i].name, token->content))
 		{
 			token->type = OP_TYPE;
 			return (TRUE);
 		}
+		i++;
 	}
 	return (FALSE);
 }
@@ -93,39 +101,44 @@ int		is_register(t_token *token)
 void	parse_alpha(t_parser *parser, char *row, int start,
 		t_token *token)
 {
-	start = parser->x_read;
 	while (row[parser->x_read] && ft_strchr(LABEL_CHARS, row[parser->x_read]))
 		parser->x_read++;
 	token->content = get_token_content(parser, row, start);
-	if (parser->x_read - start && row[parser->x_read] == LABEL_CHAR)
+	if (parser->x_read - start && (row[parser->x_read] == LABEL_CHAR ||
+	row[start - 1] == LABEL_CHAR))
 	{
-		token->type = LABEL_TYPE;
 		add_token(&parser->tokens, token);
-		add_label(&parser->labels,
-				init_label(get_token_content(parser, row, start), parser->point.row));
-		parser->x_read++;
-		ft_printf("->%s\n", token->content);
+		if (token->type == UNKNOWN)
+		{
+			token->type = LABEL_TYPE;
+			parser->x_read++;
+		}
 	} 
 	else if (parser->x_read - start && is_delimiter(row[parser->x_read]) &&
 			(is_operation(token) || is_register(token)))
-	{
 		add_token(&parser->tokens, token);
-		ft_printf("->%s", token->content);
-	}
-	//else
-	//	lexical_error();
+	else
+		lexical_error(parser);
 }
-// move by one symbol until LABEL_CHAR
-// check that all symbols are from LABEL_CHARS
-// detect token type - direct or indirect
-// write in token?
 
 /*
-   void    parse_num(t_parser *parser, char *row, int start,
-   t_token *token)
-   {
-   token->point->row = start;
-   if (row[parser->x_read] == '-')
-   parser->x_read++;
-   }
-   */
+** move by one symbol until LABEL_CHAR
+** check that all symbols are from LABEL_CHARS
+** detect token type - label, operation or register?
+** write in token?
+*/
+
+void	parse_digit(t_parser *parser, char *row, int start,
+t_token *token)
+{
+	if (row[parser->x_read] == '-')
+		parser->x_read++;
+	while (ft_isdigit(row[parser->x_read]))
+		parser->x_read++;
+	token->content = get_token_content(parser, row, start);
+	if (parser->x_read - start)
+		add_token(&parser->tokens, token);
+	else
+		lexical_error(parser);
+}
+
