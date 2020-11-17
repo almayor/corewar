@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
+#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/17 20:30:31 by fallard          ###   ########.fr        #
+#    Updated: 2020/11/17 22:50:06 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ CC = gcc -g
 CFLAGS = #-Wall -Wextra -Werror
 CFLAGS += -MMD
 
-ifeq ($(DEBUG), 1) 
-	CFLAGS += -g
-else
-	CFLAGS += -DNDEBUG
-	CFLAGS += -O3 -std=gnu11 -ffast-math -march=native
-endif
+# ifeq ($(DEBUG), 1) 
+# 	CFLAGS += -g
+# else
+# 	CFLAGS += -DNDEBUG
+# 	CFLAGS += -O3 -std=gnu11 -ffast-math -march=native
+# endif
 
 SRC_DIR = src/
 OBJ_DIR = obj/
@@ -86,7 +86,7 @@ INCLUDES += -lSDL2 -lSDL2_image -lSDL2_ttf		# tmp
 
 .DEFAULT_GOAL = all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re test
 
 all: $(NAME) 
 
@@ -117,5 +117,8 @@ fclean: clean
 		true
 
 re: fclean all
+
+test: all
+	@test/test.sh
 
 ################################################################################

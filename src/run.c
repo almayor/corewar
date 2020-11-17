@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 16:48:52 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 22:32:18 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,27 +87,34 @@ static void	update_ctd(void)
 	}
 }
 
+int			run_once(void)
+{
+	if (g_vm.nprocs == 0)
+		return (1);
+	++g_vm.icycle;
+	if (g_vm.log >> 1 & 1)
+		ft_printf("It is now cycle %lu\n", g_vm.icycle);
+	// update_opcodes();
+	cycle();
+	if (g_vm.dump_flag && g_vm.dump_ncycles <= g_vm.icycle)
+		dump();
+	++g_vm.cycles_since_die;
+	if (g_vm.cycles_to_die <= 0 ||
+		g_vm.cycles_since_die == g_vm.cycles_to_die)
+	{
+		decimate();
+		update_champs();
+		update_ctd();
+		g_vm.cycles_since_die = 0;
+		g_vm.checks_since_change++;
+		g_vm.prev_nlive = g_vm.curr_nlive;
+		g_vm.curr_nlive = 0;
+	}
+	return (0);
+}
+
 void 		run(void)
 {
-	while (g_vm.nprocs)
-	{
-		++g_vm.icycle;
-		if (g_vm.log >> 1 & 1)
-			ft_printf("It is now cycle %lu\n", g_vm.icycle);
-		// update_opcodes();
-		cycle();
-		if (g_vm.dump_flag && g_vm.dump_ncycles <= g_vm.icycle)
-			dump();
-		++g_vm.cycles_since_die;
-		if (g_vm.cycles_to_die <= 0 ||
-			g_vm.cycles_since_die == g_vm.cycles_to_die)
-		{
-			decimate();
-			update_champs();
-			update_ctd();
-			g_vm.cycles_since_die = 0;
-			g_vm.checks_since_change++;
-			g_vm.curr_nlive = 0;
-		}
-	}	
+	while (run_once())
+		continue ;	
 }
