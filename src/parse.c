@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 21:17:59 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/14 20:02:23 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ static void	read_keys(int argc, char **argv, int *i)
 		validate_dump(argc, argv, i);
 	else if (!ft_strcmp(argv[*i], "-log"))
 		validate_log(argc, argv, i);
+	else if (!ft_strcmp(argv[*i], "-visu"))
+		g_vm.visu_flag = 1;
 	else
 		terminate(INVALID_KEY, argv[*i]);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
+#    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/13 21:28:51 by user             ###   ########.fr        #
+#    Updated: 2020/11/16 18:09:49 by fallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ NAME = corewar
 HEAD_NAME = corewar.h corewar_logs.h op.h
 LIB_NAME = libft.a
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CC = gcc -g
+CFLAGS = #-Wall -Wextra -Werror
 CFLAGS += -O3 -std=gnu11 -ffast-math -march=native
 CFLAGS += -MMD
 
@@ -70,6 +70,7 @@ utils/malloc_utils.c \
 utils/memory_utils.c \
 utils/parse_utils.c \
 utils/proc_utils.c \
+sdl_test.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 DEP = $(addprefix $(OBJ_DIR), $(SRC:.c=.d))
@@ -77,6 +78,7 @@ HEADER = $(addprefix $(INC_DIR), $(HEAD_NAME))
 LIBFT = $(addprefix $(LIB_DIR), $(LIB_NAME))
 
 INCLUDES = -I $(INC_DIR) -I $(LIB_DIR)$(INC_DIR)
+INCLUDES += -lSDL2 -lSDL2_image -lSDL2_ttf		# tmp
 
 -include $(DEP)
 

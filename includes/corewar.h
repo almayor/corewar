@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 21:17:25 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/17 20:04:24 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "ft_printf.h"
 # include "op.h"
 # include "corewar_logs.h"
+# include "corewar_visu.h"
 
 # ifndef uint8_t
 typedef unsigned char	uint8_t;
@@ -176,15 +177,17 @@ struct			s_vm
 	size_t		nprocs;
 	t_proc		*procs;
 	uint64_t	curr_nlive;
-	uint32_t	last_live_champ;
+	uint32_t	last_live_champ; // Last live
 	uint64_t	icycle;
 	int64_t		cycles_to_die;
 	int64_t		cycles_since_die;
 	int64_t		checks_since_change;
 	uint64_t	dump_ncycles;
-	int			dump_flag;
+	uint8_t		dump_flag;
 	uint8_t		log;
 	t_parse		temp[MAX_PLAYERS];
+	t_visu		visual;
+	uint8_t		visu_flag;			
 };
 
 /*

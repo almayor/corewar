@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 21:25:04 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/14 20:36:35 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,9 @@ int			main(int argc, char **argv)
 	}
 	parse_args(argc, argv);
 	load();
+	
+	sdl_launch();
+	
 	greet();
 	run();
 	conclude();
