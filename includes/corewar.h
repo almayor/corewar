@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   corewar.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 21:17:25 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/17 03:11:15 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,7 @@ struct			s_vm
 	int64_t		checks_since_change;
 	uint64_t	dump_ncycles;
 	int			dump_flag;
+	uint8_t		aff_flag;
 	uint8_t		log;
 	t_parse		temp[MAX_PLAYERS];
 };

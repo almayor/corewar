@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/15 01:47:06 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 03:13:09 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ static void	print_usage(void)
 	ft_printf("\tcorewar [-n N <file.cor> | -dump N | -log N] <file.cor> <...>\n");
 	ft_printf("\t%-20s : Set player number (N)\n", "-n N <file.cor>");
 	ft_printf("\t%-20s : Dumps memory after N cycles, then exits\n", "-dump N");
+	ft_printf("\t%-20s : Print output from `aff` instructions (default is to hide it)");
 	ft_printf("\t%-20s : Verbosity levels, can be added together to enable several\n", "-log N");
 	ft_printf("\t\t\t\t- %-2i : %s\n", 0, "only essentials");
 	ft_printf("\t\t\t\t- %-2i : %s\n", 1, "lives");
