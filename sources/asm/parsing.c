@@ -59,7 +59,7 @@ void		parse_token(t_parser *parser, char **row)
 			init_token(parser, UNKNOWN));
 	}
 	else
-		parse_token2(parser, &row);
+		parse_token2(parser, row);
 }
 
 /*

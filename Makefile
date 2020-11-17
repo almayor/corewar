@@ -22,7 +22,8 @@ SRC_PATH		=	sources/asm/
 INC_PATH		=	includes/
 OBJ_PATH		=	sources/obj/
 
-SRC_NAME		=	asm_main.c asm.c init_structs.c parsing.c parsing2.c parse_command.c coords.c is_functions.c
+SRC_NAME		=	asm_main.c asm.c init_structs.c parsing.c parsing2.c parse_command.c coords.c\
+ 					is_functions.c row_functions.c
 
 SRC				=	$(addprefix $(SRC_PATH), $(SRC_NAME))
 INC				=	$(addprefix $(INC_PATH), $(INC_NAME))
