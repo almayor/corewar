@@ -357,7 +357,13 @@
 		<Unit filename="/Users/kysgramo/cor/sources/asm/asm_main.c">
 			<Option target="cor"/>
 		</Unit>
+		<Unit filename="/Users/kysgramo/cor/sources/asm/coords.c">
+			<Option target="cor"/>
+		</Unit>
 		<Unit filename="/Users/kysgramo/cor/sources/asm/init_structs.c">
+			<Option target="cor"/>
+		</Unit>
+		<Unit filename="/Users/kysgramo/cor/sources/asm/is_functions.c">
 			<Option target="cor"/>
 		</Unit>
 		<Unit filename="/Users/kysgramo/cor/sources/asm/parse_command.c">
@@ -367,6 +373,9 @@
 			<Option target="cor"/>
 		</Unit>
 		<Unit filename="/Users/kysgramo/cor/sources/asm/parsing2.c">
+			<Option target="cor"/>
+		</Unit>
+		<Unit filename="/Users/kysgramo/cor/sources/asm/row_functions.c">
 			<Option target="cor"/>
 		</Unit>
 		<Unit filename="/Users/kysgramo/cor/CMakeLists.txt">

@@ -276,12 +276,26 @@ CMakeFiles/cor.dir/sources/asm/asm_main.c.o: ../libft/ft_printf/inc/ft_printf.h
 CMakeFiles/cor.dir/sources/asm/asm_main.c.o: ../libft/libft.h
 CMakeFiles/cor.dir/sources/asm/asm_main.c.o: ../sources/asm/asm_main.c
 
+CMakeFiles/cor.dir/sources/asm/coords.c.o: ../includes/asm.h
+CMakeFiles/cor.dir/sources/asm/coords.c.o: ../includes/op.h
+CMakeFiles/cor.dir/sources/asm/coords.c.o: ../includes/operations.h
+CMakeFiles/cor.dir/sources/asm/coords.c.o: ../libft/ft_printf/inc/ft_printf.h
+CMakeFiles/cor.dir/sources/asm/coords.c.o: ../libft/libft.h
+CMakeFiles/cor.dir/sources/asm/coords.c.o: ../sources/asm/coords.c
+
 CMakeFiles/cor.dir/sources/asm/init_structs.c.o: ../includes/asm.h
 CMakeFiles/cor.dir/sources/asm/init_structs.c.o: ../includes/op.h
 CMakeFiles/cor.dir/sources/asm/init_structs.c.o: ../includes/operations.h
 CMakeFiles/cor.dir/sources/asm/init_structs.c.o: ../libft/ft_printf/inc/ft_printf.h
 CMakeFiles/cor.dir/sources/asm/init_structs.c.o: ../libft/libft.h
 CMakeFiles/cor.dir/sources/asm/init_structs.c.o: ../sources/asm/init_structs.c
+
+CMakeFiles/cor.dir/sources/asm/is_functions.c.o: ../includes/asm.h
+CMakeFiles/cor.dir/sources/asm/is_functions.c.o: ../includes/op.h
+CMakeFiles/cor.dir/sources/asm/is_functions.c.o: ../includes/operations.h
+CMakeFiles/cor.dir/sources/asm/is_functions.c.o: ../libft/ft_printf/inc/ft_printf.h
+CMakeFiles/cor.dir/sources/asm/is_functions.c.o: ../libft/libft.h
+CMakeFiles/cor.dir/sources/asm/is_functions.c.o: ../sources/asm/is_functions.c
 
 CMakeFiles/cor.dir/sources/asm/parse_command.c.o: ../includes/asm.h
 CMakeFiles/cor.dir/sources/asm/parse_command.c.o: ../includes/op.h
@@ -303,4 +317,11 @@ CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../includes/operations.h
 CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../libft/ft_printf/inc/ft_printf.h
 CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../libft/libft.h
 CMakeFiles/cor.dir/sources/asm/parsing2.c.o: ../sources/asm/parsing2.c
+
+CMakeFiles/cor.dir/sources/asm/row_functions.c.o: ../includes/asm.h
+CMakeFiles/cor.dir/sources/asm/row_functions.c.o: ../includes/op.h
+CMakeFiles/cor.dir/sources/asm/row_functions.c.o: ../includes/operations.h
+CMakeFiles/cor.dir/sources/asm/row_functions.c.o: ../libft/ft_printf/inc/ft_printf.h
+CMakeFiles/cor.dir/sources/asm/row_functions.c.o: ../libft/libft.h
+CMakeFiles/cor.dir/sources/asm/row_functions.c.o: ../sources/asm/row_functions.c
 

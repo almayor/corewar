@@ -47,23 +47,6 @@ void		print_tokens(t_token *tokens)
 	}
 }
 
-void		improve_coords(t_token *tokens)
-{
-	int		y;
-	t_token	*token;
-
-	token = tokens;
-	y = -1;
-	while (token)
-	{
-		if (token->point.token == 0)
-			y++;
-		if (token->point.row != y)
-			token->point.row = y;
-		token = token->next;
-	}
-}
-
 int			hard_coord(t_parser *parser, t_token **token, int tok_num)
 {
 	t_token	*check;
@@ -104,7 +87,7 @@ void		coords_and_labels(t_parser *parser, t_token *tokens, int tok_num)
 	t_token	*token;
 
 	token = tokens;
-	y = token->point.row;
+	y = 0;
 	while (token)
 	{
 		if (y != token->point.row)

@@ -64,6 +64,8 @@ t_parser	*init_asm_parser(void)
 	parser->tokens = NULL;
 	parser->labels = NULL;
 	parser->x_read = 0;
+	parser->y_read = 0;
+	parser->tok_len = 0;
 	parser->fd_cor = 0;
 	parser->fd_s = 0;
 	parser->code_total_size = 0;

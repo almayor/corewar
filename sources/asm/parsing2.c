@@ -15,7 +15,7 @@
 void		lexical_error(t_parser *parser)
 {
 	ft_printf("Lexical error at row %d, symbol %d\n",
-	parser->point.row, parser->x_read);
+	parser->y_read, parser->x_read);
 	exit(1);
 }
 

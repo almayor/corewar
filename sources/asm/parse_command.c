@@ -43,7 +43,7 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 
 	while (!(end = ft_strchr(&((*row)[start]), '\"')) &&
 	(size = read_row(parser->fd_s, &str) > 0) &&
-	++parser->point.row)
+	++parser->y_read)
 		*row = join_str(row, &str);
 	if (size == -1)
 		terminate(ERR_READING);

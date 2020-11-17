@@ -19,7 +19,7 @@ void	assembler(char *filename)
 	parser = init_asm_parser();
 	if ((parser->fd_s = open(filename, O_RDONLY)) == -1)
 		terminate(ERR_OPEN_FILE);
-	parsing(parser);
+	parsing(parser, 0);
 	parser->file_name = ft_strjoin(ft_strsub(filename, 0,
 				ft_strlen(filename) - 2), ".cor");
 	//ft_putendl(parser->file_name);

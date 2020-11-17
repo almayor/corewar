@@ -99,7 +99,10 @@ add_executable(cor
         libft/libft.h
         sources/asm/asm.c
         sources/asm/asm_main.c
+        sources/asm/coords.c
         sources/asm/init_structs.c
+        sources/asm/is_functions.c
         sources/asm/parse_command.c
         sources/asm/parsing.c
-        sources/asm/parsing2.c)
+        sources/asm/parsing2.c
+        sources/asm/row_functions.c)

@@ -90,10 +90,13 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/kysgramo/cor/libft/get_next_line.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/libft/get_next_line.c.o"
   "/Users/kysgramo/cor/sources/asm/asm.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/sources/asm/asm.c.o"
   "/Users/kysgramo/cor/sources/asm/asm_main.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/sources/asm/asm_main.c.o"
+  "/Users/kysgramo/cor/sources/asm/coords.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/sources/asm/coords.c.o"
   "/Users/kysgramo/cor/sources/asm/init_structs.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/sources/asm/init_structs.c.o"
+  "/Users/kysgramo/cor/sources/asm/is_functions.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/sources/asm/is_functions.c.o"
   "/Users/kysgramo/cor/sources/asm/parse_command.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/sources/asm/parse_command.c.o"
   "/Users/kysgramo/cor/sources/asm/parsing.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/sources/asm/parsing.c.o"
   "/Users/kysgramo/cor/sources/asm/parsing2.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/sources/asm/parsing2.c.o"
+  "/Users/kysgramo/cor/sources/asm/row_functions.c" "/Users/kysgramo/cor/cmake-build-debug/CMakeFiles/cor.dir/sources/asm/row_functions.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

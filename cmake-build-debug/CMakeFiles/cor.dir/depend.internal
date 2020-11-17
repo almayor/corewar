@@ -276,6 +276,13 @@ CMakeFiles/cor.dir/sources/asm/asm_main.c.o
  ../libft/ft_printf/inc/ft_printf.h
  ../libft/libft.h
  /Users/kysgramo/cor/sources/asm/asm_main.c
+CMakeFiles/cor.dir/sources/asm/coords.c.o
+ ../includes/asm.h
+ ../includes/op.h
+ ../includes/operations.h
+ ../libft/ft_printf/inc/ft_printf.h
+ ../libft/libft.h
+ /Users/kysgramo/cor/sources/asm/coords.c
 CMakeFiles/cor.dir/sources/asm/init_structs.c.o
  ../includes/asm.h
  ../includes/op.h
@@ -283,6 +290,13 @@ CMakeFiles/cor.dir/sources/asm/init_structs.c.o
  ../libft/ft_printf/inc/ft_printf.h
  ../libft/libft.h
  /Users/kysgramo/cor/sources/asm/init_structs.c
+CMakeFiles/cor.dir/sources/asm/is_functions.c.o
+ ../includes/asm.h
+ ../includes/op.h
+ ../includes/operations.h
+ ../libft/ft_printf/inc/ft_printf.h
+ ../libft/libft.h
+ /Users/kysgramo/cor/sources/asm/is_functions.c
 CMakeFiles/cor.dir/sources/asm/parse_command.c.o
  ../includes/asm.h
  ../includes/op.h
@@ -304,3 +318,10 @@ CMakeFiles/cor.dir/sources/asm/parsing2.c.o
  ../libft/ft_printf/inc/ft_printf.h
  ../libft/libft.h
  /Users/kysgramo/cor/sources/asm/parsing2.c
+CMakeFiles/cor.dir/sources/asm/row_functions.c.o
+ ../includes/asm.h
+ ../includes/op.h
+ ../includes/operations.h
+ ../libft/ft_printf/inc/ft_printf.h
+ ../libft/libft.h
+ /Users/kysgramo/cor/sources/asm/row_functions.c

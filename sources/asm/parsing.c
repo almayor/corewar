@@ -67,11 +67,31 @@ void		parse_token(t_parser *parser, char **row)
 ** parse_digit - for directs, indirects
 */
 
-void		parsing(t_parser *parser)
+void		token_len(t_parser *parser, t_token **tokens)
+{
+	t_token	*curr;
+	int		len;
+
+	len = 0;
+	if (tokens && *tokens)
+	{
+		curr = *tokens;
+		while (curr->next)
+		{
+			curr = curr->next;
+			len++;
+		}
+		parser->tok_len = len;
+	}
+	else
+		parser->tok_len = 0;
+}
+
+void		parsing(t_parser *parser, int tok_len)
 {
 	char	*row;
 
-	while (++parser->point.row && read_row(parser->fd_s, &row) > 0)
+	while (++parser->y_read && read_row(parser->fd_s, &row) > 0)
 	{
 		parser->x_read = 0;
 		while (row[parser->x_read])
@@ -80,16 +100,19 @@ void		parsing(t_parser *parser)
 			if (row[parser->x_read])
 				parse_token(parser, &row);
 		}
+		token_len(parser, &parser->tokens);
+		if (tok_len != parser->tok_len)
+		{
+			tok_len = parser->tok_len;
+			parser->point.row++;
+		}
 		ft_strdel(&row);
 	}
 	add_token(&parser->tokens, init_token(parser, END_FILE));
 	validate_commands(parser);
-	//improve_coords(parser->tokens);
 	coords_and_labels(parser, parser->tokens, -1);
 	print_tokens(parser->tokens);
 	print_labels(parser->labels);
-	ft_printf("%s\n", parser->name);
-	ft_printf("%s\n", parser->comment);
 }
 
 /*

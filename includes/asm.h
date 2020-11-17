@@ -84,6 +84,8 @@ typedef struct		s_parser
 	t_token			*tokens;
 	t_label			*labels;
 	int				x_read;
+	int				y_read;
+	int				tok_len;
 	int				fd_cor;
 	int				fd_s;
 	int				code_total_size;
@@ -95,7 +97,7 @@ typedef struct		s_parser
 void			terminate(char *s);
 void			assembler(char *filename);
 t_parser		*init_asm_parser(void);
-void			parsing(t_parser *parser);
+void			parsing(t_parser *parser, int tok_len);
 t_token			*init_token(t_parser *parser, t_type type);
 void			parse_alpha(t_parser *parser, char *row, int y_start,
 t_token *token);

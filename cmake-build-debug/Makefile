@@ -2465,6 +2465,33 @@ sources/asm/asm_main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/asm_main.c.s
 .PHONY : sources/asm/asm_main.c.s
 
+sources/asm/coords.o: sources/asm/coords.c.o
+
+.PHONY : sources/asm/coords.o
+
+# target to build an object file
+sources/asm/coords.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/coords.c.o
+.PHONY : sources/asm/coords.c.o
+
+sources/asm/coords.i: sources/asm/coords.c.i
+
+.PHONY : sources/asm/coords.i
+
+# target to preprocess a source file
+sources/asm/coords.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/coords.c.i
+.PHONY : sources/asm/coords.c.i
+
+sources/asm/coords.s: sources/asm/coords.c.s
+
+.PHONY : sources/asm/coords.s
+
+# target to generate assembly for a file
+sources/asm/coords.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/coords.c.s
+.PHONY : sources/asm/coords.c.s
+
 sources/asm/init_structs.o: sources/asm/init_structs.c.o
 
 .PHONY : sources/asm/init_structs.o
@@ -2491,6 +2518,33 @@ sources/asm/init_structs.s: sources/asm/init_structs.c.s
 sources/asm/init_structs.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/init_structs.c.s
 .PHONY : sources/asm/init_structs.c.s
+
+sources/asm/is_functions.o: sources/asm/is_functions.c.o
+
+.PHONY : sources/asm/is_functions.o
+
+# target to build an object file
+sources/asm/is_functions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/is_functions.c.o
+.PHONY : sources/asm/is_functions.c.o
+
+sources/asm/is_functions.i: sources/asm/is_functions.c.i
+
+.PHONY : sources/asm/is_functions.i
+
+# target to preprocess a source file
+sources/asm/is_functions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/is_functions.c.i
+.PHONY : sources/asm/is_functions.c.i
+
+sources/asm/is_functions.s: sources/asm/is_functions.c.s
+
+.PHONY : sources/asm/is_functions.s
+
+# target to generate assembly for a file
+sources/asm/is_functions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/is_functions.c.s
+.PHONY : sources/asm/is_functions.c.s
 
 sources/asm/parse_command.o: sources/asm/parse_command.c.o
 
@@ -2572,6 +2626,33 @@ sources/asm/parsing2.s: sources/asm/parsing2.c.s
 sources/asm/parsing2.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/parsing2.c.s
 .PHONY : sources/asm/parsing2.c.s
+
+sources/asm/row_functions.o: sources/asm/row_functions.c.o
+
+.PHONY : sources/asm/row_functions.o
+
+# target to build an object file
+sources/asm/row_functions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/row_functions.c.o
+.PHONY : sources/asm/row_functions.c.o
+
+sources/asm/row_functions.i: sources/asm/row_functions.c.i
+
+.PHONY : sources/asm/row_functions.i
+
+# target to preprocess a source file
+sources/asm/row_functions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/row_functions.c.i
+.PHONY : sources/asm/row_functions.c.i
+
+sources/asm/row_functions.s: sources/asm/row_functions.c.s
+
+.PHONY : sources/asm/row_functions.s
+
+# target to generate assembly for a file
+sources/asm/row_functions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor.dir/build.make CMakeFiles/cor.dir/sources/asm/row_functions.c.s
+.PHONY : sources/asm/row_functions.c.s
 
 # Help Target
 help:
@@ -2840,9 +2921,15 @@ help:
 	@echo "... sources/asm/asm_main.o"
 	@echo "... sources/asm/asm_main.i"
 	@echo "... sources/asm/asm_main.s"
+	@echo "... sources/asm/coords.o"
+	@echo "... sources/asm/coords.i"
+	@echo "... sources/asm/coords.s"
 	@echo "... sources/asm/init_structs.o"
 	@echo "... sources/asm/init_structs.i"
 	@echo "... sources/asm/init_structs.s"
+	@echo "... sources/asm/is_functions.o"
+	@echo "... sources/asm/is_functions.i"
+	@echo "... sources/asm/is_functions.s"
 	@echo "... sources/asm/parse_command.o"
 	@echo "... sources/asm/parse_command.i"
 	@echo "... sources/asm/parse_command.s"
@@ -2852,6 +2939,9 @@ help:
 	@echo "... sources/asm/parsing2.o"
 	@echo "... sources/asm/parsing2.i"
 	@echo "... sources/asm/parsing2.s"
+	@echo "... sources/asm/row_functions.o"
+	@echo "... sources/asm/row_functions.i"
+	@echo "... sources/asm/row_functions.s"
 .PHONY : help
 
 
