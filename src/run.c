@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/13 01:27:10 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 16:48:52 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,26 +36,26 @@ static void decimate(void)
 	}
 }
 
-static void update_opcodes(void)
-{
-	t_proc	*proc;
+// static void update_opcodes(void)
+// {
+// 	t_proc	*proc;
 
-	proc = g_vm.procs;
-	while (proc)
-	{
-		if (proc->cycles_busy)
-			proc->cycles_busy--;
-		else
-		{
-			proc->opcode = g_vm.mem[proc->pc];
-			if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
-				proc->cycles_busy = g_op_tab[proc->opcode].duration - 1;
-			else
-				proc->opcode = 0;
-		}
-		proc = proc->next;
-	}
-}
+// 	proc = g_vm.procs;
+// 	while (proc)
+// 	{
+// 		if (proc->cycles_busy)
+// 			proc->cycles_busy--;
+// 		else
+// 		{
+// 			proc->opcode = g_vm.mem[proc->pc];
+// 			if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
+// 				proc->cycles_busy = g_op_tab[proc->opcode].duration - 1;
+// 			else
+// 				proc->opcode = 0;
+// 		}
+// 		proc = proc->next;
+// 	}
+// }
 
 static void	update_champs(void)
 {
@@ -94,7 +94,7 @@ void 		run(void)
 		++g_vm.icycle;
 		if (g_vm.log >> 1 & 1)
 			ft_printf("It is now cycle %lu\n", g_vm.icycle);
-		update_opcodes();
+		// update_opcodes();
 		cycle();
 		if (g_vm.dump_flag && g_vm.dump_ncycles <= g_vm.icycle)
 			dump();
