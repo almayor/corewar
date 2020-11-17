@@ -1,5 +1,4 @@
-.name           "4
-2"
+.name           "42"
 .comment        "Just a basic Winner Program"
 
 entree:	live	%42		# entree
@@ -229,7 +228,8 @@ tirdow:	ld	%425,r2
 	ld	%0,r3
 	ld	%4,r4
 
-tird:	live	%42
+tird:	
+live	%42
 	sti	r10,%:fin,r2
 	sti	r10,%:fin,r3
 	add	r4,r5,r4

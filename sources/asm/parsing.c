@@ -111,8 +111,8 @@ void		parsing(t_parser *parser, int tok_len)
 	add_token(&parser->tokens, init_token(parser, END_FILE));
 	validate_commands(parser);
 	coords_and_labels(parser, parser->tokens, -1);
-	print_tokens(parser->tokens);
-	print_labels(parser->labels);
+	//print_tokens(parser->tokens);
+	//print_labels(parser->labels);
 }
 
 /*

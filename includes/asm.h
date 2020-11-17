@@ -121,17 +121,18 @@ int				is_delimiter(int c);
 void			trim_from_comments_spaces(t_parser *parser, char *row);
 int				read_row(int fd, char **row);
 
-# define ERR_OPEN_FILE		"Error: can not open file"
-# define ERR_PARSER_INIT	"Error: can not initiate parsing of this file"
-# define ERR_LABEL_INIT		"Error: can not initiate a label"
-# define ERR_STR_INIT		"Error: can not initiate name of label"
-# define ERR_READING		"Error: read the lines of .s file"
-# define ERR_TOKEN_INIT		"Error: can not initiate a token"
-# define ERR_POINT_INIT		"Error: can not initiate point structure"
-# define ERR_COMMAND		"Error: non-existing command"
-# define ERR_NO_NAME		"Error: no champion name"
-# define ERR_NO_COMMENT		"Error: no champion comment"
+# define ERR_OPEN_FILE			"Error: can not open file"
+# define ERR_PARSER_INIT		"Error: can not initiate parsing of this file"
+# define ERR_LABEL_INIT			"Error: can not initiate a label"
+# define ERR_STR_INIT			"Error: can not initiate name of label"
+# define ERR_READING			"Error: read the lines of .s file"
+# define ERR_TOKEN_INIT			"Error: can not initiate a token"
+# define ERR_POINT_INIT			"Error: can not initiate point structure"
+# define ERR_COMMAND			"Error: non-existing command"
+# define ERR_NO_NAME			"Error: no champion name"
+# define ERR_NO_COMMENT			"Error: no champion comment"
 # define ERR_TOO_LONG_NAME		"Error: too long name"
 # define ERR_TOO_LONG_COMMENT	"Error: too long comment"
+# define ERR_ESCAPE				"Error: escape missed"
 
 #endif

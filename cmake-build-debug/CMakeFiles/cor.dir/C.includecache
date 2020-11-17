@@ -58,7 +58,7 @@ unistd.h
 limits.h
 -
 
-/Users/kysgramo/cor/sources/asm/init_structs.c
+/Users/kysgramo/cor/sources/asm/asm.c
 asm.h
 /Users/kysgramo/cor/sources/asm/asm.h
 
