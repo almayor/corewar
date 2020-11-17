@@ -6,11 +6,10 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 01:40:21 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 01:51:49 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 21:19:35 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm_struct.h"
 #include "translation.h"
 
 void		int_writer(t_parser *stor, unsigned int data)

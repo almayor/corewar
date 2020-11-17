@@ -6,11 +6,10 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:46:36 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 16:13:25 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 21:57:43 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm_struct.h"
 #include "translation.h"
 #include "operations.h"
 
@@ -56,6 +55,8 @@ int			op_args(t_parser *stor, t_token *token, int name)
 	unsigned char	args[3];
 	int 			ct;
 
+	if (!token)
+		core_error(stor, ENRICH_ERR);
 	token->op_code = op_tmpl[name].op_code;
 	token->is_arg_code = op_tmpl[name].is_arg_code;
 	token->num_args = op_tmpl[name].args_num;
@@ -91,7 +92,7 @@ void		enrich_data(t_parser *stor)
 	int		len;
 
 	len = 0;
-	while (stor->tokens)
+	while (stor->tokens && stor->tokens->type != END_FILE)
 	{
 		len = enrich_row(stor, stor->tokens);
 		stor->tokens = get_token(stor->tokens, len);

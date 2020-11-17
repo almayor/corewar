@@ -6,13 +6,11 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 01:59:40 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 01:59:54 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 21:19:01 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm_struct.h"
 #include "translation.h"
-
 
 void		core_error(t_parser *stor, char *message)
 {
@@ -73,7 +71,11 @@ void		core_free(t_parser *stor)
 	if (!stor)
 		return ;
 	if (stor->tokens)
+	{
+		if (stor->tokens_head)
+			stor->tokens = stor->tokens_head;
 		free_tokens(stor);
+	}
 	if (stor->labels)
 		free_labels(stor);
 	

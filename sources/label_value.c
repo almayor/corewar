@@ -6,11 +6,10 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 00:26:25 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 02:16:53 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 21:19:10 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm_struct.h"
 #include "translation.h"
 
 t_label		*get_label(t_parser *stor, char *name)

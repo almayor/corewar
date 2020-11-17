@@ -6,11 +6,10 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 01:33:01 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 16:11:32 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 21:43:05 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm_struct.h"
 #include "translation.h"
 
 void		translate_arg(t_parser *stor, t_token *token, int size)
@@ -57,7 +56,7 @@ void		translate_exec_code(t_parser *stor)
 	int		len;
 
 	len = 0;
-	while (stor->tokens)
+	while (stor->tokens && stor->tokens->type != END_FILE)
 	{
 		len = translate_exec_row(stor, stor->tokens);
 		stor->tokens = get_token(stor->tokens, len);

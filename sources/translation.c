@@ -6,11 +6,10 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:34:55 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 16:15:18 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 21:57:11 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm_struct.h"
 #include "translation.h"
 
 void		translate_commons(t_parser *stor)
@@ -23,6 +22,7 @@ void		translate_commons(t_parser *stor)
 
 void		translation(t_parser *stor)
 {
+	stor->tokens_head = stor->tokens;
 	if ((stor->fd_cor = open(stor->file_name, O_RDWR | O_CREAT | O_TRUNC, 0777)) == -1)
 		core_error(stor, OPEN_COR_ERR);
 	enrich_data(stor);

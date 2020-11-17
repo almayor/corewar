@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:46 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 15:26:04 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 21:22:26 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 # include "libft.h"
 # include "asm_struct.h"
-# include "op.h"
 
 /*
 **	Translation to byte code
@@ -64,12 +63,12 @@ void		free_labels(t_parser *stor);
 
 // TMP UTILS - DELETE
 
-void	mock_read(t_parser *stor);
-void	print_tokens(t_parser *stor);
-void	print_labels(t_parser *stor);
-void	simple_tokens_print(t_parser *stor);
-void	simple_parser_print(t_parser *stor);
-void	test_label_value(t_parser *stor);
+void	mock_read_(t_parser *stor);
+void	print_tokens_(t_parser *stor);
+void	print_labels_(t_parser *stor);
+void	simple_tokens_print_(t_parser *stor);
+void	simple_parser_print_(t_parser *stor);
+void	test_label_value_(t_parser *stor);
 
 
 #endif

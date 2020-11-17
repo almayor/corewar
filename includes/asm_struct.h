@@ -6,18 +6,21 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 02:00:32 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 21:16:17 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _ASM_STRUCT_H_
 # define _ASM_STRUCT_H_
 
+# include "op.h"
+
 # define NAME_FLAG		1
 # define COMMENT_FLAG 	0
 # define OP_SIZE_BYTE 	1
 
 # define OPEN_COR_ERR	"Error: failed to open file .cor"
+# define ENRICH_ERR		"Error: failed to enrich data. False token index"
 # define WRITE_ERR		"Error: failed to write to file .cor"
 # define LABEL_ERR		"Error: failed to find label"
 
@@ -88,11 +91,13 @@ typedef struct		s_token
 
 typedef struct		s_parser
 {
-	t_point			*point;
+	t_point			point;
 	t_token			*tokens;
 	t_token			*tokens_head;
 	t_label			*labels;
 	int				x_read;
+	int				y_read;
+	int				tok_len;
 	int				fd_cor;
 	int				fd_s;
 	int				code_total_size;

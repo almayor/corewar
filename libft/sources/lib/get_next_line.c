@@ -6,106 +6,63 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 17:11:38 by edoll             #+#    #+#             */
-/*   Updated: 2020/10/14 20:18:02 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 21:34:14 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		write_last(t_gnl **list, t_gnl **l_head, char **line)
+static int	gnl_shortline(int fd, char **stock, char **line, int pkg)
 {
-	char *is_feed;
+	size_t		len;
+	char		*temp;
 
-	if (!(*list)->content)
+	len = 0;
+	while (stock[fd][len] != '\n' && stock[fd][len] != '\0')
+		len++;
+	if (stock[fd][len] == '\n')
 	{
-		*line = NULL;
-		return (0);
+		*line = ft_strsub(stock[fd], 0, len);
+		temp = ft_strdup(ft_strchr(stock[fd], '\n') + 1);
+		free(stock[fd]);
+		stock[fd] = temp;
+		if (stock[fd][0] == '\0')
+			ft_strdel(&stock[fd]);
 	}
-	*line = ft_strdup((*list)->content);
-	if (!(ft_strlen(*line)))
-		return (0);
-	is_feed = ft_strchr((*list)->content, '\n');
-	free((*list)->content);
-	(*list)->content = NULL;
-	*list = *l_head;
-	if (!is_feed)
-		return (1);
 	else
-		return (0);
-}
-
-int		rec_line(char **cont, char *buff)
-{
-	if (*cont)
 	{
-		if (!(*cont = ft_strjoin_free(*cont, buff)))
-			return (-1);
-	}
-	else if (!(*cont = ft_strdup(buff)))
-		return (-1);
-	return (0);
-}
-
-int		check_line(char **cont, char **line, t_gnl **list, t_gnl **l_head)
-{
-	char	*pos;
-	char	*tmp;
-
-	if (!(*cont) || !(ft_strchr(*cont, '\n')))
-		return (0);
-	pos = ft_strchr(*cont, '\n');
-	tmp = *cont;
-	*pos++ = '\0';
-	if (!((*line) = ft_strdup(*cont)))
-		return (-1);
-	if (!(*line) || !(*cont = ft_strdup(pos)))
-		return (-1);
-	free(tmp);
-	*list = *l_head;
-	return (1);
-}
-
-int		set_list(t_gnl **list, t_gnl **l_head, int fd)
-{
-	if (!(*list))
-		if (!((*list) = ft_lstnewset(fd)))
-			return (-1);
-	*l_head = *list;
-	while ((*list)->fd != fd && (*list)->next)
-		*list = (*list)->next;
-	if ((*list)->fd != fd)
-	{
-		if (!((*list)->next = ft_lstnewset(fd)))
-			return (-1);
-		*list = (*list)->next;
+		if (pkg == BUFF_SIZE)
+			get_next_line(fd, line);
+		*line = ft_strdup(stock[fd]);
+		ft_strdel(&stock[fd]);
 	}
 	return (1);
 }
 
-int		get_next_line(int const fd, char **line, int clean)
+int			get_next_line(const int fd, char **line)
 {
-	static t_gnl	*list;
-	t_gnl			*l_head;
-	size_t			ret;
-	char			buff[BUFF_SIZE + 1];
+	static char	*stock[256];
+	int			pkg;
+	char		balance[BUFF_SIZE + 1];
+	char		*wagon;
 
-	if (clean)
-		return (clean_gnl_cache(list));
-	if (fd < 0 || BUFF_SIZE <= 0 || !line || read(fd, NULL, 0) < 0)
+	if (fd < 0 || fd > 256 || !line || !BUFF_SIZE)
 		return (-1);
-	if (set_list(&list, &l_head, fd) == -1)
-		return (-1);
-	ret = check_line(&(list->content), line, &list, &l_head);
-	if (ret)
-		return (ret);
-	while ((ret = read(fd, buff, BUFF_SIZE)))
+	while ((pkg = read(fd, balance, BUFF_SIZE)) > 0)
 	{
-		buff[ret] = '\0';
-		if (rec_line(&(list->content), buff))
-			return (-1);
-		ret = check_line(&(list->content), line, &list, &l_head);
-		if (ret)
-			return (ret);
+		balance[pkg] = '\0';
+		if (!stock[fd])
+			stock[fd] = ft_strnew(1);
+		wagon = ft_strjoin(stock[fd], balance);
+		free(stock[fd]);
+		stock[fd] = ft_strdup(wagon);
+		free(wagon);
+		if (ft_strchr(balance, '\n'))
+			break ;
 	}
-	return (write_last(&list, &l_head, line));
+	if (pkg < 0)
+		return (-1);
+	if (pkg == 0 && !stock[fd])
+		return (0);
+	return (gnl_shortline(fd, stock, line, pkg));
 }

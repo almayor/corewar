@@ -6,13 +6,13 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/25 11:33:25 by user              #+#    #+#              #
-#    Updated: 2020/11/17 15:03:26 by user             ###   ########.fr        #
+#    Updated: 2020/11/17 22:09:48 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ----- Name -----
 NAME 		= asm
-HEADER_NAME	= asm_struct.h translation.h op.h operations.h
+HEADER_NAME	= asm_struct.h parser.h translation.h op.h operations.h
 LIBFT_NAME	= libft.a
 
 # ----- Dir -----
@@ -23,8 +23,10 @@ OBJ_DIR		= ./obj/
 INC_DIR 	= ./includes/
 
 # ----- Lists -----
-FUNCS		= 	main.c tmp_utils.c \
+FUNCS		= 	tmp_utils.c \
 				\
+				asm_main.c asm.c coords.c init_structs.c is_functions.c \
+				parsing.c parsing2.c parse_command.c row_functions.c \
 				translation.c free_utils.c writing_modules.c \
 				enrich_data.c label_value.c \
 				translate_exec.c

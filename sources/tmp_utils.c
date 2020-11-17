@@ -6,11 +6,10 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 03:49:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 15:49:10 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 21:48:10 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm_struct.h"
 #include "translation.h"
 
 static char types[10][20] = {"NEW_LINE_TYPE", "LABEL_TYPE", "DELIM_TYPE", "OP_TYPE", "REG_ARG_TYPE", "DIR_ARG_TYPE",
@@ -19,13 +18,13 @@ static char types[10][20] = {"NEW_LINE_TYPE", "LABEL_TYPE", "DELIM_TYPE", "OP_TY
 // y=3 x=1 - loop arg
 // y=0 x=3 - live arg
 
-void		test_label_value(t_parser *stor)
+void		test_label_value_(t_parser *stor)
 {
 	t_token *dst;
 	int		val;
 	int		size;
-	int		y = 3;
-	int		x = 1;
+	int		y = 3;	// put coords for label-arg you want to find
+	int		x = 1;	// put coords for label-arg you want to find
 
 	val = 0;
 	size = 0;
@@ -46,7 +45,7 @@ void		test_label_value(t_parser *stor)
 	printf("*******val = %d\n", val);
 }
 
-void	parse_arg(t_token *token, char *arg, int y, int x)
+void	parse_arg_(t_token *token, char *arg, int y, int x)
 {
 	int i = 0;
 
@@ -86,7 +85,7 @@ void	parse_arg(t_token *token, char *arg, int y, int x)
 	}
 }
 
-void	add_label(t_parser *stor, char *label, int y, int x)
+void	add_label_(t_parser *stor, char *label, int y, int x)
 {
 	t_label *elem;
 
@@ -111,7 +110,7 @@ void	add_label(t_parser *stor, char *label, int y, int x)
 	
 }
 
-void	create_line(t_parser *stor, t_token *token, int y, char *label, char *cmd, char *arg1, char *arg2, char *arg3)
+void	create_line_(t_parser *stor, t_token *token, int y, char *label, char *cmd, char *arg1, char *arg2, char *arg3)
 {
 	int x = 0;
 
@@ -133,7 +132,7 @@ void	create_line(t_parser *stor, t_token *token, int y, char *label, char *cmd, 
 		token->point.token = x++;
 		token->content = ft_strdup(label);
 		token->type = LABEL_TYPE;
-		add_label(stor, label, y, x);
+		add_label_(stor, label, y, x);
 		token->next = ft_calloc(1, sizeof(t_token));
 		token = token->next;
 	}
@@ -148,25 +147,25 @@ void	create_line(t_parser *stor, t_token *token, int y, char *label, char *cmd, 
 	{
 		token->next = ft_calloc(1, sizeof(t_token));
 		token = token->next;
-		parse_arg(token, arg1, y, x++);
+		parse_arg_(token, arg1, y, x++);
 	}
 
 	if (arg2)
 	{
 		token->next = ft_calloc(1, sizeof(t_token));
 		token = token->next;
-		parse_arg(token, arg2, y, x++);
+		parse_arg_(token, arg2, y, x++);
 	}
 	if (arg3)
 	{
 		token->next = ft_calloc(1, sizeof(t_token));
 		token = token->next;
-		parse_arg(token, arg3, y, x++);
+		parse_arg_(token, arg3, y, x++);
 	}
 
 }
 
-void	mock_read(t_parser *stor)
+void	mock_read_(t_parser *stor)
 {
 	stor->file_name = ft_strdup("test_translation.cor");
 	stor->name = ft_strdup("Batman");
@@ -177,23 +176,23 @@ void	mock_read(t_parser *stor)
 	// stor->tokens->content = ft_strdup("INIT TOKENS");
 	// stor->tokens->type == UNKNOWN;
 	
-	create_line(stor, stor->tokens, 0, "loop", "sti", "r1", "%:live", "%1");
-	create_line(stor, stor->tokens, 1, "live", "live", "%0", NULL, NULL);
-	create_line(stor, stor->tokens, 2, NULL, "zjmp", "%:typing", NULL, NULL);
-	create_line(stor, stor->tokens, 3, NULL, "sti", "r1", "%:copie", "%2");
-	create_line(stor, stor->tokens, 4, NULL, "ld", "%0", "r2", NULL);
-	create_line(stor, stor->tokens, 5, NULL, "sub", "r2", "r4", "r2");
-	create_line(stor, stor->tokens, 6, NULL, "zjmp", "%:loop", NULL, NULL);
-	create_line(stor, stor->tokens, 7, NULL, "st", "r3", "r5", NULL);
-	create_line(stor, stor->tokens, 8, "typing", "aff", "r2", NULL, NULL);
-	create_line(stor, stor->tokens, 9, "copie", "ld", "%1", "r1", NULL);
-	create_line(stor, stor->tokens, 10, NULL, "xor", "r10", "r10", "r10");
+	create_line_(stor, stor->tokens, 0, "loop", "sti", "r1", "%:live", "%1");
+	create_line_(stor, stor->tokens, 1, "live", "live", "%0", NULL, NULL);
+	create_line_(stor, stor->tokens, 2, NULL, "zjmp", "%:typing", NULL, NULL);
+	create_line_(stor, stor->tokens, 3, NULL, "sti", "r1", "%:copie", "%2");
+	create_line_(stor, stor->tokens, 4, NULL, "ld", "%0", "r2", NULL);
+	create_line_(stor, stor->tokens, 5, NULL, "sub", "r2", "r4", "r2");
+	create_line_(stor, stor->tokens, 6, NULL, "zjmp", "%:loop", NULL, NULL);
+	create_line_(stor, stor->tokens, 7, NULL, "st", "r3", "r5", NULL);
+	create_line_(stor, stor->tokens, 8, "typing", "aff", "r2", NULL, NULL);
+	create_line_(stor, stor->tokens, 9, "copie", "ld", "%1", "r1", NULL);
+	create_line_(stor, stor->tokens, 10, NULL, "xor", "r10", "r10", "r10");
 
 
 	stor->tokens_head = stor->tokens;
 }
 
-void	print_tokens_by_line(t_token **token)
+void	print_tokens_by_line_(t_token **token)
 {
 	int y = (*token)->point.row;
 
@@ -213,18 +212,18 @@ void	print_tokens_by_line(t_token **token)
 	}
 }
 
-void	print_tokens(t_parser *stor)
+void	print_tokens_(t_parser *stor)
 {
 	t_token *token = stor->tokens;
 
 	while (token)
 	{
 		printf("\n************* TOKENS ROW %d *************\n\n", token->point.row);
-		print_tokens_by_line(&token);
+		print_tokens_by_line_(&token);
 	}
 }
 
-void	print_labels(t_parser *stor)
+void	print_labels_(t_parser *stor)
 {
 	t_label	*label = stor->labels;
 	int i = 0;
@@ -240,7 +239,7 @@ void	print_labels(t_parser *stor)
 }
 
 
-void	simple_tokens_print(t_parser *stor)
+void	simple_tokens_print_(t_parser *stor)
 {
 	t_token *t = stor->tokens;
 	while (t)
@@ -250,13 +249,16 @@ void	simple_tokens_print(t_parser *stor)
 	}
 }
 
-void	simple_parser_print(t_parser *stor)
+void	simple_parser_print_(t_parser *stor)
 {
 	if (!stor)
 		return ;
-	printf("total_size = %d  %#x\n", stor->code_total_size, stor->code_total_size);
+	printf("total_size = %d  hex(%#x)\n", stor->code_total_size, stor->code_total_size);
 	printf("champ name = %s\n", stor->name);
 	printf("champ comment = %s\n", stor->comment);
 	printf("filename = %s\n", stor->file_name);
 	printf("fd_cor = %d  fd_s = %d\n", stor->fd_cor, stor->fd_s);
+	printf("is tokens = %s\n", stor->tokens ? "YES" : "NO");
+	printf("is tokens_head = %s\n", stor->tokens_head ? "YES" : "NO");
+	printf("is labels = %s\n", stor->labels ? "YES" : "NO");
 }

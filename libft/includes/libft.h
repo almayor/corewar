@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:22:48 by edoll             #+#    #+#             */
-/*   Updated: 2020/10/25 15:53:59 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 21:34:05 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,9 +157,8 @@ typedef struct	s_list_gnl
 	struct s_list_gnl	*next;
 }				t_gnl;
 
-int				get_next_line(const int fd, char **line, int clean);
+int				get_next_line(const int fd, char **line);
 t_gnl			*ft_lstnewset(int fd);
 char			*ft_strjoin_free(char *s1, char const *s2);
-int				clean_gnl_cache(t_gnl *lst);
 
 #endif

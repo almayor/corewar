@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/07 15:43:25 by fallard           #+#    #+#              #
-#    Updated: 2020/10/25 15:13:44 by user             ###   ########.fr        #
+#    Updated: 2020/11/17 22:21:29 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -157,10 +157,10 @@ $(NAME): $(TMP_LIB) $(TMP_PF)
 clean:
 	@rm -f $(TMP_LIB)
 	@rm -f $(TMP_PF)
-	@printf "$(YW)Libft: $(RD)Object files deleted.$(EOC)\n"
+	@printf "$(YW)libft: $(RD)Object files deleted.$(EOC)\n"
 
 fclean: clean
 	@rm -f $(NAME)
-	@printf "$(YW)Libft: $(RD)$(NAME) deleted.$(EOC)\n"
+	@printf "$(YW)libft: $(RD)$(NAME) deleted.$(EOC)\n"
 
 re: fclean all
