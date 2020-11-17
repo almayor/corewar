@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/16 17:20:16 by user             ###   ########.fr        #
+#    Updated: 2020/11/17 22:19:04 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,7 @@ INCLUDES = -I $(INC_DIR) -I $(LIB_DIR)$(INC_DIR)
 
 .DEFAULT_GOAL = all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re test
 
 all: $(NAME) 
 
@@ -115,5 +115,8 @@ fclean: clean
 		true
 
 re: fclean all
+
+test: all
+	@test/test.sh
 
 ################################################################################
