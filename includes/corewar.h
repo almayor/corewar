@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/17 03:11:15 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 22:29:06 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,7 @@ struct			s_vm
 	size_t		nprocs;
 	t_proc		*procs;
 	uint64_t	curr_nlive;
+	uint64_t	prev_nlive;
 	uint32_t	last_live_champ;
 	uint64_t	icycle;
 	int64_t		cycles_to_die;
