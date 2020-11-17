@@ -34,7 +34,7 @@ void		add_label(t_label **labels, t_label *label)
 		*labels = label;
 }
 
-char	*get_token_content(t_parser *parser, char *row, int start)
+char		*get_token_content(t_parser *parser, char *row, int start)
 {
 	char	*content;
 
@@ -43,62 +43,7 @@ char	*get_token_content(t_parser *parser, char *row, int start)
 	return (content);
 }
 
-int		is_delimiter(int c)
-{
-	return (c == '\0'
-			|| c == '\t'
-			|| c == '\v'
-			|| c == '\f'
-			|| c == '\r'
-			|| c == ' '
-			|| c == '\"'
-			|| c == DIRECT_CHAR
-			|| c == SEPARATOR_CHAR
-			|| c == COMMENT_CHAR
-			|| c == ALT_COMMENT_CHAR);
-}
-
-int		is_operation(t_token *token)
-{
-	int	 	i;
-
-	i = 0;
-	while (i <= AFF)
-	{
-		if (!ft_strcmp(op_tmpl[i].name, token->content))
-		{
-			token->type = OP_TYPE;
-			return (TRUE);
-		}
-		i++;
-	}
-	return (FALSE);
-}
-
-int		is_register(t_token *token)
-{
-	int i;
-
-	i = ft_strlen(token->content);
-	if (token->content[0] == 'r' && (i == 2 || i == 3))
-	{
-		i = 1;
-		while (ft_isdigit(token->content[i]))
-			i++;
-		if (!token->content[i])
-		{
-			i = ft_atoi(&token->content[1]);
-			if (i > 0)
-			{
-				token->type = REG_ARG_TYPE;
-				return (TRUE);
-			}
-		}
-	}
-	return (FALSE);
-}
-
-void	parse_alpha(t_parser *parser, char *row, int start,
+void		parse_alpha(t_parser *parser, char *row, int start,
 		t_token *token)
 {
 	while (row[parser->x_read] && ft_strchr(LABEL_CHARS, row[parser->x_read]))
@@ -113,7 +58,7 @@ void	parse_alpha(t_parser *parser, char *row, int start,
 			token->type = LABEL_TYPE;
 			parser->x_read++;
 		}
-	} 
+	}
 	else if (parser->x_read - start && is_delimiter(row[parser->x_read]) &&
 			(is_operation(token) || is_register(token)))
 		add_token(&parser->tokens, token);
@@ -128,7 +73,7 @@ void	parse_alpha(t_parser *parser, char *row, int start,
 ** write in token?
 */
 
-void	parse_digit(t_parser *parser, char *row, int start,
+void		parse_digit(t_parser *parser, char *row, int start,
 t_token *token)
 {
 	if (row[parser->x_read] == '-')
@@ -141,4 +86,3 @@ t_token *token)
 	else
 		lexical_error(parser);
 }
-

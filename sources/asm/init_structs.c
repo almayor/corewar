@@ -24,7 +24,7 @@ t_label		*init_label(char *content, int row_num, int token_num)
 	label->point.row = row_num;
 	label->point.token = token_num;
 	return (label);
-} 
+}
 
 t_point		init_point(void)
 {
@@ -72,4 +72,3 @@ t_parser	*init_asm_parser(void)
 	parser->comment = NULL;
 	return (parser);
 }
-

@@ -108,6 +108,17 @@ t_label			*init_label(char *content, int row_num, int token_num);
 void			parse_digit(t_parser *parser, char *row, int start,
 t_token *token);
 void			add_label(t_label **labels, t_label *label);
+void			coords_and_labels(t_parser *parser, t_token *tokens, int tok_num);
+void			improve_coords(t_token *tokens);
+void			print_tokens(t_token *tokens);
+void			print_labels(t_label *labels);
+void			validate_commands(t_parser *parser);
+int				is_register(t_token *token);
+int				is_operation(t_token *token);
+int				is_delimiter(int c);
+void			trim_from_comments_spaces(t_parser *parser, char *row);
+int				read_row(int fd, char **row);
+
 # define ERR_OPEN_FILE		"Error: can not open file"
 # define ERR_PARSER_INIT	"Error: can not initiate parsing of this file"
 # define ERR_LABEL_INIT		"Error: can not initiate a label"

@@ -12,6 +12,18 @@
 
 #include "asm.h"
 
+void	validate_commands(t_parser *parser)
+{
+	if (parser->name == NULL)
+		terminate(ERR_NO_NAME);
+	if (parser->comment == NULL)
+		terminate(ERR_NO_COMMENT);
+	if (ft_strlen(parser->name) > PROG_NAME_LENGTH)
+		terminate(ERR_TOO_LONG_NAME);
+	if (ft_strlen(parser->comment) > COMMENT_LENGTH)
+		terminate(ERR_TOO_LONG_COMMENT);
+}
+
 char	*join_str(char **str1, char **str2)
 {
 	char *result;
@@ -29,9 +41,9 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 	char	*str;
 	char	*end;
 
-	while (!(end = ft_strchr(&((*row)[start]), '\"'))
-			&&	(size = read_row(parser->fd_s, &str) > 0)
-			&& ++parser->point.row)
+	while (!(end = ft_strchr(&((*row)[start]), '\"')) &&
+	(size = read_row(parser->fd_s, &str) > 0) &&
+	++parser->point.row)
 		*row = join_str(row, &str);
 	if (size == -1)
 		terminate(ERR_READING);
@@ -44,17 +56,18 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 }
 
 /*
- ** add new rows to *row until you meet '"'
- ** check that parsing is right
- ** using ft_strsub pus command ito the token
- */
+** add new rows to *row until you meet '"'
+** check that parsing is right
+** using ft_strsub pus command ito the token
+*/
 
 void	parse_command(t_parser *parser, char **row, int start)
 {
 	int	type;
 
 	type = 0;
-	while (*(*row + parser->x_read) && ft_strchr(LABEL_CHARS, *(*row + parser->x_read)))
+	while (*(*row + parser->x_read) && ft_strchr(LABEL_CHARS,
+	*(*row + parser->x_read)))
 		parser->x_read++;
 	if (!ft_strcmp(get_token_content(parser, *row, start), "name"))
 		type = 1;
