@@ -110,7 +110,7 @@ void		print_labels(t_label *labels)
 	label = labels;
 	while (label)
 	{
-		ft_printf("{red}->%s, %d, %d, {eoc}\n", label->content, label->point.row, label->point.token);
+		ft_printf("{red}->%s, %d, %d{eoc}\n", label->content, label->point.row, label->point.token);
 		label = label->next;
 
 	}
@@ -143,26 +143,51 @@ void		coords_and_labels(t_parser *parser, t_token *tokens)
 	int y;
 	int tok_num;
 	t_token *token;
+	t_token *check;
+	int		c;
 
 	token = tokens;
+	check = NULL;
 	y = token->point.row;
 	tok_num = -1;
+	c = 0;
 	while (token)
 	{
 		if (y != token->point.row)
 		{
 			tok_num = 0;
 			if (token->type == 1 && token->next->point.row != y)
-				token->point.row = token->next->point.row;
+			{
+				check = token;
+				while (check->type == 1)
+				{
+					check = check->next;
+					c++;
+				}
+				while (1)
+				{
+					tok_num++;
+					token->point.token = tok_num;
+					token->point.row = check->next->point.row;
+					add_label(&parser->labels,
+					init_label(token->content, token->point.row, c));
+					if (token->next->type == 1)
+						token = token->next;
+					else
+						break ;
+				}
+				c = 0;
+			}
 		}
 		else
 		{
 			tok_num++;
 			token->point.token = tok_num;
+			if (token->type == 1)
+				add_label(&parser->labels,
+				init_label(token->content, token->point.row, token->point.token + 1));
 		}
 		y = token->point.row;
-		if (token->type == 1)
-			add_label(&parser->labels, init_label(token->content, token->point.row));
 		token = token->next;
 
 	}

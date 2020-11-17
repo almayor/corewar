@@ -12,7 +12,7 @@
 
 #include "asm.h"
 
-t_label		*init_label(char *content, int row_num)
+t_label		*init_label(char *content, int row_num, int token_num)
 {
 	t_label	*label;
 
@@ -21,7 +21,8 @@ t_label		*init_label(char *content, int row_num)
 	if (!(label->content = ft_strdup(content)))
 		terminate(ERR_STR_INIT);
 	label->next = NULL;
-	label->point.token = row_num;
+	label->point.row = row_num;
+	label->point.token = token_num;
 	return (label);
 } 
 

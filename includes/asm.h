@@ -104,7 +104,7 @@ void			add_token(t_token **tokens, t_token *token);
 void			trim_from_comments_spaces(t_parser *parser, char *row);
 int				read_row(int fd, char **row);
 char			*get_token_content(t_parser *parser, char *row, int start);
-t_label			*init_label(char *content, int row_num);
+t_label			*init_label(char *content, int row_num, int token_num);
 void			parse_digit(t_parser *parser, char *row, int start,
 t_token *token);
 void			add_label(t_label **labels, t_label *label);
