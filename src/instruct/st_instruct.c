@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:38:07 by user              #+#    #+#             */
-/*   Updated: 2020/11/13 10:42:25 by user             ###   ########.fr       */
+/*   Updated: 2020/11/15 23:16:00 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	st_instruct(t_proc *proc)
 	type = get_arg_type(proc, 1);
 	if ((g_vm.log >> 2) & 1)
 	{
-		if (type == T_IND)
+		if (type == IND_CODE)
 			ft_printf(LOG_OPER_PREFIX "store at %i + (%i %% %i) = %i\n",
 				proc->pc, proc->args[1], IDX_MOD,
 				proc->pc + (proc->args[1] % IDX_MOD));

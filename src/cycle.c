@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:30 by user              #+#    #+#             */
-/*   Updated: 2020/11/12 20:54:59 by user             ###   ########.fr       */
+/*   Updated: 2020/11/17 16:48:35 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,15 @@ static int		dispatch(t_proc *proc)
 	return (ret);
 }
 
+static void		read_opcode(t_proc *proc)
+{
+	proc->opcode = g_vm.mem[proc->pc];
+	if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
+		proc->cycles_busy = g_op_tab[proc->opcode].duration;
+	else
+		proc->opcode = 0;
+}
+
 void			cycle(void)
 {
 	t_proc	*proc;
@@ -77,6 +86,10 @@ void			cycle(void)
 	while (proc)
 	{
 		proc->cycles_since_live++;
+		if (proc->cycles_busy == 0)
+			read_opcode(proc);
+		if (proc->cycles_busy > 0)
+			proc->cycles_busy--;
 		if (proc->cycles_busy == 0)
 		{
 			read_instruction(proc);

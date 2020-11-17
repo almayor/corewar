@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:26:26 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/13 20:18:18 by user             ###   ########.fr       */
+/*   Updated: 2020/11/15 00:00:33 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void		load(void)
 		{
 			load_champion(g_vm.temp[i].fname, g_vm.temp[i].num - 1, pos);
 			create_proc(g_vm.temp[i].num, pos);
+			g_vm.last_live_champ = g_vm.temp[i].num;
 			pos += step;
 		}
 		i++;

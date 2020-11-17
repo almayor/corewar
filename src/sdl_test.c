@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:52:32 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/17 18:20:53 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/17 20:31:05 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,11 @@ void sdl_loop()
 				x = event.button.x;
 				y = event.button.y;
 			}
-			
+			int flag_pause = 1;
+			if (keyboard[SDL_SCANCODE_SPACE])
+				flag_pause = (flag_pause) ? 0 : 1;
+			//if (!flag_pause)
+			//	run_one();
 			if (click)
 			{
 				

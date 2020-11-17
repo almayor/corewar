@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/14 20:36:35 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/17 20:29:01 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static void	conclude(void)
 {
 	t_champ	champ;
 
-	if (g_vm.last_live_champ == 0)
-		ft_printf(NO_LIVE);
-	else
-	{
+	// if (g_vm.last_live_champ == 0)
+	// 	ft_printf(NO_LIVE);
+	// else
+	// {
 		champ = g_vm.champs[g_vm.last_live_champ - 1];
 		ft_printf(CHAMP_WON, champ.ichamp, champ.name);
-	}
+	// }
 }
 
 static void	greet(void)
@@ -51,13 +51,14 @@ static void	print_usage(void)
 	ft_printf("\tcorewar [-n N <file.cor> | -dump N | -log N] <file.cor> <...>\n");
 	ft_printf("\t%-20s : Set player number (N)\n", "-n N <file.cor>");
 	ft_printf("\t%-20s : Dumps memory after N cycles, then exits\n", "-dump N");
+	ft_printf("\t%-20s : Print output from `aff` instructions (default is to hide it)");
 	ft_printf("\t%-20s : Verbosity levels, can be added together to enable several\n", "-log N");
-	ft_printf("\t\t- %-2i : %s\n", 0, "only essentials");
-	ft_printf("\t\t- %-2i : %s\n", 1, "lives");
-	ft_printf("\t\t- %-2i : %s\n", 2, "cycles");
-	ft_printf("\t\t- %-2i : %s\n", 4, "operations (incl. parameters)");
-	ft_printf("\t\t- %-2i : %s\n", 8, "creation and removal of processes");
-	ft_printf("\t\t- %-2i : %s\n", 16, "PC movements (except for jumps)");
+	ft_printf("\t\t\t\t- %-2i : %s\n", 0, "only essentials");
+	ft_printf("\t\t\t\t- %-2i : %s\n", 1, "lives");
+	ft_printf("\t\t\t\t- %-2i : %s\n", 2, "cycles");
+	ft_printf("\t\t\t\t- %-2i : %s\n", 4, "operations (incl. parameters)");
+	ft_printf("\t\t\t\t- %-2i : %s\n", 8, "creation and removal of processes");
+	ft_printf("\t\t\t\t- %-2i : %s\n", 16, "PC movements (except for jumps)");
 }
 
 int			main(int argc, char **argv)

@@ -1,0 +1,55 @@
+#!/bin/bash
+
+RD="\033[031m"
+GR="\033[032m"
+YW="\033[033m"
+BL="\033[034m"
+PK="\033[035m"
+CN="\033[036m"
+EOC="\033[0m"
+
+check_champions () {
+	out=$(./corewar_original -d 0 $1)
+	if [ $? -ne 0 ]; then
+		printf "$out"
+		printf "Invalid champion: $1\n"
+		printf "${RD}FAIL${EOC}\n"
+		exit 1
+	fi
+}
+
+check_finish () {
+	last=$(./corewar_original -d $2 $1 | tail -1)
+	if [[ $last == *"has won"* ]]; then
+		exit 0
+	fi
+}
+
+compare () {
+	utils/compare_dumps \
+		<(./corewar_original -d $2 $1) \
+		<(./corewar -dump $2 $1) \
+		1>/dev/null
+
+	if [ $? -ne 0 ]; then
+		printf "${RD}KO${EOC}\n"
+		exit 1
+	else
+		printf "${GR}OK${EOC}\n"
+	fi
+}
+
+INCR=1000
+
+champs="$@"
+check_champions "$champs"
+icycle=0
+
+while true; do
+	printf "cycle %-7i: comparing dumps  " $icycle
+
+	compare "$champs" $icycle
+	check_finish "$champs" $icycle
+
+	(( icycle += $INCR ))
+done

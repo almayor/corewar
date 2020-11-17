@@ -12,7 +12,7 @@
 
 #include "corewar.h"
 
-int32_t	mem_read(int32_t pos, int nbytes)
+int32_t	mem_read(int64_t pos, int nbytes)
 {
 	t_int	val;
 
@@ -35,7 +35,7 @@ int32_t	mem_read(int32_t pos, int nbytes)
 		return (val.int8);
 }
 
-void	mem_write(int32_t pos, int32_t val, int nbytes)
+void	mem_write(int64_t pos, int32_t val, int nbytes)
 {
 	pos = pos < 0 ? (pos % MEM_SIZE) + MEM_SIZE : pos % MEM_SIZE;
 	if (nbytes >= 4)

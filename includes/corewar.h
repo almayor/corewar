@@ -6,13 +6,14 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/17 20:04:24 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/17 20:28:35 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COREWAR_H
 # define COREWAR_H
 
+# include <assert.h>
 # include <fcntl.h>
 # include <errno.h>
 # include <stdio.h>
@@ -183,7 +184,8 @@ struct			s_vm
 	int64_t		cycles_since_die;
 	int64_t		checks_since_change;
 	uint64_t	dump_ncycles;
-	uint8_t		dump_flag;
+	int			dump_flag;
+	uint8_t		aff_flag;
 	uint8_t		log;
 	t_parse		temp[MAX_PLAYERS];
 	t_visu		visual;
@@ -234,8 +236,8 @@ void	fork_proc(int32_t pos, const t_proc *parent);
 void	kill_proc(t_proc *proc);
 void	print_proc(const t_proc *proc);
 
-int32_t	mem_read(int32_t pos, int nbytes);
-void	mem_write(int32_t pos, int32_t val, int nbytes);
+int32_t	mem_read(int64_t pos, int nbytes);
+void	mem_write(int64_t pos, int32_t val, int nbytes);
 
 void	cleanup(void);
 void	terminate(const char *format, ...);
