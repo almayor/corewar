@@ -56,9 +56,10 @@ t_token *token);
 void			parse_command(t_parser *parser, char **row, int start);
 void			add_token(t_token **tokens, t_token *token);
 void			trim_from_comments_spaces(t_parser *parser, char *row);
-int				read_row(int fd, char **row);
+int				read_row(int fd, char **row, t_parser *parser);
 char			*get_token_content(t_parser *parser, char *row, int start);
-t_label			*init_label(char *content, int row_num, int token_num);
+t_label			*init_label(char *content, int row_num, int token_num,
+t_parser *parser);
 void			parse_digit(t_parser *parser, char *row, int start,
 t_token *token);
 void			add_label(t_label **labels, t_label *label);
@@ -71,7 +72,6 @@ int				is_register(t_token *token);
 int				is_operation(t_token *token);
 int				is_delimiter(int c);
 void			trim_from_comments_spaces(t_parser *parser, char *row);
-int				read_row(int fd, char **row);
 void		    lexical_error(t_parser *parser);
 void			core_error(t_parser *stor, char *message);
 

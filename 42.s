@@ -215,7 +215,7 @@ p64:	ld	%10,r8
 	add	r6,r8,r6
 cont:	add	r6,r6,r6
 	ld	%272,r8
-	ld	%29,r9
+	hld	%29,r9
 	ldi	%:p64deb,r6,r7
 	sti	r7,r8,r6
 	sti	r7,r9,r6

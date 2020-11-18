@@ -32,7 +32,7 @@ void	check_escape(t_parser *parser, char *filename)
 	char		*wagon;
 
 	if ((parser->fd_s = open(filename, O_RDONLY)) == -1)
-		terminate(ERR_OPEN_FILE);
+		core_error(parser, ERR_OPEN_FILE);
 	while ((pkg = read(parser->fd_s, balance, 9999)) > 0)
 	{
 		balance[pkg] = '\0';

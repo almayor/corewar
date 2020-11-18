@@ -94,7 +94,7 @@ void		parsing(t_parser *parser, int tok_len)
 	char	*row;
 
 	row = NULL;
-	while (++parser->y_read && read_row(parser->fd_s, &row) > 0)
+	while (++parser->y_read && read_row(parser->fd_s, &row, parser) > 0)
 	{
 		parser->x_read = 0;
 		while (row[parser->x_read])

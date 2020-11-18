@@ -12,7 +12,7 @@
 
 #include "parser.h"
 
-int			read_row(int fd, char **row)
+int			read_row(int fd, char **row, t_parser *parser)
 {
 	int size;
 
@@ -21,7 +21,7 @@ int			read_row(int fd, char **row)
 		if ((*row) == NULL)
 			return (-1);
 		if (size == -1)
-			terminate(ERR_READING);
+			core_error(parser, ERR_READING);
 	}
 	return (TRUE);
 }

@@ -28,8 +28,7 @@ char	*join_str(char **str1, char **str2)
 {
 	char *result;
 
-	if (!(result = ft_strjoin(*str1, *str2)))
-		terminate(ERR_STR_INIT);
+	result = ft_strjoin(*str1, *str2);
 	ft_strdel(str1);
 	ft_strdel(str2);
 	return (result);
@@ -43,7 +42,7 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 
 	size = 0;
 	while (!(end = ft_strchr(&((*row)[start]), '\"')) &&
-	(size = read_row(parser->fd_s, &str) > 0) &&
+	(size = read_row(parser->fd_s, &str, parser) > 0) &&
 	++parser->y_read)
 		*row = join_str(row, &str);
 	if (size == -1)

@@ -65,7 +65,7 @@ int			hard_coord(t_parser *parser, t_token **token, int tok_num)
 		(*token)->point.token = tok_num;
 		(*token)->point.row = check->next->point.row;
 		add_label(&parser->labels,
-		init_label((*token)->content, (*token)->point.row, c));
+		init_label((*token)->content, (*token)->point.row, c, parser));
 		if ((*token)->next->type == 1)
 			(*token) = (*token)->next;
 		else
@@ -103,7 +103,7 @@ void		coords_and_labels(t_parser *parser, t_token *tokens, int tok_num)
 			if (token->type == 1)
 				add_label(&parser->labels,
 				init_label(token->content, token->point.row,
-				token->point.token + 1));
+				token->point.token + 1, parser));
 		}
 		y = token->point.row;
 		token = token->next;

@@ -12,14 +12,15 @@
 
 #include "parser.h"
 
-t_label		*init_label(char *content, int row_num, int token_num)
+t_label		*init_label(char *content, int row_num, int token_num,
+t_parser *parser)
 {
 	t_label	*label;
 
 	if (!(label = ft_calloc(1, sizeof(t_label))))
-		terminate(ERR_LABEL_INIT);
+		core_error(parser, ERR_LABEL_INIT);
 	if (!(label->content = ft_strdup(content)))
-		terminate(ERR_STR_INIT);
+		core_error(parser, ERR_STR_INIT);
 	label->next = NULL;
 	label->point.row = row_num;
 	label->point.token = token_num;
