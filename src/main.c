@@ -6,13 +6,15 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/17 20:29:01 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/18 16:42:32 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
 t_vm	g_vm = { .cycles_to_die = CYCLE_TO_DIE, .log = 0 };
+t_visu	g_visu;
+
 
 static void	conclude(void)
 {
@@ -70,11 +72,12 @@ int			main(int argc, char **argv)
 	}
 	parse_args(argc, argv);
 	load();
-	
-	sdl_launch();
-	
 	greet();
-	run();
+	if (g_vm.visu_flag)
+		sdl_launch();
+	else
+		run();
+	
 	conclude();
 	cleanup();
 	return (EXIT_SUCCESS);

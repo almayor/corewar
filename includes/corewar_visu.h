@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/16 21:29:45 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/18 16:40:02 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,14 @@ typedef struct s_visu t_visu;
 
 struct				s_visu
 {
+	uint8_t			vmem[MEM_SIZE];
 	SDL_Window		*win;
 	SDL_Renderer	*rend;
 	TTF_Font		*font;
 	SDL_Rect		rect;
 };
+
+extern	t_visu g_visu;
 
 void	sdl_launch();
 void	sdl_draw();
