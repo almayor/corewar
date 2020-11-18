@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 14:09:59 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/18 18:52:52 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 19:08:09 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		parse_token2(t_parser *parser, char **row)
 		parse_alpha(parser, *row, parser->x_read,
 				init_token(parser, IND_LABL_ARG_TYPE));
 	else
-		lexical_error(parser);
+		lexical_error(parser, NULL);
 }
 
 void		parse_token(t_parser *parser, char **row)

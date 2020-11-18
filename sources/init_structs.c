@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:40:47 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/18 18:28:51 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 19:13:58 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ t_token		*init_token(t_parser *parser, t_type type)
 	token->type = type;
 	token->point = init_point();
 	token->point.row = parser->point.row;
-	// if (!parser->tokens_head)
-	// 	parser->tokens_head = token;
 	return (token);
 }
 
