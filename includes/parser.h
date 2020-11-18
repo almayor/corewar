@@ -72,7 +72,7 @@ int				is_operation(t_token *token);
 int				is_delimiter(int c);
 void			trim_from_comments_spaces(t_parser *parser, char *row);
 int				read_row(int fd, char **row);
-
+void		    lexical_error(t_parser *parser);
 void			core_error(t_parser *stor, char *message);
 
 #endif

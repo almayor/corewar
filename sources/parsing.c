@@ -33,8 +33,7 @@ void		parse_token2(t_parser *parser, char **row)
 		parse_alpha(parser, *row, parser->x_read,
 				init_token(parser, IND_LABL_ARG_TYPE));
 	else
-		parse_digit(parser, *row, parser->x_read,
-		init_token(parser, IND_ARG_TYPE));
+		lexical_error(parser);
 }
 
 void		parse_token(t_parser *parser, char **row)
@@ -57,6 +56,9 @@ void		parse_token(t_parser *parser, char **row)
 		if (ft_isalpha(*(*row + parser->x_read)))
 			parse_alpha(parser, *row, parser->x_read,
 			init_token(parser, UNKNOWN));
+		else
+			parse_digit(parser, *row, parser->x_read,
+			init_token(parser, IND_ARG_TYPE));
 	}
 	else
 		parse_token2(parser, row);
