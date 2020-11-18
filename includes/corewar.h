@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   corewar.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/17 22:54:26 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 23:38:32 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,7 +238,7 @@ void	kill_proc(t_proc *proc);
 void	print_proc(const t_proc *proc);
 
 int32_t	mem_read(int64_t pos, int nbytes);
-void	mem_write(int64_t pos, int32_t val, int nbytes);
+void	mem_write(uint32_t ichamp, int64_t pos, int32_t val, int nbytes);
 
 void	cleanup(void);
 void	terminate(const char *format, ...);

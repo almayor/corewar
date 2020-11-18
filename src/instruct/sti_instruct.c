@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sti_instruct.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:38:07 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 20:16:11 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 23:38:31 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int	sti_instruct(t_proc *proc)
 			LOG_OPER_PREFIX "storing %i\n",
 			proc->pc, in2, in3, IDX_MOD,
 			proc->pc + (in2 + in3) % IDX_MOD, in1);
-	mem_write(proc->pc + (in2 + in3) % IDX_MOD, in1, 4);
+	mem_write(proc->ichamp, proc->pc + (in2 + in3) % IDX_MOD, in1, 4);
 	return (0);
 }

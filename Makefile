@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
+#    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/17 22:50:06 by user             ###   ########.fr        #
+#    Updated: 2020/11/19 00:10:18 by fallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ HEADER = $(addprefix $(INC_DIR), $(HEAD_NAME))
 LIBFT = $(addprefix $(LIB_DIR), $(LIB_NAME))
 
 INCLUDES = -I $(INC_DIR) -I $(LIB_DIR)$(INC_DIR)
-INCLUDES += -lSDL2 -lSDL2_image -lSDL2_ttf		# tmp
+INCLUDES += -lSDL2 -lSDL2_ttf		# tmp
 
 -include $(DEP)
 
