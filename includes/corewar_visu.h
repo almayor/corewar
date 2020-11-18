@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/18 23:13:04 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/19 00:39:24 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 
 # include "libft.h"
 # include <time.h>
+
+# define RUNNING "** RUNNING **"
+# define PAUSED "** PAUSED **"
 
 # define WIDTH 1600
 # define HEIGHT 768
@@ -53,4 +56,7 @@ extern	t_visu g_visu;
 void	sdl_launch();
 void	sdl_draw();
 void	sdl_mark_champ(uint32_t ichamp, size_t nbytes, uint32_t pos);
+void	sdl_put_params();
+void	sdl_draw_border();
+
 #endif

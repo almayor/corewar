@@ -6,14 +6,14 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:52:32 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/18 23:28:58 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/19 01:43:20 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int start_x = 20;
-int start_y = 20;
+int start_x = 30;
+int start_y = 40;
 
 // static int	get_base_size(uintmax_t n, int base)
 // {
@@ -59,7 +59,7 @@ SDL_Color get_player_color(uint32_t ichamp)
 	SDL_Color res;
 
 	if (ichamp == 1)
-		res = (SDL_Color){220, 220, 0, 1};
+		res = (SDL_Color){240, 240, 0, 1};
 	else if (ichamp == 2)
 		res = (SDL_Color){40, 200, 10, 1};
 	else if (ichamp == 3)
@@ -94,16 +94,16 @@ void	sdl_init()
 	status = TTF_Init();
 	if (status)
 		terminate("Error TTF Init\n");
-	g_vm.visual.win = SDL_CreateWindow("Corewar",
+	g_visu.win = SDL_CreateWindow("Corewar",
 		POS_X, POS_Y, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
-	if (!g_vm.visual.win)
+	if (!g_visu.win)
 		terminate("Error create Window\n");
-	g_vm.visual.rend = SDL_CreateRenderer(g_vm.visual.win,
+	g_visu.rend = SDL_CreateRenderer(g_visu.win,
 		-1, SDL_RENDERER_ACCELERATED);
-	if (!g_vm.visual.rend)
+	if (!g_visu.rend)
 		terminate("Error create render\n");
-	g_vm.visual.font = TTF_OpenFont(FONT, 14);
-	if (!g_vm.visual.font)
+	g_visu.font = TTF_OpenFont(FONT, 14);
+	if (!g_visu.font)
 		terminate("Error open font '%s'\n", FONT);
 }
 
@@ -161,9 +161,15 @@ void sdl_loop()
 			if (!end)
 				exit(0);
 		}
+	
 		sdl_draw();
-		SDL_RenderPresent(g_vm.visual.rend);
-		SDL_RenderClear(g_vm.visual.rend);
+		
+		sdl_put_params();
+		sdl_draw_border();
+		SDL_RenderPresent(g_visu.rend);
+
+		SDL_SetRenderDrawColor(g_visu.rend, 0, 0, 0, 1);
+		SDL_RenderClear(g_visu.rend);
 	}
 }
 
@@ -172,17 +178,55 @@ void	sdl_put_text(const char *word, SDL_Color color, SDL_Rect pos)
 	SDL_Surface *surface;
 	SDL_Texture *texture;
 
-	surface = TTF_RenderText_Blended(g_vm.visual.font, word, color);
+	surface = TTF_RenderText_Blended(g_visu.font, word, color);
 	if (!surface)
 		terminate("Error sdl surface\n");
-	texture = SDL_CreateTextureFromSurface(g_vm.visual.rend, surface);
+	texture = SDL_CreateTextureFromSurface(g_visu.rend, surface);
 	if (!texture)
 		terminate("Error create text from surface\n");
 	pos.h = surface->h;
 	pos.w = surface->w;
-	SDL_RenderCopy(g_vm.visual.rend, texture, NULL, &pos);
+	SDL_RenderCopy(g_visu.rend, texture, NULL, &pos);
 	SDL_FreeSurface(surface);
 	SDL_DestroyTexture(texture);
+}
+
+void	sdl_draw_border()
+{
+	SDL_Rect line_x;
+	SDL_Rect line_y;
+
+	line_x.h = 8;
+	line_x.w = 1317;
+	line_x.x = start_x - 20;
+	line_x.y = start_y - 13;
+
+	line_y.h = 1230;
+	line_y.w = 8;
+	line_y.x = start_x + 1289;
+	line_y.y = start_y - 5; 
+	SDL_SetRenderDrawColor(g_visu.rend, 255, 255, 255, 1);
+	SDL_RenderFillRect(g_visu.rend, &line_x);
+	SDL_RenderFillRect(g_visu.rend, &line_y);
+
+	line_x.y = start_y + 1225;
+	SDL_RenderFillRect(g_visu.rend, &line_x);
+	line_y.x = start_x - 20;
+	SDL_RenderFillRect(g_visu.rend, &line_y);
+}
+
+void	sdl_put_params()
+{
+	SDL_Rect params;
+	SDL_Color color;
+
+	params.x = start_x + 1350;
+	params.y = start_y + 0;
+	color = (SDL_Color){255, 255, 255, 1};
+	if (g_visu.pause)
+		sdl_put_text(PAUSED, color, params);
+	else
+		sdl_put_text(RUNNING, color, params);
 }
 
 void	draw_hex(uint8_t n, SDL_Color color, SDL_Rect pos)
@@ -201,6 +245,36 @@ void	draw_hex(uint8_t n, SDL_Color color, SDL_Rect pos)
 		n = n / 16;
 	}
 	sdl_put_text(buf, color, pos);
+}
+
+int	get_proc(uint32_t ichamp)
+{
+	t_proc	*tmp;
+
+	tmp = g_vm.procs;
+	while (tmp)
+	{
+		if (tmp->ichamp == ichamp)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
+void	sdl_draw_proc(uint32_t ichamp, SDL_Color color, int x, int y)
+{
+	SDL_Rect	cube;
+
+	if (get_proc(ichamp) == 1)
+	{
+		cube.h = 1; // 17
+		cube.w = 1; // 17
+		cube.x = x;
+		cube.y = y;
+		SDL_SetRenderDrawColor(g_visu.rend, color.r, color.g, color.b, color.a);
+		SDL_RenderFillRect(g_visu.rend, &cube);
+		ft_printf("WRITE PROC!!!\n");
+	}
 }
 
 void	sdl_draw()
@@ -224,7 +298,8 @@ void	sdl_draw()
 		j = 0;
 		while (j++ < 64)
 		{
-			fcolor = get_player_color(g_visu.vmem[i % MEM_SIZE]);
+			fcolor = get_player_color(g_visu.vmem[i]);
+			sdl_draw_proc(g_visu.vmem[i], fcolor, frect.x, frect.y);
 			draw_hex(g_vm.mem[i], fcolor, frect);
 			frect.x += 20;
 			i++;
