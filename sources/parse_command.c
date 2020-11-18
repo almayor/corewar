@@ -48,7 +48,9 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 	if (size == -1)
 		core_error(parser, ERR_READING);
 	while (*(*row + parser->x_read) != '\"')
-		parser->x_read++;
+		++parser->x_read;
+	if ((str = ft_strchr(&((*row)[++parser->x_read]), '\"')))
+		core_error(parser, ERR_DOUBLE_COMMAND);
 	trim_from_comments_spaces(parser, *row);
 	if (type == 1)
 	{
