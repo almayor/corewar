@@ -1,7 +1,5 @@
 .name           "42"
-.comment        "Just a basic Winner Program"
-
-entree:	live	%42		# entree
+.comment        "Just a basic Winner Program"entree:	live	%42		# entree
 	ld	%0,r5
 	ld	%0,r5
 	zjmp	%:bite
@@ -238,4 +236,4 @@ tird:	live	%42
 	zjmp	%:tird
 	zjmp	%:p1
 
-fin:	live	%633
+fin:	

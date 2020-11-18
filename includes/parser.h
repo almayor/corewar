@@ -41,10 +41,13 @@
 # define ERR_POINT_INIT			"Error: can not initiate point structure"
 # define ERR_COMMAND			"Error: non-existing command"
 # define ERR_NO_NAME			"Error: no champion name"
-# define ERR_NO_COMMENT			"Error: no champion comment"
+# define ERR_NO_COMMENT			"Error: no comment"
 # define ERR_TOO_LONG_NAME		"Error: too long name"
 # define ERR_TOO_LONG_COMMENT	"Error: too long comment"
 # define ERR_ESCAPE				"Error: escape missed"
+# define ERR_DOUBLE_COMMAND		"Error: double command"
+# define ERR_EMPTY_LABEL		"Error: empty label"
+
 
 void			terminate(char *s);
 void			assembler(char *filename);

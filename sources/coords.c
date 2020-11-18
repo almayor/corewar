@@ -63,7 +63,10 @@ int			hard_coord(t_parser *parser, t_token **token, int tok_num)
 	{
 		tok_num++;
 		(*token)->point.token = tok_num;
-		(*token)->point.row = check->next->point.row;
+		if (check->next != NULL)
+			(*token)->point.row = check->next->point.row;
+		else
+			core_error(parser, ERR_EMPTY_LABEL);
 		add_label(&parser->labels,
 		init_label((*token)->content, (*token)->point.row, c, parser));
 		if ((*token)->next->type == 1)

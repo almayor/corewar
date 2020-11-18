@@ -47,12 +47,21 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 		*row = join_str(row, &str);
 	if (size == -1)
 		core_error(parser, ERR_READING);
-	while (*(*row + parser->x_read))
+	while (*(*row + parser->x_read) != '\"')
 		parser->x_read++;
+	trim_from_comments_spaces(parser, *row);
 	if (type == 1)
+	{
+		if (parser->name != NULL)
+			core_error(parser, ERR_DOUBLE_COMMAND);
 		parser->name = ft_strsub(*row, start, (int)(end - &((*row)[start])));
+	}
 	else
+	{
+		if (parser->comment != NULL)
+			core_error(parser, ERR_DOUBLE_COMMAND);
 		parser->comment = ft_strsub(*row, start, (int)(end - &((*row)[start])));
+	}
 }
 
 /*

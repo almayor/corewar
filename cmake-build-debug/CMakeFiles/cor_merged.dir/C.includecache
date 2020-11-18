@@ -12,6 +12,10 @@ op.h
 
 ../includes/op.h
 
+../includes/operations.h
+stdint.h
+-
+
 ../includes/parser.h
 asm_struct.h
 ../includes/asm_struct.h
@@ -33,6 +37,18 @@ limits.h
 -
 errno.h
 -
+
+../includes/translation.h
+stdio.h
+-
+stdlib.h
+-
+fcntl.h
+-
+libft.h
+../includes/libft.h
+asm_struct.h
+../includes/asm_struct.h
 
 ../libft/includes/ft_printf.h
 libft.h
@@ -58,7 +74,43 @@ limits.h
 ft_printf.h
 ../libft/includes/ft_printf.h
 
+/Users/kysgramo/cor_merged/sources/asm.c
+parser.h
+/Users/kysgramo/cor_merged/sources/parser.h
+translation.h
+/Users/kysgramo/cor_merged/sources/translation.h
+
+/Users/kysgramo/cor_merged/sources/asm_main.c
+parser.h
+/Users/kysgramo/cor_merged/sources/parser.h
+
+/Users/kysgramo/cor_merged/sources/coords.c
+parser.h
+/Users/kysgramo/cor_merged/sources/parser.h
+
+/Users/kysgramo/cor_merged/sources/init_structs.c
+parser.h
+/Users/kysgramo/cor_merged/sources/parser.h
+
+/Users/kysgramo/cor_merged/sources/is_functions.c
+parser.h
+/Users/kysgramo/cor_merged/sources/parser.h
+operations.h
+/Users/kysgramo/cor_merged/sources/operations.h
+
+/Users/kysgramo/cor_merged/sources/parse_command.c
+parser.h
+/Users/kysgramo/cor_merged/sources/parser.h
+
 /Users/kysgramo/cor_merged/sources/parsing.c
+parser.h
+/Users/kysgramo/cor_merged/sources/parser.h
+
+/Users/kysgramo/cor_merged/sources/parsing2.c
+parser.h
+/Users/kysgramo/cor_merged/sources/parser.h
+
+/Users/kysgramo/cor_merged/sources/row_functions.c
 parser.h
 /Users/kysgramo/cor_merged/sources/parser.h
 
