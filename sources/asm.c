@@ -6,14 +6,14 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:02:09 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/18 19:14:57 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 19:46:16 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 #include "translation.h"
 
-void	check_escape2(char *balance, t_parser *parser, int escapes, int i)
+int		check_escape2(char *balance, t_parser *parser, int escapes, int i)
 {
 	while (balance[i] != '\0')
 	{
@@ -21,7 +21,9 @@ void	check_escape2(char *balance, t_parser *parser, int escapes, int i)
 			escapes++;
 	}
 	if (escapes != parser->y_read - 1)
-		core_error(parser, ERR_ESCAPE);
+		return (0);
+		// core_error(parser, ERR_ESCAPE);
+	return (1);
 }
 
 void	check_escape(t_parser *parser, char *filename)
@@ -45,7 +47,12 @@ void	check_escape(t_parser *parser, char *filename)
 		if (ft_strchr(balance, '\0'))
 			break ;
 	}
-	check_escape2(balance, parser, 0, 0);
+	if (!check_escape2(balance, parser, 0, 0))
+	{
+		free(stock[parser->fd_s]);
+		core_error(parser, ERR_ESCAPE);
+	}
+	free(stock[parser->fd_s]);
 }
 
 void	assembler(char *filename)
