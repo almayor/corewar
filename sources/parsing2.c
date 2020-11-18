@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:42:53 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/17 20:48:24 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 18:47:33 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		lexical_error(t_parser *parser)
 {
 	ft_printf("Lexical error at row %d, symbol %d\n",
 	parser->y_read, parser->x_read);
-	exit(1);
+	core_error(parser, NULL);
 }
 
 void		add_label(t_label **labels, t_label *label)

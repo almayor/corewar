@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 01:59:40 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 21:19:01 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 18:22:16 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,11 @@ void		core_free(t_parser *stor)
 	if (stor->tokens)
 	{
 		if (stor->tokens_head)
+		{
 			stor->tokens = stor->tokens_head;
+			printf("TOKENS HEAD\n");
+		}
+		printf("NO TOKENS HEAD\n");
 		free_tokens(stor);
 	}
 	if (stor->labels)
