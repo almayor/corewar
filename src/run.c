@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 22:32:18 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 15:15:02 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static void	update_ctd(void)
 int			run_once(void)
 {
 	if (g_vm.nprocs == 0)
-		return (1);
+		return (0);
 	++g_vm.icycle;
 	if (g_vm.log >> 1 & 1)
 		ft_printf("It is now cycle %lu\n", g_vm.icycle);
@@ -110,7 +110,7 @@ int			run_once(void)
 		g_vm.prev_nlive = g_vm.curr_nlive;
 		g_vm.curr_nlive = 0;
 	}
-	return (0);
+	return (1);
 }
 
 void 		run(void)
