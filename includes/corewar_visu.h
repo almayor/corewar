@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/18 16:40:02 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/18 16:45:37 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ struct				s_visu
 	SDL_Renderer	*rend;
 	TTF_Font		*font;
 	SDL_Rect		rect;
+	int				quit;
+	int				pause;
+	int				runing;
 };
 
 extern	t_visu g_visu;
