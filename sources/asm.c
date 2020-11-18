@@ -13,10 +13,10 @@
 #include "parser.h"
 #include "translation.h"
 
-void		check_escape2(char *balance, t_parser *parser, char *stock)
+void	check_escape2(char *balance, t_parser *parser, char *stock)
 {
-	int 	escapes; 
-	int 	i;
+	int		escapes;
+	int		i;
 
 	escapes = 0;
 	i = 0;
@@ -66,12 +66,9 @@ void	assembler(char *filename)
 	check_escape(parser, filename);
 	parser->file_name = ft_strjoin_free(ft_strsub(filename, 0,
 				ft_strlen(filename) - 2), ".cor");
-	
 	// simple_parser_print_(parser);
 	// print_tokens_(parser);
 	// print_labels_(parser);
 	translation(parser);
-
-
 	core_free(parser);
 }

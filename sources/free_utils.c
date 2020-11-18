@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 01:59:40 by user              #+#    #+#             */
-/*   Updated: 2020/11/18 19:41:00 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 20:47:25 by kysgramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void		core_error(t_parser *stor, char *message)
 
 void		free_tokens(t_parser *stor)
 {
-	t_token 	*token;
+	t_token		*token;
 	t_token		*tmp;
-	
+
 	if (!stor->tokens)
 		return ;
 	token = stor->tokens;
@@ -47,10 +47,6 @@ void		free_parser(t_parser *stor)
 		free(stor->comment);
 	if (stor->file_name)
 		free(stor->file_name);
-	// if (stor->fd_s)
-	// 	free(stor->fd_s);
-	// if (stor->fd_cor)
-	// 	free(stor->fd_cor);
 	free(stor);
 }
 
@@ -82,12 +78,6 @@ void		core_free(t_parser *stor)
 	}
 	if (stor->labels)
 		free_labels(stor);
-		
-	
 	// functions to clean all data stored in frame
-	
-	
-
 	free_parser(stor);
 }
-

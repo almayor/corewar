@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 00:26:25 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 21:19:10 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 20:45:58 by kysgramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ t_token		*get_start_token(t_parser *stor, t_label *label)
 	tmp = stor->tokens_head;
 	while (tmp)
 	{
-		if (tmp->point.row == label->point.row && tmp->point.token == label->point.token)
+		if (tmp->point.row == label->point.row &&
+		tmp->point.token == label->point.token)
 			return (tmp);
 		tmp = tmp->next;
 	}
@@ -69,8 +70,8 @@ int			calc_value(t_token *start, t_token *dst, int arg_line_size)
 
 int			find_label_value(t_parser *stor, t_token *dst, int dst_size)
 {
-	t_token 	*start;
-	t_label 	*label;
+	t_token		*start;
+	t_label		*label;
 	int			val;
 	int			sign;
 

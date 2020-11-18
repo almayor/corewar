@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 03:49:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 21:48:10 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 20:41:03 by kysgramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ void	add_label_(t_parser *stor, char *label, int y, int x)
 		elem->point.row = y;
 		elem->point.token = x;
 	}
-	
 }
 
 void	create_line_(t_parser *stor, t_token *token, int y, char *label, char *cmd, char *arg1, char *arg2, char *arg3)
@@ -162,7 +161,6 @@ void	create_line_(t_parser *stor, t_token *token, int y, char *label, char *cmd,
 		token = token->next;
 		parse_arg_(token, arg3, y, x++);
 	}
-
 }
 
 void	mock_read_(t_parser *stor)
@@ -171,11 +169,9 @@ void	mock_read_(t_parser *stor)
 	stor->name = ft_strdup("Batman");
 	stor->comment = ft_strdup("This city needs me");
 	// stor->code_total_size = 10;
-
 	// stor->tokens = ft_calloc(1, sizeof(t_token));
 	// stor->tokens->content = ft_strdup("INIT TOKENS");
 	// stor->tokens->type == UNKNOWN;
-	
 	create_line_(stor, stor->tokens, 0, "loop", "sti", "r1", "%:live", "%1");
 	create_line_(stor, stor->tokens, 1, "live", "live", "%0", NULL, NULL);
 	create_line_(stor, stor->tokens, 2, NULL, "zjmp", "%:typing", NULL, NULL);
@@ -187,8 +183,6 @@ void	mock_read_(t_parser *stor)
 	create_line_(stor, stor->tokens, 8, "typing", "aff", "r2", NULL, NULL);
 	create_line_(stor, stor->tokens, 9, "copie", "ld", "%1", "r1", NULL);
 	create_line_(stor, stor->tokens, 10, NULL, "xor", "r10", "r10", "r10");
-
-
 	stor->tokens_head = stor->tokens;
 }
 
@@ -237,7 +231,6 @@ void	print_labels_(t_parser *stor)
 		label = label->next;
 	}
 }
-
 
 void	simple_tokens_print_(t_parser *stor)
 {

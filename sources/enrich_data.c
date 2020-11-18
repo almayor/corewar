@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:46:36 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 21:57:43 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 20:39:48 by kysgramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ t_token		*get_token(t_token *token, int len)
 
 int			get_arg(t_parser *stor, t_token *arg, int name, int shift)
 {
-	int 	dir_size;
-	int 	arg_code;
+	int		dir_size;
+	int		arg_code;
 
 	arg_code = 0;
 	dir_size = op_tmpl[name].dir_size;
@@ -51,9 +51,8 @@ int			get_arg(t_parser *stor, t_token *arg, int name, int shift)
 
 int			op_args(t_parser *stor, t_token *token, int name)
 {
-
 	unsigned char	args[3];
-	int 			ct;
+	int				ct;
 
 	if (!token)
 		core_error(stor, ENRICH_ERR);
@@ -83,7 +82,7 @@ int			enrich_row(t_parser *stor, t_token *token)
 	stor->tokens = token;
 	while (++ind <= 15)
 		if (!ft_strcmp(token->content, op_tmpl[ind].name))
-			break;
+			break ;
 	return (op_args(stor, token, ind));
 }
 

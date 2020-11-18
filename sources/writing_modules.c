@@ -14,7 +14,7 @@
 
 void		int_writer(t_parser *stor, unsigned int data)
 {
-	union u_four 	uni_data;
+	union u_four	uni_data;
 	unsigned char	c;
 
 	uni_data.val = data;

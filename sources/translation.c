@@ -16,14 +16,15 @@ void		translate_commons(t_parser *stor)
 {
 	int_writer(stor, COREWAR_EXEC_MAGIC);
 	write_name_or_comment(stor, PROG_NAME_LENGTH, NAME_FLAG);
-	int_writer(stor, stor->code_total_size); 
+	int_writer(stor, stor->code_total_size);
 	write_name_or_comment(stor, COMMENT_LENGTH, COMMENT_FLAG);
 }
 
 void		translation(t_parser *stor)
 {
 	stor->tokens_head = stor->tokens;
-	if ((stor->fd_cor = open(stor->file_name, O_RDWR | O_CREAT | O_TRUNC, 0777)) == -1)
+	if ((stor->fd_cor = open(stor->file_name, O_RDWR |
+	O_CREAT | O_TRUNC, 0777)) == -1)
 		core_error(stor, OPEN_COR_ERR);
 	enrich_data(stor);
 	translate_commons(stor);
