@@ -6,13 +6,13 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:42:53 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/18 19:13:38 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 20:18:28 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-void		lexical_error(t_parser *parser, t_token *token)
+void		lexical_error(t_parser *parser, t_token *token, char **row)
 {
 	ft_printf("Lexical error at row %d, symbol %d\n",
 	parser->y_read, parser->x_read);
@@ -22,6 +22,7 @@ void		lexical_error(t_parser *parser, t_token *token)
 			free(token->content);
 		free(token);
 	}
+	ft_strdel(row);
 	core_error(parser, NULL);
 }
 
@@ -46,7 +47,10 @@ char		*get_token_content(t_parser *parser, char *row, int start)
 
 	content = NULL;
 	if (!(content = ft_strsub(row, start, parser->x_read - start)))
+	{
+		ft_strdel(&row);
 		core_error(parser, ERR_STR_INIT);
+	}
 	return (content);
 }
 
@@ -70,7 +74,7 @@ void		parse_alpha(t_parser *parser, char *row, int start,
 			(is_operation(token) || is_register(token)))
 		add_token(&parser->tokens, token);
 	else
-		lexical_error(parser, token);
+		lexical_error(parser, token, &row);
 }
 
 /*
@@ -91,5 +95,5 @@ t_token *token)
 	if (parser->x_read - start)
 		add_token(&parser->tokens, token);
 	else
-		lexical_error(parser, token);
+		lexical_error(parser, token, &row);
 }
