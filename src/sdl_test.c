@@ -6,53 +6,82 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:52:32 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/17 20:31:05 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/18 23:28:58 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-# include <SDL2/SDL_ttf.h>
 
 int start_x = 20;
 int start_y = 20;
 
-static int	get_base_size(uintmax_t n, int base)
+// static int	get_base_size(uintmax_t n, int base)
+// {
+// 	int i;
+
+// 	i = 0;
+// 	while (n)
+// 	{
+// 		n = n / base;
+// 		i++;
+// 	}
+// 	return (i);
+// }
+
+// char		*ft_itoa_base(uintmax_t n, int hex_up, int base)
+// {
+// 	char	*hex;
+// 	char	*res;
+// 	int		i;
+// 	int		len;
+
+// 	if (hex_up)
+// 		hex = "0123456789ABCDEF";
+// 	else
+// 		hex = "0123456789abcdef";
+// 	len = get_base_size(n, base);
+// 	if (n == 0)
+// 		return (ft_strdup("0"));
+// 	if (!(res = ft_calloc(1, len + 1)))
+// 		return (NULL);
+// 	i = len - 1;
+// 	while (n)
+// 	{
+// 		res[i] = hex[n % base];
+// 		n = n / base;
+// 		i--;
+// 	}
+// 	return (res);
+// }
+
+SDL_Color get_player_color(uint32_t ichamp)
+{
+	SDL_Color res;
+
+	if (ichamp == 1)
+		res = (SDL_Color){220, 220, 0, 1};
+	else if (ichamp == 2)
+		res = (SDL_Color){40, 200, 10, 1};
+	else if (ichamp == 3)
+		res = (SDL_Color){10, 220, 160, 1};
+	else if (ichamp == 4)
+		res = (SDL_Color){10, 100, 220, 1};
+	else
+		res = (SDL_Color){255, 255, 255, 1};
+	return (res);
+}
+
+void	sdl_mark_champ(uint32_t ichamp, size_t nbytes, uint32_t pos)
 {
 	int i;
 
 	i = 0;
-	while (n)
+	while (i < nbytes)
 	{
-		n = n / base;
+		g_visu.vmem[pos % MEM_SIZE] = ichamp;
+		pos++;
 		i++;
 	}
-	return (i);
-}
-
-char		*ft_itoa_base(uintmax_t n, int hex_up, int base)
-{
-	char	*hex;
-	char	*res;
-	int		i;
-	int		len;
-
-	if (hex_up)
-		hex = "0123456789ABCDEF";
-	else
-		hex = "0123456789abcdef";
-	len = get_base_size(n, base);
-	if (n == 0)
-		return (ft_strdup("0"));
-	if (!(res = ft_calloc(1, len + 1)))
-		return (NULL);
-	i = len - 1;
-	while (n)
-	{
-		res[i] = hex[n % base];
-		n = n / base;
-		i--;
-	}
-	return (res);
 }
 
 void	sdl_init()
@@ -78,67 +107,62 @@ void	sdl_init()
 		terminate("Error open font '%s'\n", FONT);
 }
 
+void	sdl_loop_event(SDL_Event event)
+{
+	if (event.type == SDL_QUIT || g_visu.keyboard[SDL_SCANCODE_ESCAPE])
+		g_visu.quit = 0;
+	if (event.type == SDL_MOUSEWHEEL)
+	{
+		if (event.wheel.y > 0)
+			start_y = (start_y >= 20) ? start_y : start_y + 40; //up
+		else
+			start_y = (start_y <= -500) ? start_y : start_y - 40; // down
+	}
+	if (event.type == SDL_MOUSEBUTTONDOWN)
+		g_visu.click = 1;
+	if (event.type == SDL_MOUSEBUTTONUP)
+		g_visu.click = 0;
+	SDL_GetMouseState(&g_visu.x, &g_visu.y);
+	if (g_visu.click)
+	{
+		if (event.button.x - g_visu.x > 0)
+			start_x = (start_x > - 500) ? start_x - 20 : start_x;
+		if (event.button.x - g_visu.x < 0)
+			start_x = (start_x < 20) ? start_x + 20 : start_x;
+	}
+	//ft_printf("x: %d | y: %d\n", start_x, start_y);
+}
+
 void sdl_loop()
 {
 	SDL_Event		event;
-	const uint8_t	*keyboard;
-	int				quit;
-	int click = 0;
-	int x, y;
-	quit = 1;
-	keyboard = SDL_GetKeyboardState(NULL);
-	while (quit)
+	int end;
+
+	end = 0;
+	g_visu.quit = 1;
+	g_visu.keyboard = SDL_GetKeyboardState(NULL);
+	while (g_visu.quit)
 	{
 		while (SDL_PollEvent(&event))
 		{
-			if (event.type == SDL_QUIT || keyboard[SDL_SCANCODE_ESCAPE])
-				quit = 0;
-			if (event.type == SDL_MOUSEWHEEL)
+			sdl_loop_event(event);
+			if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_SPACE)
+				g_visu.pause_flag = 1;
+			if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_SPACE && g_visu.pause_flag)
 			{
-				if (event.wheel.y > 0)
-					start_y = (start_y >= 20) ? start_y : start_y + 40; //up
-				else
-					start_y = (start_y <= -500) ? start_y : start_y - 40; // down
+				g_visu.pause = g_visu.pause ? 0 : 1;
+				g_visu.pause_flag = g_visu.pause_flag ? 0 : 1;
 			}
-
-			if (event.type == SDL_MOUSEBUTTONDOWN)
-				click = 1;
-			if (event.type == SDL_MOUSEBUTTONUP)
-				click = 0;
-			
-			ft_printf("click: %u\n", click);
-			ft_printf("x: %d, y: %d\n", event.button.x, event.button.y);
-			SDL_GetMouseState(&x, &y);
-			ft_printf("state: x = %d,y = %d\n", x, y);
-			if (!click)
-			{
-				x = event.button.x;
-				y = event.button.y;
-			}
-			int flag_pause = 1;
-			if (keyboard[SDL_SCANCODE_SPACE])
-				flag_pause = (flag_pause) ? 0 : 1;
-			//if (!flag_pause)
-			//	run_one();
-			if (click)
-			{
-				
-				ft_printf("diff x = %d\n", event.button.x - x);
-				ft_printf("diff y = %d\n", event.button.y - y);
-				if (event.button.x - x > 0)
-					start_x = (start_x > - 500) ? start_x - 20 : start_x;
-				if (event.button.x - x < 0)
-					start_x = (start_x < 20) ? start_x + 20 : start_x;
-			}
-			if (keyboard[SDL_SCANCODE_RIGHT])
-				start_x = (start_x > - 1200) ? start_x - 30 : start_x;
-			if (keyboard[SDL_SCANCODE_LEFT])
-				start_x = (start_x < 20) ? start_x + 30 : start_x;
-			ft_printf("x: %d | y: %d\n", start_x, start_y);
+			ft_printf("Pause: %d\n", g_visu.pause);
+		}
+		if (!g_visu.pause)
+		{
+			end = run_once();
+			if (!end)
+				exit(0);
 		}
 		sdl_draw();
 		SDL_RenderPresent(g_vm.visual.rend);
-		//SDL_SetRenderDrawColor(g_vm.visual.rend, 0, 75, 140, 1);
 		SDL_RenderClear(g_vm.visual.rend);
 	}
 }
@@ -192,7 +216,7 @@ void	sdl_draw()
 	j = 0;
 	shift = 0;
 	
-	fcolor = (SDL_Color){230, 230, 0, 1};
+	fcolor = (SDL_Color){255, 255, 255, 1};
 	frect.y = start_y;
 	while (i < MEM_SIZE)
 	{
@@ -200,6 +224,7 @@ void	sdl_draw()
 		j = 0;
 		while (j++ < 64)
 		{
+			fcolor = get_player_color(g_visu.vmem[i % MEM_SIZE]);
 			draw_hex(g_vm.mem[i], fcolor, frect);
 			frect.x += 20;
 			i++;
@@ -207,19 +232,10 @@ void	sdl_draw()
 		shift = shift + 64;
 		frect.y += 19;
 	}
-	//SDL_FreeSurface(fsurf);
-	//SDL_DestroyTexture(ftext);
 }
 
 void	sdl_launch()
 {
 	sdl_init();
-	SDL_SetRenderDrawColor(g_vm.visual.rend, 0, 0, 0, 1);
-	SDL_RenderClear(g_vm.visual.rend);
-	g_vm.visual.rect.h = 15;
-	g_vm.visual.rect.w = 15;
-	g_vm.visual.rect.x = 30;
-	g_vm.visual.rect.y = 30;
 	sdl_loop();
-	
 }

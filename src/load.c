@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:26:26 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/15 00:00:33 by user             ###   ########.fr       */
+/*   Updated: 2020/11/18 23:21:46 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ void		load(void)
 		if (g_vm.temp[i].num > 0)
 		{
 			load_champion(g_vm.temp[i].fname, g_vm.temp[i].num - 1, pos);
+			if (g_vm.visu_flag)
+				sdl_mark_champ(g_vm.champs[i].ichamp, g_vm.champs[i].size, pos);
 			create_proc(g_vm.temp[i].num, pos);
 			g_vm.last_live_champ = g_vm.temp[i].num;
 			pos += step;

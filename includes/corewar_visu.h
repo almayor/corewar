@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/18 16:45:37 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/18 23:13:04 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <SDL2/SDL_image.h>
 
 # include "libft.h"
+# include <time.h>
 
 # define WIDTH 1600
 # define HEIGHT 768
@@ -36,14 +37,20 @@ struct				s_visu
 	SDL_Renderer	*rend;
 	TTF_Font		*font;
 	SDL_Rect		rect;
+	SDL_Event		event;
+	const uint8_t	*keyboard;
 	int				quit;
 	int				pause;
+	int				pause_flag;
 	int				runing;
+	int				click;
+	int				x;
+	int				y;
 };
 
 extern	t_visu g_visu;
 
 void	sdl_launch();
 void	sdl_draw();
-
+void	sdl_mark_champ(uint32_t ichamp, size_t nbytes, uint32_t pos);
 #endif
