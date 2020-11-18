@@ -38,8 +38,9 @@ char		*get_token_content(t_parser *parser, char *row, int start)
 {
 	char	*content;
 
+	content = NULL;
 	if (!(content = ft_strsub(row, start, parser->x_read - start)))
-		terminate(ERR_STR_INIT);
+		core_error(parser, ERR_STR_INIT);
 	return (content);
 }
 

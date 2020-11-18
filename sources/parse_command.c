@@ -15,13 +15,13 @@
 void	validate_commands(t_parser *parser)
 {
 	if (parser->name == NULL)
-		terminate(ERR_NO_NAME);
+		core_error(parser, ERR_NO_NAME);
 	if (parser->comment == NULL)
-		terminate(ERR_NO_COMMENT);
+		core_error(parser, ERR_NO_COMMENT);
 	if (ft_strlen(parser->name) > PROG_NAME_LENGTH)
-		terminate(ERR_TOO_LONG_NAME);
+		core_error(parser, ERR_TOO_LONG_NAME);
 	if (ft_strlen(parser->comment) > COMMENT_LENGTH)
-		terminate(ERR_TOO_LONG_COMMENT);
+		core_error(parser, ERR_TOO_LONG_COMMENT);
 }
 
 char	*join_str(char **str1, char **str2)
@@ -47,7 +47,7 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 	++parser->y_read)
 		*row = join_str(row, &str);
 	if (size == -1)
-		terminate(ERR_READING);
+		core_error(parser, ERR_READING);
 	while (*(*row + parser->x_read))
 		parser->x_read++;
 	if (type == 1)
@@ -77,7 +77,7 @@ void	parse_command(t_parser *parser, char **row, int start)
 	else if (!ft_strcmp(tmp, "comment"))
 		type = 2;
 	else
-		terminate(ERR_COMMAND);
+		core_error(parser, ERR_COMMAND);
 	free(tmp);
 	trim_from_comments_spaces(parser, *row);
 	parse_command2(parser, row, parser->x_read, type);

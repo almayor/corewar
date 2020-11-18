@@ -21,7 +21,7 @@ void	check_escape2(char *balance, t_parser *parser, int escapes, int i)
 			escapes++;
 	}
 	if (escapes != parser->y_read - 1)
-		terminate(ERR_ESCAPE);
+		core_error(parser, ERR_ESCAPE);
 }
 
 void	check_escape(t_parser *parser, char *filename)
@@ -54,7 +54,7 @@ void	assembler(char *filename)
 
 	parser = init_asm_parser();
 	if ((parser->fd_s = open(filename, O_RDONLY)) == -1)
-		terminate(ERR_OPEN_FILE);
+		core_error(parser, ERR_OPEN_FILE);
 	parsing(parser, 0);
 	close(parser->fd_s);
 	check_escape(parser, filename);

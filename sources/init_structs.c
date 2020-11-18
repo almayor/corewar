@@ -40,7 +40,7 @@ t_token		*init_token(t_parser *parser, t_type type)
 	t_token	*token;
 
 	if (!(token = ft_calloc(1, sizeof(t_token))))
-		terminate(ERR_TOKEN_INIT);
+		core_error(parser, ERR_TOKEN_INIT);
 	token->type = type;
 	token->point = init_point();
 	token->point.row = parser->point.row;
@@ -52,7 +52,7 @@ t_parser	*init_asm_parser(void)
 	t_parser	*parser;
 
 	if (!(parser = ft_calloc(1, sizeof(t_parser))))
-		terminate(ERR_PARSER_INIT);
+		core_error(parser, ERR_PARSER_INIT);
 	parser->point = init_point();
 	return (parser);
 }
