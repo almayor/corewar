@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   corewar.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/17 20:28:35 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/17 22:54:26 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,7 +178,8 @@ struct			s_vm
 	size_t		nprocs;
 	t_proc		*procs;
 	uint64_t	curr_nlive;
-	uint32_t	last_live_champ; // Last live
+	uint64_t	prev_nlive;
+	uint32_t	last_live_champ;
 	uint64_t	icycle;
 	int64_t		cycles_to_die;
 	int64_t		cycles_since_die;
@@ -243,6 +244,7 @@ void	cleanup(void);
 void	terminate(const char *format, ...);
 
 void		cycle(void);
+int			run_once(void);
 void		run(void);
 void		dump(void);
 void		load(void);
