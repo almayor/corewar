@@ -58,7 +58,7 @@ void	assembler(char *filename)
 	parsing(parser, 0);
 	close(parser->fd_s);
 	check_escape(parser, filename);
-	parser->file_name = ft_strjoin(ft_strsub(filename, 0,
+	parser->file_name = ft_strjoin_free(ft_strsub(filename, 0,
 				ft_strlen(filename) - 2), ".cor");
 	
 	translation(parser);

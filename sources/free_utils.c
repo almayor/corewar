@@ -78,6 +78,7 @@ void		core_free(t_parser *stor)
 	}
 	if (stor->labels)
 		free_labels(stor);
+		
 	
 	// functions to clean all data stored in frame
 	

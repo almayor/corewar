@@ -41,6 +41,7 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 	char	*str;
 	char	*end;
 
+	size = 0;
 	while (!(end = ft_strchr(&((*row)[start]), '\"')) &&
 	(size = read_row(parser->fd_s, &str) > 0) &&
 	++parser->y_read)
@@ -63,18 +64,21 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 
 void	parse_command(t_parser *parser, char **row, int start)
 {
-	int	type;
+	int		type;
+	char	*tmp;
 
 	type = 0;
 	while (*(*row + parser->x_read) && ft_strchr(LABEL_CHARS,
 	*(*row + parser->x_read)))
 		parser->x_read++;
-	if (!ft_strcmp(get_token_content(parser, *row, start), "name"))
+	tmp = get_token_content(parser, *row, start);
+	if (!ft_strcmp(tmp, "name"))
 		type = 1;
-	else if (!ft_strcmp(get_token_content(parser, *row, start), "comment"))
+	else if (!ft_strcmp(tmp, "comment"))
 		type = 2;
 	else
 		terminate(ERR_COMMAND);
+	free(tmp);
 	trim_from_comments_spaces(parser, *row);
 	parse_command2(parser, row, parser->x_read, type);
 }
