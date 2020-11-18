@@ -12,6 +12,10 @@ op.h
 
 ../includes/op.h
 
+../includes/operations.h
+stdint.h
+-
+
 ../includes/parser.h
 asm_struct.h
 ../includes/asm_struct.h
@@ -58,7 +62,13 @@ limits.h
 ft_printf.h
 ../libft/includes/ft_printf.h
 
-/Users/kysgramo/cor_merged/sources/parse_command.c
+/Users/kysgramo/cor_merged/sources/is_functions.c
+parser.h
+/Users/kysgramo/cor_merged/sources/parser.h
+operations.h
+/Users/kysgramo/cor_merged/sources/operations.h
+
+/Users/kysgramo/cor_merged/sources/parsing2.c
 parser.h
 /Users/kysgramo/cor_merged/sources/parser.h
 

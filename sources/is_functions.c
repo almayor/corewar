@@ -58,7 +58,7 @@ int		is_register(t_token *token)
 		if (!token->content[i])
 		{
 			i = ft_atoi(&token->content[1]);
-			if (i > 0)
+			if (i > 0 && i < 17)
 			{
 				token->type = REG_ARG_TYPE;
 				return (TRUE);
