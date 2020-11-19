@@ -6,16 +6,16 @@
 #    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/19 00:10:18 by fallard          ###   ########.fr        #
+#    Updated: 2020/11/19 23:30:40 by fallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = corewar
 
-HEAD_NAME = corewar.h corewar_logs.h op.h
+HEAD_NAME = corewar.h corewar_logs.h op.h corewar_visu.h
 LIB_NAME = libft.a
 
-CC = gcc -g
+CC = gcc -g -fsanitize=address -O3
 CFLAGS = #-Wall -Wextra -Werror
 CFLAGS += -MMD
 
@@ -70,7 +70,8 @@ utils/malloc_utils.c \
 utils/memory_utils.c \
 utils/parse_utils.c \
 utils/proc_utils.c \
-sdl_test.c
+sdl_test.c \
+sdl_utils.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 DEP = $(addprefix $(OBJ_DIR), $(SRC:.c=.d))
