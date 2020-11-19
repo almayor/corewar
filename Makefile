@@ -6,7 +6,7 @@
 #    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/20 00:58:37 by fallard          ###   ########.fr        #
+#    Updated: 2020/11/19 11:38:16 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,20 @@ NAME = corewar
 HEAD_NAME = corewar.h corewar_logs.h op.h corewar_visu.h
 LIB_NAME = libft.a
 
-CC = gcc -g -fsanitize=address
-CFLAGS = #-Wall -Wextra -Werror
+CC = gcc
+CFLAGS += -fsanitize=address # -Wall -Wextra -Werror
 CFLAGS += -MMD
 
-# ifeq ($(DEBUG), 1) 
-# 	CFLAGS += -g
-# else
-# 	CFLAGS += -DNDEBUG
-# 	CFLAGS += -O3 -std=gnu11 -ffast-math -march=native
-# endif
+#ifeq ($(DEBUG), 1)
+	CFLAGS += -g
+#else
+#	CFLAGS += -DNDEBUG
+#	CFLAGS += -O3 -ffast-math
+#endif
+
+#ifeq ($(shell uname -s), Linux)
+#	CFLAGS += -fno-tree-loop-distribute-patterns
+#endif
 
 SRC_DIR = src/
 OBJ_DIR = obj/

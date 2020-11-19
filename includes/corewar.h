@@ -115,6 +115,7 @@ struct			s_champ
 	uint64_t	size;
 	uint64_t	curr_nlive;
 	uint64_t	prev_nlive;
+	uint64_t	last_live;
 };
 
 /*

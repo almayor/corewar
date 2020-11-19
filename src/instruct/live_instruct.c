@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:38:07 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 16:37:20 by user             ###   ########.fr       */
+/*   Updated: 2020/11/20 01:44:09 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		live_instruct(t_proc *proc)
 	if (n > 0 && n <= MAX_PLAYERS && g_vm.champs[n - 1].ichamp > 0)
 	{
 		g_vm.champs[n - 1].curr_nlive++;
+		g_vm.champs[n - 1].last_live = g_vm.icycle;
 		g_vm.last_live_champ = n;
 		if (g_vm.log & 1)
 			ft_printf(CHAMP_ALIVE, n, g_vm.champs[n - 1].name);
