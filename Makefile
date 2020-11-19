@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/17 22:19:04 by user             ###   ########.fr        #
+#    Updated: 2020/11/19 11:38:16 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,18 @@ HEAD_NAME = corewar.h corewar_logs.h op.h
 LIB_NAME = libft.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra -Werror
 CFLAGS += -MMD
 
 ifeq ($(DEBUG), 1) 
 	CFLAGS += -g
 else
 	CFLAGS += -DNDEBUG
-	CFLAGS += -O3 -std=gnu11 -ffast-math -march=native
+	CFLAGS += -O3 -ffast-math
+endif
+
+ifeq ($(shell uname -s), Linux)
+	CFLAGS += -fno-tree-loop-distribute-patterns
 endif
 
 SRC_DIR = src/
