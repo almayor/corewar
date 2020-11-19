@@ -4,7 +4,15 @@
 
 WIDTH=60
 DIREC=test/champions
-ZAZ_VM=test/corewar_zaz
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	ZAZ_VM=test/corewar_zaz_linux
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	ZAZ_VM=test/corewar_zaz_osx
+else
+	>&2 echo "OS not supported"
+	exit 1
+fi
 
 c_red="\033[031m"
 c_green="\033[032m"
