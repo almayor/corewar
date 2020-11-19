@@ -4,6 +4,5 @@ vm-champ-linux
 *.o
 a.out
 corewar
-*.cor
 .vscode
 obj

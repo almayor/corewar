@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:52:32 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/20 00:59:41 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/20 01:57:02 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ void	sdl_put_players(void)
 			player = sdl_threejoin(g_vm.champs[i].ichamp,
 				g_vm.champs[i].name);
 			sdl_put_text(player, clr, rect);
-			sdl_put_number(LAST_LIVE, g_vm.champs[i].prev_nlive,
+			sdl_put_number(LAST_LIVE, g_vm.champs[i].last_live,
 				rect.x + 10, rect.y + 20);
 			sdl_put_number(S_CURRLIVE, g_vm.champs[i].curr_nlive,
 				rect.x + 10, rect.y + 40);
