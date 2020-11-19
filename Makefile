@@ -6,7 +6,7 @@
 #    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/19 23:30:40 by fallard          ###   ########.fr        #
+#    Updated: 2020/11/20 00:58:37 by fallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = corewar
 HEAD_NAME = corewar.h corewar_logs.h op.h corewar_visu.h
 LIB_NAME = libft.a
 
-CC = gcc -g -fsanitize=address -O3
+CC = gcc -g -fsanitize=address
 CFLAGS = #-Wall -Wextra -Werror
 CFLAGS += -MMD
 

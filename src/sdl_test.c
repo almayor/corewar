@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:52:32 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/20 00:42:24 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/20 00:59:41 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void sdl_loop()
 		}
 
 		//sdl_new_draw();
-		sdl_draw();
+		//sdl_draw();
 		sdl_put_params();
 		sdl_draw_border();
 		SDL_RenderPresent(g_visu.rend);
@@ -174,8 +174,6 @@ void	sdl_put_players(void)
 		i++;
 		rect.y += 100;
 	}
-	
-	i = 0;
 }
 
 void	sdl_put_number(char *s, uint64_t n, int x, int y)
