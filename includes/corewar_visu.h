@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/20 00:48:34 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/20 01:48:18 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 
 # include <SDL2/SDL.h>
 # include <SDL2/SDL_ttf.h>
-# include <SDL2/SDL_image.h>
 
 # include "corewar.h"
 # include "libft.h"
-# include <time.h>
 
-# define RUNNING "** RUNNING **"
-# define PAUSED "** PAUSED **"
+# define RUNNING	"** RUNNING **"
+# define PAUSED		"** PAUSED **"
 
 # define S_CYCLE	"Cycle:     "
 # define S_PROC		"Processes: "
