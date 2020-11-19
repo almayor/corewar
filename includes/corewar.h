@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/19 00:58:04 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/19 21:14:53 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -257,5 +257,7 @@ void			parse_args(int argc, char **argv);
 void			validate_dump(int argc, char **argv, int *i);
 void			init_numbers(void);
 int				is_number(const char *string);
+
+t_proc	*get_proc(uint32_t index);
 
 #endif

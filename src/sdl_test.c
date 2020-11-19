@@ -6,83 +6,15 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:52:32 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/19 01:43:20 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/20 00:42:24 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+#include "corewar_visu.h"
 
 int start_x = 30;
-int start_y = 40;
-
-// static int	get_base_size(uintmax_t n, int base)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (n)
-// 	{
-// 		n = n / base;
-// 		i++;
-// 	}
-// 	return (i);
-// }
-
-// char		*ft_itoa_base(uintmax_t n, int hex_up, int base)
-// {
-// 	char	*hex;
-// 	char	*res;
-// 	int		i;
-// 	int		len;
-
-// 	if (hex_up)
-// 		hex = "0123456789ABCDEF";
-// 	else
-// 		hex = "0123456789abcdef";
-// 	len = get_base_size(n, base);
-// 	if (n == 0)
-// 		return (ft_strdup("0"));
-// 	if (!(res = ft_calloc(1, len + 1)))
-// 		return (NULL);
-// 	i = len - 1;
-// 	while (n)
-// 	{
-// 		res[i] = hex[n % base];
-// 		n = n / base;
-// 		i--;
-// 	}
-// 	return (res);
-// }
-
-SDL_Color get_player_color(uint32_t ichamp)
-{
-	SDL_Color res;
-
-	if (ichamp == 1)
-		res = (SDL_Color){240, 240, 0, 1};
-	else if (ichamp == 2)
-		res = (SDL_Color){40, 200, 10, 1};
-	else if (ichamp == 3)
-		res = (SDL_Color){10, 220, 160, 1};
-	else if (ichamp == 4)
-		res = (SDL_Color){10, 100, 220, 1};
-	else
-		res = (SDL_Color){255, 255, 255, 1};
-	return (res);
-}
-
-void	sdl_mark_champ(uint32_t ichamp, size_t nbytes, uint32_t pos)
-{
-	int i;
-
-	i = 0;
-	while (i < nbytes)
-	{
-		g_visu.vmem[pos % MEM_SIZE] = ichamp;
-		pos++;
-		i++;
-	}
-}
+int start_y = 30;
 
 void	sdl_init()
 {
@@ -102,7 +34,7 @@ void	sdl_init()
 		-1, SDL_RENDERER_ACCELERATED);
 	if (!g_visu.rend)
 		terminate("Error create render\n");
-	g_visu.font = TTF_OpenFont(FONT, 14);
+	g_visu.font = TTF_OpenFont(FONT, 12);
 	if (!g_visu.font)
 		terminate("Error open font '%s'\n", FONT);
 }
@@ -114,9 +46,9 @@ void	sdl_loop_event(SDL_Event event)
 	if (event.type == SDL_MOUSEWHEEL)
 	{
 		if (event.wheel.y > 0)
-			start_y = (start_y >= 20) ? start_y : start_y + 40; //up
+			start_y = (start_y >= 20) ? start_y : start_y + 35; //up
 		else
-			start_y = (start_y <= -500) ? start_y : start_y - 40; // down
+			start_y = (start_y <= -500) ? start_y : start_y - 35; // down
 	}
 	if (event.type == SDL_MOUSEBUTTONDOWN)
 		g_visu.click = 1;
@@ -126,9 +58,9 @@ void	sdl_loop_event(SDL_Event event)
 	if (g_visu.click)
 	{
 		if (event.button.x - g_visu.x > 0)
-			start_x = (start_x > - 500) ? start_x - 20 : start_x;
+			start_x = (start_x > - 250) ? start_x - 10 : start_x;
 		if (event.button.x - g_visu.x < 0)
-			start_x = (start_x < 20) ? start_x + 20 : start_x;
+			start_x = (start_x < 30) ? start_x + 10 : start_x;
 	}
 	//ft_printf("x: %d | y: %d\n", start_x, start_y);
 }
@@ -153,7 +85,7 @@ void sdl_loop()
 				g_visu.pause = g_visu.pause ? 0 : 1;
 				g_visu.pause_flag = g_visu.pause_flag ? 0 : 1;
 			}
-			ft_printf("Pause: %d\n", g_visu.pause);
+			//ft_printf("Pause: %d\n", g_visu.pause);
 		}
 		if (!g_visu.pause)
 		{
@@ -161,9 +93,9 @@ void sdl_loop()
 			if (!end)
 				exit(0);
 		}
-	
+
+		//sdl_new_draw();
 		sdl_draw();
-		
 		sdl_put_params();
 		sdl_draw_border();
 		SDL_RenderPresent(g_visu.rend);
@@ -191,7 +123,7 @@ void	sdl_put_text(const char *word, SDL_Color color, SDL_Rect pos)
 	SDL_DestroyTexture(texture);
 }
 
-void	sdl_draw_border()
+void	sdl_draw_border(void)
 {
 	SDL_Rect line_x;
 	SDL_Rect line_y;
@@ -215,65 +147,140 @@ void	sdl_draw_border()
 	SDL_RenderFillRect(g_visu.rend, &line_y);
 }
 
+void	sdl_put_players(void)
+{
+	SDL_Color clr;
+	SDL_Rect rect;
+	char *player;
+	int i;
+
+	i = 0;
+	rect.x = start_x + 1330;
+	rect.y = 100;
+	while (i < MAX_PLAYERS)
+	{
+		if (g_vm.champs[i].ichamp > 0)
+		{
+			clr = get_player_color(g_vm.champs[i].ichamp);
+			player = sdl_threejoin(g_vm.champs[i].ichamp,
+				g_vm.champs[i].name);
+			sdl_put_text(player, clr, rect);
+			sdl_put_number(LAST_LIVE, g_vm.champs[i].prev_nlive,
+				rect.x + 10, rect.y + 20);
+			sdl_put_number(S_CURRLIVE, g_vm.champs[i].curr_nlive,
+				rect.x + 10, rect.y + 40);
+			free(player);
+		}
+		i++;
+		rect.y += 100;
+	}
+	
+	i = 0;
+}
+
+void	sdl_put_number(char *s, uint64_t n, int x, int y)
+{
+	char		*str;
+	SDL_Color	color;
+	SDL_Rect	pos;
+
+	color = (SDL_Color){255, 255, 255, 1};
+	pos.x = x;
+	pos.y = y;
+	str = ft_strjoin_free(s, ft_ulltoa(n), 2);
+
+	sdl_put_text(str, color, pos);
+	free (str);
+}
+
 void	sdl_put_params()
 {
 	SDL_Rect params;
 	SDL_Color color;
 
-	params.x = start_x + 1350;
-	params.y = start_y + 0;
+	params.x = start_x + 1400;
+	params.y = 20;
 	color = (SDL_Color){255, 255, 255, 1};
 	if (g_visu.pause)
 		sdl_put_text(PAUSED, color, params);
 	else
 		sdl_put_text(RUNNING, color, params);
+	sdl_put_number(S_CYCLE, g_vm.icycle, start_x + 1330, 50);
+	sdl_put_number(S_PROC, g_vm.nprocs, start_x + 1330, 70);
+	sdl_put_players();
 }
 
-void	draw_hex(uint8_t n, SDL_Color color, SDL_Rect pos)
+
+void	sdl_draw_proc(uint32_t index, int x, int y)
 {
-	char	buf[3];
-	char	*hex;
-	int		i;
-
-	ft_memset(buf, '0', 2);
-	buf[2] = '\0';
-	i = 1;
-	while (n)
-	{
-		buf[i]= HEX[n % 16];
-		i--;
-		n = n / 16;
-	}
-	sdl_put_text(buf, color, pos);
-}
-
-int	get_proc(uint32_t ichamp)
-{
-	t_proc	*tmp;
-
-	tmp = g_vm.procs;
-	while (tmp)
-	{
-		if (tmp->ichamp == ichamp)
-			return (1);
-		tmp = tmp->next;
-	}
-	return (0);
-}
-
-void	sdl_draw_proc(uint32_t ichamp, SDL_Color color, int x, int y)
-{
+	SDL_Color	color;
 	SDL_Rect	cube;
+	t_proc		*tmp;
 
-	if (get_proc(ichamp) == 1)
+	if (tmp = get_proc(index))
 	{
-		cube.h = 1; // 17
-		cube.w = 1; // 17
-		cube.x = x;
-		cube.y = y;
+		cube.h = 18; // 17
+		cube.w = 20; // 17
+		cube.x = x - 2;
+		cube.y = y + 1;
+		color = get_player_color(tmp->ichamp);
 		SDL_SetRenderDrawColor(g_visu.rend, color.r, color.g, color.b, color.a);
-		SDL_RenderFillRect(g_visu.rend, &cube);
-		ft_printf("WRITE PROC!!!\n");
+		SDL_RenderDrawRect(g_visu.rend, &cube);
+		cube.x = x - 3;	
+		cube.y = y;
+		cube.h = cube.h + 2;
+		cube.w = cube.w + 2;
+		SDL_RenderDrawRect(g_visu.rend, &cube);
+		
+		//ft_printf("WRITE PROC!!!\n");
+	}
+}
+
+void	sdl_new_draw(void)
+{
+	int			i;
+	int			j;
+	SDL_Rect	frect;
+	SDL_Color	fcolor;
+	char		*join = NULL;
+	char		*tmp;
+	char		*tmp2;
+	i = 0;
+	j = 0;
+	fcolor = (SDL_Color){255, 255, 255, 1};
+	frect.y = start_y;
+	while (i < MEM_SIZE)
+	{
+		frect.x = start_x;
+		j = 0;
+		while (j < 64)
+		{
+			while (j < 63 && g_visu.vmem[i] == g_visu.vmem[i + 1])
+			{
+				//ft_printf("(%d): %u - %u\n", i, g_visu.vmem[i], g_visu.vmem[i + 1]);
+				//if (j == 62)
+				//	ft_printf("MEM\n");
+				if (!join)
+					join = hex_num(g_vm.mem[i]);
+				tmp2 = hex_num(g_vm.mem[i + 1]);
+				tmp = join;
+				join = sdl_strjoin(join, tmp2);
+				free(tmp); tmp = NULL;
+				free(tmp2); tmp2 = NULL;
+				i++;
+				j++;
+			}
+			j++;
+			//fcolor = get_player_color(g_visu.vmem[i]);
+			//sdl_draw_proc(i, frect.x, frect.y);
+			//draw_hex(g_vm.mem[i], fcolor, frect);
+			//ft_printf("%s\n", join);
+			sdl_put_text(join, fcolor, frect);
+			free(join); join = NULL;
+			frect.x += 20;
+			i++;
+		}
+		frect.y += 19;
 	}
 }
 
@@ -281,15 +288,11 @@ void	sdl_draw()
 {
 	int i;
 	int j;
-	int shift;
 	SDL_Rect frect;
 	SDL_Color fcolor;
-	char *hex;
 
 	i = 0;
 	j = 0;
-	shift = 0;
-	
 	fcolor = (SDL_Color){255, 255, 255, 1};
 	frect.y = start_y;
 	while (i < MEM_SIZE)
@@ -299,12 +302,11 @@ void	sdl_draw()
 		while (j++ < 64)
 		{
 			fcolor = get_player_color(g_visu.vmem[i]);
-			sdl_draw_proc(g_visu.vmem[i], fcolor, frect.x, frect.y);
+			sdl_draw_proc(i, frect.x, frect.y);
 			draw_hex(g_vm.mem[i], fcolor, frect);
 			frect.x += 20;
 			i++;
 		}
-		shift = shift + 64;
 		frect.y += 19;
 	}
 }
