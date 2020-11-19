@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/17 22:29:06 by user             ###   ########.fr       */
+/*   Updated: 2020/11/20 01:43:37 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ struct			s_champ
 	uint64_t	size;
 	uint64_t	curr_nlive;
 	uint64_t	prev_nlive;
+	uint64_t	last_live;
 };
 
 /*

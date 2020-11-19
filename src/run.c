@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/18 15:15:02 by user             ###   ########.fr       */
+/*   Updated: 2020/11/20 01:47:06 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,16 @@ static void decimate(void)
 static void	update_champs(void)
 {
 	int		ichamp;
-	t_champ	champ;
+	t_champ	*champ;
 
-	ichamp = 0;
-	while (ichamp < MAX_PLAYERS)
+	ichamp = 1;
+	while (ichamp <= MAX_PLAYERS)
 	{
-		champ = g_vm.champs[ichamp];
-		if (champ.ichamp > 0)
+		champ = &(g_vm.champs[ichamp - 1]);
+		if (champ->ichamp > 0)
 		{
-			champ.prev_nlive = champ.curr_nlive;
-			champ.curr_nlive = 0;
+			champ->prev_nlive = champ->curr_nlive;
+			champ->curr_nlive = 0;
 		}
 		ichamp++;
 	}
