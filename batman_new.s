@@ -2,7 +2,11 @@
 .comment    "This city needs me"
 
 
-test: 
-	loop:
-        sti r1, %:live, %1		# comment
+marker: 
+
+
+label:
+
+
+        live %0
 

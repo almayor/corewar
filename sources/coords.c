@@ -47,12 +47,10 @@ void		print_tokens(t_token *tokens)
 	}
 }
 
-int			hard_coord(t_parser *parser, t_token **token, int tok_num)
+int			hard_coord(t_parser *parser, t_token **token, int tok_num, int c)
 {
 	t_token	*check;
-	int		c;
 
-	c = 0;
 	check = *token;
 	while (check->type == 1)
 	{
@@ -93,9 +91,8 @@ void		coords_and_labels(t_parser *parser, t_token *tokens, int tok_num)
 	y = 0;
 	while (token)
 	{
-
-		if (token->type == 1 && token->next->point.row != y)
-				tok_num = hard_coord(parser, &token, -1);
+		if (token->type == 1 && token->type != y)
+			tok_num = hard_coord(parser, &token, -1, 0);
 		else if (y != token->point.row)
 			tok_num = tok_num_padding(-1, token);
 		else
