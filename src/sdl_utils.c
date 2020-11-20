@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 20:58:07 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/19 23:22:14 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/20 20:27:59 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,17 +69,17 @@ void	draw_hex(uint8_t n, SDL_Color color, SDL_Rect pos)
 	i = 1;
 	while (n)
 	{
-		buf[i]= HEX[n % 16];
+		buf[i] = HEX[n % 16];
 		i--;
 		n = n / 16;
 	}
 	sdl_put_text(buf, color, pos);
 }
 
-char *sdl_strjoin(char *str1, char *str2)
+char	*sdl_strjoin(char *str1, char *str2)
 {
-	char *res;
-	int len;
+	char	*res;
+	int		len;
 
 	len = ft_strlen(str1);
 	if (!(res = ft_calloc(1, len + 4)))
@@ -108,7 +108,6 @@ char	*ft_ulltoa(uint64_t nbr)
 	}
 	if (!(res = ft_calloc(1, len + 1)))
 		return (NULL);
-
 	i = len - 1;
 	while (nbr)
 	{
@@ -118,7 +117,7 @@ char	*ft_ulltoa(uint64_t nbr)
 	return (res);
 }
 
-SDL_Color get_player_color(uint32_t ichamp)
+SDL_Color	get_player_color(uint32_t ichamp)
 {
 	SDL_Color res;
 
@@ -143,9 +142,9 @@ char	*sdl_threejoin(uint32_t n, char *name)
 
 	if (n == 1)
 		c = "1";
-	else if(n == 2)
+	else if (n == 2)
 		c = "2";
-	else if(n == 3)
+	else if (n == 3)
 		c = "3";
 	else
 		c = "4";

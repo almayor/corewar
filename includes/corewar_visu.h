@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/20 19:57:48 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/20 20:25:15 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 # define USAGE_2	"Left / Right        MOUSE PRESSED"
 # define USAGE_3	"Up / Down           MOUSE WHEEL"
 
+# define SURFACE	"Error create SDL surface\n"
+# define TEXTURE	"Error create texture from surface\n"
 
 # define WIDTH 1600
 # define HEIGHT 768
@@ -65,12 +67,12 @@ struct				s_visu
 
 extern	t_visu g_visu;
 
-void	sdl_loop();
+void	sdl_loop(void);
 void	sdl_mouse_event(SDL_Event event);
 void	sdl_pause_event(SDL_Event event);
 
-void	sdl_launch();
-void	sdl_draw();
+void	sdl_launch(void);
+//	void	sdl_draw();
 void	sdl_mark_champ(uint32_t ichamp, size_t nbytes, uint32_t pos);
 void	sdl_put_params();
 void	sdl_draw_border();
@@ -92,6 +94,6 @@ void	sdl_put_players(SDL_Rect pos);
 
 void	sdl_test_draw(void);
 
-void	sdl_quit();
+void	sdl_quit(void);
 
 #endif

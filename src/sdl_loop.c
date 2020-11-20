@@ -6,13 +6,13 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:42:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/20 19:46:45 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/20 20:26:25 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void sdl_loop()
+void	sdl_loop(void)
 {
 	SDL_Event	event;
 	int			end;
@@ -30,9 +30,7 @@ void sdl_loop()
 			sdl_pause_event(event);
 		}
 		if (!g_visu.pause && end)
-		{
 			end = run_once();
-		}
 		sdl_new_draw();
 		sdl_put_params();
 		sdl_draw_border();
@@ -48,30 +46,29 @@ void	sdl_mouse_event(SDL_Event event)
 	if (event.type == SDL_MOUSEWHEEL)
 	{
 		if (event.wheel.y > 0)
-			g_visu.g_y = (g_visu.g_y >= 20) ? g_visu.g_y : g_visu.g_y + 35; //up
+			g_visu.g_y = (g_visu.g_y >= 20) ? g_visu.g_y : g_visu.g_y + 35;
 		else
-			g_visu.g_y = (g_visu.g_y <= -500) ? g_visu.g_y : g_visu.g_y - 35; // down
+			g_visu.g_y = (g_visu.g_y <= -500) ? g_visu.g_y : g_visu.g_y - 35;
 	}
 	if (event.type == SDL_MOUSEBUTTONDOWN)
 		g_visu.click = 1;
 	if (event.type == SDL_MOUSEBUTTONUP)
 		g_visu.click = 0;
-	// here
 	if (g_visu.click)
 	{
 		if (event.button.x - g_visu.x > 0)
-			g_visu.g_x = (g_visu.g_x > - 250) ? g_visu.g_x - 10 : g_visu.g_x;
+			g_visu.g_x = (g_visu.g_x > -250) ? g_visu.g_x - 10 : g_visu.g_x;
 		if (event.button.x - g_visu.x < 0)
 			g_visu.g_x = (g_visu.g_x < 30) ? g_visu.g_x + 10 : g_visu.g_x;
 	}
-	//ft_printf("x: %d | y: %d\n", start_x, start_y);
 }
 
 void	sdl_pause_event(SDL_Event event)
 {
 	if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_SPACE)
 		g_visu.pause_flag = 1;
-	if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_SPACE && g_visu.pause_flag)
+	if (event.type == SDL_KEYDOWN &&
+		event.key.keysym.sym == SDLK_SPACE && g_visu.pause_flag)
 	{
 		g_visu.pause = g_visu.pause ? 0 : 1;
 		g_visu.pause_flag = g_visu.pause_flag ? 0 : 1;

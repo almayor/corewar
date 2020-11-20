@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:52:32 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/20 20:02:04 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/20 20:06:12 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 // 	}
 // }
 
-void	sdl_init()
+static void	sdl_init(void)
 {
 	int status;
 
@@ -67,7 +67,7 @@ void	sdl_init()
 	g_visu.g_y = 30;
 }
 
-void	sdl_quit()
+void	sdl_quit(void)
 {
 	SDL_DestroyRenderer(g_visu.rend);
 	SDL_DestroyWindow(g_visu.win);
@@ -76,7 +76,7 @@ void	sdl_quit()
 	//TTF_Quit();
 }
 
-void	sdl_launch()
+void	sdl_launch(void)
 {
 	sdl_init();
 	sdl_loop();
