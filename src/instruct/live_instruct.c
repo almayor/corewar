@@ -16,11 +16,11 @@ int		live_instruct(t_proc *proc)
 {
 	int32_t	n;
 
-	g_vm.curr_nlive++;
 	proc->cycles_since_live = 0;
 	n = -mem_read(proc->pc + 1, 4);
 	if (n > 0 && n <= MAX_PLAYERS && g_vm.champs[n - 1].ichamp > 0)
 	{
+		g_vm.curr_nlive++;
 		g_vm.champs[n - 1].curr_nlive++;
 		g_vm.champs[n - 1].last_live = g_vm.icycle;
 		g_vm.last_live_champ = n;
