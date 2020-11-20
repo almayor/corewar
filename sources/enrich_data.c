@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:46:36 by user              #+#    #+#             */
-/*   Updated: 2020/11/18 20:39:48 by kysgramo         ###   ########.fr       */
+/*   Updated: 2020/11/20 16:52:38 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int			get_arg(t_parser *stor, t_token *arg, int name, int shift)
 
 	arg_code = 0;
 	dir_size = op_tmpl[name].dir_size;
+	if ((arg->type == DIR_LABL_ARG_TYPE || arg->type == IND_LABL_ARG_TYPE) &&
+		!get_label(stor, arg->content))
+		core_error(stor, LABEL_ERR);
 	if (arg->type == REG_ARG_TYPE)
 	{
 		arg_code = REG_CODE;

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 21:16:17 by user             ###   ########.fr       */
+/*   Updated: 2020/11/20 16:14:44 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define ENRICH_ERR		"Error: failed to enrich data. False token index"
 # define WRITE_ERR		"Error: failed to write to file .cor"
 # define LABEL_ERR		"Error: failed to find label"
+# define LABEL_ERR_A		"Error: failed to find label AAAAAAAAA"
 
 typedef enum
 {

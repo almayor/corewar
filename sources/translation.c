@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:34:55 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 21:57:11 by user             ###   ########.fr       */
+/*   Updated: 2020/11/20 16:53:17 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void		translate_commons(t_parser *stor)
 void		translation(t_parser *stor)
 {
 	stor->tokens_head = stor->tokens;
+	enrich_data(stor);
 	if ((stor->fd_cor = open(stor->file_name, O_RDWR |
 	O_CREAT | O_TRUNC, 0777)) == -1)
 		core_error(stor, OPEN_COR_ERR);
-	enrich_data(stor);
 	translate_commons(stor);
 	translate_exec_code(stor);
 	ft_putstr("Writing output program to ");
