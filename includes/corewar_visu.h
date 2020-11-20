@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/20 23:31:23 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 02:25:59 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define S_PROC		"Processes: "
 # define S_CURRLIVE	"Lives in current period: "
 # define LAST_LIVE	"Last live:               "
+# define HZ			"[                                                  ]"
 
 # define USAGE_0	"       ****** HANDLING ******"
 # define USAGE_1	"Pause / Run         SPACE"
@@ -35,13 +36,13 @@
 # define SURFACE	"Error create SDL surface\n"
 # define TEXTURE	"Error create texture from surface\n"
 
-# define WIDTH 1600
-# define HEIGHT 768
-# define POS_X 40
-# define POS_Y 40
+# define WIDTH		1600
+# define HEIGHT		768
+# define POS_X		40
+# define POS_Y		40
 
-# define FONT "fonts/DroidSansMono.ttf"
-# define HEX "0123456789ABCDEF"
+# define FONT		"fonts/DroidSansMono.ttf"
+# define HEX		"0123456789ABCDEF"
 
 typedef struct s_visu	t_visu;
 typedef struct s_vmap	t_vmap;
