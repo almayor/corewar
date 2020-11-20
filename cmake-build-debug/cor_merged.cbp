@@ -448,6 +448,9 @@
 		<Unit filename="/Users/kysgramo/cor_merged/sources/parsing2.c">
 			<Option target="cor_merged"/>
 		</Unit>
+		<Unit filename="/Users/kysgramo/cor_merged/sources/pruning.c">
+			<Option target="cor_merged"/>
+		</Unit>
 		<Unit filename="/Users/kysgramo/cor_merged/sources/row_functions.c">
 			<Option target="cor_merged"/>
 		</Unit>

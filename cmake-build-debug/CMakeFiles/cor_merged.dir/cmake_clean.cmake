@@ -114,6 +114,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/cor_merged.dir/sources/parse_command.c.o"
   "CMakeFiles/cor_merged.dir/sources/parsing.c.o"
   "CMakeFiles/cor_merged.dir/sources/parsing2.c.o"
+  "CMakeFiles/cor_merged.dir/sources/pruning.c.o"
   "CMakeFiles/cor_merged.dir/sources/row_functions.c.o"
   "CMakeFiles/cor_merged.dir/sources/tmp_utils.c.o"
   "CMakeFiles/cor_merged.dir/sources/translate_exec.c.o"

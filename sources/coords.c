@@ -36,7 +36,8 @@ void		print_tokens(t_token *tokens)
 	{
 		if (y != token->point.row)
 			ft_printf("\n");
-		if (token->type == 1 || token->type == 6 || token->type == 8)
+		if (token->type == LABEL_TYPE || token->type == DIR_LABL_ARG_TYPE
+		|| token->type == IND_LABL_ARG_TYPE)
 			ft_printf("{red}->%s, %d, %d, %d {eoc}\n", token->content,
 			token->point.row, token->point.token, token->type);
 		else
@@ -52,7 +53,7 @@ int			hard_coord(t_parser *parser, t_token **token, int tok_num, int c)
 	t_token	*check;
 
 	check = *token;
-	while (check->type == 1)
+	while (check->type == LABEL_TYPE)
 	{
 		check = check->next;
 		c++;
@@ -73,35 +74,12 @@ int			hard_coord(t_parser *parser, t_token **token, int tok_num, int c)
 		}
 		add_label(&parser->labels,
 		init_label((*token)->content, (*token)->point.row, c, parser));
-		if ((*token)->next->type == 1)
+		if ((*token)->next->type == LABEL_TYPE)
 			(*token) = (*token)->next;
 		else
 			break ;
 	}
 	return (tok_num);
-}
-
-void		validate_labeltoken(t_token *token, t_parser *parser)
-{
-	t_label *label;
-
-	label = parser->labels;
-	while (label)
-	{
-		if (!ft_strcmp(token->content, label->content))
-		{
-			token->type = UNKNOWN;
-			if (token->next)
-				token->next->type = UNKNOWN;
-			while (token && (token->type != 3 && token->type != 1))
-			{
-				token->type = UNKNOWN;
-				token = token->next;
-			}
-			break ;
-		}
-		label = label->next;
-	}
 }
 
 int			tok_num_padding(int tok_num, t_token *token)
@@ -120,16 +98,16 @@ void		coords_and_labels(t_parser *parser, t_token *tokens, int tok_num)
 	y = 0;
 	while (token)
 	{
-		if (token->type == 1)
+		if (token->type == LABEL_TYPE)
 			validate_labeltoken(token, parser);
-		if (token->type == 1 && token->type != y)
+		if (token->type == LABEL_TYPE && token->type != y)
 			tok_num = hard_coord(parser, &token, -1, 0);
 		else if (y != token->point.row)
 			tok_num = tok_num_padding(-1, token);
 		else
 		{
 			tok_num = tok_num_padding(tok_num, token);
-			if (token->type == 1)
+			if (token->type == LABEL_TYPE)
 				add_label(&parser->labels,
 				init_label(token->content, token->point.row,
 				token->point.token + 1, parser));

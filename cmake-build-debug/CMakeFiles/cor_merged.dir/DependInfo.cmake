@@ -119,6 +119,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/kysgramo/cor_merged/sources/parse_command.c" "/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles/cor_merged.dir/sources/parse_command.c.o"
   "/Users/kysgramo/cor_merged/sources/parsing.c" "/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles/cor_merged.dir/sources/parsing.c.o"
   "/Users/kysgramo/cor_merged/sources/parsing2.c" "/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles/cor_merged.dir/sources/parsing2.c.o"
+  "/Users/kysgramo/cor_merged/sources/pruning.c" "/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles/cor_merged.dir/sources/pruning.c.o"
   "/Users/kysgramo/cor_merged/sources/row_functions.c" "/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles/cor_merged.dir/sources/row_functions.c.o"
   "/Users/kysgramo/cor_merged/sources/tmp_utils.c" "/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles/cor_merged.dir/sources/tmp_utils.c.o"
   "/Users/kysgramo/cor_merged/sources/translate_exec.c" "/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles/cor_merged.dir/sources/translate_exec.c.o"

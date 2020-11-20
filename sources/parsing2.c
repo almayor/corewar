@@ -66,10 +66,10 @@ void		parse_alpha(t_parser *parser, char *row, int start,
 	{
 		if (token->type == UNKNOWN)
 		{
-			add_token(&parser->tokens, token);
 			token->type = LABEL_TYPE;
 			parser->x_read++;
 		}
+		add_token(&parser->tokens, token);
 	}
 	else if (parser->x_read - start && is_delimiter(row[parser->x_read]) &&
 			(is_operation(token) || is_register(token)))

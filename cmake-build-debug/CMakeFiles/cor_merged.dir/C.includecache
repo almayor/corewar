@@ -58,11 +58,7 @@ limits.h
 ft_printf.h
 ../libft/includes/ft_printf.h
 
-/Users/kysgramo/cor_merged/sources/coords.c
-parser.h
-/Users/kysgramo/cor_merged/sources/parser.h
-
-/Users/kysgramo/cor_merged/sources/parsing.c
+/Users/kysgramo/cor_merged/sources/pruning.c
 parser.h
 /Users/kysgramo/cor_merged/sources/parser.h
 

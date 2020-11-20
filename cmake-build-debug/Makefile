@@ -3248,6 +3248,33 @@ sources/parsing2.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor_merged.dir/build.make CMakeFiles/cor_merged.dir/sources/parsing2.c.s
 .PHONY : sources/parsing2.c.s
 
+sources/pruning.o: sources/pruning.c.o
+
+.PHONY : sources/pruning.o
+
+# target to build an object file
+sources/pruning.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor_merged.dir/build.make CMakeFiles/cor_merged.dir/sources/pruning.c.o
+.PHONY : sources/pruning.c.o
+
+sources/pruning.i: sources/pruning.c.i
+
+.PHONY : sources/pruning.i
+
+# target to preprocess a source file
+sources/pruning.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor_merged.dir/build.make CMakeFiles/cor_merged.dir/sources/pruning.c.i
+.PHONY : sources/pruning.c.i
+
+sources/pruning.s: sources/pruning.c.s
+
+.PHONY : sources/pruning.s
+
+# target to generate assembly for a file
+sources/pruning.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cor_merged.dir/build.make CMakeFiles/cor_merged.dir/sources/pruning.c.s
+.PHONY : sources/pruning.c.s
+
 sources/row_functions.o: sources/row_functions.c.o
 
 .PHONY : sources/row_functions.o
@@ -3818,6 +3845,9 @@ help:
 	@echo "... sources/parsing2.o"
 	@echo "... sources/parsing2.i"
 	@echo "... sources/parsing2.s"
+	@echo "... sources/pruning.o"
+	@echo "... sources/pruning.i"
+	@echo "... sources/pruning.s"
 	@echo "... sources/row_functions.o"
 	@echo "... sources/row_functions.i"
 	@echo "... sources/row_functions.s"
