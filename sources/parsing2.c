@@ -60,12 +60,13 @@ void		parse_alpha(t_parser *parser, char *row, int start,
 	while (row[parser->x_read] && ft_strchr(LABEL_CHARS, row[parser->x_read]))
 		parser->x_read++;
 	token->content = get_token_content(parser, row, start);
-	if (parser->x_read - start && (row[parser->x_read] == LABEL_CHAR ||
+	if (parser->x_read - start && ((row[parser->x_read] == LABEL_CHAR &&
+	is_delimiter(row[parser->x_read + 1])) ||
 	row[start - 1] == LABEL_CHAR))
 	{
-		add_token(&parser->tokens, token);
 		if (token->type == UNKNOWN)
 		{
+			add_token(&parser->tokens, token);
 			token->type = LABEL_TYPE;
 			parser->x_read++;
 		}
