@@ -6,7 +6,7 @@
 #    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/19 11:38:16 by user             ###   ########.fr        #
+#    Updated: 2020/11/20 19:51:09 by fallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,8 +74,11 @@ utils/malloc_utils.c \
 utils/memory_utils.c \
 utils/parse_utils.c \
 utils/proc_utils.c \
-sdl_test.c \
-sdl_utils.c
+sdl_launch.c \
+sdl_utils.c \
+sdl_loop.c \
+sdl_put_info.c \
+sdl_draw_map.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 DEP = $(addprefix $(OBJ_DIR), $(SRC:.c=.d))
