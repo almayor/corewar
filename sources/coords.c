@@ -93,13 +93,11 @@ void		coords_and_labels(t_parser *parser, t_token *tokens, int tok_num)
 	y = 0;
 	while (token)
 	{
-		if (y != token->point.row)
-		{
-			if (token->type == 1 && token->next->point.row != y)
+
+		if (token->type == 1 && token->next->point.row != y)
 				tok_num = hard_coord(parser, &token, -1);
-			else
-				tok_num = tok_num_padding(-1, token);
-		}
+		else if (y != token->point.row)
+			tok_num = tok_num_padding(-1, token);
 		else
 		{
 			tok_num = tok_num_padding(tok_num, token);

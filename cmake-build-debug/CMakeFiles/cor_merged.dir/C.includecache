@@ -34,6 +34,18 @@ limits.h
 errno.h
 -
 
+../includes/translation.h
+stdio.h
+-
+stdlib.h
+-
+fcntl.h
+-
+libft.h
+../includes/libft.h
+asm_struct.h
+../includes/asm_struct.h
+
 ../libft/includes/ft_printf.h
 libft.h
 ../libft/includes/libft.h
@@ -58,7 +70,13 @@ limits.h
 ft_printf.h
 ../libft/includes/ft_printf.h
 
-/Users/kysgramo/cor_merged/sources/parse_command.c
+/Users/kysgramo/cor_merged/sources/asm.c
+parser.h
+/Users/kysgramo/cor_merged/sources/parser.h
+translation.h
+/Users/kysgramo/cor_merged/sources/translation.h
+
+/Users/kysgramo/cor_merged/sources/parsing.c
 parser.h
 /Users/kysgramo/cor_merged/sources/parser.h
 

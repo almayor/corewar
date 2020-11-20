@@ -67,8 +67,8 @@ void	assembler(char *filename)
 	parser->file_name = ft_strjoin_free(ft_strsub(filename, 0,
 				ft_strlen(filename) - 2), ".cor");
 	// simple_parser_print_(parser);
-	// print_tokens_(parser);
-	// print_labels_(parser);
+	//print_tokens_(parser);
+	//print_labels_(parser);
 	translation(parser);
 	core_free(parser);
 }
