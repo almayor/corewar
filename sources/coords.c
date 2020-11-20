@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:44:40 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/17 20:44:36 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 02:04:36 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int			hard_coord(t_parser *parser, t_token **token, int tok_num, int c)
 		else
 		{
 			if ((*token)->point.row == 1)
-				core_error(parser, ERR_EMPTY_LABEL);
+				core_error(parser, ERR_EMPTY_LABEL, NULL, NULL);
 			else
 				(*token)->type = UNKNOWN;
 			break ;

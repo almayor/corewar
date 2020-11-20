@@ -6,20 +6,23 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 01:59:40 by user              #+#    #+#             */
-/*   Updated: 2020/11/18 20:47:25 by kysgramo         ###   ########.fr       */
+/*   Updated: 2020/11/21 02:31:04 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "translation.h"
 
-void		core_error(t_parser *stor, char *message)
+void		core_error(t_parser *stor, char *message, void(*f)(), t_token *arg)
 {
-	if (stor)
-		core_free(stor);
 	if (message)
 		ft_putendl_fd(message, 2);
+	if (f)
+		f(arg);
+	if (stor)
+		core_free(stor);
 	exit(EXIT_FAILURE);
 }
+
 
 void		free_tokens(t_parser *stor)
 {

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:49:27 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/17 21:32:57 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 02:06:25 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int			read_row(int fd, char **row, t_parser *parser)
 		if ((*row) == NULL)
 			return (-1);
 		if (size == -1)
-			core_error(parser, ERR_READING);
+			core_error(parser, ERR_READING, NULL, NULL);
 	}
 	return (TRUE);
 }

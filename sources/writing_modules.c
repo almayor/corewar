@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 01:40:21 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 21:19:35 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 02:08:08 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ void		int_writer(t_parser *stor, unsigned int data)
 	uni_data.val = data;
 	c = uni_data.t_fr.c4;
 	if (write(stor->fd_cor, &c, 1) == -1)
-		core_error(stor, WRITE_ERR);
+		core_error(stor, WRITE_ERR, NULL, NULL);
 	c = uni_data.t_fr.c3;
 	if (write(stor->fd_cor, &c, 1) == -1)
-		core_error(stor, WRITE_ERR);
+		core_error(stor, WRITE_ERR, NULL, NULL);
 	c = uni_data.t_fr.c2;
 	if (write(stor->fd_cor, &c, 1) == -1)
-		core_error(stor, WRITE_ERR);
+		core_error(stor, WRITE_ERR, NULL, NULL);
 	c = uni_data.t_fr.c1;
 	if (write(stor->fd_cor, &c, 1) == -1)
-		core_error(stor, WRITE_ERR);
+		core_error(stor, WRITE_ERR, NULL, NULL);
 }
 
 void		short_writer(t_parser *stor, short data)
@@ -40,16 +40,16 @@ void		short_writer(t_parser *stor, short data)
 	uni_data.val = data;
 	c = uni_data.t_tw.c2;
 	if (write(stor->fd_cor, &c, 1) == -1)
-		core_error(stor, WRITE_ERR);
+		core_error(stor, WRITE_ERR, NULL, NULL);
 	c = uni_data.t_tw.c1;
 	if (write(stor->fd_cor, &c, 1) == -1)
-		core_error(stor, WRITE_ERR);
+		core_error(stor, WRITE_ERR, NULL, NULL);
 }
 
 int			byte_writer(t_parser *stor, unsigned char c)
 {
 	if (write(stor->fd_cor, &c, 1) == -1)
-		core_error(stor, WRITE_ERR);
+		core_error(stor, WRITE_ERR, NULL, NULL);
 	return (1);
 }
 
@@ -65,14 +65,14 @@ void		write_name_or_comment(t_parser *stor, int len, int kind)
 	{
 		c = data[i];
 		if (write(stor->fd_cor, &c, 1) == -1)
-			core_error(stor, WRITE_ERR);
+			core_error(stor, WRITE_ERR, NULL, NULL);
 		i++;
 	}
 	c = 0;
 	while (i < len)
 	{
 		if (write(stor->fd_cor, &c, 1) == -1)
-			core_error(stor, WRITE_ERR);
+			core_error(stor, WRITE_ERR, NULL, NULL);
 		i++;
 	}
 	int_writer(stor, 0);

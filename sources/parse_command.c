@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 20:30:02 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/18 20:04:04 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 02:06:16 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	validate_commands(t_parser *parser)
 {
 	if (parser->name == NULL)
-		core_error(parser, ERR_NO_NAME);
+		core_error(parser, ERR_NO_NAME, NULL, NULL);
 	if (parser->comment == NULL)
-		core_error(parser, ERR_NO_COMMENT);
+		core_error(parser, ERR_NO_COMMENT, NULL, NULL);
 	if (ft_strlen(parser->name) > PROG_NAME_LENGTH)
-		core_error(parser, ERR_TOO_LONG_NAME);
+		core_error(parser, ERR_TOO_LONG_NAME, NULL, NULL);
 	if (ft_strlen(parser->comment) > COMMENT_LENGTH)
-		core_error(parser, ERR_TOO_LONG_COMMENT);
+		core_error(parser, ERR_TOO_LONG_COMMENT, NULL, NULL);
 }
 
 char	*join_str(char **str1, char **str2)
@@ -46,22 +46,22 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 	++parser->y_read)
 		*row = join_str(row, &str);
 	if (size == -1)
-		core_error(parser, ERR_READING);
+		core_error(parser, ERR_READING, NULL, NULL);
 	while (*(*row + parser->x_read) != '\"')
 		++parser->x_read;
 	if ((str = ft_strchr(&((*row)[++parser->x_read]), '\"')))
-		core_error(parser, ERR_DOUBLE_COMMAND);
+		core_error(parser, ERR_DOUBLE_COMMAND, NULL, NULL);
 	trim_from_comments_spaces(parser, *row);
 	if (type == 1)
 	{
 		if (parser->name != NULL)
-			core_error(parser, ERR_DOUBLE_COMMAND);
+			core_error(parser, ERR_DOUBLE_COMMAND, NULL, NULL);
 		parser->name = ft_strsub(*row, start, (int)(end - &((*row)[start])));
 	}
 	else
 	{
 		if (parser->comment != NULL)
-			core_error(parser, ERR_DOUBLE_COMMAND);
+			core_error(parser, ERR_DOUBLE_COMMAND, NULL, NULL);
 		parser->comment = ft_strsub(*row, start, (int)(end - &((*row)[start])));
 	}
 }
@@ -87,7 +87,7 @@ void	parse_command(t_parser *parser, char **row, int start)
 	else if (!ft_strcmp(tmp, "comment"))
 		type = 2;
 	else
-		core_error(parser, ERR_COMMAND);
+		core_error(parser, ERR_COMMAND, NULL, NULL);
 	free(tmp);
 	trim_from_comments_spaces(parser, *row);
 	parse_command2(parser, row, parser->x_read, type);

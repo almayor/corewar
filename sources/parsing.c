@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 14:09:59 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/18 20:11:22 by user             ###   ########.fr       */
+/*   Updated: 2020/11/20 23:57:27 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,8 @@ void		parsing(t_parser *parser, int tok_len)
 	validate_commands(parser);
 	coords_and_labels(parser, parser->tokens, -1);
 	prune_tokens(parser);
-	print_tokens(parser->tokens);
-	print_labels(parser->labels);
+	// print_tokens(parser->tokens);
+	// print_labels(parser->labels);
 
 }
 

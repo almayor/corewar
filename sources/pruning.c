@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pruning.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kysgramo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 20:21:04 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/20 20:21:07 by kysgramo         ###   ########.fr       */
+/*   Updated: 2020/11/21 02:08:53 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,11 @@ void		prune_tokens(t_parser *parser)
 
 	prev = parser->tokens;
 	curr = parser->tokens->next;
+
 	while (curr)
 	{
         if (prev->next && prev->type == LABEL_TYPE && prev->next->type != OP_TYPE)
-			core_error(parser, ERR_LABEL_OP);
+			core_error(parser, ERR_LABEL_OP, NULL, NULL);
 		if (curr->type == UNKNOWN)
 		{
 			while (curr->next && curr->type == UNKNOWN)

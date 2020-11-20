@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 20:43:25 by user              #+#    #+#             */
-/*   Updated: 2020/11/18 20:11:14 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 02:03:48 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int				is_operation(t_token *token);
 int				is_delimiter(int c);
 void			trim_from_comments_spaces(t_parser *parser, char *row);
 void		    lexical_error(t_parser *parser, t_token *token, char **row);
-void			core_error(t_parser *stor, char *message);
+void			core_error(t_parser *stor, char *message, void(*f)(), t_token *arg);
 void	    	prune_tokens(t_parser *parser);
 void		    validate_labeltoken(t_token *token, t_parser *parser);
 #endif

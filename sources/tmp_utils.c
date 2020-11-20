@@ -6,14 +6,24 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 03:49:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/18 20:41:03 by kysgramo         ###   ########.fr       */
+/*   Updated: 2020/11/21 00:52:54 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "translation.h"
 
-static char types[10][20] = {"NEW_LINE_TYPE", "LABEL_TYPE", "DELIM_TYPE", "OP_TYPE", "REG_ARG_TYPE", "DIR_ARG_TYPE",
-	"DIR_LABL_ARG_TYPE", "IND_ARG_TYPE", "IND_LABL_ARG_TYPE", "END_FILE"};
+static char types[11][20] = {
+	"NEW_LINE_TYPE", 
+	"REG_ARG_TYPE", 
+	"DIR_ARG_TYPE",
+	"DIR_LABL_ARG_TYPE",
+	"IND_ARG_TYPE", 
+	"IND_LABL_ARG_TYPE",
+	"LABEL_TYPE", 
+	"DELIM_TYPE", 
+	"OP_TYPE", 
+	"END_FILE"
+	"UNKNOWN"};
 
 // y=3 x=1 - loop arg
 // y=0 x=3 - live arg
@@ -230,6 +240,7 @@ void	print_labels_(t_parser *stor)
 		printf("coords: row = %d  token = %d\n", label->point.row, label->point.token);
 		label = label->next;
 	}
+	printf("\n");
 }
 
 void	simple_tokens_print_(t_parser *stor)

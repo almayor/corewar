@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:42:53 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/18 20:18:28 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 02:05:30 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		lexical_error(t_parser *parser, t_token *token, char **row)
 		free(token);
 	}
 	ft_strdel(row);
-	core_error(parser, NULL);
+	core_error(parser, NULL, NULL, NULL);
 }
 
 void		add_label(t_label **labels, t_label *label)
@@ -49,7 +49,7 @@ char		*get_token_content(t_parser *parser, char *row, int start)
 	if (!(content = ft_strsub(row, start, parser->x_read - start)))
 	{
 		ft_strdel(&row);
-		core_error(parser, ERR_STR_INIT);
+		core_error(parser, ERR_STR_INIT, NULL, NULL);
 	}
 	return (content);
 }
@@ -57,6 +57,7 @@ char		*get_token_content(t_parser *parser, char *row, int start)
 void		parse_alpha(t_parser *parser, char *row, int start,
 		t_token *token)
 {
+	
 	while (row[parser->x_read] && ft_strchr(LABEL_CHARS, row[parser->x_read]))
 		parser->x_read++;
 	token->content = get_token_content(parser, row, start);

@@ -4,7 +4,7 @@
 
 loop:
         sti r1, %:live, %1		# comment
-live
+live:
 		live %0
 		zjmp %:typing
 		sti     r1,%:copie,%2

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:46 by user              #+#    #+#             */
-/*   Updated: 2020/11/18 19:12:57 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 02:24:46 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void		short_writer(t_parser *stor, short data);
 void		enrich_data(t_parser *stor);
 int			enrich_row(t_parser *stor, t_token *token);
 int			op_args(t_parser *stor, t_token *token, int name);
-int			get_arg(t_parser *stor, t_token *arg, int name, int shift);
+int			get_arg(t_parser *stor, t_token *arg, int shift);
 t_token		*get_token(t_token *token, int len);
 
 int			find_label_value(t_parser *stor, t_token *dst, int dst_size);
@@ -52,11 +52,13 @@ void		translate_arg(t_parser *stor, t_token *token, int size);
 **	Utils to handle error cases and memory management
 */
 
-void		core_error(t_parser *stor, char *message);
+void		core_error(t_parser *stor, char *message, void(*f)(), t_token *arg);
 void		core_free(t_parser *stor);
 void		free_parser(t_parser *stor);
 void		free_tokens(t_parser *stor);
 void		free_labels(t_parser *stor);
+void		put_op_usage(t_token *arg);
+void		put_label_err(t_token *arg);
 
 
 

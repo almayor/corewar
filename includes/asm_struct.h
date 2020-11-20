@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/20 16:14:44 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 02:29:31 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,26 @@
 # define NAME_FLAG		1
 # define COMMENT_FLAG 	0
 # define OP_SIZE_BYTE 	1
+# define OCTET			8
 
 # define OPEN_COR_ERR	"Error: failed to open file .cor"
 # define ENRICH_ERR		"Error: failed to enrich data. False token index"
 # define WRITE_ERR		"Error: failed to write to file .cor"
-# define LABEL_ERR		"Error: failed to find label"
-# define LABEL_ERR_A		"Error: failed to find label AAAAAAAAA"
+# define LABEL_ERR		"Error: undefined label"
+# define ARG_TYPE_ERR	"Error: incorrect arg type for operation"
+# define ARG_NUM_ERR	"Error: incorrect number of args for operation"
 
 typedef enum
 {
 	NEW_LINE_TYPE,
-	LABEL_TYPE,
-	DELIM_TYPE,
-	OP_TYPE,
 	REG_ARG_TYPE,
 	DIR_ARG_TYPE,
 	DIR_LABL_ARG_TYPE,
 	IND_ARG_TYPE,
 	IND_LABL_ARG_TYPE,
+	LABEL_TYPE,
+	DELIM_TYPE,
+	OP_TYPE,
 	END_FILE,
 	UNKNOWN,
 }					t_type;
@@ -80,6 +82,7 @@ typedef struct		s_token
 {
 	int				type;
 	char			*content;
+	int				name;
 	t_point			point;
 	int				size;
 	unsigned char	op_code;

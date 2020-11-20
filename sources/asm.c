@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:02:09 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/18 20:32:23 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 02:16:52 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_escape2(char *balance, t_parser *parser, char *stock)
 			escapes++;
 	}
 	if (escapes != parser->y_read - 1)
-		core_error(parser, ERR_ESCAPE);
+		core_error(parser, ERR_ESCAPE, NULL, NULL);
 }
 
 void	check_escape(t_parser *parser, char *filename)
@@ -38,7 +38,7 @@ void	check_escape(t_parser *parser, char *filename)
 	char		*wagon;
 
 	if ((parser->fd_s = open(filename, O_RDONLY)) == -1)
-		core_error(parser, ERR_OPEN_FILE);
+		core_error(parser, ERR_OPEN_FILE, NULL, NULL);
 	while ((pkg = read(parser->fd_s, balance, 9999)) > 0)
 	{
 		balance[pkg] = '\0';
@@ -60,15 +60,15 @@ void	assembler(char *filename)
 
 	parser = init_asm_parser();
 	if ((parser->fd_s = open(filename, O_RDONLY)) == -1)
-		core_error(parser, ERR_OPEN_FILE);
+		core_error(parser, ERR_OPEN_FILE, NULL, NULL);
 	parsing(parser, 0);
 	close(parser->fd_s);
 	check_escape(parser, filename);
 	parser->file_name = ft_strjoin_free(ft_strsub(filename, 0,
 				ft_strlen(filename) - 2), ".cor");
 	// simple_parser_print_(parser);
-	//print_tokens_(parser);
-	//print_labels_(parser);
+	// print_tokens_(parser);
+	// print_labels_(parser);
 	translation(parser);
 	core_free(parser);
 }
