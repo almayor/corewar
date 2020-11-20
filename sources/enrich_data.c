@@ -80,11 +80,11 @@ int			enrich_row(t_parser *stor, t_token *token)
 	int		ind;
 
 	ind = -1;
-	while (token->type != OP_TYPE)
+	while (token && token->type != OP_TYPE)
 		token = token->next;
 	stor->tokens = token;
 	while (++ind <= 15)
-		if (!ft_strcmp(token->content, op_tmpl[ind].name))
+		if (token && !ft_strcmp(token->content, op_tmpl[ind].name))
 			break ;
 	return (op_args(stor, token, ind));
 }

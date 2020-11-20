@@ -111,7 +111,7 @@ top:	live	%42
 	sti	r3,%:p32deb,%-16
 	ld	%0,r3
 	zjmp	%:topd
-
+top:	live	%42
 
 infi:	sti	r1,%:l0,%1
 	sti	r1,%:l1,%1

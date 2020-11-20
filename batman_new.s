@@ -17,3 +17,13 @@ typing: aff r2
 	   
 copie:	ld  %1,r1
 		xor	r10,r10,r10
+
+copie:	aff r2
+
+typing: 
+
+
+
+	aff r2	
+
+cop:

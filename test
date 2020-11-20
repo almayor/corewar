@@ -1,0 +1,801 @@
+{red}->entree, 0, 0, 1 {eoc}
+{green}->live, 0, 1, 3 {eoc}
+{green}->42, 0, 2, 5 {eoc}
+
+{green}->ld, 1, 0, 3 {eoc}
+{green}->0, 1, 1, 5 {eoc}
+{green}->r5, 1, 2, 4 {eoc}
+
+{green}->ld, 2, 0, 3 {eoc}
+{green}->0, 2, 1, 5 {eoc}
+{green}->r5, 2, 2, 4 {eoc}
+
+{green}->zjmp, 3, 0, 3 {eoc}
+
+{red}->tir, 4, 0, 1 {eoc}
+{green}->sti, 4, 1, 3 {eoc}
+{green}->r1, 4, 2, 4 {eoc}
+{green}->1, 4, 3, 5 {eoc}
+
+{green}->ld, 5, 0, 3 {eoc}
+{green}->2304, 5, 1, 5 {eoc}
+{green}->r10, 5, 2, 4 {eoc}
+
+{green}->ld, 6, 0, 3 {eoc}
+{green}->1, 6, 1, 5 {eoc}
+{green}->r5, 6, 2, 4 {eoc}
+
+{green}->ld, 7, 0, 3 {eoc}
+{green}->0, 7, 1, 5 {eoc}
+{green}->r11, 7, 2, 4 {eoc}
+
+{green}->ld, 8, 0, 3 {eoc}
+{green}->4, 8, 1, 5 {eoc}
+{green}->r3, 8, 2, 4 {eoc}
+
+{red}->tirf, 9, 0, 1 {eoc}
+{green}->live, 9, 1, 3 {eoc}
+{green}->42, 9, 2, 5 {eoc}
+
+{green}->fork, 10, 0, 3 {eoc}
+
+{green}->live, 11, 0, 3 {eoc}
+{green}->742, 11, 1, 5 {eoc}
+
+{green}->sub, 12, 0, 3 {eoc}
+{green}->r3, 12, 1, 4 {eoc}
+{green}->r5, 12, 2, 4 {eoc}
+{green}->r3, 12, 3, 4 {eoc}
+
+{green}->zjmp, 13, 0, 3 {eoc}
+
+{green}->ld, 14, 0, 3 {eoc}
+{green}->0, 14, 1, 5 {eoc}
+{green}->r11, 14, 2, 4 {eoc}
+
+{green}->fork, 15, 0, 3 {eoc}
+
+{green}->live, 16, 0, 3 {eoc}
+{green}->42, 16, 1, 5 {eoc}
+
+{green}->sti, 17, 0, 3 {eoc}
+{green}->r10, 17, 1, 4 {eoc}
+{green}->-510, 17, 2, 5 {eoc}
+{green}->0, 17, 3, 5 {eoc}
+
+{green}->sti, 18, 0, 3 {eoc}
+{green}->r10, 18, 1, 4 {eoc}
+{green}->-404, 18, 2, 5 {eoc}
+{green}->0, 18, 3, 5 {eoc}
+
+{green}->sti, 19, 0, 3 {eoc}
+{green}->r10, 19, 1, 4 {eoc}
+{green}->-303, 19, 2, 5 {eoc}
+{green}->0, 19, 3, 5 {eoc}
+
+{green}->sti, 20, 0, 3 {eoc}
+{green}->r10, 20, 1, 4 {eoc}
+{green}->-202, 20, 2, 5 {eoc}
+{green}->0, 20, 3, 5 {eoc}
+
+{green}->ld, 21, 0, 3 {eoc}
+{green}->0, 21, 1, 5 {eoc}
+{green}->r11, 21, 2, 4 {eoc}
+
+{green}->zjmp, 22, 0, 3 {eoc}
+
+{red}->tirop, 23, 0, 1 {eoc}
+{green}->ld, 23, 1, 3 {eoc}
+{green}->368, 23, 2, 5 {eoc}
+{green}->r2, 23, 3, 4 {eoc}
+
+{green}->ld, 24, 0, 3 {eoc}
+{green}->0, 24, 1, 5 {eoc}
+{green}->r3, 24, 2, 4 {eoc}
+
+{green}->ld, 25, 0, 3 {eoc}
+{green}->4, 25, 1, 5 {eoc}
+{green}->r4, 25, 2, 4 {eoc}
+
+{red}->tirb, 26, 0, 1 {eoc}
+{green}->live, 26, 1, 3 {eoc}
+{green}->1, 26, 2, 5 {eoc}
+
+{green}->sti, 27, 0, 3 {eoc}
+{green}->r10, 27, 1, 4 {eoc}
+{green}->-510, 27, 2, 5 {eoc}
+{green}->r2, 27, 3, 4 {eoc}
+
+{green}->sti, 28, 0, 3 {eoc}
+{green}->r10, 28, 1, 4 {eoc}
+{green}->-510, 28, 2, 5 {eoc}
+{green}->r3, 28, 3, 4 {eoc}
+
+{green}->add, 29, 0, 3 {eoc}
+{green}->r4, 29, 1, 4 {eoc}
+{green}->r5, 29, 2, 4 {eoc}
+{green}->r4, 29, 3, 4 {eoc}
+
+{green}->add, 30, 0, 3 {eoc}
+{green}->r3, 30, 1, 4 {eoc}
+{green}->r4, 30, 2, 4 {eoc}
+{green}->r3, 30, 3, 4 {eoc}
+
+{green}->sub, 31, 0, 3 {eoc}
+{green}->r2, 31, 1, 4 {eoc}
+{green}->r4, 31, 2, 4 {eoc}
+{green}->r2, 31, 3, 4 {eoc}
+
+{green}->zjmp, 32, 0, 3 {eoc}
+
+{green}->ld, 33, 0, 3 {eoc}
+{green}->0, 33, 1, 5 {eoc}
+{green}->r11, 33, 2, 4 {eoc}
+
+{green}->zjmp, 34, 0, 3 {eoc}
+
+{green}->zjmp, 35, 0, 3 {eoc}
+
+{red}->p32deb, 36, 0, 1 {eoc}
+{green}->zjmp, 36, 1, 3 {eoc}
+{green}->0, 36, 2, 5 {eoc}
+
+{green}->zjmp, 37, 0, 3 {eoc}
+{green}->0, 37, 1, 5 {eoc}
+
+{green}->zjmp, 38, 0, 3 {eoc}
+{green}->0, 38, 1, 5 {eoc}
+
+{green}->zjmp, 39, 0, 3 {eoc}
+{green}->0, 39, 1, 5 {eoc}
+
+{green}->zjmp, 40, 0, 3 {eoc}
+{green}->0, 40, 1, 5 {eoc}
+
+{green}->zjmp, 41, 0, 3 {eoc}
+{green}->0, 41, 1, 5 {eoc}
+
+{green}->zjmp, 42, 0, 3 {eoc}
+{green}->0, 42, 1, 5 {eoc}
+
+{green}->zjmp, 43, 0, 3 {eoc}
+{green}->0, 43, 1, 5 {eoc}
+
+{green}->zjmp, 44, 0, 3 {eoc}
+{green}->0, 44, 1, 5 {eoc}
+
+{green}->zjmp, 45, 0, 3 {eoc}
+{green}->0, 45, 1, 5 {eoc}
+
+{green}->zjmp, 46, 0, 3 {eoc}
+{green}->0, 46, 1, 5 {eoc}
+
+{green}->zjmp, 47, 0, 3 {eoc}
+{green}->0, 47, 1, 5 {eoc}
+
+{green}->zjmp, 48, 0, 3 {eoc}
+{green}->0, 48, 1, 5 {eoc}
+
+{green}->zjmp, 49, 0, 3 {eoc}
+{green}->0, 49, 1, 5 {eoc}
+
+{green}->zjmp, 50, 0, 3 {eoc}
+{green}->0, 50, 1, 5 {eoc}
+
+{green}->zjmp, 51, 0, 3 {eoc}
+{green}->0, 51, 1, 5 {eoc}
+
+{green}->zjmp, 52, 0, 3 {eoc}
+{green}->0, 52, 1, 5 {eoc}
+
+{green}->zjmp, 53, 0, 3 {eoc}
+{green}->0, 53, 1, 5 {eoc}
+
+{red}->p32, 54, 0, 1 {eoc}
+{green}->sub, 54, 1, 3 {eoc}
+{green}->r6, 54, 2, 4 {eoc}
+{green}->r4, 54, 3, 4 {eoc}
+{green}->r6, 54, 4, 4 {eoc}
+
+{green}->add, 55, 0, 3 {eoc}
+{green}->r6, 55, 1, 4 {eoc}
+{green}->r6, 55, 2, 4 {eoc}
+{green}->r11, 55, 3, 4 {eoc}
+
+{green}->ldi, 56, 0, 3 {eoc}
+{green}->r6, 56, 1, 4 {eoc}
+{green}->r7, 56, 2, 4 {eoc}
+
+{green}->sti, 57, 0, 3 {eoc}
+{green}->r7, 57, 1, 4 {eoc}
+{green}->-510, 57, 2, 5 {eoc}
+{green}->r11, 57, 3, 4 {eoc}
+
+{red}->p32li, 58, 0, 1 {eoc}
+{green}->live, 58, 1, 3 {eoc}
+{green}->1, 58, 2, 5 {eoc}
+
+{green}->ld, 59, 0, 3 {eoc}
+{green}->0, 59, 1, 5 {eoc}
+{green}->r10, 59, 2, 4 {eoc}
+
+{green}->sti, 60, 0, 3 {eoc}
+{green}->r7, 60, 1, 4 {eoc}
+{green}->-250, 60, 2, 5 {eoc}
+{green}->r6, 60, 3, 4 {eoc}
+
+{green}->zjmp, 61, 0, 3 {eoc}
+{green}->-192, 61, 1, 5 {eoc}
+
+{red}->tirvd, 63, 0, 1 {eoc}
+
+{green}->zjmp, 62, 0, 3 {eoc}
+
+{red}->bite, 63, 0, 1 {eoc}
+{green}->sti, 63, 1, 3 {eoc}
+{green}->r1, 63, 2, 4 {eoc}
+{green}->2, 63, 3, 5 {eoc}
+
+{green}->ldi, 64, 0, 3 {eoc}
+{green}->3, 64, 1, 5 {eoc}
+{green}->r2, 64, 2, 4 {eoc}
+
+{green}->sti, 65, 0, 3 {eoc}
+{green}->r2, 65, 1, 4 {eoc}
+{green}->-4, 65, 2, 5 {eoc}
+
+{green}->ldi, 66, 0, 3 {eoc}
+{green}->-1, 66, 1, 5 {eoc}
+{green}->r2, 66, 2, 4 {eoc}
+
+{green}->sti, 67, 0, 3 {eoc}
+{green}->r2, 67, 1, 4 {eoc}
+{green}->-8, 67, 2, 5 {eoc}
+
+{green}->sti, 68, 0, 3 {eoc}
+{green}->r1, 68, 1, 4 {eoc}
+{green}->1, 68, 2, 5 {eoc}
+
+{green}->sti, 69, 0, 3 {eoc}
+{green}->r1, 69, 1, 4 {eoc}
+{green}->1, 69, 2, 5 {eoc}
+
+{green}->ld, 70, 0, 3 {eoc}
+{green}->0, 70, 1, 5 {eoc}
+{green}->r2, 70, 2, 4 {eoc}
+
+{green}->ld, 71, 0, 3 {eoc}
+{green}->8, 71, 1, 5 {eoc}
+{green}->r3, 71, 2, 4 {eoc}
+
+{green}->ld, 72, 0, 3 {eoc}
+{green}->1, 72, 1, 5 {eoc}
+{green}->r4, 72, 2, 4 {eoc}
+
+{green}->ld, 73, 0, 3 {eoc}
+{green}->0, 73, 1, 5 {eoc}
+{green}->r6, 73, 2, 4 {eoc}
+
+{red}->b0, 74, 0, 1 {eoc}
+{green}->live, 74, 1, 3 {eoc}
+{green}->1, 74, 2, 5 {eoc}
+
+{green}->sub, 75, 0, 3 {eoc}
+{green}->r3, 75, 1, 4 {eoc}
+{green}->r4, 75, 2, 4 {eoc}
+{green}->r3, 75, 3, 4 {eoc}
+
+{green}->zjmp, 76, 0, 3 {eoc}
+
+{green}->fork, 77, 0, 3 {eoc}
+
+{green}->st, 78, 0, 3 {eoc}
+{green}->r5, 78, 1, 4 {eoc}
+{green}->r2, 78, 2, 4 {eoc}
+
+{green}->xor, 79, 0, 3 {eoc}
+{green}->r10, 79, 1, 4 {eoc}
+{green}->r10, 79, 2, 4 {eoc}
+{green}->r10, 79, 3, 4 {eoc}
+
+{green}->add, 80, 0, 3 {eoc}
+{green}->r10, 80, 1, 4 {eoc}
+{green}->r10, 80, 2, 4 {eoc}
+{green}->r10, 80, 3, 4 {eoc}
+
+{green}->add, 81, 0, 3 {eoc}
+{green}->r6, 81, 1, 4 {eoc}
+{green}->r6, 81, 2, 4 {eoc}
+{green}->r6, 81, 3, 4 {eoc}
+
+{green}->ld, 82, 0, 3 {eoc}
+{green}->0, 82, 1, 5 {eoc}
+{green}->r10, 82, 2, 4 {eoc}
+
+{green}->zjmp, 83, 0, 3 {eoc}
+
+{red}->b1, 84, 0, 1 {eoc}
+{green}->add, 84, 1, 3 {eoc}
+{green}->r2, 84, 2, 4 {eoc}
+{green}->r4, 84, 3, 4 {eoc}
+{green}->r2, 84, 4, 4 {eoc}
+
+{green}->add, 85, 0, 3 {eoc}
+{green}->r6, 85, 1, 4 {eoc}
+{green}->r6, 85, 2, 4 {eoc}
+{green}->r6, 85, 3, 4 {eoc}
+
+{green}->add, 86, 0, 3 {eoc}
+{green}->r6, 86, 1, 4 {eoc}
+{green}->r4, 86, 2, 4 {eoc}
+{green}->r6, 86, 3, 4 {eoc}
+
+{green}->ld, 87, 0, 3 {eoc}
+{green}->0, 87, 1, 5 {eoc}
+{green}->r10, 87, 2, 4 {eoc}
+
+{green}->zjmp, 88, 0, 3 {eoc}
+
+{red}->top, 89, 0, 1 {eoc}
+{green}->live, 89, 1, 3 {eoc}
+{green}->42, 89, 2, 5 {eoc}
+
+{green}->ld, 90, 0, 3 {eoc}
+{green}->9, 90, 1, 5 {eoc}
+{green}->r3, 90, 2, 4 {eoc}
+
+{green}->sti, 91, 0, 3 {eoc}
+{green}->r3, 91, 1, 4 {eoc}
+{green}->-6, 91, 2, 5 {eoc}
+
+{green}->ld, 92, 0, 3 {eoc}
+{green}->2, 92, 1, 5 {eoc}
+{green}->r3, 92, 2, 4 {eoc}
+
+{green}->sti, 93, 0, 3 {eoc}
+{green}->r3, 93, 1, 4 {eoc}
+{green}->-16, 93, 2, 5 {eoc}
+
+{green}->ld, 94, 0, 3 {eoc}
+{green}->0, 94, 1, 5 {eoc}
+{green}->r3, 94, 2, 4 {eoc}
+
+{green}->zjmp, 95, 0, 3 {eoc}
+
+{green}->live, 96, 1, 3 {eoc}
+{green}->42, 96, 2, 5 {eoc}
+
+{red}->infi, 97, 0, 1 {eoc}
+{green}->sti, 97, 1, 3 {eoc}
+{green}->r1, 97, 2, 4 {eoc}
+{green}->1, 97, 3, 5 {eoc}
+
+{green}->sti, 98, 0, 3 {eoc}
+{green}->r1, 98, 1, 4 {eoc}
+{green}->1, 98, 2, 5 {eoc}
+
+{green}->sti, 99, 0, 3 {eoc}
+{green}->r1, 99, 1, 4 {eoc}
+{green}->1, 99, 2, 5 {eoc}
+
+{green}->sti, 100, 0, 3 {eoc}
+{green}->r1, 100, 1, 4 {eoc}
+{green}->1, 100, 2, 5 {eoc}
+
+{green}->sti, 101, 0, 3 {eoc}
+{green}->r1, 101, 1, 4 {eoc}
+{green}->1, 101, 2, 5 {eoc}
+
+{green}->sti, 102, 0, 3 {eoc}
+{green}->r1, 102, 1, 4 {eoc}
+{green}->1, 102, 2, 5 {eoc}
+
+{green}->sti, 103, 0, 3 {eoc}
+{green}->r1, 103, 1, 4 {eoc}
+{green}->1, 103, 2, 5 {eoc}
+
+{green}->sti, 104, 0, 3 {eoc}
+{green}->r1, 104, 1, 4 {eoc}
+{green}->1, 104, 2, 5 {eoc}
+
+{green}->sti, 105, 0, 3 {eoc}
+{green}->r1, 105, 1, 4 {eoc}
+{green}->1, 105, 2, 5 {eoc}
+
+{green}->sti, 106, 0, 3 {eoc}
+{green}->r1, 106, 1, 4 {eoc}
+{green}->1, 106, 2, 5 {eoc}
+
+{green}->sti, 107, 0, 3 {eoc}
+{green}->r1, 107, 1, 4 {eoc}
+{green}->1, 107, 2, 5 {eoc}
+
+{red}->l0, 108, 0, 1 {eoc}
+{green}->live, 108, 1, 3 {eoc}
+{green}->1, 108, 2, 5 {eoc}
+
+{red}->l1, 109, 0, 1 {eoc}
+{green}->live, 109, 1, 3 {eoc}
+{green}->1, 109, 2, 5 {eoc}
+
+{red}->l2, 110, 0, 1 {eoc}
+{green}->live, 110, 1, 3 {eoc}
+{green}->1, 110, 2, 5 {eoc}
+
+{red}->l3, 111, 0, 1 {eoc}
+{green}->live, 111, 1, 3 {eoc}
+{green}->1, 111, 2, 5 {eoc}
+
+{red}->l4, 112, 0, 1 {eoc}
+{green}->live, 112, 1, 3 {eoc}
+{green}->1, 112, 2, 5 {eoc}
+
+{red}->l5, 113, 0, 1 {eoc}
+{green}->live, 113, 1, 3 {eoc}
+{green}->1, 113, 2, 5 {eoc}
+
+{red}->l6, 114, 0, 1 {eoc}
+{green}->live, 114, 1, 3 {eoc}
+{green}->1, 114, 2, 5 {eoc}
+
+{red}->l7, 115, 0, 1 {eoc}
+{green}->live, 115, 1, 3 {eoc}
+{green}->1, 115, 2, 5 {eoc}
+
+{red}->l8, 116, 0, 1 {eoc}
+{green}->live, 116, 1, 3 {eoc}
+{green}->1, 116, 2, 5 {eoc}
+
+{red}->l9, 117, 0, 1 {eoc}
+{green}->live, 117, 1, 3 {eoc}
+{green}->1, 117, 2, 5 {eoc}
+
+{red}->l10, 118, 0, 1 {eoc}
+{green}->live, 118, 1, 3 {eoc}
+{green}->1, 118, 2, 5 {eoc}
+
+{green}->zjmp, 119, 0, 3 {eoc}
+
+{red}->p1, 121, 0, 1 {eoc}
+
+{green}->zjmp, 120, 0, 3 {eoc}
+
+{green}->live, 121, 0, 3 {eoc}
+{green}->0, 121, 1, 5 {eoc}
+
+{red}->copie, 122, 0, 1 {eoc}
+{green}->ld, 122, 1, 3 {eoc}
+{green}->1, 122, 2, 5 {eoc}
+{green}->r1, 122, 3, 4 {eoc}
+
+{red}->tart, 123, 0, 1 {eoc}
+{green}->sti, 123, 1, 3 {eoc}
+{green}->r1, 123, 2, 4 {eoc}
+{green}->1, 123, 3, 5 {eoc}
+
+{green}->or, 124, 0, 3 {eoc}
+{green}->r2, 124, 1, 4 {eoc}
+{green}->r2, 124, 2, 4 {eoc}
+{green}->r2, 124, 3, 4 {eoc}
+
+{green}->zjmp, 125, 0, 3 {eoc}
+
+{green}->sub, 126, 0, 3 {eoc}
+{green}->r2, 126, 1, 4 {eoc}
+{green}->r4, 126, 2, 4 {eoc}
+{green}->r2, 126, 3, 4 {eoc}
+
+{green}->zjmp, 127, 0, 3 {eoc}
+
+{green}->ld, 128, 0, 3 {eoc}
+{green}->0, 128, 1, 5 {eoc}
+{green}->r2, 128, 2, 4 {eoc}
+
+{green}->zjmp, 129, 0, 3 {eoc}
+
+{red}->tirvd2, 131, 0, 1 {eoc}
+
+{green}->zjmp, 130, 0, 3 {eoc}
+
+{red}->topd, 131, 0, 1 {eoc}
+{green}->ld, 131, 1, 3 {eoc}
+{green}->9, 131, 2, 5 {eoc}
+{green}->r3, 131, 3, 4 {eoc}
+
+{green}->sti, 132, 0, 3 {eoc}
+{green}->r3, 132, 1, 4 {eoc}
+{green}->-6, 132, 2, 5 {eoc}
+
+{green}->ld, 133, 0, 3 {eoc}
+{green}->2, 133, 1, 5 {eoc}
+{green}->r3, 133, 2, 4 {eoc}
+
+{green}->sti, 134, 0, 3 {eoc}
+{green}->r3, 134, 1, 4 {eoc}
+{green}->-16, 134, 2, 5 {eoc}
+
+{green}->ld, 135, 0, 3 {eoc}
+{green}->0, 135, 1, 5 {eoc}
+{green}->r3, 135, 2, 4 {eoc}
+
+{green}->zjmp, 136, 0, 3 {eoc}
+
+{red}->p64deb, 137, 0, 1 {eoc}
+{green}->zjmp, 137, 1, 3 {eoc}
+{green}->0, 137, 2, 5 {eoc}
+
+{green}->zjmp, 138, 0, 3 {eoc}
+{green}->0, 138, 1, 5 {eoc}
+
+{green}->zjmp, 139, 0, 3 {eoc}
+{green}->0, 139, 1, 5 {eoc}
+
+{green}->zjmp, 140, 0, 3 {eoc}
+{green}->0, 140, 1, 5 {eoc}
+
+{green}->zjmp, 141, 0, 3 {eoc}
+{green}->0, 141, 1, 5 {eoc}
+
+{green}->zjmp, 142, 0, 3 {eoc}
+{green}->0, 142, 1, 5 {eoc}
+
+{green}->zjmp, 143, 0, 3 {eoc}
+{green}->0, 143, 1, 5 {eoc}
+
+{green}->zjmp, 144, 0, 3 {eoc}
+{green}->0, 144, 1, 5 {eoc}
+
+{green}->zjmp, 145, 0, 3 {eoc}
+{green}->0, 145, 1, 5 {eoc}
+
+{green}->zjmp, 146, 0, 3 {eoc}
+{green}->0, 146, 1, 5 {eoc}
+
+{green}->zjmp, 147, 0, 3 {eoc}
+{green}->0, 147, 1, 5 {eoc}
+
+{green}->zjmp, 148, 0, 3 {eoc}
+{green}->0, 148, 1, 5 {eoc}
+
+{green}->zjmp, 149, 0, 3 {eoc}
+{green}->0, 149, 1, 5 {eoc}
+
+{green}->zjmp, 150, 0, 3 {eoc}
+{green}->0, 150, 1, 5 {eoc}
+
+{green}->zjmp, 151, 0, 3 {eoc}
+{green}->0, 151, 1, 5 {eoc}
+
+{green}->zjmp, 152, 0, 3 {eoc}
+{green}->0, 152, 1, 5 {eoc}
+
+{green}->zjmp, 153, 0, 3 {eoc}
+{green}->0, 153, 1, 5 {eoc}
+
+{green}->zjmp, 154, 0, 3 {eoc}
+{green}->0, 154, 1, 5 {eoc}
+
+{green}->zjmp, 155, 0, 3 {eoc}
+{green}->0, 155, 1, 5 {eoc}
+
+{green}->zjmp, 156, 0, 3 {eoc}
+{green}->0, 156, 1, 5 {eoc}
+
+{green}->zjmp, 157, 0, 3 {eoc}
+{green}->0, 157, 1, 5 {eoc}
+
+{green}->zjmp, 158, 0, 3 {eoc}
+{green}->0, 158, 1, 5 {eoc}
+
+{green}->zjmp, 159, 0, 3 {eoc}
+{green}->0, 159, 1, 5 {eoc}
+
+{green}->zjmp, 160, 0, 3 {eoc}
+{green}->0, 160, 1, 5 {eoc}
+
+{green}->zjmp, 161, 0, 3 {eoc}
+{green}->0, 161, 1, 5 {eoc}
+
+{green}->zjmp, 162, 0, 3 {eoc}
+{green}->0, 162, 1, 5 {eoc}
+
+{green}->zjmp, 163, 0, 3 {eoc}
+{green}->0, 163, 1, 5 {eoc}
+
+{green}->zjmp, 164, 0, 3 {eoc}
+{green}->0, 164, 1, 5 {eoc}
+
+{green}->zjmp, 165, 0, 3 {eoc}
+{green}->0, 165, 1, 5 {eoc}
+
+{green}->zjmp, 166, 0, 3 {eoc}
+{green}->0, 166, 1, 5 {eoc}
+
+{green}->zjmp, 167, 0, 3 {eoc}
+{green}->0, 167, 1, 5 {eoc}
+
+{green}->zjmp, 168, 0, 3 {eoc}
+{green}->0, 168, 1, 5 {eoc}
+
+{green}->zjmp, 169, 0, 3 {eoc}
+{green}->0, 169, 1, 5 {eoc}
+
+{green}->zjmp, 170, 0, 3 {eoc}
+{green}->0, 170, 1, 5 {eoc}
+
+{green}->zjmp, 171, 0, 3 {eoc}
+{green}->0, 171, 1, 5 {eoc}
+
+{green}->zjmp, 172, 0, 3 {eoc}
+{green}->0, 172, 1, 5 {eoc}
+
+{green}->zjmp, 173, 0, 3 {eoc}
+{green}->0, 173, 1, 5 {eoc}
+
+{green}->zjmp, 174, 0, 3 {eoc}
+{green}->0, 174, 1, 5 {eoc}
+
+{green}->zjmp, 175, 0, 3 {eoc}
+{green}->0, 175, 1, 5 {eoc}
+
+{green}->zjmp, 176, 0, 3 {eoc}
+{green}->0, 176, 1, 5 {eoc}
+
+{red}->p64, 177, 0, 1 {eoc}
+{green}->ld, 177, 1, 3 {eoc}
+{green}->10, 177, 2, 5 {eoc}
+{green}->r8, 177, 3, 4 {eoc}
+
+{green}->sub, 178, 0, 3 {eoc}
+{green}->r6, 178, 1, 4 {eoc}
+{green}->r8, 178, 2, 4 {eoc}
+{green}->r6, 178, 3, 4 {eoc}
+
+{green}->and, 179, 0, 3 {eoc}
+{green}->r6, 179, 1, 4 {eoc}
+{green}->2147483648, 179, 2, 5 {eoc}
+{green}->r8, 179, 3, 4 {eoc}
+
+{green}->zjmp, 180, 0, 3 {eoc}
+
+{green}->ld, 181, 0, 3 {eoc}
+{green}->118, 181, 1, 5 {eoc}
+{green}->r8, 181, 2, 4 {eoc}
+
+{green}->add, 182, 0, 3 {eoc}
+{green}->r6, 182, 1, 4 {eoc}
+{green}->r8, 182, 2, 4 {eoc}
+{green}->r6, 182, 3, 4 {eoc}
+
+{red}->cont, 183, 0, 1 {eoc}
+{green}->add, 183, 1, 3 {eoc}
+{green}->r6, 183, 2, 4 {eoc}
+{green}->r6, 183, 3, 4 {eoc}
+{green}->r6, 183, 4, 4 {eoc}
+
+{green}->ld, 184, 0, 3 {eoc}
+{green}->272, 184, 1, 5 {eoc}
+{green}->r8, 184, 2, 4 {eoc}
+
+{green}->ld, 185, 0, 3 {eoc}
+{green}->29, 185, 1, 5 {eoc}
+{green}->r9, 185, 2, 4 {eoc}
+
+{green}->ldi, 186, 0, 3 {eoc}
+{green}->r6, 186, 1, 4 {eoc}
+{green}->r7, 186, 2, 4 {eoc}
+
+{green}->sti, 187, 0, 3 {eoc}
+{green}->r7, 187, 1, 4 {eoc}
+{green}->r8, 187, 2, 4 {eoc}
+{green}->r6, 187, 3, 4 {eoc}
+
+{green}->sti, 188, 0, 3 {eoc}
+{green}->r7, 188, 1, 4 {eoc}
+{green}->r9, 188, 2, 4 {eoc}
+{green}->r6, 188, 3, 4 {eoc}
+
+{red}->p64li, 189, 0, 1 {eoc}
+{green}->live, 189, 1, 3 {eoc}
+{green}->1, 189, 2, 5 {eoc}
+
+{green}->ld, 190, 0, 3 {eoc}
+{green}->0, 190, 1, 5 {eoc}
+{green}->r10, 190, 2, 4 {eoc}
+
+{green}->zjmp, 191, 0, 3 {eoc}
+{green}->186, 191, 1, 5 {eoc}
+
+{red}->tirdow, 192, 0, 1 {eoc}
+{green}->ld, 192, 1, 3 {eoc}
+{green}->425, 192, 2, 5 {eoc}
+{green}->r2, 192, 3, 4 {eoc}
+
+{green}->ld, 193, 0, 3 {eoc}
+{green}->0, 193, 1, 5 {eoc}
+{green}->r3, 193, 2, 4 {eoc}
+
+{green}->ld, 194, 0, 3 {eoc}
+{green}->4, 194, 1, 5 {eoc}
+{green}->r4, 194, 2, 4 {eoc}
+
+{red}->tird, 195, 0, 1 {eoc}
+{green}->live, 195, 1, 3 {eoc}
+{green}->42, 195, 2, 5 {eoc}
+
+{green}->sti, 196, 0, 3 {eoc}
+{green}->r10, 196, 1, 4 {eoc}
+{green}->r2, 196, 2, 4 {eoc}
+
+{green}->sti, 197, 0, 3 {eoc}
+{green}->r10, 197, 1, 4 {eoc}
+{green}->r3, 197, 2, 4 {eoc}
+
+{green}->add, 198, 0, 3 {eoc}
+{green}->r4, 198, 1, 4 {eoc}
+{green}->r5, 198, 2, 4 {eoc}
+{green}->r4, 198, 3, 4 {eoc}
+
+{green}->add, 199, 0, 3 {eoc}
+{green}->r3, 199, 1, 4 {eoc}
+{green}->r4, 199, 2, 4 {eoc}
+{green}->r3, 199, 3, 4 {eoc}
+
+{green}->sub, 200, 0, 3 {eoc}
+{green}->r2, 200, 1, 4 {eoc}
+{green}->r4, 200, 2, 4 {eoc}
+{green}->r2, 200, 3, 4 {eoc}
+
+{green}->zjmp, 201, 0, 3 {eoc}
+
+{green}->ld, 202, 0, 3 {eoc}
+{green}->0, 202, 1, 5 {eoc}
+{green}->r11, 202, 2, 4 {eoc}
+
+{green}->zjmp, 203, 0, 3 {eoc}
+
+{green}->zjmp, 204, 0, 3 {eoc}
+
+{red}->fin, 205, 0, 1 {eoc}
+{green}->live, 205, 1, 3 {eoc}
+{green}->633, 205, 2, 5 {eoc}
+
+{green}->(null), 206, 0, 9 {eoc}
+{red}->entree, 0, 1{eoc}
+{red}->tir, 4, 1{eoc}
+{red}->tirf, 9, 1{eoc}
+{red}->tirop, 23, 1{eoc}
+{red}->tirb, 26, 1{eoc}
+{red}->p32deb, 36, 1{eoc}
+{red}->p32, 54, 1{eoc}
+{red}->p32li, 58, 1{eoc}
+{red}->tirvd, 63, 1{eoc}
+{red}->bite, 63, 1{eoc}
+{red}->b0, 74, 1{eoc}
+{red}->b1, 84, 1{eoc}
+{red}->top, 89, 1{eoc}
+{red}->infi, 97, 1{eoc}
+{red}->l0, 108, 1{eoc}
+{red}->l1, 109, 1{eoc}
+{red}->l2, 110, 1{eoc}
+{red}->l3, 111, 1{eoc}
+{red}->l4, 112, 1{eoc}
+{red}->l5, 113, 1{eoc}
+{red}->l6, 114, 1{eoc}
+{red}->l7, 115, 1{eoc}
+{red}->l8, 116, 1{eoc}
+{red}->l9, 117, 1{eoc}
+{red}->l10, 118, 1{eoc}
+{red}->p1, 121, 1{eoc}
+{red}->copie, 122, 1{eoc}
+{red}->tart, 123, 1{eoc}
+{red}->tirvd2, 131, 1{eoc}
+{red}->topd, 131, 1{eoc}
+{red}->p64deb, 137, 1{eoc}
+{red}->p64, 177, 1{eoc}
+{red}->cont, 183, 1{eoc}
+{red}->p64li, 189, 1{eoc}
+{red}->tirdow, 192, 1{eoc}
+{red}->tird, 195, 1{eoc}
+{red}->fin, 205, 1{eoc}
+Writing output program to 42.cor

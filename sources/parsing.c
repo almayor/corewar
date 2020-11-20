@@ -69,6 +69,34 @@ void		parse_token(t_parser *parser, char **row)
 ** parse_digit - for directs, indirects
 */
 
+void		prune_tokens(t_parser *parser)
+{
+	t_token *curr;
+	t_token *prev;
+	t_token *tmp;
+
+	prev = parser->tokens;
+	curr = parser->tokens->next;
+	while (curr)
+	{
+		if (curr->type == UNKNOWN)
+		{
+			while (curr->next && curr->type == UNKNOWN)
+			{
+				tmp = curr;
+				curr = curr->next;
+				free(tmp->content);
+				tmp->content = NULL;
+				free(tmp);
+				tmp = NULL;
+				prev->next = curr;
+			}
+		}
+		curr = curr->next;
+		prev = prev->next;
+	}
+}
+
 void		token_len(t_parser *parser, t_token **tokens)
 {
 	t_token	*curr;
@@ -114,8 +142,9 @@ void		parsing(t_parser *parser, int tok_len)
 	add_token(&parser->tokens, init_token(parser, END_FILE));
 	validate_commands(parser);
 	coords_and_labels(parser, parser->tokens, -1);
-	 print_tokens(parser->tokens);
-	print_labels(parser->labels);
+	prune_tokens(parser);
+	//print_tokens(parser->tokens);
+	//print_labels(parser->labels);
 }
 
 /*
