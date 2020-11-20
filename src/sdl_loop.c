@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:42:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/20 20:26:25 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/20 23:29:42 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	sdl_loop(void)
 	end = 1;
 	g_visu.quit = 1;
 	g_visu.keyboard = SDL_GetKeyboardState(NULL);
+	g_visu.pause = 1;
 	while (g_visu.quit)
 	{
 		SDL_SetRenderDrawColor(g_visu.rend, 0, 0, 0, 1);
@@ -31,7 +32,8 @@ void	sdl_loop(void)
 		}
 		if (!g_visu.pause && end)
 			end = run_once();
-		sdl_new_draw();
+		//sdl_new_draw();
+		sdl_draw_map();
 		sdl_put_params();
 		sdl_draw_border();
 		SDL_RenderPresent(g_visu.rend);

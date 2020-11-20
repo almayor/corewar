@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:43 by user              #+#    #+#             */
-/*   Updated: 2020/11/19 17:12:48 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/20 23:25:35 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int32_t	mem_read(int64_t pos, int nbytes)
 void	mem_write(uint32_t ichamp, int64_t pos, int32_t val, int nbytes)
 {
 	pos = pos < 0 ? (pos % MEM_SIZE) + MEM_SIZE : pos % MEM_SIZE;
+	if (g_vm.visu_flag)
+		sdl_mark_champ(ichamp, nbytes, pos);
 	if (nbytes >= 4)
 	{
 		g_vm.mem[pos++ % MEM_SIZE] = val >> 24;
@@ -47,7 +49,4 @@ void	mem_write(uint32_t ichamp, int64_t pos, int32_t val, int nbytes)
 		g_vm.mem[pos++ % MEM_SIZE] = val >> 8;
 	if (nbytes >= 1)
 		g_vm.mem[pos++ % MEM_SIZE] = val;
-	//ft_printf("MEM WRITING........\n");
-	if (g_vm.visu_flag)
-		sdl_mark_champ(ichamp, nbytes, pos);
 }

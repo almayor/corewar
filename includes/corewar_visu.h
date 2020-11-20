@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/20 20:25:15 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/20 23:31:23 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,18 @@
 # define HEX "0123456789ABCDEF"
 
 typedef struct s_visu	t_visu;
+typedef struct s_vmap	t_vmap;
+
+struct				s_vmap
+{
+	SDL_Rect		pos;
+	SDL_Color		clr;
+	char			*join;
+	char			*next;
+	char			*tmp;
+	int				i;
+	int				j;
+};
 
 struct				s_visu
 {
@@ -95,5 +107,9 @@ void	sdl_put_players(SDL_Rect pos);
 void	sdl_test_draw(void);
 
 void	sdl_quit(void);
+
+void	sdl_draw_map(void);
+
+
 
 #endif
