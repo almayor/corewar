@@ -47,6 +47,7 @@
 # define ERR_ESCAPE				"Error: escape missed"
 # define ERR_DOUBLE_COMMAND		"Error: double command"
 # define ERR_EMPTY_LABEL		"Error: empty label"
+# define ERR_LABEL_OP   		"Error: operation should come after label"
 
 
 void			terminate(char *s);
