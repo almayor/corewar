@@ -22,11 +22,6 @@ void		validate_labeltoken(t_token *token, t_parser *parser)
 		if (!ft_strcmp(token->content, label->content))
 		{
 			token->type = UNKNOWN;
-			if (token->next && token->next->type == OP_TYPE)
-				token->next->type = UNKNOWN;
-            if (token->next && token->next->type == LABEL_TYPE &&
-            !ft_strcmp(token->content, token->next->content))
-				token->next->type = UNKNOWN;
 			while (token && (token->type != OP_TYPE && token->type != LABEL_TYPE))
 			{
 				token->type = UNKNOWN;
