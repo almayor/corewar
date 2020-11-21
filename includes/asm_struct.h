@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 02:29:31 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 03:32:31 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,6 @@
 # define COMMENT_FLAG 	0
 # define OP_SIZE_BYTE 	1
 # define OCTET			8
-
-# define OPEN_COR_ERR	"Error: failed to open file .cor"
-# define ENRICH_ERR		"Error: failed to enrich data. False token index"
-# define WRITE_ERR		"Error: failed to write to file .cor"
-# define LABEL_ERR		"Error: undefined label"
-# define ARG_TYPE_ERR	"Error: incorrect arg type for operation"
-# define ARG_NUM_ERR	"Error: incorrect number of args for operation"
 
 typedef enum
 {

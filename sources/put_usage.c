@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 01:57:23 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 02:34:31 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 03:31:57 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void		put_op_usage(t_token *arg)
 	int		num_args;
 	
 	num_args = op_tmpl[arg->name].args_num;
-	ft_printf("token[%d][%d] - incorrect arg: %s\n",
+	ft_printf("incorrect token[%d][%d]: %s\n",
 	arg->point.row, arg->point.token, arg->content);
 	ft_printf("\nUsage: %s ", op_tmpl[arg->name].name);
 	while (ind < num_args)
