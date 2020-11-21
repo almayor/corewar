@@ -22,7 +22,8 @@ void		validate_labeltoken(t_token *token, t_parser *parser)
 		if (!ft_strcmp(token->content, label->content))
 		{
 			token->type = UNKNOWN;
-			while (token && (token->type != OP_TYPE && token->type != LABEL_TYPE))
+			while (token && (token->type != OP_TYPE &&
+			token->type != LABEL_TYPE))
 			{
 				token->type = UNKNOWN;
 				token = token->next;
@@ -41,27 +42,22 @@ void		prune_tokens(t_parser *parser)
 
 	prev = parser->tokens;
 	curr = parser->tokens->next;
-
 	while (curr)
 	{
-        if (prev->next && prev->type == LABEL_TYPE && prev->next->type != OP_TYPE)
+		if (prev->next && prev->type == LABEL_TYPE &&
+		!(prev->next->type == OP_TYPE || prev->next->type == LABEL_TYPE))
 			core_error(parser, ERR_LABEL_OP, NULL, NULL);
-		if (curr->type == UNKNOWN)
+		while (curr->next && curr->type == UNKNOWN)
 		{
-			while (curr->next && curr->type == UNKNOWN)
-			{
-				tmp = curr;
-				curr = curr->next;
-				//ft_printf("*%s\n", tmp->content);
-				free(tmp->content);
-				tmp->content = NULL;
-				free(tmp);
-				tmp = NULL;
-				prev->next = curr;
-			}
+			tmp = curr;
+			curr = curr->next;
+			free(tmp->content);
+			tmp->content = NULL;
+			free(tmp);
+			tmp = NULL;
+			prev->next = curr;
 		}
 		curr = curr->next;
 		prev = prev->next;
 	}
 }
-

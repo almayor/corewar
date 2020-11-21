@@ -34,6 +34,20 @@ char	*join_str(char **str1, char **str2)
 	return (result);
 }
 
+void	type_check(t_parser *parser, int type)
+{
+	if (type == 1)
+	{
+		if (parser->name != NULL)
+			core_error(parser, ERR_DOUBLE_COMMAND, NULL, NULL);
+	}
+	else
+	{
+		if (parser->comment != NULL)
+			core_error(parser, ERR_DOUBLE_COMMAND, NULL, NULL);
+	}
+}
+
 void	parse_command2(t_parser *parser, char **row, int start, int type)
 {
 	int		size;
@@ -52,18 +66,11 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 	if ((str = ft_strchr(&((*row)[++parser->x_read]), '\"')))
 		core_error(parser, ERR_DOUBLE_COMMAND, NULL, NULL);
 	trim_from_comments_spaces(parser, *row);
+	type_check(parser, type);
 	if (type == 1)
-	{
-		if (parser->name != NULL)
-			core_error(parser, ERR_DOUBLE_COMMAND, NULL, NULL);
 		parser->name = ft_strsub(*row, start, (int)(end - &((*row)[start])));
-	}
 	else
-	{
-		if (parser->comment != NULL)
-			core_error(parser, ERR_DOUBLE_COMMAND, NULL, NULL);
 		parser->comment = ft_strsub(*row, start, (int)(end - &((*row)[start])));
-	}
 }
 
 /*

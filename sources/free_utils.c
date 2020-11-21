@@ -12,7 +12,7 @@
 
 #include "translation.h"
 
-void		core_error(t_parser *stor, char *message, void(*f)(), t_token *arg)
+void		core_error(t_parser *stor, char *message, void (*f)(), t_token *arg)
 {
 	if (message)
 		ft_putendl_fd(message, 2);
@@ -22,7 +22,6 @@ void		core_error(t_parser *stor, char *message, void(*f)(), t_token *arg)
 		core_free(stor);
 	exit(EXIT_FAILURE);
 }
-
 
 void		free_tokens(t_parser *stor)
 {
@@ -81,6 +80,5 @@ void		core_free(t_parser *stor)
 	}
 	if (stor->labels)
 		free_labels(stor);
-	// functions to clean all data stored in frame
 	free_parser(stor);
 }

@@ -80,4 +80,6 @@ void		    lexical_error(t_parser *parser, t_token *token, char **row);
 void			core_error(t_parser *stor, char *message, void(*f)(), t_token *arg);
 void	    	prune_tokens(t_parser *parser);
 void		    validate_labeltoken(t_token *token, t_parser *parser);
+void	    	print_tokens(t_token *tokens);
+void	    	print_labels(t_label *labels);
 #endif

@@ -12,40 +12,14 @@
 
 #include "parser.h"
 
-void		print_labels(t_label *labels)
+int			hard_coord2(t_token *check, int c)
 {
-	t_label *label;
-
-	label = labels;
-	while (label)
+	while (check->type == LABEL_TYPE)
 	{
-		ft_printf("{red}->%s, %d, %d{eoc}\n", label->content,
-		label->point.row, label->point.token);
-		label = label->next;
+		check = check->next;
+		c++;
 	}
-}
-
-void		print_tokens(t_token *tokens)
-{
-	int		y;
-	t_token	*token;
-
-	token = tokens;
-	y = token->point.row;
-	while (token)
-	{
-		if (y != token->point.row)
-			ft_printf("\n");
-		if (token->type == LABEL_TYPE || token->type == DIR_LABL_ARG_TYPE
-		|| token->type == IND_LABL_ARG_TYPE)
-			ft_printf("{red}->%s, %d, %d, %d {eoc}\n", token->content,
-			token->point.row, token->point.token, token->type);
-		else
-			ft_printf("{green}->%s, %d, %d, %d {eoc}\n", token->content,
-			token->point.row, token->point.token, token->type);
-		y = token->point.row;
-		token = token->next;
-	}
+	return (c);
 }
 
 int			hard_coord(t_parser *parser, t_token **token, int tok_num, int c)
@@ -53,14 +27,9 @@ int			hard_coord(t_parser *parser, t_token **token, int tok_num, int c)
 	t_token	*check;
 
 	check = *token;
-	while (check->type == LABEL_TYPE)
+	c = hard_coord2(check, c);
+	while (tok_num++)
 	{
-		check = check->next;
-		c++;
-	}
-	while (1)
-	{
-		tok_num++;
 		(*token)->point.token = tok_num;
 		if (check->next != NULL)
 			(*token)->point.row = check->next->point.row;

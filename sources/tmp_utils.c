@@ -13,15 +13,15 @@
 #include "translation.h"
 
 static char types[11][20] = {
-	"NEW_LINE_TYPE", 
-	"REG_ARG_TYPE", 
+	"NEW_LINE_TYPE",
+	"REG_ARG_TYPE",
 	"DIR_ARG_TYPE",
 	"DIR_LABL_ARG_TYPE",
-	"IND_ARG_TYPE", 
+	"IND_ARG_TYPE",
 	"IND_LABL_ARG_TYPE",
-	"LABEL_TYPE", 
-	"DELIM_TYPE", 
-	"OP_TYPE", 
+	"LABEL_TYPE",
+	"DELIM_TYPE",
+	"OP_TYPE",
 	"END_FILE"
 	"UNKNOWN"};
 
@@ -158,7 +158,6 @@ void	create_line_(t_parser *stor, t_token *token, int y, char *label, char *cmd,
 		token = token->next;
 		parse_arg_(token, arg1, y, x++);
 	}
-
 	if (arg2)
 	{
 		token->next = ft_calloc(1, sizeof(t_token));

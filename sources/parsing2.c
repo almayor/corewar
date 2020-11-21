@@ -57,7 +57,6 @@ char		*get_token_content(t_parser *parser, char *row, int start)
 void		parse_alpha(t_parser *parser, char *row, int start,
 		t_token *token)
 {
-	
 	while (row[parser->x_read] && ft_strchr(LABEL_CHARS, row[parser->x_read]))
 		parser->x_read++;
 	token->content = get_token_content(parser, row, start);

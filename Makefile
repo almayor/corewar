@@ -29,7 +29,7 @@ FUNCS		= 	tmp_utils.c \
 				parsing.c parsing2.c parse_command.c row_functions.c \
 				translation.c free_utils.c writing_modules.c \
 				enrich_data.c label_value.c \
-				translate_exec.c pruning.c put_usage.c
+				translate_exec.c pruning.c put_usage.c prints.c
 
 # ----- Auto -----
 HEADER		= $(addprefix $(INC_DIR), $(HEADER_NAME))

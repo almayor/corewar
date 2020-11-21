@@ -115,12 +115,11 @@ void		parsing(t_parser *parser, int tok_len)
 	validate_commands(parser);
 	coords_and_labels(parser, parser->tokens, -1);
 	prune_tokens(parser);
-	// print_tokens(parser->tokens);
-	// print_labels(parser->labels);
-
 }
 
 /*
+** print_tokens(parser->tokens);
+** print_labels(parser->labels);
 ** ++parser->point->x - read by symbol
 ** && !(parser->point->y == 0) - ignore empty rows
 ** && read_x(parser->fd_s, &row) - row is not NULL

@@ -15,8 +15,8 @@
 
 t_token		*get_token(t_token *token, int len)
 {
-	int 	name;
-	
+	int	name;
+
 	name = token->name;
 	while (len)
 	{
@@ -45,7 +45,7 @@ void		check_arg(t_parser *stor, t_token *arg, int shift)
 	(pos < max_args && arg->next && arg->next->type == END_FILE))
 		core_error(stor, ARG_NUM_ERR, *put_op_usage, arg);
 	if (expected_code < (T_REG | T_DIR | T_IND) && !(expected_code & code))
-		core_error(stor, ARG_TYPE_ERR, *put_op_usage, arg);	
+		core_error(stor, ARG_TYPE_ERR, *put_op_usage, arg);
 	if ((arg->type == DIR_LABL_ARG_TYPE || arg->type == IND_LABL_ARG_TYPE) &&
 		!get_label(stor, arg->content))
 		core_error(stor, LABEL_ERR, *put_label_err, arg);

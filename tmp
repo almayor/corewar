@@ -1,0 +1,22 @@
+Norme: sources/asm_main.c
+Norme: sources/init_structs.c
+Norme: sources/is_functions.c
+Norme: sources/free_utils.c
+Norme: sources/asm.c
+Error (line 69): C++ comment
+Error (line 70): C++ comment
+Error (line 71): C++ comment
+Norme: sources/row_functions.c
+Norme: sources/label_value.c
+Norme: sources/coords.c
+Norme: sources/pruning.c
+Norme: sources/parse_command.c
+Norme: sources/parsing2.c
+Norme: sources/enrich_data.c
+Error: 6 functions in the file
+Norme: sources/parsing.c
+Error (line 92): function parsing has 26 lines
+Norme: sources/translation.c
+Norme: sources/prints.c
+Norme: sources/translate_exec.c
+Norme: sources/writing_modules.c
