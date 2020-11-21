@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 17:47:11 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 21:05:40 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,9 @@ typedef struct		s_parser
 {
 	t_point			point;
 	t_token			*tokens;
-	// t_flags			flags;
 	t_token			*tokens_head;
 	t_label			*labels;
+	int				row_len;
 	int				x_read;
 	int				y_read;
 	int				tok_len;

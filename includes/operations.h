@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 20:37:21 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 02:07:32 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 21:06:39 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct		s_ops
 	uint8_t			dir_size;
 }					t_ops;
 
-static t_ops		op_tmpl[16] = {
+static t_ops		g_op_tmpl[16] = {
 	{
 		.name = "live",
 		.op_code = 0x01,

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:49:00 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/21 00:38:33 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 21:07:03 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		is_operation(t_token *token)
 	i = 0;
 	while (i <= AFF)
 	{
-		if (!ft_strcmp(op_tmpl[i].name, token->content))
+		if (!ft_strcmp(g_op_tmpl[i].name, token->content))
 		{
 			token->type = OP_TYPE;
 			return (TRUE);

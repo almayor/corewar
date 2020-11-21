@@ -6,11 +6,24 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:34:55 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 02:06:47 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 21:05:04 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "translation.h"
+
+void		enrich_data(t_parser *stor)
+{
+	int		len;
+
+	len = 0;
+	while (stor->tokens && stor->tokens->type != END_FILE)
+	{
+		len = enrich_row(stor, stor->tokens);
+		stor->tokens = get_token(stor->tokens, len);
+	}
+	stor->tokens = stor->tokens_head;
+}
 
 void		translate_commons(t_parser *stor)
 {

@@ -6,14 +6,12 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:46 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 03:32:10 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 21:06:17 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TRANSLATION_H
 # define TRANSLATION_H
-
-# include <stdio.h>		// for printf - DELETE
 
 # include <stdlib.h>
 # include <fcntl.h>
@@ -67,13 +65,7 @@ void		free_labels(t_parser *stor);
 void		put_op_usage(t_token *arg);
 void		put_label_err(t_token *arg);
 
-// TMP UTILS - DELETE
-
-void		mock_read_(t_parser *stor);
-void		print_tokens_(t_parser *stor);
-void		print_labels_(t_parser *stor);
-void		simple_tokens_print_(t_parser *stor);
-void		simple_parser_print_(t_parser *stor);
-void		test_label_value_(t_parser *stor);
+void		tokens_print(t_parser *stor);
+void		labels_print(t_parser *stor);
 
 #endif

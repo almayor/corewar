@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/25 11:33:25 by user              #+#    #+#              #
-#    Updated: 2020/11/21 01:57:41 by user             ###   ########.fr        #
+#    Updated: 2020/11/21 21:01:06 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,12 @@ OBJ_DIR		= ./obj/
 INC_DIR 	= ./includes/
 
 # ----- Lists -----
-FUNCS		= 	tmp_utils.c \
-				\
-				asm_main.c asm.c coords.c init_structs.c is_functions.c \
+FUNCS		= 	asm_main.c asm.c coords.c init_structs.c is_functions.c \
 				parsing.c parsing2.c parse_command.c row_functions.c \
 				translation.c free_utils.c writing_modules.c \
 				enrich_data.c label_value.c \
-				translate_exec.c pruning.c put_usage.c prints.c
+				translate_exec.c pruning.c put_usage.c prints.c \
+				print_funcs.c
 
 # ----- Auto -----
 HEADER		= $(addprefix $(INC_DIR), $(HEADER_NAME))
