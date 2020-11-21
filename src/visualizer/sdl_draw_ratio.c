@@ -6,11 +6,11 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 21:40:03 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 22:20:34 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 23:19:37 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "corewar_visu.h"
 
 static char	*get_ratio_text(size_t n)
 {

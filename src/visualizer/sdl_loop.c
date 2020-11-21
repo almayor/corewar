@@ -6,11 +6,11 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:42:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 22:24:33 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 23:33:28 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "corewar_visu.h"
 
 void	sdl_loop(void)
 {
@@ -33,7 +33,7 @@ void	sdl_loop(void)
 		if (!g_visu.pause && end)
 			end = run_once();
 		sdl_draw_map();
-		sdl_put_params();
+		sdl_draw_info();
 		sdl_draw_border();
 		SDL_RenderPresent(g_visu.rend);
 	}

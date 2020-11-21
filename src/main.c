@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/18 16:42:32 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 23:29:09 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 t_vm	g_vm = { .cycles_to_die = CYCLE_TO_DIE, .log = 0 };
 t_visu	g_visu;
-
 
 static void	conclude(void)
 {

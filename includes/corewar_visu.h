@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 22:53:13 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 23:40:37 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <SDL2/SDL.h>
 # include <SDL2/SDL_ttf.h>
 # include "corewar.h"
-# include "libft.h"
 
 # define RUNNING	"*** RUNNING ***"
 # define PAUSED		"*** PAUSED ***"
@@ -81,41 +80,46 @@ struct				s_visu
 	int				g_y;
 };
 
-extern	t_visu g_visu;
+extern	t_visu		g_visu;
 
-void	sdl_loop(void);
-void	sdl_mouse_event(SDL_Event event);
-void	sdl_pause_event(SDL_Event event);
+/*
+** >>------------------<< SDL INIT / QUIT >>-----------------------<<
+*/
 
-void	sdl_launch(void);
-//	void	sdl_draw();
-void	sdl_mark_champ(uint32_t ichamp, size_t nbytes, uint32_t pos);
-void	sdl_put_params();
-void	sdl_draw_border();
-char	*ft_ulltoa(uint64_t nbr);
-void	sdl_put_number(char *s, uint64_t n, int x, int y);
-SDL_Color get_player_color(uint32_t ichamp);
+void				sdl_launch(void);
+void				sdl_quit(void);
 
-char	*sdl_strjoin(char *str1, char *str2);
+/*
+** >>-----------------------<< SDL UTILS >>----------------------------<<
+*/
 
-void	sdl_new_draw(void);
+void				sdl_mark_champ(uint32_t ichamp,
+						size_t nbytes, uint32_t pos);
+SDL_Color			get_player_color(uint32_t ichamp);
+char				*sdl_strjoin(char *str1, char *str2);
+char				*sdl_threejoin(uint32_t n, char *name);
+char				*ft_ulltoa(uint64_t nbr);
+char				*hex_num(uint8_t n);
 
-char	*hex_num(uint8_t n);
+/*
+** >>-----------------------<< SDL EVENT >>----------------------------<<
+*/
 
-void	sdl_put_text(const char *word, SDL_Color color, SDL_Rect pos);
-void	draw_hex(uint8_t n, SDL_Color color, SDL_Rect pos);
-char	*sdl_threejoin(uint32_t n, char *name);
+void				sdl_loop(void);
+void				sdl_mouse_event(SDL_Event event);
+void				sdl_pause_event(SDL_Event event);
 
-void	sdl_put_players(SDL_Rect pos);
+/*
+** >>------------------------<< SDL DRAW >>----------------------------<<
+*/
 
-void	sdl_test_draw(void);
+void				sdl_draw_map(void);
+void				sdl_draw_info(void);
+void				sdl_draw_ratio(SDL_Rect pos, SDL_Color clr, int flag);
+void				sdl_draw_border();
 
-void	sdl_quit(void);
-
-void	sdl_draw_map(void);
-
-void	sdl_draw_ratio(SDL_Rect pos, SDL_Color clr, int flag);
-
-
+void				sdl_put_number(char *s, uint64_t n, int x, int y);
+void				sdl_put_text(const char *word,
+						SDL_Color color, SDL_Rect pos);
 
 #endif

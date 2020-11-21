@@ -6,41 +6,11 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:52:32 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/20 20:06:12 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 22:54:26 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-
-//int start_x = 30;
-//int start_y = 30;
-
-// void	sdl_draw()
-// {
-// 	int i;
-// 	int j;
-// 	SDL_Rect frect;
-// 	SDL_Color fcolor;
-
-// 	i = 0;
-// 	j = 0;
-// 	fcolor = (SDL_Color){255, 255, 255, 1};
-// 	frect.y = g_visu.g_y;
-// 	while (i < MEM_SIZE)
-// 	{
-// 		frect.x = g_visu.g_x;
-// 		j = 0;
-// 		while (j++ < 64)
-// 		{
-// 			fcolor = get_player_color(g_visu.vmem[i]);
-// 			sdl_draw_proc(i, frect.x, frect.y);
-// 			draw_hex(g_vm.mem[i], fcolor, frect);
-// 			frect.x += 20;
-// 			i++;
-// 		}
-// 		frect.y += 19;
-// 	}
-// }
 
 static void	sdl_init(void)
 {
@@ -67,7 +37,7 @@ static void	sdl_init(void)
 	g_visu.g_y = 30;
 }
 
-void	sdl_quit(void)
+void		sdl_quit(void)
 {
 	SDL_DestroyRenderer(g_visu.rend);
 	SDL_DestroyWindow(g_visu.win);
@@ -76,7 +46,7 @@ void	sdl_quit(void)
 	//TTF_Quit();
 }
 
-void	sdl_launch(void)
+void		sdl_launch(void)
 {
 	sdl_init();
 	sdl_loop();

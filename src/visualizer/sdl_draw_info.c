@@ -1,46 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sdl_put_info.c                                     :+:      :+:    :+:   */
+/*   sdl_draw_info.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:48:53 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 22:17:30 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 23:42:30 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "corewar_visu.h"
 
-void	sdl_put_players(SDL_Rect pos)
-{
-	SDL_Color	clr;
-	char		*player;
-	int			i;
-
-	i = 0;
-	while (i < MAX_PLAYERS)
-	{
-		if (g_vm.champs[i].ichamp > 0)
-		{
-			clr = get_player_color(g_vm.champs[i].ichamp);
-			player = sdl_threejoin(g_vm.champs[i].ichamp,
-				g_vm.champs[i].name);
-			if (!player)
-				terminate(MALLOC_ERROR);
-			sdl_put_text(player, clr, pos);
-			sdl_put_number(LAST_LIVE, g_vm.champs[i].last_live,
-				pos.x + 15, pos.y + 20);
-			sdl_put_number(S_CURRLIVE, g_vm.champs[i].curr_nlive,
-				pos.x + 15, pos.y + 40);
-			free(player);
-		}
-		i++;
-		pos.y += 75;
-	}
-}
-
-void	sdl_put_text(const char *word, SDL_Color color, SDL_Rect pos)
+void		sdl_put_text(const char *word, SDL_Color color, SDL_Rect pos)
 {
 	SDL_Surface *surface;
 	SDL_Texture *texture;
@@ -61,7 +33,7 @@ void	sdl_put_text(const char *word, SDL_Color color, SDL_Rect pos)
 	SDL_DestroyTexture(texture);
 }
 
-void	sdl_put_number(char *s, uint64_t n, int x, int y)
+void		sdl_put_number(char *s, uint64_t n, int x, int y)
 {
 	char		*str;
 	SDL_Color	color;
@@ -77,7 +49,7 @@ void	sdl_put_number(char *s, uint64_t n, int x, int y)
 	ft_memdel((void**)&str);
 }
 
-void	sdl_put_handling(SDL_Rect pos, SDL_Color clr)
+static void	sdl_put_handling(SDL_Rect pos, SDL_Color clr)
 {
 	pos.y = 30;
 	sdl_put_text(USAGE_0, clr, pos);
@@ -95,7 +67,35 @@ void	sdl_put_handling(SDL_Rect pos, SDL_Color clr)
 	SDL_RenderDrawRect(g_visu.rend, &pos);
 }
 
-void	sdl_put_params(void)
+static void	sdl_put_players(SDL_Rect pos)
+{
+	SDL_Color	clr;
+	char		*player;
+	int			i;
+
+	i = 0;
+	while (i < MAX_PLAYERS)
+	{
+		if (g_vm.champs[i].ichamp > 0)
+		{
+			clr = get_player_color(g_vm.champs[i].ichamp);
+			player = sdl_threejoin(g_vm.champs[i].ichamp,
+				g_vm.champs[i].name);
+			if (!player)
+				terminate(MALLOC_ERROR);
+			sdl_put_text(player, clr, pos);
+			free(player);
+			sdl_put_number(LAST_LIVE, g_vm.champs[i].last_live,
+				pos.x + 15, pos.y + 20);
+			sdl_put_number(S_CURRLIVE, g_vm.champs[i].curr_nlive,
+				pos.x + 15, pos.y + 40);
+		}
+		i++;
+		pos.y += 75;
+	}
+}
+
+void		sdl_draw_info(void)
 {
 	SDL_Rect	pos;
 	SDL_Color	clr;
