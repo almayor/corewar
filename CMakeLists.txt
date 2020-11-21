@@ -129,7 +129,9 @@ add_executable(cor_merged
         sources/parse_command.c
         sources/parsing.c
         sources/parsing2.c
+        sources/prints.c
         sources/pruning.c
+        sources/put_usage.c
         sources/row_functions.c
         sources/tmp_utils.c
         sources/translate_exec.c
@@ -137,5 +139,4 @@ add_executable(cor_merged
         sources/writing_modules.c
         utils/enrich_latest.c
         utils/main.c
-        utils/old.c
-)
+        utils/old.c)

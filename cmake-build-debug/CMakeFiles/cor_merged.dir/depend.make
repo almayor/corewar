@@ -493,12 +493,27 @@ CMakeFiles/cor_merged.dir/sources/parsing2.c.o: ../libft/includes/ft_printf.h
 CMakeFiles/cor_merged.dir/sources/parsing2.c.o: ../libft/includes/libft.h
 CMakeFiles/cor_merged.dir/sources/parsing2.c.o: ../sources/parsing2.c
 
+CMakeFiles/cor_merged.dir/sources/prints.c.o: ../includes/asm_struct.h
+CMakeFiles/cor_merged.dir/sources/prints.c.o: ../includes/op.h
+CMakeFiles/cor_merged.dir/sources/prints.c.o: ../includes/parser.h
+CMakeFiles/cor_merged.dir/sources/prints.c.o: ../libft/includes/ft_printf.h
+CMakeFiles/cor_merged.dir/sources/prints.c.o: ../libft/includes/libft.h
+CMakeFiles/cor_merged.dir/sources/prints.c.o: ../sources/prints.c
+
 CMakeFiles/cor_merged.dir/sources/pruning.c.o: ../includes/asm_struct.h
 CMakeFiles/cor_merged.dir/sources/pruning.c.o: ../includes/op.h
 CMakeFiles/cor_merged.dir/sources/pruning.c.o: ../includes/parser.h
 CMakeFiles/cor_merged.dir/sources/pruning.c.o: ../libft/includes/ft_printf.h
 CMakeFiles/cor_merged.dir/sources/pruning.c.o: ../libft/includes/libft.h
 CMakeFiles/cor_merged.dir/sources/pruning.c.o: ../sources/pruning.c
+
+CMakeFiles/cor_merged.dir/sources/put_usage.c.o: ../includes/asm_struct.h
+CMakeFiles/cor_merged.dir/sources/put_usage.c.o: ../includes/op.h
+CMakeFiles/cor_merged.dir/sources/put_usage.c.o: ../includes/operations.h
+CMakeFiles/cor_merged.dir/sources/put_usage.c.o: ../includes/translation.h
+CMakeFiles/cor_merged.dir/sources/put_usage.c.o: ../libft/includes/ft_printf.h
+CMakeFiles/cor_merged.dir/sources/put_usage.c.o: ../libft/includes/libft.h
+CMakeFiles/cor_merged.dir/sources/put_usage.c.o: ../sources/put_usage.c
 
 CMakeFiles/cor_merged.dir/sources/row_functions.c.o: ../includes/asm_struct.h
 CMakeFiles/cor_merged.dir/sources/row_functions.c.o: ../includes/op.h

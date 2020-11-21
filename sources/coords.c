@@ -28,8 +28,9 @@ int			hard_coord(t_parser *parser, t_token **token, int tok_num, int c)
 
 	check = *token;
 	c = hard_coord2(check, c);
-	while (tok_num++)
+	while (1)
 	{
+		tok_num++;
 		(*token)->point.token = tok_num;
 		if (check->next != NULL)
 			(*token)->point.row = check->next->point.row;
@@ -43,10 +44,9 @@ int			hard_coord(t_parser *parser, t_token **token, int tok_num, int c)
 		}
 		add_label(&parser->labels,
 		init_label((*token)->content, (*token)->point.row, c, parser));
-		if ((*token)->next->type == LABEL_TYPE)
-			(*token) = (*token)->next;
-		else
+		if ((*token)->next->type != LABEL_TYPE)
 			break ;
+		(*token) = (*token)->next;
 	}
 	return (tok_num);
 }
