@@ -59,11 +59,30 @@ int		is_filename(char *filename, char *ext)
 	return (FALSE);
 }
 
+int		ft_bonus(char *av)
+{
+	if (!ft_strcmp(av, "-t"))
+		return (1);
+	else if (!ft_strcmp(av, "-l"))
+		return (2);
+	else
+		return (-1);
+}
+
 int		main(int ac, char **av)
 {
-	if (ac == 2 && is_filename(av[1], ".s"))
+	int bonus1;
+	int bonus2;
+
+	bonus1 = 0;
+	bonus2 = 0;
+	if (ac >= 2 && ac < 5 && is_filename(av[1], ".s"))
 	{
-		assembler(av[1]);
+		if (av[2])
+			bonus1 = ft_bonus(av[2]);
+		if (av[3])
+			bonus2 = ft_bonus(av[3]);
+		assembler(av[1], bonus1, bonus2);
 	}
 	else
 		ft_printf("Usage: ./asm <champion>.s\n");

@@ -54,11 +54,13 @@ void	check_escape(t_parser *parser, char *filename)
 	check_escape2(balance, parser, (char*)stock[parser->fd_s]);
 }
 
-void	assembler(char *filename)
+void	assembler(char *filename, int bonus1, int bonus2)
 {
 	t_parser	*parser;
 
 	parser = init_asm_parser();
+	if (bonus1 == -1 || bonus2 == -1 || (bonus1 > 0 && bonus1 == bonus2))
+		core_error(parser, ERR_BONUS, NULL, NULL);
 	if ((parser->fd_s = open(filename, O_RDONLY)) == -1)
 		core_error(parser, ERR_OPEN_FILE, NULL, NULL);
 	parsing(parser, 0);
@@ -67,8 +69,10 @@ void	assembler(char *filename)
 	parser->file_name = ft_strjoin_free(ft_strsub(filename, 0,
 				ft_strlen(filename) - 2), ".cor");
 	// simple_parser_print_(parser);
-	// print_tokens_(parser);
-	// print_labels_(parser);
+	if (bonus1 == 1 || bonus2 == 1)
+		print_tokens_(parser);
+	if (bonus1 == 2 || bonus2 == 2)
+		print_labels_(parser);
 	translation(parser);
 	core_free(parser);
 }
