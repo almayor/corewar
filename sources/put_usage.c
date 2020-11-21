@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 01:57:23 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 21:08:16 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 21:25:03 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		put_asm_usage(void)
 	ft_printf("  -h, --help\t print usage (cancel other options)\n");
 	ft_printf("\nDiscription.\n");
 	ft_printf("Programm translate assemble code from file .s to byte-code.\n");
-	ft_printf("Result storing in file .cor");
+	ft_printf("Result storing in file .cor ");
 	ft_printf("in the same directory that .s file\n");
 }
 
@@ -77,5 +77,9 @@ void		put_bonus(t_parser *stor, t_flags flags)
 	if (flags.labels)
 		labels_print(stor);
 	if (flags.help)
+	{
 		put_asm_usage();
+		core_free(stor);
+		exit(EXIT_SUCCESS);
+	}
 }

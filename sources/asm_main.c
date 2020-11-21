@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 19:22:05 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/21 18:30:19 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 21:19:41 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,9 @@ t_flags		parse_asm_flags(int ac, char **av)
 	flags.help = 0;
 	while (i < ac)
 	{
-		if (!ft_strcmp(av[i], "-t") || !ft_strcmp(av[i], "--tokens") ||
-		!ft_strcmp(av[i], "-tl") || !ft_strcmp(av[i], "-lt"))
+		if (!ft_strcmp(av[i], "-t") || !ft_strcmp(av[i], "--tokens"))
 			flags.tokens = 1;
-		if (!ft_strcmp(av[i], "-l") || !ft_strcmp(av[i], "--labels") ||
-		!ft_strcmp(av[i], "-tl") || !ft_strcmp(av[i], "-lt"))
+		if (!ft_strcmp(av[i], "-l") || !ft_strcmp(av[i], "--labels"))
 			flags.labels = 1;
 		if (!ft_strcmp(av[i], "-h") || !ft_strcmp(av[i], "--help"))
 			flags.help = 1;
