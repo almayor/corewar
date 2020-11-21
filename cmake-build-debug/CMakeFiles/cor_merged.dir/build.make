@@ -1572,9 +1572,22 @@ CMakeFiles/cor_merged.dir/sources/parsing2.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cor_merged.dir/sources/parsing2.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kysgramo/cor_merged/sources/parsing2.c -o CMakeFiles/cor_merged.dir/sources/parsing2.c.s
 
+CMakeFiles/cor_merged.dir/sources/prints.c.o: CMakeFiles/cor_merged.dir/flags.make
+CMakeFiles/cor_merged.dir/sources/prints.c.o: ../sources/prints.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building C object CMakeFiles/cor_merged.dir/sources/prints.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor_merged.dir/sources/prints.c.o   -c /Users/kysgramo/cor_merged/sources/prints.c
+
+CMakeFiles/cor_merged.dir/sources/prints.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cor_merged.dir/sources/prints.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/kysgramo/cor_merged/sources/prints.c > CMakeFiles/cor_merged.dir/sources/prints.c.i
+
+CMakeFiles/cor_merged.dir/sources/prints.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cor_merged.dir/sources/prints.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kysgramo/cor_merged/sources/prints.c -o CMakeFiles/cor_merged.dir/sources/prints.c.s
+
 CMakeFiles/cor_merged.dir/sources/pruning.c.o: CMakeFiles/cor_merged.dir/flags.make
 CMakeFiles/cor_merged.dir/sources/pruning.c.o: ../sources/pruning.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building C object CMakeFiles/cor_merged.dir/sources/pruning.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building C object CMakeFiles/cor_merged.dir/sources/pruning.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor_merged.dir/sources/pruning.c.o   -c /Users/kysgramo/cor_merged/sources/pruning.c
 
 CMakeFiles/cor_merged.dir/sources/pruning.c.i: cmake_force
@@ -1585,9 +1598,22 @@ CMakeFiles/cor_merged.dir/sources/pruning.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cor_merged.dir/sources/pruning.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kysgramo/cor_merged/sources/pruning.c -o CMakeFiles/cor_merged.dir/sources/pruning.c.s
 
+CMakeFiles/cor_merged.dir/sources/put_usage.c.o: CMakeFiles/cor_merged.dir/flags.make
+CMakeFiles/cor_merged.dir/sources/put_usage.c.o: ../sources/put_usage.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building C object CMakeFiles/cor_merged.dir/sources/put_usage.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor_merged.dir/sources/put_usage.c.o   -c /Users/kysgramo/cor_merged/sources/put_usage.c
+
+CMakeFiles/cor_merged.dir/sources/put_usage.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cor_merged.dir/sources/put_usage.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/kysgramo/cor_merged/sources/put_usage.c > CMakeFiles/cor_merged.dir/sources/put_usage.c.i
+
+CMakeFiles/cor_merged.dir/sources/put_usage.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cor_merged.dir/sources/put_usage.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kysgramo/cor_merged/sources/put_usage.c -o CMakeFiles/cor_merged.dir/sources/put_usage.c.s
+
 CMakeFiles/cor_merged.dir/sources/row_functions.c.o: CMakeFiles/cor_merged.dir/flags.make
 CMakeFiles/cor_merged.dir/sources/row_functions.c.o: ../sources/row_functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building C object CMakeFiles/cor_merged.dir/sources/row_functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building C object CMakeFiles/cor_merged.dir/sources/row_functions.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor_merged.dir/sources/row_functions.c.o   -c /Users/kysgramo/cor_merged/sources/row_functions.c
 
 CMakeFiles/cor_merged.dir/sources/row_functions.c.i: cmake_force
@@ -1600,7 +1626,7 @@ CMakeFiles/cor_merged.dir/sources/row_functions.c.s: cmake_force
 
 CMakeFiles/cor_merged.dir/sources/tmp_utils.c.o: CMakeFiles/cor_merged.dir/flags.make
 CMakeFiles/cor_merged.dir/sources/tmp_utils.c.o: ../sources/tmp_utils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building C object CMakeFiles/cor_merged.dir/sources/tmp_utils.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building C object CMakeFiles/cor_merged.dir/sources/tmp_utils.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor_merged.dir/sources/tmp_utils.c.o   -c /Users/kysgramo/cor_merged/sources/tmp_utils.c
 
 CMakeFiles/cor_merged.dir/sources/tmp_utils.c.i: cmake_force
@@ -1613,7 +1639,7 @@ CMakeFiles/cor_merged.dir/sources/tmp_utils.c.s: cmake_force
 
 CMakeFiles/cor_merged.dir/sources/translate_exec.c.o: CMakeFiles/cor_merged.dir/flags.make
 CMakeFiles/cor_merged.dir/sources/translate_exec.c.o: ../sources/translate_exec.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building C object CMakeFiles/cor_merged.dir/sources/translate_exec.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building C object CMakeFiles/cor_merged.dir/sources/translate_exec.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor_merged.dir/sources/translate_exec.c.o   -c /Users/kysgramo/cor_merged/sources/translate_exec.c
 
 CMakeFiles/cor_merged.dir/sources/translate_exec.c.i: cmake_force
@@ -1626,7 +1652,7 @@ CMakeFiles/cor_merged.dir/sources/translate_exec.c.s: cmake_force
 
 CMakeFiles/cor_merged.dir/sources/translation.c.o: CMakeFiles/cor_merged.dir/flags.make
 CMakeFiles/cor_merged.dir/sources/translation.c.o: ../sources/translation.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building C object CMakeFiles/cor_merged.dir/sources/translation.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building C object CMakeFiles/cor_merged.dir/sources/translation.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor_merged.dir/sources/translation.c.o   -c /Users/kysgramo/cor_merged/sources/translation.c
 
 CMakeFiles/cor_merged.dir/sources/translation.c.i: cmake_force
@@ -1639,7 +1665,7 @@ CMakeFiles/cor_merged.dir/sources/translation.c.s: cmake_force
 
 CMakeFiles/cor_merged.dir/sources/writing_modules.c.o: CMakeFiles/cor_merged.dir/flags.make
 CMakeFiles/cor_merged.dir/sources/writing_modules.c.o: ../sources/writing_modules.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building C object CMakeFiles/cor_merged.dir/sources/writing_modules.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building C object CMakeFiles/cor_merged.dir/sources/writing_modules.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor_merged.dir/sources/writing_modules.c.o   -c /Users/kysgramo/cor_merged/sources/writing_modules.c
 
 CMakeFiles/cor_merged.dir/sources/writing_modules.c.i: cmake_force
@@ -1652,7 +1678,7 @@ CMakeFiles/cor_merged.dir/sources/writing_modules.c.s: cmake_force
 
 CMakeFiles/cor_merged.dir/utils/enrich_latest.c.o: CMakeFiles/cor_merged.dir/flags.make
 CMakeFiles/cor_merged.dir/utils/enrich_latest.c.o: ../utils/enrich_latest.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building C object CMakeFiles/cor_merged.dir/utils/enrich_latest.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building C object CMakeFiles/cor_merged.dir/utils/enrich_latest.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor_merged.dir/utils/enrich_latest.c.o   -c /Users/kysgramo/cor_merged/utils/enrich_latest.c
 
 CMakeFiles/cor_merged.dir/utils/enrich_latest.c.i: cmake_force
@@ -1665,7 +1691,7 @@ CMakeFiles/cor_merged.dir/utils/enrich_latest.c.s: cmake_force
 
 CMakeFiles/cor_merged.dir/utils/main.c.o: CMakeFiles/cor_merged.dir/flags.make
 CMakeFiles/cor_merged.dir/utils/main.c.o: ../utils/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building C object CMakeFiles/cor_merged.dir/utils/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building C object CMakeFiles/cor_merged.dir/utils/main.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor_merged.dir/utils/main.c.o   -c /Users/kysgramo/cor_merged/utils/main.c
 
 CMakeFiles/cor_merged.dir/utils/main.c.i: cmake_force
@@ -1678,7 +1704,7 @@ CMakeFiles/cor_merged.dir/utils/main.c.s: cmake_force
 
 CMakeFiles/cor_merged.dir/utils/old.c.o: CMakeFiles/cor_merged.dir/flags.make
 CMakeFiles/cor_merged.dir/utils/old.c.o: ../utils/old.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building C object CMakeFiles/cor_merged.dir/utils/old.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building C object CMakeFiles/cor_merged.dir/utils/old.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cor_merged.dir/utils/old.c.o   -c /Users/kysgramo/cor_merged/utils/old.c
 
 CMakeFiles/cor_merged.dir/utils/old.c.i: cmake_force
@@ -1806,7 +1832,9 @@ cor_merged_OBJECTS = \
 "CMakeFiles/cor_merged.dir/sources/parse_command.c.o" \
 "CMakeFiles/cor_merged.dir/sources/parsing.c.o" \
 "CMakeFiles/cor_merged.dir/sources/parsing2.c.o" \
+"CMakeFiles/cor_merged.dir/sources/prints.c.o" \
 "CMakeFiles/cor_merged.dir/sources/pruning.c.o" \
+"CMakeFiles/cor_merged.dir/sources/put_usage.c.o" \
 "CMakeFiles/cor_merged.dir/sources/row_functions.c.o" \
 "CMakeFiles/cor_merged.dir/sources/tmp_utils.c.o" \
 "CMakeFiles/cor_merged.dir/sources/translate_exec.c.o" \
@@ -1934,7 +1962,9 @@ cor_merged: CMakeFiles/cor_merged.dir/sources/label_value.c.o
 cor_merged: CMakeFiles/cor_merged.dir/sources/parse_command.c.o
 cor_merged: CMakeFiles/cor_merged.dir/sources/parsing.c.o
 cor_merged: CMakeFiles/cor_merged.dir/sources/parsing2.c.o
+cor_merged: CMakeFiles/cor_merged.dir/sources/prints.c.o
 cor_merged: CMakeFiles/cor_merged.dir/sources/pruning.c.o
+cor_merged: CMakeFiles/cor_merged.dir/sources/put_usage.c.o
 cor_merged: CMakeFiles/cor_merged.dir/sources/row_functions.c.o
 cor_merged: CMakeFiles/cor_merged.dir/sources/tmp_utils.c.o
 cor_merged: CMakeFiles/cor_merged.dir/sources/translate_exec.c.o
@@ -1945,7 +1975,7 @@ cor_merged: CMakeFiles/cor_merged.dir/utils/main.c.o
 cor_merged: CMakeFiles/cor_merged.dir/utils/old.c.o
 cor_merged: CMakeFiles/cor_merged.dir/build.make
 cor_merged: CMakeFiles/cor_merged.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Linking C executable cor_merged"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kysgramo/cor_merged/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Linking C executable cor_merged"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cor_merged.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -47,10 +47,10 @@ p32deb:	zjmp	%0
 	zjmp	%0
 	zjmp	%0
 	zjmp	%0
+	zjmp	%0,
 	zjmp	%0
 	zjmp	%0
-	zjmp	%0
-	zjmp	%0
+	zjmp	%0 
 	zjmp	%0
 
 	zjmp	%0

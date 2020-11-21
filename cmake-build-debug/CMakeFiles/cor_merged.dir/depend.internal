@@ -493,6 +493,13 @@ CMakeFiles/cor_merged.dir/sources/parsing2.c.o
  ../libft/includes/ft_printf.h
  ../libft/includes/libft.h
  /Users/kysgramo/cor_merged/sources/parsing2.c
+CMakeFiles/cor_merged.dir/sources/prints.c.o
+ ../includes/asm_struct.h
+ ../includes/op.h
+ ../includes/parser.h
+ ../libft/includes/ft_printf.h
+ ../libft/includes/libft.h
+ /Users/kysgramo/cor_merged/sources/prints.c
 CMakeFiles/cor_merged.dir/sources/pruning.c.o
  ../includes/asm_struct.h
  ../includes/op.h
@@ -500,6 +507,14 @@ CMakeFiles/cor_merged.dir/sources/pruning.c.o
  ../libft/includes/ft_printf.h
  ../libft/includes/libft.h
  /Users/kysgramo/cor_merged/sources/pruning.c
+CMakeFiles/cor_merged.dir/sources/put_usage.c.o
+ ../includes/asm_struct.h
+ ../includes/op.h
+ ../includes/operations.h
+ ../includes/translation.h
+ ../libft/includes/ft_printf.h
+ ../libft/includes/libft.h
+ /Users/kysgramo/cor_merged/sources/put_usage.c
 CMakeFiles/cor_merged.dir/sources/row_functions.c.o
  ../includes/asm_struct.h
  ../includes/op.h
