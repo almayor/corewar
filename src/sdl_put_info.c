@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:48:53 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 02:28:10 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 22:17:30 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	sdl_put_players(SDL_Rect pos)
 			free(player);
 		}
 		i++;
-		pos.y += 90;
+		pos.y += 75;
 	}
 }
 
@@ -95,44 +95,6 @@ void	sdl_put_handling(SDL_Rect pos, SDL_Color clr)
 	SDL_RenderDrawRect(g_visu.rend, &pos);
 }
 
-char *get_hz(size_t n)
-{
-	char *res;
-
-	res = ft_calloc(1, n + 1);
-	ft_memset(res, '0', n);
-	return (res);
-}
-
-void	sdl_put_hz(SDL_Rect pos, SDL_Color clr)
-{
-	SDL_Color	champ;
-	int			i;
-	
-	pos.y = pos.y + g_vm.nchamps * 90;
-	sdl_put_text(HZ, clr, pos);
-	i = 0;
-	pos.x += 7;
-	while (i < MAX_PLAYERS)
-	{
-		if (g_vm.champs[i].ichamp > 0)
-		{
-			double s = (g_vm.curr_nlive) ? g_vm.champs[i].curr_nlive / (double)g_vm.curr_nlive : 0;
-			printf("%.1f - %.3f - (%u)\n", 50.0 * s, s, g_vm.curr_nlive);
-			champ = get_player_color(g_vm.champs[i].ichamp);
-			char *str = get_hz(50.0 * s);
-			if (ft_strlen(str) > 0)
-			{
-				sdl_put_text(str, champ, pos);
-				pos.x = pos.x + (int)(50.0 * s) * 7;
-			}
-			free(str);
-		}
-		i++;
-	}
-	ft_printf("\n");
-}
-
 void	sdl_put_params(void)
 {
 	SDL_Rect	pos;
@@ -152,5 +114,12 @@ void	sdl_put_params(void)
 	pos.y += 40;
 	sdl_put_players(pos);
 	sdl_put_handling(pos, clr);
-	sdl_put_hz(pos, clr);
+	pos.y = pos.y + g_vm.nchamps * 80;
+	sdl_put_text(CURR_RATIO, clr, pos);
+	pos.y = pos.y + 20;
+	sdl_draw_ratio(pos, clr, 1);
+	pos.y = pos.y + 30;
+	sdl_put_text(PREV_RATIO, clr, pos);
+	pos.y = pos.y + 20;
+	sdl_draw_ratio(pos, clr, 0);
 }

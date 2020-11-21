@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 02:25:59 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 22:19:08 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@
 # define S_PROC		"Processes: "
 # define S_CURRLIVE	"Lives in current period: "
 # define LAST_LIVE	"Last live:               "
-# define HZ			"[                                                  ]"
+
+# define CURR_RATIO	"Live breakdown for current period:"
+# define PREV_RATIO "Live breakdown fot previous period:"
+# define EMPTY_LINE	"[                                                  ]"
+# define FILL_LINE	"##################################################"
 
 # define USAGE_0	"       ****** HANDLING ******"
 # define USAGE_1	"Pause / Run         SPACE"
@@ -110,6 +114,8 @@ void	sdl_test_draw(void);
 void	sdl_quit(void);
 
 void	sdl_draw_map(void);
+
+void	sdl_draw_ratio(SDL_Rect pos, SDL_Color clr, int flag);
 
 
 

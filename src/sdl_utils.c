@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 20:58:07 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/20 23:59:25 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 22:09:20 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ SDL_Color	get_player_color(uint32_t ichamp)
 	if (ichamp == 1)
 		res = (SDL_Color){240, 240, 0, 1};
 	else if (ichamp == 2)
-		res = (SDL_Color){40, 200, 10, 1};
+		res = (SDL_Color){255, 30, 30, 1};//(SDL_Color){40, 200, 10, 1};
 	else if (ichamp == 3)
 		res = (SDL_Color){0, 190, 150, 1};
 	else if (ichamp == 4)
