@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _TRANSLATION_H_
-# define _TRANSLATION_H_
+#ifndef TRANSLATION_H
+# define TRANSLATION_H
 
 # include <stdio.h>		// for printf - DELETE
 
@@ -67,15 +67,13 @@ void		free_labels(t_parser *stor);
 void		put_op_usage(t_token *arg);
 void		put_label_err(t_token *arg);
 
-
-
 // TMP UTILS - DELETE
 
-void	mock_read_(t_parser *stor);
-void	print_tokens_(t_parser *stor);
-void	print_labels_(t_parser *stor);
-void	simple_tokens_print_(t_parser *stor);
-void	simple_parser_print_(t_parser *stor);
-void	test_label_value_(t_parser *stor);
+void		mock_read_(t_parser *stor);
+void		print_tokens_(t_parser *stor);
+void		print_labels_(t_parser *stor);
+void		simple_tokens_print_(t_parser *stor);
+void		simple_parser_print_(t_parser *stor);
+void		test_label_value_(t_parser *stor);
 
 #endif

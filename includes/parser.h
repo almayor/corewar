@@ -14,9 +14,9 @@
 ** The assembler header file
 */
 
-#ifndef ASM_H
+#ifndef PARSER_H
 
-# define ASM_H
+# define PARSER_H
 # include "asm_struct.h"
 # include "libft.h"
 # include <stdlib.h>
@@ -49,7 +49,6 @@
 # define ERR_EMPTY_LABEL		"Error: empty label"
 # define ERR_LABEL_OP   		"Error: operation should come after label"
 
-
 void			terminate(char *s);
 void			assembler(char *filename);
 t_parser		*init_asm_parser(void);
@@ -67,7 +66,8 @@ t_parser *parser);
 void			parse_digit(t_parser *parser, char *row, int start,
 t_token *token);
 void			add_label(t_label **labels, t_label *label);
-void			coords_and_labels(t_parser *parser, t_token *tokens, int tok_num);
+void			coords_and_labels(t_parser *parser, t_token *tokens,
+int tok_num);
 void			improve_coords(t_token *tokens);
 void			print_tokens(t_token *tokens);
 void			print_labels(t_label *labels);
@@ -76,10 +76,11 @@ int				is_register(t_token *token);
 int				is_operation(t_token *token);
 int				is_delimiter(int c);
 void			trim_from_comments_spaces(t_parser *parser, char *row);
-void		    lexical_error(t_parser *parser, t_token *token, char **row);
-void			core_error(t_parser *stor, char *message, void(*f)(), t_token *arg);
-void	    	prune_tokens(t_parser *parser);
-void		    validate_labeltoken(t_token *token, t_parser *parser);
-void	    	print_tokens(t_token *tokens);
-void	    	print_labels(t_label *labels);
+void			lexical_error(t_parser *parser, t_token *token, char **row);
+void			core_error(t_parser *stor, char *message, void(*f)(),
+t_token *arg);
+void			prune_tokens(t_parser *parser);
+void			validate_labeltoken(t_token *token, t_parser *parser);
+void			print_tokens(t_token *tokens);
+void			print_labels(t_label *labels);
 #endif

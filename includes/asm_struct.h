@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _ASM_STRUCT_H_
-# define _ASM_STRUCT_H_
+#ifndef ASM_STRUCT_H
+# define ASM_STRUCT_H
 
 # include "op.h"
 
@@ -33,7 +33,7 @@ typedef enum
 	OP_TYPE,
 	END_FILE,
 	UNKNOWN,
-}					t_type;
+}	t_type;
 
 typedef union		u_four
 {
@@ -56,7 +56,6 @@ typedef union		u_two
 		unsigned char	c2:8;
 	}				t_tw;
 }					t_two;
-
 
 typedef struct		s_point
 {

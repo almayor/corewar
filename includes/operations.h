@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _OPERATIONS_H_
-# define _OPERATIONS_H_
+#ifndef OPERATIONS_H
+# define OPERATIONS_H
 
 # include <stdint.h>
 
@@ -33,7 +33,7 @@ typedef enum
 	LLDI,
 	LFORK,
 	AFF,
-}					t_ops_names;
+}	t_ops_names;
 
 typedef struct		s_ops
 {
@@ -45,8 +45,7 @@ typedef struct		s_ops
 	uint8_t			dir_size;
 }					t_ops;
 
-
-static t_ops	op_tmpl[16] = {
+static t_ops		op_tmpl[16] = {
 	{
 		.name = "live",
 		.op_code = 0x01,
