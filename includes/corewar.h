@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/19 21:14:53 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 22:20:55 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,8 +190,7 @@ struct			s_vm
 	uint8_t		aff_flag;
 	uint8_t		log;
 	t_parse		temp[MAX_PLAYERS];
-	//t_visu		visual;
-	uint8_t		visu_flag;			
+	uint8_t		visu_flag;
 };
 
 /*

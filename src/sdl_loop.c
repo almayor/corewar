@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:42:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/20 23:29:42 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 22:24:33 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	sdl_loop(void)
 		}
 		if (!g_visu.pause && end)
 			end = run_once();
-		//sdl_new_draw();
 		sdl_draw_map();
 		sdl_put_params();
 		sdl_draw_border();
@@ -42,7 +41,7 @@ void	sdl_loop(void)
 
 void	sdl_mouse_event(SDL_Event event)
 {
-	SDL_GetMouseState(&g_visu.x, &g_visu.y);
+	SDL_GetMouseState(&g_visu.m_x, &g_visu.m_y);
 	if (event.type == SDL_QUIT || g_visu.keyboard[SDL_SCANCODE_ESCAPE])
 		g_visu.quit = 0;
 	if (event.type == SDL_MOUSEWHEEL)
@@ -50,7 +49,7 @@ void	sdl_mouse_event(SDL_Event event)
 		if (event.wheel.y > 0)
 			g_visu.g_y = (g_visu.g_y >= 20) ? g_visu.g_y : g_visu.g_y + 35;
 		else
-			g_visu.g_y = (g_visu.g_y <= -500) ? g_visu.g_y : g_visu.g_y - 35;
+			g_visu.g_y = (g_visu.g_y <= -470) ? g_visu.g_y : g_visu.g_y - 35;
 	}
 	if (event.type == SDL_MOUSEBUTTONDOWN)
 		g_visu.click = 1;
@@ -58,9 +57,9 @@ void	sdl_mouse_event(SDL_Event event)
 		g_visu.click = 0;
 	if (g_visu.click)
 	{
-		if (event.button.x - g_visu.x > 0)
-			g_visu.g_x = (g_visu.g_x > -250) ? g_visu.g_x - 10 : g_visu.g_x;
-		if (event.button.x - g_visu.x < 0)
+		if (event.button.x - g_visu.m_x > 0)
+			g_visu.g_x = (g_visu.g_x > -200) ? g_visu.g_x - 10 : g_visu.g_x;
+		if (event.button.x - g_visu.m_x < 0)
 			g_visu.g_x = (g_visu.g_x < 30) ? g_visu.g_x + 10 : g_visu.g_x;
 	}
 }

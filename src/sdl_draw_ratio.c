@@ -6,13 +6,13 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 21:40:03 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 22:06:07 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 22:20:34 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-static char	*get_part(size_t n)
+static char	*get_ratio_text(size_t n)
 {
 	char *res;
 
@@ -40,7 +40,7 @@ static void	draw_ratio(int *width, int *player, SDL_Rect pos)
 		if (width[i] > 0)
 		{
 			clr = get_player_color(player[i]);
-			if (!(str = get_part(width[i])))
+			if (!(str = get_ratio_text(width[i])))
 				terminate(MALLOC_ERROR);
 			sdl_put_text(str, clr, pos);
 			pos.x = pos.x + ft_strlen(str) * 7;

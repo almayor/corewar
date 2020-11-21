@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 22:19:08 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 22:21:26 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <SDL2/SDL.h>
 # include <SDL2/SDL_ttf.h>
-
 # include "corewar.h"
 # include "libft.h"
 
@@ -76,8 +75,8 @@ struct				s_visu
 	int				pause_flag;
 	int				runing;
 	int				click;
-	int				x;
-	int				y;
+	int				m_x;
+	int				m_y;
 	int				g_x;
 	int				g_y;
 };
