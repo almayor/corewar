@@ -62,6 +62,7 @@ void	assembler(char *filename, t_flags flags)
 	if ((parser->fd_s = open(filename, O_RDONLY)) == -1)
 		core_error(parser, ERR_OPEN_FILE, NULL, NULL);
 	parsing(parser, 0);
+	prune_tokens(parser);
 	close(parser->fd_s);
 	check_escape(parser, filename);
 	parser->file_name = ft_strjoin_free(ft_strsub(filename, 0,

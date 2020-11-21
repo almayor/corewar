@@ -48,9 +48,8 @@
 # define ERR_DOUBLE_COMMAND		"Error: double command"
 # define ERR_EMPTY_LABEL		"Error: empty label"
 # define ERR_LABEL_OP   		"Error: operation should come after label"
-// # define ERR_BONUS				"Usage: ./asm <champion>.s\n-t - tokens\n-l - labels\n"
+# define ERR_NO_CODE			"Error: no champion code"
 
-// void			terminate(char *s);
 void			assembler(char *filename, t_flags flags);
 t_parser		*init_asm_parser(void);
 void			parsing(t_parser *parser, int tok_len);

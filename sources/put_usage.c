@@ -60,9 +60,9 @@ void	put_asm_usage(void)
 	ft_printf("  -t, --tokens\t print tokens information\n");
 	ft_printf("  -l, --labels\t print labels information\n");
 	ft_printf("  -h, --help\t print usage\n");
-	ft_printf("\nDiscription.\n");
-	ft_printf("Programm translate assemble code from file .s to byte-code.\n");
-	ft_printf("Result storing in file .cor in the same directory that .s file\n");
+	ft_printf("\nDescription.\n");
+	ft_printf("Programme translates assembler code from file .s to byte-code.\n");
+	ft_printf("Result is stored to the .cor file in the same directory as the .s file\n");
 
 }
 

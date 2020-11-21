@@ -111,10 +111,11 @@ void		parsing(t_parser *parser, int tok_len)
 		}
 		ft_strdel(&row);
 	}
+	if (tok_len == 0)
+		core_error(parser, ERR_NO_CODE, NULL, NULL);
 	add_token(&parser->tokens, init_token(parser, END_FILE));
 	validate_commands(parser);
 	coords_and_labels(parser, parser->tokens, -1);
-	prune_tokens(parser);
 }
 
 /*

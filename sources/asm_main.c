@@ -12,16 +12,7 @@
 
 #include "parser.h"
 
-// void	terminate(char *s)
-// {
-// 	if (errno == 0)
-// 		ft_putendl_fd(s, 2);
-// 	else
-// 		perror(s);
-// 	exit(1);
-// }
-
-int		ft_strstr_n(const char *haystack, const char *needle)
+int			ft_strstr_n(const char *haystack, const char *needle)
 {
 	int i;
 	int j;
@@ -50,7 +41,7 @@ int		ft_strstr_n(const char *haystack, const char *needle)
 	return (n);
 }
 
-int		is_filename(char *filename, char *ext)
+int			is_filename(char *filename, char *ext)
 {
 	if (filename && ext && ft_strlen(filename) >= ft_strlen(ext)
 			&& ft_strstr(filename, ext) && ft_strstr_n(filename, ext) == 1
@@ -58,16 +49,6 @@ int		is_filename(char *filename, char *ext)
 		return (TRUE);
 	return (FALSE);
 }
-
-// int		ft_bonus(char *av)
-// {
-// 	if (!ft_strcmp(av, "-t"))
-// 		return (1);
-// 	else if (!ft_strcmp(av, "-l"))
-// 		return (2);
-// 	else
-// 		return (-1);
-// }
 
 t_flags		parse_asm_flags(int ac, char **av)
 {
@@ -84,7 +65,7 @@ t_flags		parse_asm_flags(int ac, char **av)
 		!ft_strcmp(av[i], "-tl") || !ft_strcmp(av[i], "-lt"))
 			flags.tokens = 1;
 		if (!ft_strcmp(av[i], "-l") || !ft_strcmp(av[i], "--labels") ||
-		 !ft_strcmp(av[i], "-tl") || !ft_strcmp(av[i], "-lt"))
+		!ft_strcmp(av[i], "-tl") || !ft_strcmp(av[i], "-lt"))
 			flags.labels = 1;
 		if (!ft_strcmp(av[i], "-h") || !ft_strcmp(av[i], "--help"))
 			flags.help = 1;
@@ -95,7 +76,7 @@ t_flags		parse_asm_flags(int ac, char **av)
 	return (flags);
 }
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	t_flags		flags;
 
