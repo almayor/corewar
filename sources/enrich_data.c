@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:46:36 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 03:15:17 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 17:36:51 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@ void		check_arg(t_parser *stor, t_token *arg, int shift)
 	(pos < max_args && arg->next && arg->next->type == END_FILE))
 		core_error(stor, ARG_NUM_ERR, *put_op_usage, arg);
 	if (expected_code < (T_REG | T_DIR | T_IND) && !(expected_code & code))
+	{
+		printf("arg = %s y = %d y = %d\n", arg->content, arg->point.row, arg->point.token);
 		core_error(stor, ARG_TYPE_ERR, *put_op_usage, arg);
+	}
 	if ((arg->type == DIR_LABL_ARG_TYPE || arg->type == IND_LABL_ARG_TYPE) &&
 		!get_label(stor, arg->content))
 		core_error(stor, LABEL_ERR, *put_label_err, arg);

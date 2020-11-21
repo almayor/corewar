@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 03:49:59 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 00:52:54 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 18:13:48 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char types[11][20] = {
 	"LABEL_TYPE",
 	"DELIM_TYPE",
 	"OP_TYPE",
-	"END_FILE"
+	"END_FILE",
 	"UNKNOWN"};
 
 // y=3 x=1 - loop arg

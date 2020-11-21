@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 20:43:25 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 02:03:48 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 18:30:48 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@
 # define ERR_DOUBLE_COMMAND		"Error: double command"
 # define ERR_EMPTY_LABEL		"Error: empty label"
 # define ERR_LABEL_OP   		"Error: operation should come after label"
-# define ERR_BONUS				"Usage: ./asm <champion>.s\n-t - tokens\n-l - labels\n"
+// # define ERR_BONUS				"Usage: ./asm <champion>.s\n-t - tokens\n-l - labels\n"
 
-void			terminate(char *s);
-void			assembler(char *filename, int bonus1, int bonus2);
+// void			terminate(char *s);
+void			assembler(char *filename, t_flags flags);
 t_parser		*init_asm_parser(void);
 void			parsing(t_parser *parser, int tok_len);
 t_token			*init_token(t_parser *parser, t_type type);
@@ -84,4 +84,7 @@ void			prune_tokens(t_parser *parser);
 void			validate_labeltoken(t_token *token, t_parser *parser);
 void			print_tokens(t_token *tokens);
 void			print_labels(t_label *labels);
+void			put_asm_usage(void);
+void			put_bonus(t_parser *stor, t_flags flags);
+
 #endif

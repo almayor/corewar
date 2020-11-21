@@ -6,20 +6,20 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 19:22:05 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/17 20:44:02 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 18:30:19 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-void	terminate(char *s)
-{
-	if (errno == 0)
-		ft_putendl_fd(s, 2);
-	else
-		perror(s);
-	exit(1);
-}
+// void	terminate(char *s)
+// {
+// 	if (errno == 0)
+// 		ft_putendl_fd(s, 2);
+// 	else
+// 		perror(s);
+// 	exit(1);
+// }
 
 int		ft_strstr_n(const char *haystack, const char *needle)
 {
@@ -59,32 +59,52 @@ int		is_filename(char *filename, char *ext)
 	return (FALSE);
 }
 
-int		ft_bonus(char *av)
+// int		ft_bonus(char *av)
+// {
+// 	if (!ft_strcmp(av, "-t"))
+// 		return (1);
+// 	else if (!ft_strcmp(av, "-l"))
+// 		return (2);
+// 	else
+// 		return (-1);
+// }
+
+t_flags		parse_asm_flags(int ac, char **av)
 {
-	if (!ft_strcmp(av, "-t"))
-		return (1);
-	else if (!ft_strcmp(av, "-l"))
-		return (2);
-	else
-		return (-1);
+	int			i;
+	t_flags		flags;
+
+	i = 2;
+	flags.tokens = 0;
+	flags.labels = 0;
+	flags.help = 0;
+	while (i < ac)
+	{
+		if (!ft_strcmp(av[i], "-t") || !ft_strcmp(av[i], "--tokens") ||
+		!ft_strcmp(av[i], "-tl") || !ft_strcmp(av[i], "-lt"))
+			flags.tokens = 1;
+		if (!ft_strcmp(av[i], "-l") || !ft_strcmp(av[i], "--labels") ||
+		 !ft_strcmp(av[i], "-tl") || !ft_strcmp(av[i], "-lt"))
+			flags.labels = 1;
+		if (!ft_strcmp(av[i], "-h") || !ft_strcmp(av[i], "--help"))
+			flags.help = 1;
+		i++;
+	}
+	if (flags.help + flags.labels + flags.tokens != i - 2)
+		core_error(NULL, NULL, *put_asm_usage, NULL);
+	return (flags);
 }
 
 int		main(int ac, char **av)
 {
-	int bonus1;
-	int bonus2;
+	t_flags		flags;
 
-	bonus1 = 0;
-	bonus2 = 0;
-	if (ac >= 2 && ac < 5 && is_filename(av[1], ".s"))
+	if (ac >= 2 && ac < 6 && is_filename(av[1], ".s"))
 	{
-		if (av[2])
-			bonus1 = ft_bonus(av[2]);
-		if (av[3])
-			bonus2 = ft_bonus(av[3]);
-		assembler(av[1], bonus1, bonus2);
+		flags = parse_asm_flags(ac, av);
+		assembler(av[1], flags);
 	}
 	else
-		ft_printf("Usage: ./asm <champion>.s\n");
+		put_asm_usage();
 	return (0);
 }

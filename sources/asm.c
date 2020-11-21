@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:02:09 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/21 02:16:52 by user             ###   ########.fr       */
+/*   Updated: 2020/11/21 18:29:26 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,11 @@ void	check_escape(t_parser *parser, char *filename)
 	check_escape2(balance, parser, (char*)stock[parser->fd_s]);
 }
 
-void	assembler(char *filename, int bonus1, int bonus2)
+void	assembler(char *filename, t_flags flags)
 {
 	t_parser	*parser;
 
 	parser = init_asm_parser();
-	if (bonus1 == -1 || bonus2 == -1 || (bonus1 > 0 && bonus1 == bonus2))
-		core_error(parser, ERR_BONUS, NULL, NULL);
 	if ((parser->fd_s = open(filename, O_RDONLY)) == -1)
 		core_error(parser, ERR_OPEN_FILE, NULL, NULL);
 	parsing(parser, 0);
@@ -68,11 +66,7 @@ void	assembler(char *filename, int bonus1, int bonus2)
 	check_escape(parser, filename);
 	parser->file_name = ft_strjoin_free(ft_strsub(filename, 0,
 				ft_strlen(filename) - 2), ".cor");
-	// simple_parser_print_(parser);
-	if (bonus1 == 1 || bonus2 == 1)
-		print_tokens_(parser);
-	if (bonus1 == 2 || bonus2 == 2)
-		print_labels_(parser);
+	put_bonus(parser, flags);
 	translation(parser);
 	core_free(parser);
 }
