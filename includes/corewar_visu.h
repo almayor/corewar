@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 22:21:26 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 22:53:13 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define LAST_LIVE	"Last live:               "
 
 # define CURR_RATIO	"Live breakdown for current period:"
-# define PREV_RATIO "Live breakdown fot previous period:"
+# define PREV_RATIO "Live breakdown for previous period:"
 # define EMPTY_LINE	"[                                                  ]"
 # define FILL_LINE	"##################################################"
 
