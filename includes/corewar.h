@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 23:38:29 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/21 23:56:39 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@
 # include "op.h"
 # include "corewar_logs.h"
 # include "corewar_visu.h"
-
-# ifndef uint8_t
-typedef unsigned char	uint8_t;
-# endif
 
 typedef struct s_parse	t_parse;
 typedef struct s_proc	t_proc;
@@ -44,7 +40,7 @@ typedef int		(*t_instruct)(t_proc *proc);
 ** A union used for type punning
 */
 
-union					u_int
+union			u_int
 {
 	int8_t		int8;
 	int16_t		int16;
@@ -159,7 +155,7 @@ struct			s_parse
 ** Current number of cycles to die (cycles before passive processes are killed)
 ** @var s_gm::cycles_since_die
 ** Number of cycles passed since passive processes were killed
- * ** @var s_gm::checks_since_change
+** @var s_gm::checks_since_change
 ** Number of checks since the variable s_gm::cycles_to_die
 ** has been modified
 ** @var s_gm::dump_ncycles
@@ -203,51 +199,52 @@ extern	t_vm	g_vm;
 ** Instructions
 */
 
-int			add_instruct(t_proc *proc);
-int			aff_instruct(t_proc *proc);
-int			and_instruct(t_proc *proc);
-int			fork_instruct(t_proc *proc);
-int			ld_instruct(t_proc *proc);
-int			ldi_instruct(t_proc *proc);
-int			lfork_instruct(t_proc *proc);
-int			live_instruct(t_proc *proc);
-int			lld_instruct(t_proc *proc);
-int			lldi_instruct(t_proc *proc);
-int			or_instruct(t_proc *proc);
-int			st_instruct(t_proc *proc);
-int			sti_instruct(t_proc *proc);
-int			sub_instruct(t_proc *proc);
-int			xor_instruct(t_proc *proc);
-int			zjmp_instruct(t_proc *proc);
+int				add_instruct(t_proc *proc);
+int				aff_instruct(t_proc *proc);
+int				and_instruct(t_proc *proc);
+int				fork_instruct(t_proc *proc);
+int				ld_instruct(t_proc *proc);
+int				ldi_instruct(t_proc *proc);
+int				lfork_instruct(t_proc *proc);
+int				live_instruct(t_proc *proc);
+int				lld_instruct(t_proc *proc);
+int				lldi_instruct(t_proc *proc);
+int				or_instruct(t_proc *proc);
+int				st_instruct(t_proc *proc);
+int				sti_instruct(t_proc *proc);
+int				sub_instruct(t_proc *proc);
+int				xor_instruct(t_proc *proc);
+int				zjmp_instruct(t_proc *proc);
 
-void	*ft_xcalloc(size_t count, size_t size);
-void	*ft_xmalloc(size_t size);
+void			*ft_xcalloc(size_t count, size_t size);
+void			*ft_xmalloc(size_t size);
 
-uint32_t	get_instruction_length(const t_proc *proc);
-int			check_instruction(const t_proc *proc);
-void		read_instruction(t_proc *proc);
+uint32_t		get_instruction_length(const t_proc *proc);
+int				check_instruction(const t_proc *proc);
+void			read_instruction(t_proc *proc);
 
-int			get_arg_length(const t_proc *proc, int n);
-t_arg_type	get_arg_type(const t_proc *proc, int n);
-int			put_argument(t_proc *proc, int n, int32_t val);
-int			load_argument(const t_proc *proc, int n, int32_t *val);
+int				get_arg_length(const t_proc *proc, int n);
+t_arg_type		get_arg_type(const t_proc *proc, int n);
+int				put_argument(t_proc *proc, int n, int32_t val);
+int				load_argument(const t_proc *proc, int n, int32_t *val);
 
-void	create_proc(uint32_t ichamp, int32_t pos);
-void	fork_proc(int32_t pos, const t_proc *parent);
-void	kill_proc(t_proc *proc);
-void	print_proc(const t_proc *proc);
+void			create_proc(uint32_t ichamp, int32_t pos);
+void			fork_proc(int32_t pos, const t_proc *parent);
+void			kill_proc(t_proc *proc);
+void			print_proc(const t_proc *proc);
 
-int32_t	mem_read(int64_t pos, int nbytes);
-void	mem_write(uint32_t ichamp, int64_t pos, int32_t val, int nbytes);
+int32_t			mem_read(int64_t pos, int nbytes);
+void			mem_write(uint32_t ichamp, int64_t pos,
+					int32_t val, int nbytes);
 
-void	cleanup(void);
-void	terminate(const char *format, ...);
+void			cleanup(void);
+void			terminate(const char *format, ...);
 
-void		cycle(void);
-int			run_once(void);
-void		run(void);
-void		dump(void);
-void		load(void);
+void			cycle(void);
+int				run_once(void);
+void			run(void);
+void			dump(void);
+void			load(void);
 
 /*
 ** >------------------< Parsing arguments >------------------<
