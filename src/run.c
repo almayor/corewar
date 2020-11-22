@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/20 01:47:06 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 16:23:00 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void	update_champs(void)
 
 static void	update_ctd(void)
 {
-	if (g_vm.curr_nlive >= NBR_LIVE ||
+	if (g_vm.live_count >= NBR_LIVE ||
 		g_vm.checks_since_change >= MAX_CHECKS)
 	{
 		g_vm.cycles_to_die -= CYCLE_DELTA;
@@ -109,6 +109,7 @@ int			run_once(void)
 		g_vm.checks_since_change++;
 		g_vm.prev_nlive = g_vm.curr_nlive;
 		g_vm.curr_nlive = 0;
+		g_vm.live_count = 0;
 	}
 	return (1);
 }
