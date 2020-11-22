@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 20:58:07 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 18:08:21 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 18:21:48 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		sdl_mark_champ(uint32_t ichamp, size_t nbytes, uint32_t pos)
 {
-	int i;
+	size_t i;
 
 	i = 0;
 	while (i < nbytes)
@@ -32,7 +32,7 @@ t_proc		*get_proc(uint32_t index)
 	tmp = g_vm.procs;
 	while (tmp)
 	{
-		if (tmp->pc == index)
+		if ((uint32_t)tmp->pc == index)
 			return (tmp);
 		tmp = tmp->next;
 	}

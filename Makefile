@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/22 17:35:59 by user             ###   ########.fr        #
+#    Updated: 2020/11/22 18:19:24 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,19 +14,19 @@ NAME = corewar
 
 CC = gcc
 CFLAGS += -fsanitize=address
-# CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra -Werror
 CFLAGS += -MMD
 
-#ifeq ($(DEBUG), 1)
+ifeq ($(DEBUG), 1)
 	CFLAGS += -g
-#else
-#	CFLAGS += -DNDEBUG
-#	CFLAGS += -O3 -ffast-math
-#endif
+else
+	CFLAGS += -DNDEBUG
+	CFLAGS += -O3 -ffast-math
+endif
 
-#ifeq ($(shell uname -s), Linux)
-#	CFLAGS += -fno-tree-loop-distribute-patterns
-#endif
+ifeq ($(shell uname -s), Linux)
+	CFLAGS += -fno-tree-loop-distribute-patterns
+endif
 
 SRC_DIR = src
 OBJ_DIR = obj
