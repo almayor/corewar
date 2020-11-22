@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/22 18:19:24 by user             ###   ########.fr        #
+#    Updated: 2020/11/22 18:31:21 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,6 +86,7 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 DEP = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.d))
 INC = $(addprefix -I , $(INC_DIR))
 LIB = -L $(LIB_DIR) -lft -lSDL2 -lSDL2_ttf
+LIBFT = $(addprefix $(LIB_DIR), libft.a)
 
 -include $(DEP)
 
@@ -93,17 +94,17 @@ LIB = -L $(LIB_DIR) -lft -lSDL2 -lSDL2_ttf
 
 .DEFAULT_GOAL = all
 
-.PHONY : all clean fclean re test libft
+.PHONY : all clean fclean re test
 
-all: $(NAME) 
+all: $(NAME)
 
-$(NAME): libft $(OBJ)
+$(NAME): $(LIBFT) $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB)
 	@printf "$(GR)>> Program $(NAME) created <<\n$(EOC)"
 
-# FORCE:		;
+FORCE:		;
 
-libft:
+$(LIBFT): FORCE
 	@make -C $(LIB_DIR)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
