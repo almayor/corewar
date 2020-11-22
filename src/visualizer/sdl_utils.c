@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 20:58:07 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 18:21:48 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 23:34:59 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,17 @@ void		sdl_mark_champ(uint32_t ichamp, size_t nbytes, uint32_t pos)
 	}
 }
 
-t_proc		*get_proc(uint32_t index)
+void		sdl_init_pmem(void)
 {
-	t_proc	*tmp;
+	t_proc *tmp;
 
+	ft_memset(g_visu.pmem, 0, sizeof(uint8_t) * MEM_SIZE);
 	tmp = g_vm.procs;
 	while (tmp)
 	{
-		if ((uint32_t)tmp->pc == index)
-			return (tmp);
+		g_visu.pmem[tmp->pc] = tmp->ichamp;
 		tmp = tmp->next;
 	}
-	return (NULL);
 }
 
 SDL_Color	get_player_color(uint32_t ichamp)

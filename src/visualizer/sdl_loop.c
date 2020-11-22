@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:42:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 21:39:35 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/22 23:22:58 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	sdl_loop(void)
 		}
 		if (!g_visu.pause && end)
 			end = run_once();
+		sdl_init_pmem();
 		sdl_draw_map();
 		sdl_draw_info();
 		sdl_draw_border();

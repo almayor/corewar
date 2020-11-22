@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 20:32:29 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/22 23:40:49 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ struct				s_vmap
 struct				s_visu
 {
 	uint8_t			vmem[MEM_SIZE];
+	uint8_t			pmem[MEM_SIZE];
 	SDL_Window		*win;
 	SDL_Renderer	*rend;
 	SDL_DisplayMode	mode;
@@ -103,8 +104,7 @@ char				*sdl_strjoin(char *str1, char *str2);
 char				*sdl_threejoin(uint32_t n, char *name);
 char				*ft_ulltoa(uint64_t nbr);
 char				*hex_num(uint8_t n);
-t_proc				*get_proc(uint32_t index);
-
+void				sdl_init_pmem(void);
 
 /*
 ** >>-----------------------<< SDL EVENT >>----------------------------<<

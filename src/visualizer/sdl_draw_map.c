@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:48:47 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 21:39:29 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/22 23:34:51 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,14 @@ void	sdl_draw_proc(uint32_t index, int x, int y)
 {
 	SDL_Color	color;
 	SDL_Rect	cube;
-	t_proc		*tmp;
 
-	if ((tmp = get_proc(index)))
+	if (g_visu.pmem[index])
 	{
 		cube.h = 18;
 		cube.w = 20;
 		cube.x = x - 3;
 		cube.y = y - 1;
-		color = get_player_color(tmp->ichamp);
+		color = get_player_color(g_visu.pmem[index]);
 		SDL_SetRenderDrawColor(g_visu.rend,
 			color.r, color.g, color.b, color.a);
 		SDL_RenderDrawRect(g_visu.rend, &cube);
