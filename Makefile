@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/22 18:31:21 by user             ###   ########.fr        #
+#    Updated: 2020/11/22 18:55:38 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,7 @@ LIBFT = $(addprefix $(LIB_DIR), libft.a)
 
 .PHONY : all clean fclean re test
 
-all: $(NAME)
+all: $(NAME) 
 
 $(NAME): $(LIBFT) $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB)

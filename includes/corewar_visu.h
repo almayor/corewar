@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 16:54:31 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 18:45:38 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define PREV_RATIO "Live breakdown for previous period:"
 # define EMPTY_LINE	"[                                                  ]"
 # define FILL_LINE	"##################################################"
+# define CYCLE2DIE	
 
 # define USAGE_0	"       ****** HANDLING ******"
 # define USAGE_1	"Pause / Run         SPACE"
@@ -43,7 +44,7 @@
 # define POS_X		40
 # define POS_Y		40
 
-# define FONT		"fonts/DroidSansMono.ttf"
+# define FONT		"assets/DroidSansMono.ttf"
 # define HEX		"0123456789ABCDEF"
 
 typedef struct s_visu	t_visu;
