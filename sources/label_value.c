@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 00:26:25 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 02:26:03 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 18:47:55 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int			calc_value(t_token *start, t_token *dst, int arg_line_size)
 			start = start->next;
 		}
 	}
-	else
+	else if (start->point.row > dst->point.row)
 	{
 		val += arg_line_size;
 		while (dst && start->point.row != dst->point.row)
