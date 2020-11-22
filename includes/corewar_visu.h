@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   corewar_visu.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 18:45:38 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 20:32:29 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define PREV_RATIO "Live breakdown for previous period:"
 # define EMPTY_LINE	"[                                                  ]"
 # define FILL_LINE	"##################################################"
-# define CYCLE2DIE	
+# define CYCLE2DIE	"CYCLE TO DIE: "
 
 # define USAGE_0	"       ****** HANDLING ******"
 # define USAGE_1	"Pause / Run         SPACE"
@@ -41,8 +41,8 @@
 
 # define WIDTH		1600
 # define HEIGHT		768
-# define POS_X		40
-# define POS_Y		40
+# define POS_X		10
+# define POS_Y		10
 
 # define FONT		"assets/DroidSansMono.ttf"
 # define HEX		"0123456789ABCDEF"
@@ -67,6 +67,7 @@ struct				s_visu
 	uint8_t			vmem[MEM_SIZE];
 	SDL_Window		*win;
 	SDL_Renderer	*rend;
+	SDL_DisplayMode	mode;
 	TTF_Font		*font;
 	SDL_Rect		rect;
 	SDL_Event		event;

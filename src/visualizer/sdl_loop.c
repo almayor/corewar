@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_loop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:42:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 18:08:37 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 20:30:59 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	sdl_loop(void)
 		sdl_draw_info();
 		sdl_draw_border();
 		SDL_RenderPresent(g_visu.rend);
+		ft_printf("w: %d, h: %d\n", g_visu.mode.w, g_visu.mode.h);
+		ft_printf("g_x: %d, g_y: %d\n\n", g_visu.g_x, g_visu.g_y);
 	}
 }
 
@@ -47,9 +49,10 @@ void	sdl_mouse_event(SDL_Event event)
 	if (event.type == SDL_MOUSEWHEEL)
 	{
 		if (event.wheel.y > 0)
-			g_visu.g_y = (g_visu.g_y >= 20) ? g_visu.g_y : g_visu.g_y + 35;
+			g_visu.g_y = (g_visu.g_y >= 20) ? g_visu.g_y : g_visu.g_y + 30;
 		else
-			g_visu.g_y = (g_visu.g_y <= -470) ? g_visu.g_y : g_visu.g_y - 35;
+			g_visu.g_y = (g_visu.g_y < (-1300 + g_visu.mode.h)) ?
+				g_visu.g_y : g_visu.g_y - 30;
 	}
 	if (event.type == SDL_MOUSEBUTTONDOWN)
 		g_visu.click = 1;
@@ -58,9 +61,10 @@ void	sdl_mouse_event(SDL_Event event)
 	if (g_visu.click)
 	{
 		if (event.button.x - g_visu.m_x > 0)
-			g_visu.g_x = (g_visu.g_x > -200) ? g_visu.g_x - 10 : g_visu.g_x;
+			g_visu.g_x = (g_visu.g_x > (-1850 + g_visu.mode.w)) ?
+				g_visu.g_x - 30 : g_visu.g_x;
 		if (event.button.x - g_visu.m_x < 0)
-			g_visu.g_x = (g_visu.g_x < 30) ? g_visu.g_x + 10 : g_visu.g_x;
+			g_visu.g_x = (g_visu.g_x < 30) ? g_visu.g_x + 30 : g_visu.g_x;
 	}
 }
 

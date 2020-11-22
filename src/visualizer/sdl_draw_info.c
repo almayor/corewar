@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_draw_info.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:48:53 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 18:09:04 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 20:37:15 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,4 +122,5 @@ void		sdl_draw_info(void)
 	sdl_put_text(PREV_RATIO, clr, pos);
 	pos.y = pos.y + 20;
 	sdl_draw_ratio(pos, clr, 0);
+	sdl_put_number(CYCLE2DIE, g_vm.cycles_to_die, pos.x, pos.y + 50);
 }

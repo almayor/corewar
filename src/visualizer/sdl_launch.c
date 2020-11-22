@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:52:32 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 22:54:26 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/22 19:55:41 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	sdl_init(void)
 	status = SDL_Init(SDL_INIT_EVERYTHING);
 	if (status)
 		terminate("Error SDL Init\n");
+	SDL_GetCurrentDisplayMode(0, &g_visu.mode);
 	status = TTF_Init();
 	if (status)
 		terminate("Error TTF Init\n");
@@ -26,7 +27,7 @@ static void	sdl_init(void)
 	if (!g_visu.font)
 		terminate("Error open font '%s'\n", FONT);
 	g_visu.win = SDL_CreateWindow("Corewar",
-		POS_X, POS_Y, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+		POS_X, POS_Y, g_visu.mode.w - 30, g_visu.mode.h - 70, SDL_WINDOW_SHOWN);
 	if (!g_visu.win)
 		terminate("Error create Window\n");
 	g_visu.rend = SDL_CreateRenderer(g_visu.win,
