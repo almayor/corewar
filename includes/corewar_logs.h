@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 12:37:35 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/15 00:00:50 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 14:26:56 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 # define CHAMP_ALIVE		"Player %u (%s) is said to be alive\n"
 # define CHAMP_WON			"Player %u (%s) has won!\n"
-// # define NO_LIVE			"No `live` has been executed during the game!\n"
 
 # define MALLOC_ERROR		"Malloc error\n"
 

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 18:20:55 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 02:55:18 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 14:14:50 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int			load_argument(const t_proc *proc, int n, int32_t *val)
 	else if (type == REG_CODE)
 		*val = proc->reg[proc->args[n] - 1];
 	else if (type == IND_CODE && proc->opcode == 13)
-		*val = mem_read(proc->pc + proc->args[n], 2); // !!!
+		*val = mem_read(proc->pc + proc->args[n], 2);
 	else if (type == IND_CODE && proc->opcode == 14)
-		*val = mem_read(proc->pc + (proc->args[n] % IDX_MOD), 4); // !!!
+		*val = mem_read(proc->pc + (proc->args[n] % IDX_MOD), 4);
 	else if (type == IND_CODE && g_op_tab[proc->opcode].addr_restrict)
 		*val = mem_read(proc->pc + (proc->args[n] % IDX_MOD), 4);
 	else if (type == IND_CODE)

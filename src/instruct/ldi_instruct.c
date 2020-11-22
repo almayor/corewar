@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:38:07 by user              #+#    #+#             */
-/*   Updated: 2020/11/15 22:14:53 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 14:11:12 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int		ldi_instruct(t_proc *proc)
 		load_argument(proc, 1, &in2))
 		return (1);
 	out = mem_read(proc->pc + ((in1 + in2) % IDX_MOD), 4);
-	// Чтобы соответствовать оригинальной машине (Бражник тоже подтверждает)
-	// proc->carry = (out == 0);
 	if ((g_vm.log >> 2) & 1)
 		ft_printf(
 			LOG_OPER_PREFIX "load from %i + ((%i + %i) %% %i) = %i\n"
