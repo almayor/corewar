@@ -6,13 +6,13 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:30 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 16:48:35 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 14:19:18 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-static t_instruct	dispatcher[NUM_INSTRUCT + 1] = {
+static t_instruct	g_dispatcher[NUM_INSTRUCT + 1] = {
 	NULL,
 	live_instruct,
 	ld_instruct,
@@ -32,7 +32,7 @@ static t_instruct	dispatcher[NUM_INSTRUCT + 1] = {
 	aff_instruct,
 };
 
-static void		advance_log(const t_proc *proc)
+static void			advance_log(const t_proc *proc)
 {
 	uint32_t	len;
 	uint32_t	i;
@@ -51,25 +51,25 @@ static void		advance_log(const t_proc *proc)
 	}
 }
 
-static void 	advance(t_proc *proc)
+static void			advance(t_proc *proc)
 {
 	if (proc->opcode != 9 || proc->carry == 0)
 		proc->pc = (proc->pc + get_instruction_length(proc)) % MEM_SIZE;
 }
 
-static int		dispatch(t_proc *proc)
+static int			dispatch(t_proc *proc)
 {
 	int	ret;
 
 	if ((g_vm.log >> 2) & 1)
 		print_proc(proc);
-	ret = dispatcher[proc->opcode](proc);
+	ret = g_dispatcher[proc->opcode](proc);
 	if ((g_vm.log >> 2) & 1)
 		ft_printf(LOG_OPER_PREFIX "%s\n", ret ? "FAIL" : "OK");
 	return (ret);
 }
 
-static void		read_opcode(t_proc *proc)
+static void			read_opcode(t_proc *proc)
 {
 	proc->opcode = g_vm.mem[proc->pc];
 	if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
@@ -78,7 +78,7 @@ static void		read_opcode(t_proc *proc)
 		proc->opcode = 0;
 }
 
-void			cycle(void)
+void				cycle(void)
 {
 	t_proc	*proc;
 

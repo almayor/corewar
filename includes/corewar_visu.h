@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   corewar_visu.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 23:40:37 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/22 16:54:31 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@
 
 typedef struct s_visu	t_visu;
 typedef struct s_vmap	t_vmap;
+typedef struct s_proc	t_proc;
 
 struct				s_vmap
 {
@@ -100,6 +101,8 @@ char				*sdl_strjoin(char *str1, char *str2);
 char				*sdl_threejoin(uint32_t n, char *name);
 char				*ft_ulltoa(uint64_t nbr);
 char				*hex_num(uint8_t n);
+t_proc				*get_proc(uint32_t index);
+
 
 /*
 ** >>-----------------------<< SDL EVENT >>----------------------------<<

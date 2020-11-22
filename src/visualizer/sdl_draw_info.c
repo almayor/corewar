@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_draw_info.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:48:53 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 23:42:30 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/22 18:09:04 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		sdl_put_number(char *s, uint64_t n, int x, int y)
 	SDL_Color	color;
 	SDL_Rect	pos;
 
-	color = (SDL_Color){255, 255, 255, 1};
+	color = (SDL_Color){255, 255, 255, 255};
 	pos.x = x;
 	pos.y = y;
 	str = ft_strjoin_free(s, ft_ulltoa(n), 2);
@@ -63,7 +63,7 @@ static void	sdl_put_handling(SDL_Rect pos, SDL_Color clr)
 	pos.y = 20;
 	pos.h = 100;
 	pos.w = 280;
-	SDL_SetRenderDrawColor(g_visu.rend, 255, 255, 255, 1);
+	SDL_SetRenderDrawColor(g_visu.rend, 255, 255, 255, 255);
 	SDL_RenderDrawRect(g_visu.rend, &pos);
 }
 
@@ -102,7 +102,7 @@ void		sdl_draw_info(void)
 
 	pos.x = g_visu.g_x + 1400;
 	pos.y = 150;
-	clr = (SDL_Color){255, 255, 255, 1};
+	clr = (SDL_Color){255, 255, 255, 255};
 	if (g_visu.pause)
 		sdl_put_text(PAUSED, clr, pos);
 	else

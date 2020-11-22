@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_loop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:42:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 23:33:28 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/22 18:08:37 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sdl_loop(void)
 	g_visu.pause = 1;
 	while (g_visu.quit)
 	{
-		SDL_SetRenderDrawColor(g_visu.rend, 0, 0, 0, 1);
+		SDL_SetRenderDrawColor(g_visu.rend, 0, 0, 0, 255);
 		SDL_RenderClear(g_visu.rend);
 		while (SDL_PollEvent(&event))
 		{

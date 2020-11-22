@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:26:26 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 22:49:22 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/22 16:42:42 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ static void	load_champion(const char *file, int n, uint32_t pos)
 
 void		load(void)
 {
-	int 	i;
-	int 	step;
-	int 	pos;
+	int		i;
+	int		step;
+	int		pos;
 
 	if (g_vm.nchamps == 0)
 		terminate(NO_PLAYERS);

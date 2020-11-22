@@ -6,15 +6,15 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 21:16:11 by user              #+#    #+#             */
-/*   Updated: 2020/11/14 23:59:43 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 14:18:23 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-static uint64_t	iproc = 1;
+static uint64_t	g_iproc = 1;
 
-void	print_proc(const t_proc *proc)
+void			print_proc(const t_proc *proc)
 {
 	t_arg_type	type;
 	int			i;
@@ -37,7 +37,7 @@ void	print_proc(const t_proc *proc)
 	ft_putchar('\n');
 }
 
-void	kill_proc(t_proc *proc)
+void			kill_proc(t_proc *proc)
 {
 	if ((g_vm.log >> 3) & 1)
 		ft_printf(LOG_OPER_PREFIX_P "KILLED\n"
@@ -47,16 +47,15 @@ void	kill_proc(t_proc *proc)
 	--g_vm.nprocs;
 }
 
-void	fork_proc(int32_t pos, const t_proc *parent)
+void			fork_proc(int32_t pos, const t_proc *parent)
 {
 	t_proc		*proc;
 
 	pos = pos % MEM_SIZE < 0 ? (pos % MEM_SIZE) + MEM_SIZE : pos % MEM_SIZE;
 	proc = ft_xcalloc(sizeof(t_proc), 1);
 	*proc = *parent;
-	proc->iproc = iproc++;
+	proc->iproc = g_iproc++;
 	proc->pc = pos;
-	// proc->cycles_since_live = 0;
 	proc->next = g_vm.procs;
 	proc->opcode = 0;
 	g_vm.procs = proc;
@@ -67,16 +66,16 @@ void	fork_proc(int32_t pos, const t_proc *parent)
 			proc->iproc, proc->pc);
 }
 
-void	create_proc(uint32_t ichamp, int32_t pos)
+void			create_proc(uint32_t ichamp, int32_t pos)
 {
 	t_proc		*proc;
 
 	proc = ft_xcalloc(sizeof(t_proc), 1);
 	proc->pc = pos;
-	proc->reg[0] = -ichamp; // ?????
+	proc->reg[0] = -ichamp;
 	proc->next = g_vm.procs;
 	proc->ichamp = ichamp;
-	proc->iproc = iproc++;
+	proc->iproc = g_iproc++;
 	proc->opcode = 0;
 	g_vm.procs = proc;
 	++g_vm.nprocs;

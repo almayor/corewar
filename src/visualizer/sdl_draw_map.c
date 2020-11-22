@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_draw_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:48:47 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 23:19:26 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/22 18:09:10 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sdl_draw_proc(uint32_t index, int x, int y)
 	SDL_Rect	cube;
 	t_proc		*tmp;
 
-	if (tmp = get_proc(index))
+	if ((tmp = get_proc(index)))
 	{
 		cube.h = 18;
 		cube.w = 20;
@@ -102,7 +102,7 @@ void	sdl_draw_border(void)
 	line_y.w = 6;
 	line_y.x = g_visu.g_x + 1350;
 	line_y.y = g_visu.g_y - 9;
-	SDL_SetRenderDrawColor(g_visu.rend, 255, 255, 255, 1);
+	SDL_SetRenderDrawColor(g_visu.rend, 255, 255, 255, 255);
 	SDL_RenderFillRect(g_visu.rend, &line_x);
 	SDL_RenderFillRect(g_visu.rend, &line_y);
 	line_x.y = g_visu.g_y + 1221;

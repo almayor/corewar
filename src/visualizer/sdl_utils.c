@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 20:58:07 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/21 23:42:59 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/22 18:08:21 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ SDL_Color	get_player_color(uint32_t ichamp)
 	SDL_Color res;
 
 	if (ichamp == 1)
-		res = (SDL_Color){240, 240, 0, 1};
+		res = (SDL_Color){240, 240, 0, 255};
 	else if (ichamp == 2)
-		res = (SDL_Color){255, 30, 30, 1};
+		res = (SDL_Color){255, 30, 30, 255};
 	else if (ichamp == 3)
-		res = (SDL_Color){0, 190, 150, 1};
+		res = (SDL_Color){0, 190, 150, 255};
 	else if (ichamp == 4)
-		res = (SDL_Color){20, 110, 250, 1};
+		res = (SDL_Color){20, 110, 250, 255};
 	else
-		res = (SDL_Color){255, 255, 255, 1};
+		res = (SDL_Color){255, 255, 255, 255};
 	return (res);
 }

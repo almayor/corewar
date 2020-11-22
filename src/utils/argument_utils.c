@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   argument_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 18:20:55 by user              #+#    #+#             */
-/*   Updated: 2020/11/18 23:39:16 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/22 16:42:10 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int			load_argument(const t_proc *proc, int n, int32_t *val)
 	else if (type == REG_CODE)
 		*val = proc->reg[proc->args[n] - 1];
 	else if (type == IND_CODE && proc->opcode == 13)
-		*val = mem_read(proc->pc + proc->args[n], 2); // !!!
+		*val = mem_read(proc->pc + proc->args[n], 2);
 	else if (type == IND_CODE && proc->opcode == 14)
-		*val = mem_read(proc->pc + (proc->args[n] % IDX_MOD), 4); // !!!
+		*val = mem_read(proc->pc + (proc->args[n] % IDX_MOD), 4);
 	else if (type == IND_CODE && g_op_tab[proc->opcode].addr_restrict)
 		*val = mem_read(proc->pc + (proc->args[n] % IDX_MOD), 4);
 	else if (type == IND_CODE)

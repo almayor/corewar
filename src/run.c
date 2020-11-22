@@ -6,13 +6,13 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/20 01:47:06 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 16:26:00 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-static void decimate(void)
+static void	decimate(void)
 {
 	t_proc	*proc_curr;
 	t_proc	*proc_next;
@@ -36,27 +36,6 @@ static void decimate(void)
 	}
 }
 
-// static void update_opcodes(void)
-// {
-// 	t_proc	*proc;
-
-// 	proc = g_vm.procs;
-// 	while (proc)
-// 	{
-// 		if (proc->cycles_busy)
-// 			proc->cycles_busy--;
-// 		else
-// 		{
-// 			proc->opcode = g_vm.mem[proc->pc];
-// 			if (proc->opcode > 0 && proc->opcode <= NUM_INSTRUCT)
-// 				proc->cycles_busy = g_op_tab[proc->opcode].duration - 1;
-// 			else
-// 				proc->opcode = 0;
-// 		}
-// 		proc = proc->next;
-// 	}
-// }
-
 static void	update_champs(void)
 {
 	int		ichamp;
@@ -77,7 +56,7 @@ static void	update_champs(void)
 
 static void	update_ctd(void)
 {
-	if (g_vm.curr_nlive >= NBR_LIVE ||
+	if (g_vm.live_count >= NBR_LIVE ||
 		g_vm.checks_since_change >= MAX_CHECKS)
 	{
 		g_vm.cycles_to_die -= CYCLE_DELTA;
@@ -94,7 +73,6 @@ int			run_once(void)
 	++g_vm.icycle;
 	if (g_vm.log >> 1 & 1)
 		ft_printf("It is now cycle %lu\n", g_vm.icycle);
-	// update_opcodes();
 	cycle();
 	if (g_vm.dump_flag && g_vm.dump_ncycles <= g_vm.icycle)
 		dump();
@@ -109,12 +87,13 @@ int			run_once(void)
 		g_vm.checks_since_change++;
 		g_vm.prev_nlive = g_vm.curr_nlive;
 		g_vm.curr_nlive = 0;
+		g_vm.live_count = 0;
 	}
 	return (1);
 }
 
-void 		run(void)
+void		run(void)
 {
 	while (run_once())
-		continue ;	
+		continue ;
 }

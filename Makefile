@@ -3,20 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
+#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/21 23:44:55 by fallard          ###   ########.fr        #
+#    Updated: 2020/11/22 17:35:59 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = corewar
 
-HEAD_NAME = corewar.h corewar_logs.h op.h corewar_visu.h
-LIB_NAME = libft.a
-
 CC = gcc
-CFLAGS += -fsanitize=address # -Wall -Wextra -Werror
+CFLAGS += -fsanitize=address
+# CFLAGS += -Wall -Wextra -Werror
 CFLAGS += -MMD
 
 #ifeq ($(DEBUG), 1)
@@ -30,10 +28,10 @@ CFLAGS += -MMD
 #	CFLAGS += -fno-tree-loop-distribute-patterns
 #endif
 
-SRC_DIR = src/
-OBJ_DIR = obj/
-INC_DIR = includes/
-LIB_DIR = libft/
+SRC_DIR = src
+OBJ_DIR = obj
+INC_DIR = includes $(LIB_DIR)/includes
+LIB_DIR = libft
 
 RD = \033[031m
 GR = \033[032m
@@ -74,6 +72,8 @@ utils/malloc_utils.c \
 utils/memory_utils.c \
 utils/parse_utils.c \
 utils/proc_utils.c \
+
+SRC += \
 visualizer/sdl_launch.c \
 visualizer/sdl_utils.c \
 visualizer/sdl_utils_2.c \
@@ -82,13 +82,10 @@ visualizer/sdl_draw_info.c \
 visualizer/sdl_draw_map.c \
 visualizer/sdl_draw_ratio.c
 
-OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
-DEP = $(addprefix $(OBJ_DIR), $(SRC:.c=.d))
-HEADER = $(addprefix $(INC_DIR), $(HEAD_NAME))
-LIBFT = $(addprefix $(LIB_DIR), $(LIB_NAME))
-
-INCLUDES = -I $(INC_DIR) -I $(LIB_DIR)$(INC_DIR)
-INCLUDES += -lSDL2 -lSDL2_ttf		# tmp
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
+DEP = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.d))
+INC = $(addprefix -I , $(INC_DIR))
+LIB = -L $(LIB_DIR) -lft -lSDL2 -lSDL2_ttf
 
 -include $(DEP)
 
@@ -96,34 +93,34 @@ INCLUDES += -lSDL2 -lSDL2_ttf		# tmp
 
 .DEFAULT_GOAL = all
 
-.PHONY : all clean fclean re test
+.PHONY : all clean fclean re test libft
 
 all: $(NAME) 
 
-$(NAME): $(LIBFT) $(OBJ)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(INCLUDES) -L $(LIB_DIR) -lft
+$(NAME): libft $(OBJ)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB)
 	@printf "$(GR)>> Program $(NAME) created <<\n$(EOC)"
 
-FORCE:		;
+# FORCE:		;
 
-$(LIBFT): FORCE
+libft:
 	@make -C $(LIB_DIR)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 	@printf "$(CN)* Compile $(YW)$< $(CN)to $(YW)$@$(EOC)\n"
 
 clean:
 	@make clean -C $(LIB_DIR)
 	@-rm -r $(OBJ_DIR) 2>/dev/null && \
-		printf "$(YW)$(NAME): $(RD)Object files deleted\n$(EOC)" || \
+		printf "$(YW)$(NAME): $(RD)object files deleted\n$(EOC)" || \
 		true
 
 fclean: clean
 	@make fclean -C $(LIB_DIR)
 	@-rm $(NAME) 2>/dev/null && \
-		printf "$(YW)$(NAME): $(RD)Program $(NAME) deleted\n$(EOC)" || \
+		printf "$(YW)$(NAME): $(RD)program $(NAME) deleted\n$(EOC)" || \
 		true
 
 re: fclean all

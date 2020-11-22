@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/07 15:43:25 by fallard           #+#    #+#              #
-#    Updated: 2020/11/19 10:51:01 by user             ###   ########.fr        #
+#    Updated: 2020/11/22 17:34:45 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -181,7 +181,7 @@ $(NAME): $(TMP_LIB) $(TMP_PF) $(HEADER) $(PRIVATE)
 
 clean:
 	@-rm $(TMP_LIB) $(TMP_PF) 2>/dev/null && \
-		printf "$(YW)libft: $(RD)Object files deleted$(EOC)\n" || true
+		printf "$(YW)libft: $(RD)object files deleted$(EOC)\n" || true
 	
 
 fclean: clean

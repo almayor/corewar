@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 11:07:35 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/12 21:24:36 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/22 14:14:09 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		init_numbers(void)
 	}
 }
 
-int	is_number(const char *string)
+int			is_number(const char *string)
 {
 	int i;
 

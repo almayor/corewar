@@ -6,12 +6,11 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:36 by user              #+#    #+#             */
-/*   Updated: 2020/11/11 18:02:57 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 14:13:56 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-
 
 uint32_t	get_instruction_length(const t_proc *proc)
 {
