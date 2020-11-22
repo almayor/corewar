@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_draw_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:48:47 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 18:09:10 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 21:39:29 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,11 @@ void	sdl_draw_map_2(t_vmap *m)
 		ft_memdel((void**)&m->tmp);
 		ft_memdel((void**)&m->next);
 		sdl_draw_proc(m->i, g_visu.g_x + (m->i % 64) * 21, m->pos.y);
-		m->i++;
-		m->j++;
+		m->i = m->i + 1;
+		m->j = m->j + 1;
 	}
+	if (g_visu.vmem[m->i] != g_visu.vmem[m->i + 1])
+		sdl_draw_proc(m->i, g_visu.g_x + (m->i % 64) * 21, m->pos.y);
 }
 
 void	sdl_draw_map(void)
@@ -82,8 +84,8 @@ void	sdl_draw_map(void)
 			sdl_put_text(m.join, m.clr, m.pos);
 			m.pos.x += ft_strlen(m.join) * 7 + 7;
 			ft_memdel((void**)&m.join);
-			m.j++;
-			m.i++;
+			m.j = m.j + 1;
+			m.i = m.i + 1;
 		}
 		m.pos.y += 19;
 	}

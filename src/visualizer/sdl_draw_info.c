@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:48:53 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 20:37:15 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/22 21:40:25 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,8 @@ void		sdl_draw_info(void)
 	pos.x = g_visu.g_x + 1400;
 	pos.y = 150;
 	clr = (SDL_Color){255, 255, 255, 255};
-	if (g_visu.pause)
-		sdl_put_text(PAUSED, clr, pos);
-	else
-		sdl_put_text(RUNNING, clr, pos);
+	(g_visu.pause) ? sdl_put_text(PAUSED, clr, pos)
+		: sdl_put_text(RUNNING, clr, pos);
 	pos.y += 40;
 	sdl_put_number(S_CYCLE, g_vm.icycle, pos.x, pos.y);
 	pos.y += 20;

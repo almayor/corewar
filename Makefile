@@ -3,24 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
+#    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/22 18:55:38 by user             ###   ########.fr        #
+#    Updated: 2020/11/22 21:44:43 by fallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = corewar
 
 CC = gcc
-CFLAGS += -fsanitize=address
+CFLAGS += #-fsanitize=address
 CFLAGS += -Wall -Wextra -Werror
 CFLAGS += -MMD
 
 ifeq ($(DEBUG), 1)
 	CFLAGS += -g
 else
-	CFLAGS += -DNDEBUG
 	CFLAGS += -O3 -ffast-math
 endif
 
