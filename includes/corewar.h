@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 14:30:32 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 16:26:28 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ struct					s_vm
 	t_champ		champs[MAX_PLAYERS];
 	size_t		nprocs;
 	t_proc		*procs;
+	uint64_t	live_count;
 	uint64_t	curr_nlive;
 	uint64_t	prev_nlive;
 	uint32_t	last_live_champ;

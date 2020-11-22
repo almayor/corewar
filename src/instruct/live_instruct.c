@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:38:07 by user              #+#    #+#             */
-/*   Updated: 2020/11/20 01:44:09 by user             ###   ########.fr       */
+/*   Updated: 2020/11/22 16:22:15 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		live_instruct(t_proc *proc)
 {
 	int32_t	n;
 
+	g_vm.live_count++;
 	proc->cycles_since_live = 0;
 	n = -mem_read(proc->pc + 1, 4);
 	if (n > 0 && n <= MAX_PLAYERS && g_vm.champs[n - 1].ichamp > 0)
