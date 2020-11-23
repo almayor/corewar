@@ -3,14 +3,14 @@
 ################################# CONFIG #################################
 
 WIDTH=60
-DIREC=test/champions
+DIREC=champions
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-	ZAZ_ASM=test/asm_zaz_linux
-	ZAZ_VM=test/corewar_zaz_linux
+	ZAZ_ASM=asm_zaz_linux
+	ZAZ_VM=corewar_zaz_linux
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	ZAZ_ASM=test/asm_zaz_osx
-	ZAZ_VM=test/corewar_zaz_osx
+	ZAZ_ASM=asm_zaz_osx
+	ZAZ_VM=corewar_zaz_osx
 else
 	>&2 echo "OS not supported"
 	exit 1
@@ -131,18 +131,20 @@ function test_asm
 
 	tmp1=/tmp/asm-test-1.s
 	ln -f $champ $tmp1
-	$ZAZ_ASM $tmp1 > /dev/null >&1
+	out1=$($ZAZ_ASM $tmp1 2>&1 1> /dev/null)
 	if [ $? -ne 0 ]; then
-		printf "${c_yellow}INVALID${c_off}\n"
+		printf "${c_yellow}INVALID!${c_off}\n"
+		echo $out1
 		return
 	fi
 	out1=${tmp1%.*}.cor
 
 	tmp2=/tmp/asm-test-2.s
 	ln -f $champ $tmp2
-	./asm $tmp2 > /dev/null >&1
+	out2=$(./asm $tmp2 2>&1 1> /dev/null)
 	if [ $? -ne 0 ]; then
-		printf "${c_yellow}INVALID${c_off}\n"
+		printf "${c_red}KO${c_off}\n"
+		echo $out2
 		return
 	fi
 	out2=${tmp2%.*}.cor
@@ -176,6 +178,19 @@ test_asm "bigzork.s"
 test_asm "fluttershy.s"
 test_asm "helltrain.s"
 test_asm "turtle.s"
+test_asm "Car.s"
+test_asm "toto.s"
+test_asm "bee_gees.s"
+test_asm "zork.s"
+test_asm "Douceur_power.s"
+test_asm "Explosive_Kitty.s"
+# test_asm "Kittystrophic.s"
+# test_asm "overwatch.s"
+# test_asm "run_Kitty_RUN.s"
+# test_asm "ultima.s"
+# test_asm "gateau.s"
+test_asm "mise_a_jour_windows95.s"
+test_asm "Douceur_power.s"
 
 echo "    ---------------------------------------------------------------"
 echo "    $num_passed tests passed out of $num_total"
@@ -187,40 +202,40 @@ else
 	printf "${t_bold}${c_red}FAILED${c_off}${t_off}\n\n"
 fi
 
-head="=== ${t_bold}COREWAR: Comparing memory dump${t_off} ===================================="
-head_len=${#head}
+# head="=== ${t_bold}COREWAR: Comparing memory dump${t_off} ===================================="
+# head_len=${#head}
 
-num_passed=0
-num_total=0
+# num_passed=0
+# num_total=0
 
-echo
-echo $head
+# echo
+# echo $head
 
-test_corewar "Gagnant.cor" 26023
-test_corewar "ex.cor" 3071
-test_corewar "jumper.cor" 24690
-test_corewar "mortel.cor" 7429
-test_corewar "maxidef.cor" 25901
-test_corewar "slider2.cor" 25902
-test_corewar "bigzork.cor" 28362
-test_corewar "fluttershy.cor" 25902
-test_corewar "helltrain.cor" 27438
-test_corewar "turtle.cor" 40480
-test_corewar "leapfrog.cor" 180949
-test_corewar "helltrain.cor fluttershy.cor" 25901
-test_corewar "fluttershy.cor toto.cor leapfrog.cor" 25901
-test_corewar "le_pet_de_nonne.cor Car.cor helltrain.cor" 9999
-test_corewar "Gagnant.cor ex.cor" 25902
-test_corewar "Gagnant.cor slider2.cor" 25902
-test_corewar "leapfrog.cor helltrain.cor Gagnant.cor mortel.cor" 24366
+# test_corewar "Gagnant.cor" 26023
+# test_corewar "ex.cor" 3071
+# test_corewar "jumper.cor" 24690
+# test_corewar "mortel.cor" 7429
+# test_corewar "maxidef.cor" 25901
+# test_corewar "slider2.cor" 25902
+# test_corewar "bigzork.cor" 28362
+# test_corewar "fluttershy.cor" 25902
+# test_corewar "helltrain.cor" 27438
+# test_corewar "turtle.cor" 40480
+# test_corewar "leapfrog.cor" 180949
+# test_corewar "helltrain.cor fluttershy.cor" 25901
+# test_corewar "fluttershy.cor toto.cor leapfrog.cor" 25901
+# test_corewar "le_pet_de_nonne.cor Car.cor helltrain.cor" 9999
+# test_corewar "Gagnant.cor ex.cor" 25902
+# test_corewar "Gagnant.cor slider2.cor" 25902
+# test_corewar "leapfrog.cor helltrain.cor Gagnant.cor mortel.cor" 24366
 
 
-echo "    ---------------------------------------------------------------"
-echo "    $num_passed tests passed out of $num_total"
-echo "======================================================================="
+# echo "    ---------------------------------------------------------------"
+# echo "    $num_passed tests passed out of $num_total"
+# echo "======================================================================="
 
-if [ $num_passed -eq $num_total ]; then
-	printf "${t_bold}${c_green}PASSED${c_off}${t_off}\n\n"
-else
-	printf "${t_bold}${c_red}FAILED${c_off}${t_off}\n\n"
-fi
+# if [ $num_passed -eq $num_total ]; then
+# 	printf "${t_bold}${c_green}PASSED${c_off}${t_off}\n\n"
+# else
+# 	printf "${t_bold}${c_red}FAILED${c_off}${t_off}\n\n"
+# fi
