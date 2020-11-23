@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:48:53 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/23 16:54:29 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/23 18:15:29 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ static void	sdl_put_players(SDL_Rect pos)
 				pos.x + 15, pos.y + 20);
 			sdl_put_number(S_CURRLIVE, g_vm.champs[i].curr_nlive,
 				pos.x + 15, pos.y + 40);
+			pos.y += 70;
 		}
 		i++;
-		pos.y += 70;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 16:43:48 by user              #+#    #+#             */
-/*   Updated: 2020/11/23 18:26:06 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 18:31:24 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int			main(int argc, char **argv)
 	parse_args(argc, argv);
 	load();
 	greet();
+	ft_printf("nchamps: %d", g_vm.nchamps);
 	if (g_vm.visu_flag)
 		SDL_ENTRY;
 	else
