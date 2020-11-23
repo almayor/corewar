@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 16:43:48 by user              #+#    #+#             */
-/*   Updated: 2020/11/23 17:07:56 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 17:23:30 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,21 @@ static void	greet(void)
 static void	print_usage(void)
 {
 	ft_printf(
-		"Usage:\n");
+		"Usage:");
 	ft_printf(
-		"\tcorewar [-n N <file.cor> | -dump N | -log N] <file.cor> <...>\n");
+		"\t./corewar [-n N <file.cor> | -dump N | -log N | -v] <file.cor> <...>\n");
 	ft_printf(
-		"\t%-20s : Set player number (N)\n", "-n N <file.cor>");
+		"\t%-20s : Launch corewar with graphic visualizer\n", "-v");
+	ft_printf(
+		"\t%-20s : Set player number (N) [1-4]\n", "-n N <file.cor>");
 	ft_printf(
 		"\t%-20s : Dumps memory after N cycles, then exits\n", "-dump N");
 	ft_printf(
-		"\t%-20s : Print output from `aff` instructions "
-		"(default is to hide it)");
-	ft_printf(
 		"\t%-20s : Verbosity levels, can be added together to enable several\n",
 		"-log N");
+	ft_printf("\t%-20s : Print output from `aff` instructions "
+		"(default is to hide it)\n", "");
+	
 	ft_printf("\t\t\t\t- %-2i : %s\n", 0, "only essentials");
 	ft_printf("\t\t\t\t- %-2i : %s\n", 1, "lives");
 	ft_printf("\t\t\t\t- %-2i : %s\n", 2, "cycles");
@@ -78,6 +80,7 @@ int			main(int argc, char **argv)
 		SDL_ENTRY;
 	else
 		run();
+	//ft_printf("cycle: %llu\n", g_vm.icycle);
 	conclude();
 	cleanup();
 	return (EXIT_SUCCESS);

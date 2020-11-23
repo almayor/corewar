@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/23 01:37:31 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 17:00:11 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static void	read_keys(int argc, char **argv, int *i)
 		validate_dump(argc, argv, i);
 	else if (!ft_strcmp(argv[*i], "-log"))
 		validate_log(argc, argv, i);
-	else if (!ft_strcmp(argv[*i], "-visu"))
+	else if (!ft_strcmp(argv[*i], "-v"))
 		g_vm.visu_flag = 1;
 	else if (!ft_strcmp(argv[*i], "-a"))
 		g_vm.aff_flag = 1;

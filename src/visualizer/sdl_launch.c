@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_launch.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:52:32 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/23 01:51:02 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 17:06:22 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@ static void	sdl_init(void)
 {
 	int status;
 
-	status = SDL_Init(SDL_INIT_EVERYTHING);
-	if (status)
+	if ((status = SDL_Init(SDL_INIT_EVERYTHING)))
 		terminate("Error SDL Init\n");
 	SDL_GetCurrentDisplayMode(0, &g_visu.mode);
-	status = TTF_Init();
-	if (status)
+	g_visu.mode.w = (g_visu.mode.w > 1820) ? 1870 : g_visu.mode.w;
+	if ((status = TTF_Init()))
 		terminate("Error TTF Init\n");
-	g_visu.font = TTF_OpenFont(FONT, 12);
-	if (!g_visu.font)
+	if (!(g_visu.font = TTF_OpenFont(FONT, 12)))
 		terminate("Error open font '%s'\n", FONT);
 	g_visu.win = SDL_CreateWindow("Corewar",
 		POS_X, POS_Y, g_visu.mode.w - 30, g_visu.mode.h - 70, SDL_WINDOW_SHOWN);
