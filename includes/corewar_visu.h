@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 23:40:49 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/23 17:01:50 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # define RUNNING	"*** RUNNING ***"
 # define PAUSED		"*** PAUSED ***"
+# define FINISH		"*** FINISHED ***"
 
 # define S_CYCLE	"Cycle:     "
 # define S_PROC		"Processes: "
@@ -29,18 +30,21 @@
 # define PREV_RATIO "Live breakdown for previous period:"
 # define EMPTY_LINE	"[                                                  ]"
 # define FILL_LINE	"##################################################"
-# define CYCLE2DIE	"CYCLE TO DIE: "
+
+# define V_CYCDIE	"CYCLE TO DIE: "
+# define V_CECDELTA	"CYCLE DELTA:  "
+# define V_NBR_LIVE	"NBR_LIVE:     "
+# define V_MAXCHECK	"MAX_CHECKS:   "
 
 # define USAGE_0	"       ****** HANDLING ******"
 # define USAGE_1	"Pause / Run         SPACE"
 # define USAGE_2	"Left / Right        MOUSE PRESSED"
 # define USAGE_3	"Up / Down           MOUSE WHEEL"
+# define USAGE_4	"Close window        ESCAPE"
 
 # define SURFACE	"Error create SDL surface\n"
 # define TEXTURE	"Error create texture from surface\n"
 
-# define WIDTH		1600
-# define HEIGHT		768
 # define POS_X		10
 # define POS_Y		10
 
@@ -77,6 +81,7 @@ struct				s_visu
 	int				pause;
 	int				pause_flag;
 	int				runing;
+	int				finish;
 	int				click;
 	int				m_x;
 	int				m_y;

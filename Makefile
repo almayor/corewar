@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
+#    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/23 03:26:23 by user             ###   ########.fr        #
+#    Updated: 2020/11/23 16:22:31 by fallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra #-Werror
 CFLAGS += -MMD
 
 ifeq ($(DEBUG), 1)

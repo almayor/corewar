@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:42:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 23:22:58 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/23 17:06:20 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 void	sdl_loop(void)
 {
 	SDL_Event	event;
-	int			end;
 
-	end = 1;
+	g_visu.finish = 1;
 	g_visu.quit = 1;
 	g_visu.keyboard = SDL_GetKeyboardState(NULL);
 	g_visu.pause = 1;
@@ -30,8 +29,8 @@ void	sdl_loop(void)
 			sdl_mouse_event(event);
 			sdl_pause_event(event);
 		}
-		if (!g_visu.pause && end)
-			end = run_once();
+		if (!g_visu.pause && g_visu.finish)
+			g_visu.finish = run_once();
 		sdl_init_pmem();
 		sdl_draw_map();
 		sdl_draw_info();
@@ -60,7 +59,7 @@ void	sdl_mouse_event(SDL_Event event)
 	if (g_visu.click)
 	{
 		if (event.button.x - g_visu.m_x > 0)
-			g_visu.g_x = (g_visu.g_x > (-1850 + g_visu.mode.w)) ?
+			g_visu.g_x = (g_visu.g_x > (-1820 + g_visu.mode.w)) ?
 				g_visu.g_x - 30 : g_visu.g_x;
 		if (event.button.x - g_visu.m_x < 0)
 			g_visu.g_x = (g_visu.g_x < 30) ? g_visu.g_x + 30 : g_visu.g_x;
