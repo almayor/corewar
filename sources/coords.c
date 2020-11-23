@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:44:40 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/21 02:04:36 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 12:20:46 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int			tok_num_padding(int tok_num, t_token *token)
 	return (tok_num);
 }
 
-int		coords_and_labels2(t_parser *parser, t_token **token, int tok_num)
+int			coords_and_labels2(t_parser *parser, t_token **token, int tok_num)
 {
 	tok_num = tok_num_padding(tok_num, (*token));
 	if ((*token)->type == LABEL_TYPE)
