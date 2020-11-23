@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:43 by user              #+#    #+#             */
-/*   Updated: 2020/11/22 16:55:38 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 01:51:50 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	mem_write(uint32_t ichamp, int64_t pos, int32_t val, int nbytes)
 {
 	pos = pos < 0 ? (pos % MEM_SIZE) + MEM_SIZE : pos % MEM_SIZE;
 	if (g_vm.visu_flag)
-		sdl_mark_champ(ichamp, nbytes, pos);
+		SDL_MARK_CHAMP;
+	(void)ichamp;
 	if (nbytes >= 4)
 	{
 		g_vm.mem[pos++ % MEM_SIZE] = val >> 24;

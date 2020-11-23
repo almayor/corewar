@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 12:37:35 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 14:26:56 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 02:17:50 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define CHAMP_WON			"Player %u (%s) has won!\n"
 
 # define MALLOC_ERROR		"Malloc error\n"
+# define SDL_NOT_SUPPORT	"Please install SDL2 and SDL2_TTF to visualize!\n"
 
 # define OPEN_ERROR			"Error! Cannot open '%s': %s\n"
 # define READ_ERROR			"Error! File '%s': %s\n"

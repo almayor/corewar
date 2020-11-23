@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:26:26 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 16:42:42 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 01:48:17 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	read_bytecode(const char *file, int n, int fd, uint32_t pos)
 	i = 0;
 	while (i < bytes)
 	{
-		g_vm.mem[pos] = buf[i];
+		mem_write(n + 1, pos, buf[i], 1);
 		pos++;
 		i++;
 	}
@@ -95,10 +95,6 @@ void		load(void)
 		if (g_vm.temp[i].num > 0)
 		{
 			load_champion(g_vm.temp[i].fname, g_vm.temp[i].num - 1, pos);
-			if (g_vm.visu_flag)
-				sdl_mark_champ(
-					g_vm.champs[g_vm.temp[i].num - 1].ichamp,
-					g_vm.champs[g_vm.temp[i].num - 1].size, pos);
 			create_proc(g_vm.temp[i].num, pos);
 			g_vm.last_live_champ = g_vm.temp[i].num;
 			pos += step;

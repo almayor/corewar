@@ -6,14 +6,13 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 16:43:48 by user              #+#    #+#             */
-/*   Updated: 2020/11/22 16:44:26 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 01:50:35 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
 t_vm	g_vm = { .cycles_to_die = CYCLE_TO_DIE, .log = 0 };
-t_visu	g_visu;
 
 static void	conclude(void)
 {
@@ -64,7 +63,6 @@ static void	print_usage(void)
 	ft_printf("\t\t\t\t- %-2i : %s\n", 8, "creation and removal of processes");
 	ft_printf("\t\t\t\t- %-2i : %s\n", 16, "PC movements (except for jumps)");
 }
-
 int			main(int argc, char **argv)
 {
 	if (argc == 1)
@@ -76,7 +74,7 @@ int			main(int argc, char **argv)
 	load();
 	greet();
 	if (g_vm.visu_flag)
-		sdl_launch();
+		SDL_ENTRY;
 	else
 		run();
 	conclude();

@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_launch.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:52:32 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 19:55:41 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/23 01:51:02 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+
+t_visu		g_visu;
 
 static void	sdl_init(void)
 {

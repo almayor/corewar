@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:19:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/22 16:57:38 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 01:49:51 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,15 @@
 # include "ft_printf.h"
 # include "op.h"
 # include "corewar_logs.h"
-# include "corewar_visu.h"
+
+# ifndef NO_SDL
+#  include "corewar_visu.h"
+#  define SDL_ENTRY			sdl_launch()
+#  define SDL_MARK_CHAMP 	sdl_mark_champ(ichamp, nbytes, pos)
+# else
+#  define SDL_ENTRY			terminate(SDL_NOT_SUPPORT)
+#  define SDL_MARK_CHAMP	terminate(SDL_NOT_SUPPORT)
+# endif
 
 typedef struct s_parse	t_parse;
 typedef struct s_proc	t_proc;
