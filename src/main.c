@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 16:43:48 by user              #+#    #+#             */
-/*   Updated: 2020/11/23 17:23:30 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 18:26:06 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int			main(int argc, char **argv)
 		SDL_ENTRY;
 	else
 		run();
-	//ft_printf("cycle: %llu\n", g_vm.icycle);
 	conclude();
 	cleanup();
 	return (EXIT_SUCCESS);

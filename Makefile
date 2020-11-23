@@ -6,12 +6,12 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/13 21:03:45 by fallard           #+#    #+#              #
-#    Updated: 2020/11/23 17:24:11 by user             ###   ########.fr        #
+#    Updated: 2020/11/23 18:29:09 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS += -Wall -Wextra -Werror -Wno-unused-result
+CFLAGS += -Wall -Wextra -Werror -Wno-unused-result -Wno-unused-value
 CFLAGS += -MMD
 
 ifeq ($(DEBUG), 1)
@@ -77,11 +77,13 @@ ifeq ($(SDL_INFO), 0)
 	visualizer/sdl_draw_ratio.c
 	CFLAGS += -D'SDL_ENTRY=sdl_launch()'
 	CFLAGS += -D'SDL_MARK_CHAMP=sdl_mark_champ(ichamp, nbytes, pos)'
+	CFLAGS += -D'SDL_CLEANUP=sdl_quit()'
 	LIB = -L $(LIB_DIR) -lft -lSDL2 -lSDL2_ttf
 else
 	CFLAGS += -DNO_SDL
 	CFLAGS += -D'SDL_ENTRY=terminate(SDL_NOT_SUPPORT)'
 	CFLAGS += -D'SDL_MARK_CHAMP=terminate(SDL_NOT_SUPPORT)'
+	CFLAGS += -D'SDL_CLEANUP'
 	LIB = -L $(LIB_DIR) -lft
 endif
 

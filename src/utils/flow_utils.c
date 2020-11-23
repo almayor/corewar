@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:33 by user              #+#    #+#             */
-/*   Updated: 2020/11/12 21:52:11 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 18:29:21 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ void		terminate(const char *format, ...)
 	ft_vdprintf(STDERR_FILENO, format, ap);
 	va_end(ap);
 	cleanup();
+	SDL_CLEANUP;
 	exit(EXIT_FAILURE);
 }

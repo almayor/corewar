@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_launch.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:52:32 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/23 17:06:22 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/23 18:15:38 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void		sdl_quit(void)
 	SDL_DestroyRenderer(g_visu.rend);
 	SDL_DestroyWindow(g_visu.win);
 	TTF_CloseFont(g_visu.font);
-	//SDL_Quit();
-	//TTF_Quit();
+	SDL_Quit();
+	TTF_Quit();
 }
 
 void		sdl_launch(void)
