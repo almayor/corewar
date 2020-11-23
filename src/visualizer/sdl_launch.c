@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_launch.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:52:32 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/23 18:31:11 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 18:33:36 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	sdl_init(void)
 	if ((status = SDL_Init(SDL_INIT_EVERYTHING)))
 		terminate("Error SDL Init\n");
 	SDL_GetCurrentDisplayMode(0, &g_visu.mode);
-	g_visu.mode.w = (g_visu.mode.w > 1820) ? 1870 : g_visu.mode.w;
+	g_visu.mode.w = (g_visu.mode.w > 1870) ? 1870 : g_visu.mode.w;
 	if ((status = TTF_Init()))
 		terminate("Error TTF Init\n");
 	if (!(g_visu.font = TTF_OpenFont(FONT, 12)))
