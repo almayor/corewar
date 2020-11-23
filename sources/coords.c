@@ -58,6 +58,16 @@ int			tok_num_padding(int tok_num, t_token *token)
 	return (tok_num);
 }
 
+int		coords_and_labels2(t_parser *parser, t_token **token, int tok_num)
+{
+	tok_num = tok_num_padding(tok_num, (*token));
+	if ((*token)->type == LABEL_TYPE)
+		add_label(&parser->labels,
+		init_label((*token)->content, (*token)->point.row,
+		(*token)->point.token + 1, parser));
+	return (tok_num);
+}
+
 void		coords_and_labels(t_parser *parser, t_token *tokens, int tok_num)
 {
 	int		y;
@@ -72,15 +82,9 @@ void		coords_and_labels(t_parser *parser, t_token *tokens, int tok_num)
 		if (token->type == LABEL_TYPE && token->type != y)
 			tok_num = hard_coord(parser, &token, -1, 0);
 		else if (y != token->point.row)
-			tok_num = tok_num_padding(-1, token);
+			coords_and_labels2(parser, &token, -1);
 		else
-		{
-			tok_num = tok_num_padding(tok_num, token);
-			if (token->type == LABEL_TYPE)
-				add_label(&parser->labels,
-				init_label(token->content, token->point.row,
-				token->point.token + 1, parser));
-		}
+			coords_and_labels2(parser, &token, tok_num);
 		y = token->point.row;
 		token = token->next;
 	}
