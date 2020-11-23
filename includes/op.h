@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:33:27 by zaz               #+#    #+#             */
-/*   Updated: 2020/11/22 21:30:05 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 13:49:46 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef char					t_arg_type;
 
 # define PROG_NAME_LENGTH		(128)
 # define COMMENT_LENGTH			(2048)
-# define COREWAR_EXEC_MAGIC		0x00ea83f3
+# define COREWAR_EXEC_MAGIC		0xea83f3
 
 typedef struct					s_header
 {
