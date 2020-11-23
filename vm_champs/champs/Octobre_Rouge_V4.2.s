@@ -5,11 +5,11 @@
 		ld	%0,r15
 		fork	%:xxx
 		zjmp	%:torp
-xxx:		live	%42
+xxx:		live	%43
 		fork	%:torp
 		zjmp	%:xxx
 	
-zork:		live	%42
+zork:		live	%43
 		fork	%:zork2
 		st	r1,13
 		ld	%0,r15		

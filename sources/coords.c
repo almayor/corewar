@@ -79,12 +79,12 @@ void		coords_and_labels(t_parser *parser, t_token *tokens, int tok_num)
 	{
 		if (token->type == LABEL_TYPE)
 			validate_labeltoken(token, parser);
-		if (token->type == LABEL_TYPE && token->type != y)
+		if (token->type == LABEL_TYPE && token->point.row != y)
 			tok_num = hard_coord(parser, &token, -1, 0);
 		else if (y != token->point.row)
-			coords_and_labels2(parser, &token, -1);
+			tok_num = coords_and_labels2(parser, &token, -1);
 		else
-			coords_and_labels2(parser, &token, tok_num);
+			tok_num = coords_and_labels2(parser, &token, tok_num);
 		y = token->point.row;
 		token = token->next;
 	}
