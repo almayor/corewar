@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 16:43:48 by user              #+#    #+#             */
-/*   Updated: 2020/11/23 17:23:30 by user             ###   ########.fr       */
+/*   Updated: 2020/11/23 18:14:08 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int			main(int argc, char **argv)
 	parse_args(argc, argv);
 	load();
 	greet();
+	ft_printf("nchamps: %d", g_vm.nchamps);
 	if (g_vm.visu_flag)
 		SDL_ENTRY;
 	else
