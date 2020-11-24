@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 00:26:25 by user              #+#    #+#             */
-/*   Updated: 2020/11/24 21:24:14 by user             ###   ########.fr       */
+/*   Updated: 2020/11/25 00:08:55 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,9 @@ int			find_label_value(t_parser *stor, t_token *dst, int dst_size)
 
 	sign = 1;
 	if (!(label = get_label(stor, dst->content)))
-	{
-		ft_putendl_fd("can't get token", 2);
 		core_error(stor, LABEL_ERR, *put_label_err, dst);
-	}
 	if (!(start = get_start_token(stor, label)))
-	{
-		ft_putendl_fd("can't get start", 2);
 		core_error(stor, LABEL_ERR, *put_label_err, dst);
-	}
 	sign = start->point.row < dst->point.row ? -1 : 1;
 	val = calc_value(start, dst, dst_size);
 	return (val * sign);

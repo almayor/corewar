@@ -12,11 +12,17 @@ label1:
 	label: ld %0, r2
 		sub	r2,r4,r2
 		zjmp %:loop
-		zjmp %:loop
+		zjmp %:empty
 		st r3, r5
+		
+ardefwrite:
+ardefl1:
+	live	%295423
+
+sti		r1, %:ardefl1, %1
 
 typing: aff r2		
 	   
 copie:	ld  %1,r1
 		xor	r10,r10,r10
-
+empty:

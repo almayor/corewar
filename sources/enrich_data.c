@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:46:36 by user              #+#    #+#             */
-/*   Updated: 2020/11/24 20:34:49 by user             ###   ########.fr       */
+/*   Updated: 2020/11/25 00:10:26 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_token		*get_token(t_token *token, int len)
 	name = token->name;
 	while (len)
 	{
-		token = token->next;	
+		token = token->next;
 		len--;
 	}
 	token->name = name;

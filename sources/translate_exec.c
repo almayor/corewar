@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 01:33:01 by user              #+#    #+#             */
-/*   Updated: 2020/11/17 21:43:05 by user             ###   ########.fr       */
+/*   Updated: 2020/11/24 22:04:22 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,14 @@ int			translate_exec_row(t_parser *stor, t_token *token)
 
 	ct = 0;
 	while (token->type != OP_TYPE)
+	{
+		if (token->type == END_FILE)
+		{
+			stor->tokens = token;
+			return (0);
+		}
 		token = token->next;
+	}
 	stor->tokens = token;
 	if (token->type == OP_TYPE && (byte_writer(stor, token->op_code)))
 		token->is_arg_code ? byte_writer(stor, token->arg_code) : 0;

@@ -6,23 +6,11 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:34:55 by user              #+#    #+#             */
-/*   Updated: 2020/11/24 20:35:37 by user             ###   ########.fr       */
+/*   Updated: 2020/11/25 00:08:32 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "translation.h"
-
-void	simple_tokens_print_(t_parser *stor)
-{
-	t_token *t = stor->tokens;
-	while (t)
-	{
-		printf("content = %s, y = %d x = %d\n", t->content, t->point.row, t->point.token);
-		t = t->next;
-
-	}
-}
-
 
 void		enrich_data(t_parser *stor)
 {
@@ -48,12 +36,6 @@ void		translate_commons(t_parser *stor)
 void		translation(t_parser *stor)
 {
 	stor->tokens_head = stor->tokens;
-	
-	// tokens_print(stor);
-	// simple_tokens_print_(stor);
-	// labels_print(stor);
-	stor->tokens = stor->tokens_head;
-
 	enrich_data(stor);
 	if ((stor->fd_cor = open(stor->file_name, O_RDWR |
 	O_CREAT | O_TRUNC, 0777)) == -1)
