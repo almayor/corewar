@@ -34,20 +34,23 @@ int			hard_coord(t_parser *parser, t_token **token, int tok_num, int c)
 		(*token)->point.token = tok_num;
 		if (check->next != NULL)
 			(*token)->point.row = check->next->point.row;
-		else
+		/*else
 		{
-			printf("fof\n");
 			if ((*token)->point.row == 1)
 				core_error(parser, ERR_EMPTY_LABEL, NULL, NULL);
 			else
 				(*token)->type = UNKNOWN;
 			break ;
-		}
+		}*/
 		if ((*token)->type == LABEL_TYPE && (*token)->next->type == END_FILE)
 			c = 0;
-		add_label(&parser->labels,
-		init_label((*token)->content, (*token)->point.row, c, parser));
-		if ((*token)->next->type != LABEL_TYPE)
+		if ((*token)->type == LABEL_TYPE)
+			add_label(&parser->labels,
+			init_label((*token)->content, (*token)->point.row, c, parser));
+		if ((*token)->type != LABEL_TYPE && (*token)->type != OP_TYPE)
+			c = -2;
+		if (c == -2 && ((*token)->next->type == LABEL_TYPE ||
+		(*token)->next->type == OP_TYPE || (*token)->next->type == END_FILE))
 			break ;
 		(*token) = (*token)->next;
 	}
@@ -68,6 +71,7 @@ int			coords_and_labels2(t_parser *parser, t_token **token, int tok_num)
 		add_label(&parser->labels,
 		init_label((*token)->content, (*token)->point.row,
 		(*token)->point.token + 1, parser));
+
 	return (tok_num);
 }
 
