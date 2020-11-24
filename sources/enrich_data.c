@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:46:36 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 21:07:59 by user             ###   ########.fr       */
+/*   Updated: 2020/11/24 20:34:49 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_token		*get_token(t_token *token, int len)
 	name = token->name;
 	while (len)
 	{
-		token = token->next;
+		token = token->next;	
 		len--;
 	}
 	token->name = name;
@@ -108,7 +108,14 @@ int			enrich_row(t_parser *stor, t_token *token)
 
 	ind = -1;
 	while (token && token->type != OP_TYPE)
+	{
+		if (token->type == END_FILE)
+		{
+			stor->tokens = token;
+			return (0);
+		}
 		token = token->next;
+	}
 	stor->tokens = token;
 	while (++ind <= 15)
 		if (token && !ft_strcmp(token->content, g_op_tmpl[ind].name))

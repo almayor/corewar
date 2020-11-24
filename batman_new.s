@@ -19,3 +19,4 @@ typing: aff r2
 	   
 copie:	ld  %1,r1
 		xor	r10,r10,r10
+

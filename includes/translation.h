@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:46 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 21:06:17 by user             ###   ########.fr       */
+/*   Updated: 2020/11/24 20:02:12 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <fcntl.h>
+
+# include <stdio.h>			// DELETE
 
 # include "libft.h"
 # include "asm_struct.h"
@@ -67,5 +69,8 @@ void		put_label_err(t_token *arg);
 
 void		tokens_print(t_parser *stor);
 void		labels_print(t_parser *stor);
+
+void	simple_tokens_print_(t_parser *stor);
+
 
 #endif

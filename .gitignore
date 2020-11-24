@@ -1,5 +1,6 @@
 .vscode/
 .tr_test/
+.DS_Store
 *.out
 *.o
 *.a

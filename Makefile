@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/25 11:33:25 by user              #+#    #+#              #
-#    Updated: 2020/11/21 21:01:06 by user             ###   ########.fr        #
+#    Updated: 2020/11/24 20:31:33 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ OBJ			= $(addprefix $(OBJ_DIR), $(FUNCS:.c=.o))
 INCLUDES	= -I $(INC_DIR) -I $(LIBFT_INC) 
 
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra #-Werror
 LFT			= -L $(LIBFT_DIR) -lft
 
 # --- Colors ---

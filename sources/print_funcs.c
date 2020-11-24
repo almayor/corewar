@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 21:00:23 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 21:17:09 by user             ###   ########.fr       */
+/*   Updated: 2020/11/24 20:33:42 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		get_row_len(t_parser *stor, t_token *token)
 
 	y = token->point.row;
 	len = 0;
-	while (token->point.row == y)
+	while (token->point.row == y && token->type != END_FILE)
 	{
 		len++;
 		token = token->next;
