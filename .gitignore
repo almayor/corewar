@@ -10,6 +10,7 @@
 *.cor
 *.test
 *.s
+*.hex
 !test_translation.s
 !batman_new.s
 asm
