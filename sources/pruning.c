@@ -45,7 +45,8 @@ void		prune_tokens(t_parser *parser)
 	while (curr)
 	{
 		if (prev->next && prev->type == LABEL_TYPE &&
-		!(prev->next->type == OP_TYPE || prev->next->type == LABEL_TYPE))
+		!(prev->next->type == OP_TYPE || prev->next->type == LABEL_TYPE
+		|| prev->next->type == END_FILE))
 			core_error(parser, ERR_LABEL_OP, NULL, NULL);
 		while (curr->next && curr->type == UNKNOWN)
 		{
