@@ -129,7 +129,7 @@ function test_asm
 	champ=$(full_path_champions "$1")
 	print_champions "$name"
 
-	tmp1=/tmp/asm-test-1.s
+	tmp1=.asm-test-1.s
 	ln -f $champ $tmp1
 	out1=$($ZAZ_ASM $tmp1 2>&1 1> /dev/null)
 	if [ $? -ne 0 ]; then
@@ -139,7 +139,7 @@ function test_asm
 	fi
 	out1=${tmp1%.*}.cor
 
-	tmp2=/tmp/asm-test-2.s
+	tmp2=.asm-test-2.s
 	ln -f $champ $tmp2
 	out2=$(./asm $tmp2 2>&1 1> /dev/null)
 	if [ $? -ne 0 ]; then
@@ -157,6 +157,8 @@ function test_asm
 		(( num_passed += 1))
 		printf "${c_green}OK${c_off}\n"
 	fi
+
+	rm $tmp1 $tmp2
 }
 
 head="=== ${t_bold}ASM: Comparing binary${t_off} ============================================="
