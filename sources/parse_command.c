@@ -54,6 +54,7 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 	char	*str;
 	char	*end;
 
+	type_check(parser, type);
 	size = 0;
 	while (!(end = ft_strchr(&((*row)[start]), '\"')) &&
 	(size = read_row(parser->fd_s, &str, parser) > 0) &&
@@ -61,12 +62,11 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 		*row = join_str(row, &str);
 	if (size == -1)
 		core_error(parser, ERR_READING, NULL, NULL);
-	while (*(*row + parser->x_read) != '\"')
+	while (**row && *(*row + parser->x_read) != '\"')
 		++parser->x_read;
 	if ((str = ft_strchr(&((*row)[++parser->x_read]), '\"')))
 		core_error(parser, ERR_DOUBLE_COMMAND, NULL, NULL);
 	trim_from_comments_spaces(parser, *row);
-	type_check(parser, type);
 	if (type == 1)
 		parser->name = ft_strsub(*row, start, (int)(end - &((*row)[start])));
 	else
