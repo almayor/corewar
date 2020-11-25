@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:19:24 by user              #+#    #+#             */
-/*   Updated: 2020/11/23 17:19:49 by user             ###   ########.fr       */
+/*   Updated: 2020/11/25 22:53:28 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,7 @@ void					mem_write(uint32_t ichamp, int64_t pos, int32_t val,
 
 void					cleanup(void);
 void					terminate(const char *format, ...);
+void					help(void);
 
 void					cycle(void);
 void					run(void);
