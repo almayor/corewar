@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 01:33:01 by user              #+#    #+#             */
-/*   Updated: 2020/11/24 22:04:22 by user             ###   ########.fr       */
+/*   Updated: 2020/11/25 14:07:25 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		translate_arg(t_parser *stor, t_token *token, int size)
 	else if (token->type == DIR_ARG_TYPE)
 	{
 		if (token->dir_size == 4)
-			int_writer(stor, ft_atoi(token->content));
+			int_writer(stor, ft_atoi_long(token->content));
 		else if (token->dir_size == 2)
 			short_writer(stor, (short)ft_atoi(token->content));
 	}

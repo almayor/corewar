@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/22 21:29:59 by user             ###   ########.fr       */
+/*   Updated: 2020/11/25 14:10:23 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef enum
 
 typedef union		u_four
 {
-	unsigned		val;
+	unsigned long	val;
 	struct			s_fr
 	{
 		unsigned char	c1:8;

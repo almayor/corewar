@@ -6,13 +6,13 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 01:40:21 by user              #+#    #+#             */
-/*   Updated: 2020/11/21 02:08:08 by user             ###   ########.fr       */
+/*   Updated: 2020/11/25 14:08:19 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "translation.h"
 
-void		int_writer(t_parser *stor, unsigned int data)
+void		int_writer(t_parser *stor, unsigned long data)
 {
 	union u_four	uni_data;
 	unsigned char	c;

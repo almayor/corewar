@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:51:46 by user              #+#    #+#             */
-/*   Updated: 2020/11/25 00:10:41 by user             ###   ########.fr       */
+/*   Updated: 2020/11/25 14:08:40 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		translation(t_parser *stor);
 void		translate_commons(t_parser *stor);
 
 void		write_name_or_comment(t_parser *stor, int len, int kind);
-void		int_writer(t_parser *stor, unsigned int data);
+void		int_writer(t_parser *stor, unsigned long data);
 int			byte_writer(t_parser *stor, unsigned char c);
 void		short_writer(t_parser *stor, short data);
 
