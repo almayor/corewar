@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/23 17:23:38 by user             ###   ########.fr       */
+/*   Updated: 2020/11/25 22:27:17 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 # define POS_X		10
 # define POS_Y		10
 
-# define FONT		"assets/DroidSansMono.ttf"
+# define FONT		"corewar_/assets/DroidSansMono.ttf"
 # define HEX		"0123456789ABCDEF"
 
 typedef struct s_visu	t_visu;
