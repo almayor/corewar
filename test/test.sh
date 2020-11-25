@@ -3,12 +3,14 @@
 ################################# CONFIG #################################
 
 WIDTH=60
-DIREC=champions
+DIREC=test/champions
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-	ZAZ_ASM=./asm_zaz_linux
+	ZAZ_ASM=test/asm_zaz_linux
+	ZAZ_VM=test/corewar_zaz_linux
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	ZAZ_ASM=./asm_zaz_osx
+	ZAZ_ASM=test/asm_zaz_osx
+	ZAZ_VM=test/corewar_zaz_osx
 else
 	>&2 echo "OS not supported"
 	exit 1
@@ -59,6 +61,64 @@ function full_path_champions
 		champs="${champs}${DIREC}/$champ "
 	done
 	printf "$champs"
+}
+
+function check_champions
+{
+	out=$($ZAZ_VM -d 0 $1)
+	if [ $? -ne 0 ]; then
+		echo "$out"
+	fi
+}
+
+function get_dump
+{
+	dump=""
+	regex="^(0x)?[0-9a-f]+ ?: ?([0-9a-f ]+)$"
+	
+	while read line; do
+		line=$(sed 's/^ *//;s/ *$//' <<< $line)
+		if [[ $line =~ $regex ]]; then
+			dump="${dump} ${BASH_REMATCH[${#BASH_REMATCH[@]}-1]}"
+		fi
+	done
+
+	echo "$dump"
+}
+
+function test_corewar
+{
+	names="$1"
+	icycle=$2
+	(( num_total += 1 ))
+
+	champs=$(full_path_champions "$1")
+	print_champions "$names"
+
+	check=$(check_champions "$champs")
+	if [[ ! -z $check ]]; then
+		printf "${c_red}KO${c_off}\n"
+		echo " $check"
+		return
+	fi
+
+	out_zaz="$($ZAZ_VM -d $icycle $champs | get_dump)"
+	out_our="$(./corewar -dump $icycle $champs | get_dump)"
+
+	if [[ `wc -w <<< $out_zaz` -ne 4096 ]] || \
+	   [[ `wc -w <<< $out_our` -ne 4096 ]]; then
+		printf "${c_yellow}INVALID${c_off}\n"
+		return
+	fi
+
+	diff=$(diff <(printf "%s\n" "${out_zaz[@]}") <(printf "%s\n" "${out_our[@]}"))
+
+	if [[ ! -z $diff ]]; then
+		printf "${c_red}KO${c_off}\n"
+	else
+		(( num_passed += 1))
+		printf "${c_green}OK${c_off}\n"
+	fi
 }
 
 function test_asm
@@ -129,6 +189,44 @@ test_asm "overwatch.s"
 # test_asm "run_Kitty_RUN.s"
 # test_asm "ultima.s"
 test_asm "gateau.s"
+
+echo "    ---------------------------------------------------------------"
+echo "    $num_passed tests passed out of $num_total"
+echo "======================================================================="
+
+if [ $num_passed -eq $num_total ]; then
+	printf "${t_bold}${c_green}PASSED${c_off}${t_off}\n\n"
+else
+	printf "${t_bold}${c_red}FAILED${c_off}${t_off}\n\n"
+fi
+
+head="=== ${t_bold}COREWAR: Comparing memory dump${t_off} ===================================="
+head_len=${#head}
+
+num_passed=0
+num_total=0
+
+echo
+echo $head
+
+test_corewar "Gagnant.cor" 26023
+test_corewar "ex.cor" 3071
+test_corewar "jumper.cor" 24690
+test_corewar "mortel.cor" 7429
+test_corewar "maxidef.cor" 25901
+test_corewar "slider2.cor" 25902
+test_corewar "bigzork.cor" 28362
+test_corewar "fluttershy.cor" 25902
+test_corewar "helltrain.cor" 27438
+test_corewar "turtle.cor" 40480
+test_corewar "leapfrog.cor" 180949
+test_corewar "helltrain.cor fluttershy.cor" 25901
+test_corewar "fluttershy.cor toto.cor leapfrog.cor" 25901
+test_corewar "le_pet_de_nonne.cor Car.cor helltrain.cor" 9999
+test_corewar "Gagnant.cor ex.cor" 25902
+test_corewar "Gagnant.cor slider2.cor" 25902
+test_corewar "leapfrog.cor helltrain.cor Gagnant.cor mortel.cor" 24366
+
 
 echo "    ---------------------------------------------------------------"
 echo "    $num_passed tests passed out of $num_total"

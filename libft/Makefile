@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/07 15:43:25 by fallard           #+#    #+#              #
-#    Updated: 2020/11/17 22:21:29 by user             ###   ########.fr        #
+#    Updated: 2020/11/25 19:49:40 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ HPF_NAME = ft_printf.h
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-LIB_DIR = sources/lib/
-PF_DIR = sources/printf/
+LIB_DIR = src/lib/
+PF_DIR = src/printf/
 INC_DIR = includes/
 
 SRC_LIB = ft_atoi.c \
@@ -60,6 +60,7 @@ ft_striter.c \
 ft_striteri.c \
 ft_strjoin.c \
 ft_strjoin_free.c \
+ft_strjoin_free_2.c \
 ft_strlcat.c \
 ft_strlen.c \
 ft_strmap.c \
@@ -107,26 +108,65 @@ ft_strsdup.c \
 ft_strrev.c \
 ft_str_charcount.c \
 
-SRC_PF = ft_printf.c \
-parse.c \
-print_result.c \
-print_flags.c \
-base.c \
-pf_itoa.c \
-dec_numbers.c \
-dec_treatment.c \
-specifier.c \
-macros.c \
-floats.c \
-float_valide.c \
-float_round_up.c \
-long_arithmetic_int.c \
-long_arithmetic_frac.c \
-long_float_treatment.c \
-print_bin.c \
-print_iso_time.c \
-print_iso_func.c \
-helpers.c
+SRC_PF = ft_asprintf.c \
+ft_dprintf.c \
+ft_printf.c \
+ft_snprintf.c \
+ft_sprintf.c \
+ft_vasprintf.c \
+ft_vdprintf.c \
+ft_vprintf.c \
+ft_vsnprintf.c \
+ft_vsprintf.c \
+complete_specifier/complete_specifier.c \
+complete_specifier/functions/complete_specifier_b.c \
+complete_specifier/functions/complete_specifier_c.c \
+complete_specifier/functions/complete_specifier_f.c \
+complete_specifier/functions/complete_specifier_i.c \
+complete_specifier/functions/complete_specifier_o.c \
+complete_specifier/functions/complete_specifier_p.c \
+complete_specifier/functions/complete_specifier_s.c \
+complete_specifier/functions/complete_specifier_u.c \
+complete_specifier/functions/complete_specifier_x.c \
+data_specifier/data_specifier.c \
+data_specifier/functions/data_specifier_c.c \
+data_specifier/functions/data_specifier_f.c \
+data_specifier/functions/data_specifier_i.c \
+data_specifier/functions/data_specifier_p.c \
+data_specifier/functions/data_specifier_pc.c \
+data_specifier/functions/data_specifier_s.c \
+data_specifier/functions/data_specifier_u.c \
+parse_specifier/parse_specifier.c \
+print_specifier/functions/print_specifier_b.c \
+print_specifier/functions/print_specifier_c.c \
+print_specifier/functions/print_specifier_f.c \
+print_specifier/functions/print_specifier_i.c \
+print_specifier/functions/print_specifier_o.c \
+print_specifier/functions/print_specifier_p.c \
+print_specifier/functions/print_specifier_s.c \
+print_specifier/functions/print_specifier_u.c \
+print_specifier/functions/print_specifier_x.c \
+print_specifier/functions/print_specifier_xx.c \
+print_specifier/print_specifier.c \
+utils/get_ndigits_int.c \
+utils/get_ndigits_uint.c \
+utils/min.c \
+utils/printing/pf_putchar.c \
+utils/printing/pf_putfloat.c \
+utils/printing/pf_putint.c \
+utils/printing/pf_putnchar.c \
+utils/printing/pf_puts.c \
+utils/printing/pf_putuint.c \
+validate_specifier/functions/validate_specifier_b.c \
+validate_specifier/functions/validate_specifier_c.c \
+validate_specifier/functions/validate_specifier_f.c \
+validate_specifier/functions/validate_specifier_i.c \
+validate_specifier/functions/validate_specifier_p.c \
+validate_specifier/functions/validate_specifier_s.c \
+validate_specifier/functions/validate_specifier_u.c \
+validate_specifier/functions/validate_specifier_x.c \
+validate_specifier/validate_specifier.c \
+
 
 HEAD_LIB = $(addprefix $(INC_DIR), $(HLIB_NAME))
 HEAD_PF = $(addprefix $(INC_DIR), $(HPF_NAME))
