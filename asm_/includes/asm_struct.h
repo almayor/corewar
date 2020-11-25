@@ -99,6 +99,8 @@ typedef struct		s_parser
 	t_token			*tokens_head;
 	t_label			*labels;
 	int				row_len;
+	int				name_len;
+	int				comment_len;
 	int				x_read;
 	int				y_read;
 	int				tok_len;

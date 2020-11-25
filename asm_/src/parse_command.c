@@ -18,9 +18,9 @@ void	validate_commands(t_parser *parser)
 		core_error(parser, ERR_NO_NAME, NULL, NULL);
 	if (parser->comment == NULL)
 		core_error(parser, ERR_NO_COMMENT, NULL, NULL);
-	if (ft_strlen(parser->name) > PROG_NAME_LENGTH)
+	if ((ft_strlen(parser->name) + parser->name_len) > PROG_NAME_LENGTH)
 		core_error(parser, ERR_TOO_LONG_NAME, NULL, NULL);
-	if (ft_strlen(parser->comment) > COMMENT_LENGTH)
+	if ((ft_strlen(parser->comment) + parser->comment_len) > COMMENT_LENGTH)
 		core_error(parser, ERR_TOO_LONG_COMMENT, NULL, NULL);
 }
 
@@ -54,11 +54,9 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 	char	*str;
 	char	*end;
 
-	type_check(parser, type);
-	size = 0;
 	while (!(end = ft_strchr(&((*row)[start]), '\"')) &&
 	(size = read_row(parser->fd_s, &str, parser) > 0) &&
-	++parser->y_read)
+	++parser->y_read && ++parser->row_len)
 		*row = join_str(row, &str);
 	if (size == -1)
 		core_error(parser, ERR_READING, NULL, NULL);
@@ -68,9 +66,15 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 		core_error(parser, ERR_DOUBLE_COMMAND, NULL, NULL);
 	trim_from_comments_spaces(parser, *row);
 	if (type == 1)
+	{
+		parser->name_len = parser->row_len;
 		parser->name = ft_strsub(*row, start, (int)(end - &((*row)[start])));
+	}
 	else
+	{
+		parser->comment_len = parser->row_len;
 		parser->comment = ft_strsub(*row, start, (int)(end - &((*row)[start])));
+	}
 }
 
 /*
@@ -97,5 +101,6 @@ void	parse_command(t_parser *parser, char **row, int start)
 		core_error(parser, ERR_COMMAND, NULL, NULL);
 	free(tmp);
 	trim_from_comments_spaces(parser, *row);
+	type_check(parser, type);
 	parse_command2(parser, row, parser->x_read, type);
 }

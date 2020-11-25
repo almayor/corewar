@@ -28,6 +28,7 @@ int			read_row(int fd, char **row, t_parser *parser)
 
 void		trim_from_comments_spaces(t_parser *parser, char *row)
 {
+	parser->row_len = 0;
 	while (row[parser->x_read] == ' ' || row[parser->x_read] == '\t' ||
 			row[parser->x_read] == '\n')
 		parser->x_read++;
