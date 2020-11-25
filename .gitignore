@@ -1,15 +1,19 @@
+# Auto-generated and OS files
 .vscode/
-.tr_test/
 .DS_Store
+*.idea
+.asm-test-1.cor
+.asm-test-2.cor
+
+# Executable
+asm
+corewar
+
+# Objects, libs, logs and other
 *.out
 *.o
 *.a
 *.so
 *.log
-*.idea
 *.test
 *.hex
-!test_translation.s
-!batman_new.s
-asm
-.idea
