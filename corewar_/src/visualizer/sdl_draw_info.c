@@ -6,7 +6,7 @@
 /*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:48:53 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/23 18:15:29 by fallard          ###   ########.fr       */
+/*   Updated: 2020/11/26 00:57:13 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ static void	sdl_draw_info_2(SDL_Rect pos, SDL_Color clr)
 	sdl_put_text(PREV_RATIO, clr, pos);
 	pos.y = pos.y + 20;
 	sdl_draw_ratio(pos, clr, 0);
-	sdl_put_number(V_CYCDIE, g_vm.cycles_to_die, pos.x, pos.y + 40);
+	g_visu.ctd_copy = (g_vm.cycles_to_die < 0) ? 0 : g_vm.cycles_to_die;
+	sdl_put_number(V_CYCDIE, g_visu.ctd_copy, pos.x, pos.y + 40);
 	sdl_put_number(V_CECDELTA, CYCLE_DELTA, pos.x, pos.y + 60);
 	sdl_put_number(V_NBR_LIVE, NBR_LIVE, pos.x, pos.y + 80);
 	sdl_put_number(V_MAXCHECK, MAX_CHECKS, pos.x, pos.y + 100);

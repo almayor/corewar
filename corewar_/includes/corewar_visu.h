@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   corewar_visu.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/25 22:27:17 by user             ###   ########.fr       */
+/*   Updated: 2020/11/26 00:57:14 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ struct				s_visu
 	SDL_Rect		rect;
 	SDL_Event		event;
 	const uint8_t	*keyboard;
+	int64_t			ctd_copy;
 	int				quit;
 	int				pause;
 	int				pause_flag;
