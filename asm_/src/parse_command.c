@@ -50,16 +50,13 @@ void	type_check(t_parser *parser, int type)
 
 void	parse_command2(t_parser *parser, char **row, int start, int type)
 {
-	int		size;
 	char	*str;
 	char	*end;
 
 	while (!(end = ft_strchr(&((*row)[start]), '\"')) &&
-	(size = read_row(parser->fd_s, &str, parser) > 0) &&
+	(read_row(parser->fd_s, &str, parser) > 0) &&
 	++parser->y_read && ++parser->row_len)
 		*row = join_str(row, &str);
-	if (size == -1)
-		core_error(parser, ERR_READING, NULL, NULL);
 	while (**row && *(*row + parser->x_read) != '\"')
 		++parser->x_read;
 	if ((str = ft_strchr(&((*row)[++parser->x_read]), '\"')))
