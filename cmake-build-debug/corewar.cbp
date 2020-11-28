@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="corewar"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/vovan/Documents/corewar/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/vovan/Documents/corewar/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/vovan/Documents/corewar/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="corewar">
+				<Option output="/home/vovan/Documents/corewar/cmake-build-debug/corewar" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vovan/Documents/corewar/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/vovan/Documents/corewar/asm_/includes"/>
+					<Add directory="/home/vovan/Documents/corewar/corewar_/includes"/>
+					<Add directory="/home/vovan/Documents/corewar/libft/includes"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 corewar"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="corewar/fast">
+				<Option output="/home/vovan/Documents/corewar/cmake-build-debug/corewar" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vovan/Documents/corewar/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/vovan/Documents/corewar/asm_/includes"/>
+					<Add directory="/home/vovan/Documents/corewar/corewar_/includes"/>
+					<Add directory="/home/vovan/Documents/corewar/libft/includes"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 corewar/fast"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/home/vovan/Documents/corewar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/includes/asm_struct.h">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/includes/op.h">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/includes/operations.h">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/includes/parser.h">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/includes/translation.h">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/asm.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/asm_main.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/coords.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/enrich_data.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/free_utils.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/init_structs.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/is_functions.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/label_value.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/parse_command.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/parsing.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/parsing2.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/print_funcs.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/prints.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/pruning.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/put_usage.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/row_functions.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/translate_exec.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/translation.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/asm_/src/writing_modules.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/includes/ft_printf.h">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/includes/ft_printf_private.h">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/includes/libft.h">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_abs.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_atoi.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_atoi_long.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_bzero.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_calloc.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_factorial.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_isalnum.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_isalpha.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_isascii.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_isdigit.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_isint.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_isprint.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_iswspace.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_itoa.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_itoa_base.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_long_power.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_lstadd.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_lstadd_back.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_lstdel.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_lstdelone.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_lstinsert_after.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_lstinsert_before.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_lstiter.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_lstmap.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_lstnew.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_lstnewset.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_memalloc.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_memccpy.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_memchr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_memcmp.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_memcpy.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_memdel.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_memmove.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_memset.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_nbrmax.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_nbrmin.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_power.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_putchar.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_putchar_fd.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_putendl.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_putendl_fd.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_putnbr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_putnbr_color.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_putnbr_fd.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_putstr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_putstr_color.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_putstr_fd.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_splitdel.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_str_charcount.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strcat.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strchr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strclr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strcmp.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strcpy.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strdel.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strdup.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strequ.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_striter.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_striteri.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strjoin.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strjoin_free.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strjoin_free_2.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strlcat.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strlen.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strmap.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strmapi.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strncat.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strncmp.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strncpy.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strnequ.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strnew.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strnstr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strrchr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strrev.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strsdup.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strsplit.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strstr.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strsub.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_strtrim.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_swap.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_tolower.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_toupper.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/ft_word_count.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/get_next_line.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/lib/get_next_line_clean.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/complete_specifier/complete_specifier.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/complete_specifier/functions/complete_specifier_b.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/complete_specifier/functions/complete_specifier_c.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/complete_specifier/functions/complete_specifier_f.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/complete_specifier/functions/complete_specifier_i.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/complete_specifier/functions/complete_specifier_o.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/complete_specifier/functions/complete_specifier_p.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/complete_specifier/functions/complete_specifier_s.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/complete_specifier/functions/complete_specifier_u.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/complete_specifier/functions/complete_specifier_x.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/data_specifier/data_specifier.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/data_specifier/functions/data_specifier_c.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/data_specifier/functions/data_specifier_f.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/data_specifier/functions/data_specifier_i.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/data_specifier/functions/data_specifier_p.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/data_specifier/functions/data_specifier_pc.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/data_specifier/functions/data_specifier_s.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/data_specifier/functions/data_specifier_u.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/ft_asprintf.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/ft_dprintf.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/ft_printf.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/ft_snprintf.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/ft_sprintf.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/ft_vasprintf.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/ft_vdprintf.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/ft_vprintf.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/ft_vsnprintf.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/ft_vsprintf.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/parse_specifier/parse_specifier.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/print_specifier/functions/print_specifier_b.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/print_specifier/functions/print_specifier_c.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/print_specifier/functions/print_specifier_f.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/print_specifier/functions/print_specifier_i.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/print_specifier/functions/print_specifier_o.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/print_specifier/functions/print_specifier_p.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/print_specifier/functions/print_specifier_s.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/print_specifier/functions/print_specifier_u.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/print_specifier/functions/print_specifier_x.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/print_specifier/functions/print_specifier_xx.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/print_specifier/print_specifier.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/utils/get_ndigits_int.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/utils/get_ndigits_uint.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/utils/min.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/utils/printing/pf_putchar.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/utils/printing/pf_putfloat.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/utils/printing/pf_putint.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/utils/printing/pf_putnchar.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/utils/printing/pf_puts.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/utils/printing/pf_putuint.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/validate_specifier/functions/validate_specifier_b.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/validate_specifier/functions/validate_specifier_c.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/validate_specifier/functions/validate_specifier_f.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/validate_specifier/functions/validate_specifier_i.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/validate_specifier/functions/validate_specifier_p.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/validate_specifier/functions/validate_specifier_s.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/validate_specifier/functions/validate_specifier_u.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/validate_specifier/functions/validate_specifier_x.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/libft/src/printf/validate_specifier/validate_specifier.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/home/vovan/Documents/corewar/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -62,3 +62,27 @@ void		prune_tokens(t_parser *parser)
 		prev = prev->next;
 	}
 }
+
+void		validate_tokens(t_parser *parser, t_token *tokens)
+{
+	t_token	*token;
+	int		op;
+	int		y;
+
+	token = tokens;
+	while (token)
+	{
+		op = 0;
+		y = token->point.row;
+		while (token && y == token->point.row)
+		{
+			if (token->type == OP_TYPE)
+				op++;
+			token = token->next;
+			if (op > 1)
+				core_error(parser, ERR_TWO_OPS, NULL, NULL);
+		}
+		if (token)
+			y = token->point.row;
+	}
+}

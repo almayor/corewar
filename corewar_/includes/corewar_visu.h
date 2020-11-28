@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   corewar_visu.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: fallard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:42:31 by fallard           #+#    #+#             */
 /*   Updated: 2020/11/26 00:57:14 by fallard          ###   ########.fr       */

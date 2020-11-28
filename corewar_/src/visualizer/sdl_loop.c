@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_loop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: fallard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:42:40 by fallard           #+#    #+#             */
 /*   Updated: 2020/11/23 17:06:20 by fallard          ###   ########.fr       */

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flow_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kysgramo <kysgramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/06 14:37:33 by user              #+#    #+#             */
-/*   Updated: 2020/11/25 22:54:35 by user             ###   ########.fr       */
+/*   Created: 2020/11/06 14:37:33 by kysgramo          #+#    #+#             */
+/*   Updated: 2020/11/25 22:54:35 by kysgramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		help(void)
 	ft_printf(
 		"Usage:");
 	ft_printf(
-		"\t./corewar [-n N <file.cor> | -dump N | -log N | -v] <file.cor> <...>\n");
+	"\t./corewar [-n N <file.cor> | -dump N | -log N | -v] <file.cor> <...>\n");
 	ft_printf(
 		"\t%-20s : Print help and exit\n", "--help");
 	ft_printf(

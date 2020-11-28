@@ -45,6 +45,7 @@ t_token		*init_token(t_parser *parser, t_type type)
 	token->type = type;
 	token->point = init_point();
 	token->point.row = parser->point.row;
+	parser->comma = 0;
 	return (token);
 }
 

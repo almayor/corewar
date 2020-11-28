@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_draw_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: fallard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:48:47 by fallard           #+#    #+#             */
 /*   Updated: 2020/11/22 23:34:51 by fallard          ###   ########.fr       */

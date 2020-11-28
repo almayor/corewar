@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_draw_ratio.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: fallard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 21:40:03 by fallard           #+#    #+#             */
 /*   Updated: 2020/11/21 23:19:37 by fallard          ###   ########.fr       */

@@ -49,10 +49,12 @@
 # define ERR_EMPTY_LABEL		"Error: empty label"
 # define ERR_LABEL_OP   		"Error: operation should come after label"
 # define ERR_NO_CODE			"Error: no champion code"
+# define ERR_COMMA				"Error: unwanted comma"
+# define ERR_TWO_OPS			"Error: two operations on the same line"
 
 void			assembler(char *filename, t_flags flags);
 t_parser		*init_asm_parser(void);
-void			parsing(t_parser *parser, int tok_len);
+void			parsing(t_parser *parser, int tok_len, char *row);
 t_token			*init_token(t_parser *parser, t_type type);
 void			parse_alpha(t_parser *parser, char *row, int y_start,
 t_token *token);
@@ -85,5 +87,6 @@ void			print_tokens(t_token *tokens);
 void			print_labels(t_label *labels);
 void			put_asm_usage(void);
 void			put_bonus(t_parser *stor, t_flags flags);
+void			validate_tokens(t_parser *parser, t_token *tokens);
 
 #endif

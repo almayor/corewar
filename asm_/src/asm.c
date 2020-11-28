@@ -61,7 +61,7 @@ void	assembler(char *filename, t_flags flags)
 	parser = init_asm_parser();
 	if ((parser->fd_s = open(filename, O_RDONLY)) == -1)
 		core_error(parser, ERR_OPEN_FILE, NULL, NULL);
-	parsing(parser, 0);
+	parsing(parser, 0, NULL);
 	prune_tokens(parser);
 	close(parser->fd_s);
 	check_escape(parser, filename);

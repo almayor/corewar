@@ -110,6 +110,7 @@ typedef struct		s_parser
 	char			*file_name;
 	char			*name;
 	char			*comment;
+	int				comma;
 }					t_parser;
 
 #endif

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_splitdel.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: fallard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 22:19:01 by fallard           #+#    #+#             */
 /*   Updated: 2020/07/24 22:27:49 by fallard          ###   ########.fr       */

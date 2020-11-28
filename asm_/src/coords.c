@@ -88,4 +88,5 @@ void		coords_and_labels(t_parser *parser, t_token *tokens, int tok_num)
 		y = token->point.row;
 		token = token->next;
 	}
+	validate_tokens(parser, parser->tokens);
 }
