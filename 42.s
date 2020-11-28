@@ -3,6 +3,6 @@
 "
 .comment ""
 
-xor r1, r1, r1 
+xor r1, r1, r1
 live %1
  live %1

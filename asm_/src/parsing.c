@@ -39,9 +39,29 @@ void		parse_token2(t_parser *parser, char **row)
 		lexical_error(parser, NULL, row);
 }
 
+void		token_len(t_parser *parser, t_token **tokens)
+{
+	t_token	*curr;
+	int		len;
+
+	len = 0;
+	if (tokens && *tokens)
+	{
+		curr = *tokens;
+		while (curr->next)
+		{
+			curr = curr->next;
+			len++;
+		}
+		parser->tok_len = len;
+	}
+	else
+		parser->tok_len = 0;
+}
+
 void		parse_token(t_parser *parser, char **row)
 {
-	if (*(*row + parser->x_read) == SEPARATOR_CHAR && (parser->comma = 1))
+	if (*(*row + parser->x_read) == SEPARATOR_CHAR && ++parser->comma)
 		parser->x_read++;
 	else if (*(*row + parser->x_read) == '.' && ++parser->x_read)
 		parse_command(parser, row, parser->x_read);
@@ -72,26 +92,6 @@ void		parse_token(t_parser *parser, char **row)
 ** parse_digit - for directs, indirects
 */
 
-void		token_len(t_parser *parser, t_token **tokens)
-{
-	t_token	*curr;
-	int		len;
-
-	len = 0;
-	if (tokens && *tokens)
-	{
-		curr = *tokens;
-		while (curr->next)
-		{
-			curr = curr->next;
-			len++;
-		}
-		parser->tok_len = len;
-	}
-	else
-		parser->tok_len = 0;
-}
-
 void		parsing(t_parser *parser, int tok_len, char *row)
 {
 	while (++parser->y_read && read_row(parser->fd_s, &row, parser) > 0)
@@ -110,7 +110,7 @@ void		parsing(t_parser *parser, int tok_len, char *row)
 			parser->point.row++;
 		}
 		ft_strdel(&row);
-		if (parser->comma == 1)
+		if (parser->comma >= 1)
 			core_error(parser, ERR_COMMA, NULL, NULL);
 	}
 	if (tok_len == 0)
