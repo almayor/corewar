@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flow_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kysgramo <kysgramo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:33 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/25 22:54:35 by kysgramo         ###   ########.fr       */
+/*   Updated: 2020/11/28 22:48:41 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void		terminate(const char *format, ...)
 	ft_vdprintf(STDERR_FILENO, format, ap);
 	va_end(ap);
 	cleanup();
-	SDL_CLEANUP;
+	if (g_vm.visu_flag)
+		SDL_CLEANUP;
 	exit(EXIT_FAILURE);
 }
 
