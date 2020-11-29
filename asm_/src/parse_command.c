@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 20:30:02 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/29 22:09:47 by user             ###   ########.fr       */
+/*   Updated: 2020/11/29 22:24:13 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void	parse_command(t_parser *parser, char **row, int start)
 		type = 2;
 	else
 	{
+		free(*row);
 		free(tmp);
 		core_error(parser, ERR_COMMAND, NULL, NULL);
 	}
