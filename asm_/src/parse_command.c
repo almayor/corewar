@@ -60,7 +60,10 @@ void	parse_command2(t_parser *parser, char **row, int start, int type)
 	while (**row && *(*row + parser->x_read) != '\"')
 		++parser->x_read;
 	if ((str = ft_strchr(&((*row)[++parser->x_read]), '\"')))
+	{
+		ft_strdel(row);
 		core_error(parser, ERR_DOUBLE_COMMAND, NULL, NULL);
+	}
 	trim_from_comments_spaces(parser, *row);
 	if (type == 1)
 	{
