@@ -62,7 +62,7 @@ void		parse_alpha(t_parser *parser, char *row, int start,
 	token->content = get_token_content(parser, row, start);
 	if (parser->x_read - start && ((row[parser->x_read] == LABEL_CHAR &&
 	is_delimiter(row[parser->x_read + 1])) ||
-	token->type == LABEL_TYPE))
+	row[start - 1] == LABEL_CHAR))
 	{
 		if (token->type == UNKNOWN)
 		{
