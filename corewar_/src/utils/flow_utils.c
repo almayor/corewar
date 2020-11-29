@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   flow_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: fallard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:37:33 by kysgramo          #+#    #+#             */
 /*   Updated: 2020/11/28 22:48:41 by fallard          ###   ########.fr       */
