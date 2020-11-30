@@ -76,12 +76,12 @@ void		validate_tokens(t_parser *parser, t_token *tokens)
 		y = token->point.row;
 		while (token && y == token->point.row)
 		{
-			if (token->type == OP_TYPE)
+			if (token->type == OP_TYPE || token->type == END_FILE)
 				op++;
 			token = token->next;
-			if (op > 1)
-				core_error(parser, ERR_TWO_OPS, NULL, NULL);
 		}
+		if (op != 1)
+			core_error(parser, ERR_OPS, NULL, NULL);
 		if (token)
 			y = token->point.row;
 	}

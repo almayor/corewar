@@ -50,7 +50,8 @@
 # define ERR_LABEL_OP   		"Error: operation should come after label"
 # define ERR_NO_CODE			"Error: no champion code"
 # define ERR_COMMA				"Error: unwanted comma"
-# define ERR_TWO_OPS			"Error: two operations on the same line"
+# define ERR_OPS    			"Error: on each line should be one operation"
+# define ERR_SHORT				"Error: too short line"
 
 void			assembler(char *filename, t_flags flags);
 t_parser		*init_asm_parser(void);
