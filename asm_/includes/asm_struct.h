@@ -89,6 +89,7 @@ typedef struct		s_token
 	int				is_arg_code;
 	unsigned char	arg_code;
 	int				dir_size;
+	int				comma;
 	struct s_token	*next;
 }					t_token;
 

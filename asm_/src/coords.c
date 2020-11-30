@@ -38,10 +38,10 @@ int			hard_coord(t_parser *parser, t_token **token, int tok_num, int c)
 		if ((*token)->type == LABEL_TYPE)
 			add_label(&parser->labels,
 			init_label((*token)->content, (*token)->point.row, c, parser));
-		if (c == -2 && (*token)->next->point.row != ((*token)->point.row))
-			break ;
 		if ((*token)->type != LABEL_TYPE && (*token)->type != OP_TYPE)
 			c = -2;
+		else if (c == -2 && (*token)->next->point.row != ((*token)->point.row))
+			break ;
 		if (c == -2 && ((*token)->next->type == LABEL_TYPE ||
 		(*token)->next->type == OP_TYPE || (*token)->next->type == END_FILE))
 			break ;
@@ -87,5 +87,5 @@ void		coords_and_labels(t_parser *parser, t_token *tokens, int tok_num)
 		y = token->point.row;
 		token = token->next;
 	}
-	validate_tokens(parser, parser->tokens);
+	validate_tokens(parser, parser->tokens, 0, 0);
 }

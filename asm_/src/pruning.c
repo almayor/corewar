@@ -63,11 +63,21 @@ void		prune_tokens(t_parser *parser)
 	}
 }
 
-void		validate_tokens(t_parser *parser, t_token *tokens)
+void		validate_tokens2(t_parser *parser, t_token **token, int y)
+{
+	if ((*token)->next->comma == 1 && (*token)->point.token == 0)
+		core_error(parser, ERR_COMMA, NULL, NULL);
+	if ((*token)->next->comma == 1 && ((*token)->type == OP_TYPE ||
+	(*token)->type == LABEL_TYPE))
+		core_error(parser, ERR_COMMA, NULL, NULL);
+	if ((*token)->next->comma != 1 && ((*token)->type != OP_TYPE &&
+	(*token)->type != LABEL_TYPE) && y == (*token)->next->point.row)
+		core_error(parser, ERR_NO_COMMA, NULL, NULL);
+}
+
+void		validate_tokens(t_parser *parser, t_token *tokens, int op, int y)
 {
 	t_token	*token;
-	int		op;
-	int		y;
 
 	token = tokens;
 	while (token)
@@ -78,6 +88,8 @@ void		validate_tokens(t_parser *parser, t_token *tokens)
 		{
 			if (token->type == OP_TYPE || token->type == END_FILE)
 				op++;
+			if (token->next)
+				validate_tokens2(parser, &token, y);
 			token = token->next;
 		}
 		if (op != 1)

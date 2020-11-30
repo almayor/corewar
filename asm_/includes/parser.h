@@ -50,7 +50,8 @@
 # define ERR_LABEL_OP   		"Error: operation should come after label"
 # define ERR_NO_CODE			"Error: no champion code"
 # define ERR_COMMA				"Error: unwanted comma"
-# define ERR_OPS    			"Error: on each line should be one operation"
+# define ERR_NO_COMMA			"Error: comma required"
+# define ERR_OPS				"Error: on each line should be one operation"
 # define ERR_SHORT				"Error: too short line"
 
 void			assembler(char *filename, t_flags flags);
@@ -88,6 +89,7 @@ void			print_tokens(t_token *tokens);
 void			print_labels(t_label *labels);
 void			put_asm_usage(void);
 void			put_bonus(t_parser *stor, t_flags flags);
-void			validate_tokens(t_parser *parser, t_token *tokens);
+void			validate_tokens(t_parser *parser, t_token *tokens,
+int op, int y);
 
 #endif
