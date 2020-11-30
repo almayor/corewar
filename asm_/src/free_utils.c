@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 01:59:40 by user              #+#    #+#             */
-/*   Updated: 2020/11/22 21:30:38 by user             ###   ########.fr       */
+/*   Updated: 2020/11/30 19:53:50 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		core_error(t_parser *stor, char *message, void (*f)(), t_token *arg)
 	if (message)
 		ft_putendl_fd(message, 2);
 	if (f)
-		f(arg);
+		f(arg, stor);
 	if (stor && stor->fd_s)
 		close(stor->fd_s);
 	if (stor && stor->fd_cor)

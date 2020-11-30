@@ -6,13 +6,14 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/25 11:33:25 by user              #+#    #+#              #
-#    Updated: 2020/11/25 19:55:48 by user             ###   ########.fr        #
+#    Updated: 2020/11/30 19:22:05 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ----- Name -----
 NAME 		= ../asm
-HEADER_NAME	= asm_struct.h parser.h translation.h op.h operations.h
+HEADER_NAME	= asm_struct.h parser.h translation.h op.h operations.h \
+				alt_parser.h
 LIBFT_NAME	= libft.a
 
 # ----- Dir -----
@@ -28,7 +29,9 @@ FUNCS		= 	asm_main.c asm.c coords.c init_structs.c is_functions.c \
 				translation.c free_utils.c writing_modules.c \
 				enrich_data.c label_value.c \
 				translate_exec.c pruning.c put_usage.c prints.c \
-				print_funcs.c
+				print_funcs.c \
+				\
+				alt_parser.c
 
 # ----- Auto -----
 HEADER		= $(addprefix $(INC_DIR), $(HEADER_NAME))

@@ -6,12 +6,14 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:02:09 by kysgramo          #+#    #+#             */
-/*   Updated: 2020/11/25 14:19:41 by user             ###   ########.fr       */
+/*   Updated: 2020/11/30 20:34:39 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 #include "translation.h"
+
+#include "alt_parser.h"
 
 void	check_escape2(char *balance, t_parser *parser, char *stock)
 {
@@ -61,6 +63,8 @@ void	assembler(char *filename, t_flags flags)
 	parser = init_asm_parser();
 	if ((parser->fd_s = open(filename, O_RDONLY)) == -1)
 		core_error(parser, ERR_OPEN_FILE, NULL, NULL);
+	alt_parsing(parser);
+	
 	parsing(parser, 0, NULL);
 	prune_tokens(parser);
 	close(parser->fd_s);
