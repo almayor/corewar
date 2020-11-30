@@ -86,13 +86,13 @@ void		validate_tokens(t_parser *parser, t_token *tokens, int op, int y)
 		y = token->point.row;
 		while (token && y == token->point.row)
 		{
-			if (token->type == OP_TYPE || token->type == END_FILE)
+			if (token->type == OP_TYPE)
 				op++;
 			if (token->next)
 				validate_tokens2(parser, &token, y);
 			token = token->next;
 		}
-		if (op != 1)
+		if (token && op != 1)
 			core_error(parser, ERR_OPS, NULL, NULL);
 		if (token)
 			y = token->point.row;
