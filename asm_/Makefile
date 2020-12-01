@@ -23,7 +23,7 @@ OBJ_DIR		= ./obj/
 INC_DIR 	= ./includes/
 
 # ----- Lists -----
-FUNCS		= 	asm_main.c asm.c coords.c init_structs.c is_functions.c \
+FUNCS		= 	asm_main.c asm.c coords.c hard_coords.c init_structs.c is_functions.c \
 				parsing.c parsing2.c parse_command.c row_functions.c \
 				translation.c free_utils.c writing_modules.c \
 				enrich_data.c label_value.c \

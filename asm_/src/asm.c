@@ -15,19 +15,20 @@
 
 void	check_escape2(char *balance, t_parser *parser, char *stock)
 {
-	int		escapes;
-	int		i;
+	unsigned int		i;
 
-	escapes = 0;
 	i = 0;
-	free(stock);
-	while (balance[i] != '\0')
+	ft_strdel(&stock);
+	i = ft_strlen(balance) - 1;
+	while (balance[i] != '\n' && i > 0)
 	{
-		if (balance[i++] == '\n')
-			escapes++;
+		if (balance[i] == '\t' || balance[i] == '\v'
+			|| balance[i] == '\f'
+			|| balance[i] == '\r')
+			i--;
+		else
+			core_error(parser, ERR_ESCAPE, NULL, NULL);
 	}
-	if (escapes != parser->y_read - 1)
-		core_error(parser, ERR_ESCAPE, NULL, NULL);
 }
 
 void	check_escape(t_parser *parser, char *filename)

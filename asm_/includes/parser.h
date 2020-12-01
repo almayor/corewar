@@ -91,5 +91,7 @@ void			put_asm_usage(void);
 void			put_bonus(t_parser *stor, t_flags flags);
 void			validate_tokens(t_parser *parser, t_token *tokens,
 int op, int y);
+int				hard_coord(t_parser *parser, t_token **token,
+int tok_num, int c);
 
 #endif
