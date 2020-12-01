@@ -35,6 +35,7 @@ echo "\033[0;33m\n################  operations  ##################\n\033[0m"
 ./asm eviltests/op3.s
 ./asm eviltests/op4.s
 ./asm eviltests/op5.s
+./asm eviltests/op6.s
 
 echo "\033[0;33m\n################  labels  ##################\n\033[0m" 
 
