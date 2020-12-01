@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 01:59:40 by user              #+#    #+#             */
-/*   Updated: 2020/11/30 19:53:50 by user             ###   ########.fr       */
+/*   Updated: 2020/12/01 09:36:01 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,21 @@ void		free_labels(t_parser *stor)
 	}
 }
 
+void		free_tokens_row(t_parser *stor)
+{
+	int i;
+
+	i = 0;
+	while (i < TOKENS_ROW)
+	{
+		if (stor->row[i] && stor->row[i]->content)
+			free(stor->row[i]->content);
+		if (stor->row[i])
+			free(stor->row[i]);
+		i++;
+	}
+}
+
 void		core_free(t_parser *stor)
 {
 	if (!stor)
@@ -84,5 +99,7 @@ void		core_free(t_parser *stor)
 	}
 	if (stor->labels)
 		free_labels(stor);
+	if (stor->row)
+		free_tokens_row(stor);
 	free_parser(stor);
 }

@@ -1,8 +1,15 @@
 #comment
 .name	"try this!"
+#commment
 .comment "can we brake this parser down?"
+#comment
 
-	 fork  %:label00          		# 3,0,281
+
+
+
+label:
+	label2:
+	fork  %:label00          		# 3,0,281
 	 ld    %-272,r3           		# 7,3,278
 	 live  %0                 		# 5,10,271
 	 fork  %:label00          		# 3,15,266

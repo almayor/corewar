@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/25 11:33:25 by user              #+#    #+#              #
-#    Updated: 2020/11/30 19:22:05 by user             ###   ########.fr        #
+#    Updated: 2020/11/30 23:44:26 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ FUNCS		= 	asm_main.c asm.c coords.c init_structs.c is_functions.c \
 				translate_exec.c pruning.c put_usage.c prints.c \
 				print_funcs.c \
 				\
-				alt_parser.c
+				alt_parser.c alt_commons.c alt_utils.c
 
 # ----- Auto -----
 HEADER		= $(addprefix $(INC_DIR), $(HEADER_NAME))

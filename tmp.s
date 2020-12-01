@@ -4,7 +4,6 @@
 .name		"fluttershy"
 .comment	"oh, my, what a scary project"
 
-
 live	%42
 entry:
 	st		r1, 6

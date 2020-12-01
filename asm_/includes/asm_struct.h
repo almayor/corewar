@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 21:21:50 by user              #+#    #+#             */
-/*   Updated: 2020/11/30 20:36:25 by user             ###   ########.fr       */
+/*   Updated: 2020/12/01 09:33:48 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "op.h"
 
 # define BUFFER_SIZE	4096
+# define TOKENS_ROW		15
 # define NAME_FLAG		1
 # define COMMENT_FLAG 	0
 # define OP_SIZE_BYTE 	1
@@ -100,7 +101,8 @@ typedef struct		s_parser
 	t_token			*tokens;
 	t_token			*tokens_head;
 	t_label			*labels;
-	char			l[BUFFER_SIZE];
+	char			l[TOKENS_ROW];
+	t_token			*row[15];
 	int				row_len;
 	int				name_len;
 	int				comment_len;
