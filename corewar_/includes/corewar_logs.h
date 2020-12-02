@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   corewar_logs.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:20:17 by user              #+#    #+#             */
-/*   Updated: 2020/11/23 17:20:20 by user             ###   ########.fr       */
+/*   Updated: 2020/12/02 19:56:29 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define CHAMP_WON			"Player %u (%s) has won!\n"
 
 # define MALLOC_ERROR		"Malloc error\n"
-# define SDL_NOT_SUPPORT	"Please install SDL2 and SDL2_TTF to visualize!\n"
+# define SDL_NOT_SUPPORT	"Please install SDL2 and SDL2_ttf to visualize!\n"
 
 # define OPEN_ERROR			"Error! Cannot open '%s': %s\n"
 # define READ_ERROR			"Error! File '%s': %s\n"
@@ -27,7 +27,7 @@
 
 # define NO_PLAYERS			"Error! No players\n"
 # define MANY_PLAYERS		"Error! Too many players (max = 4)\n"
-# define PROG_NUM_USED		"Error! Player number %s already in use\n"
+# define PROG_NUM_USED		"Error! Player number %d already in use\n"
 
 # define INVALID_KEY		"Error! Invalid key: %s\n"
 # define NOT_ENOUGH			"Error! Not enough arguments to use key '%s'\n"

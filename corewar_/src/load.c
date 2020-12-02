@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 04:26:26 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/23 01:48:17 by user             ###   ########.fr       */
+/*   Updated: 2020/12/02 20:43:42 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	read_bytecode(const char *file, int n, int fd, uint32_t pos)
 	ft_memset(buf, 0, CHAMP_MAX_SIZE);
 	bytes = read(fd, buf, g_vm.champs[n].size);
 	if (bytes < 0 || (size_t)bytes != g_vm.champs[n].size)
-		terminate(CHAMP_WRONG_SIZE, n, g_vm.champs[n].name);
+		terminate(CHAMP_WRONG_SIZE, n + 1, g_vm.champs[n].name);
 	i = 0;
 	while (i < bytes)
 	{

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 06:21:39 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/25 22:51:59 by user             ###   ########.fr       */
+/*   Updated: 2020/12/02 19:57:54 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-static void	save_player(int num, const char *name, char *snum)
+static void	save_player(int num, const char *name)
 {
 	static int	i = 0;
 	int			j;
@@ -25,7 +25,7 @@ static void	save_player(int num, const char *name, char *snum)
 		while (j < MAX_PLAYERS)
 		{
 			if (g_vm.temp[j].num > 0 && g_vm.temp[j].num == num)
-				terminate(PROG_NUM_USED, NULL, snum);
+				terminate(PROG_NUM_USED, num);
 			j++;
 		}
 		g_vm.temp[i].num = num;
@@ -66,7 +66,7 @@ static void	validate_n(int argc, char **argv, int *i)
 	num = ft_atoi(argv[*i]);
 	if (num > MAX_PLAYERS || num < 1)
 		terminate(N_OUT_OF_RANGE);
-	save_player(num, argv[(*i) + 1], argv[*i]);
+	save_player(num, argv[(*i) + 1]);
 	(*i)++;
 }
 
@@ -98,7 +98,7 @@ void		parse_args(int argc, char **argv)
 		if (argv[i][0] == '-')
 			read_keys(argc, argv, &i);
 		else
-			save_player(-1, argv[i], NULL);
+			save_player(-1, argv[i]);
 		i++;
 	}
 	init_numbers();
