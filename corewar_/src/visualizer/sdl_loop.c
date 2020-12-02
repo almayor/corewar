@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sdl_loop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 19:42:40 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/23 17:06:20 by fallard          ###   ########.fr       */
+/*   Updated: 2020/12/02 18:49:29 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	sdl_loop(void)
 		sdl_draw_border();
 		SDL_RenderPresent(g_visu.rend);
 	}
+	run();
 }
 
 void	sdl_mouse_event(SDL_Event event)
