@@ -6,13 +6,16 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 19:36:38 by user              #+#    #+#              #
-#    Updated: 2020/11/25 19:42:30 by user             ###   ########.fr        #
+#    Updated: 2020/12/02 16:32:46 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ----- Dir -----
 COREWAR_DIR = ./corewar_
 ASM_DIR = ./asm_
+TEST_DIR = ./test
+TEST_FUNCTIONAL_DIR = $(TEST_DIR)/functional
+TEST_EVIL_DIR = $(TEST_DIR)/evil
 
 # =================
 
@@ -35,6 +38,11 @@ fclean: clean
 re: fclean all
 
 test: asm corewar
-	./test/test.sh
+	$(TEST_FUNCTIONAL_DIR)/test.sh
 
-.PHONY: all clean fclean re test asm corewar
+test-evil: asm corewar
+	$(TEST_EVIL_DIR)/eviltester.sh
+
+test-full: test test-evil
+
+.PHONY: all clean fclean re test test-evil test-full asm corewar
