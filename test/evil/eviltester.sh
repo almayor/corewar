@@ -49,5 +49,5 @@ printf "\033[0;33m\n################  labels  ##################\n\033[0m\n"
 ./asm "$DIREC/label3.s"
 ./asm "$DIREC/label4.s"
 
-
+exit 0
 
