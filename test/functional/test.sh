@@ -3,18 +3,23 @@
 ################################# CONFIG #################################
 
 WIDTH=60
-DIREC=test/champions
+DIREC=champions
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-	ZAZ_ASM=test/asm_zaz_linux
-	ZAZ_VM=test/corewar_zaz_linux
+	ZAZ_ASM=asm_zaz_linux
+	ZAZ_VM=corewar_zaz_linux
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	ZAZ_ASM=test/asm_zaz_osx
-	ZAZ_VM=test/corewar_zaz_osx
+	ZAZ_ASM=asm_zaz_osx
+	ZAZ_VM=corewar_zaz_osx
 else
 	>&2 echo "OS not supported"
 	exit 1
 fi
+
+script_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+DIREC="${script_path}/champions"
+ZAZ_ASM="${script_path}/$ZAZ_ASM"
+ZAZ_VM="${script_path}/$ZAZ_VM"
 
 c_red="\033[031m"
 c_green="\033[032m"
