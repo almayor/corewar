@@ -4,6 +4,7 @@
 *.idea
 .asm-test-1.cor
 .asm-test-2.cor
+cmake-build-debug/
 
 # Executable
 asm
