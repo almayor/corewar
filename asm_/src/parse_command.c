@@ -22,6 +22,7 @@ void	validate_commands(t_parser *parser)
 		core_error(parser, ERR_TOO_LONG_NAME, NULL, NULL);
 	if ((ft_strlen(parser->comment) + parser->comment_len) > COMMENT_LENGTH)
 		core_error(parser, ERR_TOO_LONG_COMMENT, NULL, NULL);
+	parser->row_len = 0;
 }
 
 char	*join_str(char **str1, char **str2)
@@ -36,6 +37,7 @@ char	*join_str(char **str1, char **str2)
 
 void	type_check(t_parser *parser, int type)
 {
+	parser->row_len = 0;
 	if (type == 1)
 	{
 		if (parser->name != NULL)
