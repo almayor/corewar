@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dump.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 16:44:03 by user              #+#    #+#             */
-/*   Updated: 2020/11/23 02:41:02 by user             ###   ########.fr       */
+/*   Updated: 2020/12/02 21:30:30 by fallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ void		dump(void)
 		shift = shift + MEM_DUMP_WIDTH;
 	}
 	cleanup();
+	if (g_vm.visu_flag)
+		SDL_CLEANUP;
 	exit(EXIT_SUCCESS);
 }
