@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 19:36:38 by user              #+#    #+#              #
-#    Updated: 2020/12/02 16:32:46 by user             ###   ########.fr        #
+#    Updated: 2020/12/02 16:57:18 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,10 @@ fclean: clean
 re: fclean all
 
 test: asm corewar
-	$(TEST_FUNCTIONAL_DIR)/test.sh
+	-$(TEST_FUNCTIONAL_DIR)/test.sh
 
 test-evil: asm corewar
-	$(TEST_EVIL_DIR)/eviltester.sh
+	-$(TEST_EVIL_DIR)/eviltester.sh
 
 test-full: test test-evil
 
