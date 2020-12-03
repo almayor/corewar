@@ -19,7 +19,7 @@ static void	read_magic(const char *file, int fd)
 
 	ft_memset(buf, 0, 4);
 	if (read(fd, buf, 4) != 4)
-		terminate(READ_ERROR, file, strerror(errno));
+		terminate(READ_ERROR, file, "no magic number");
 	magic = buf[0] << 24 | buf[1] << 16 | buf[2] << 8 | buf[3];
 	if (magic != COREWAR_EXEC_MAGIC)
 		terminate(READ_ERROR, file, "wrong magic number");
